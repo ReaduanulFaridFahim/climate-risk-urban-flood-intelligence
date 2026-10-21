@@ -1,0 +1,122 @@
+// =========================================================================
+// Climate Risk & Urban Flood Intelligence for Bangladesh (Chattogram Study)
+// Production DAX Measures for Microsoft Power BI
+// =========================================================================
+
+// --- 1. CORE EXPOSURE & POPULATION MEASURES ---
+
+Total Ward Population = 
+SUM('FactExposure'[TotalWardPopulation])
+
+Total Exposed Population = 
+SUM('FactExposure'[ExposedPopulation])
+
+Total Vulnerable Population Exposed = 
+SUM('FactExposure'[ExposedVulnerablePopulation])
+
+Overall Population Exposure Rate = 
+DIVIDE([Total Exposed Population], [Total Ward Population], 0)
+
+Total Built-up Area Exposed (sq km) = 
+SUM('FactExposure'[ExposedBuiltUpSqKm])
+
+Total Estimated Direct Economic Loss ($M USD) = 
+SUM('FactExposure'[EstimatedDirectDamageUSD_Millions])
+
+Average Inundation Depth (m) = 
+AVERAGE('FactFloodExtent'[MeanInundationDepthM])
+
+Average Stagnant Duration (Hours) = 
+AVERAGE('FactFloodExtent'[StagnantDurationHours])
+
+Total Inundated Footprint (sq km) = 
+SUM('FactFloodExtent'[InundatedAreaSqKm])
+
+// --- 2. URBAN EXPANSION & LAND COVER DYNAMICS ---
+
+Current Built-up Area (sq km) = 
+CALCULATE(
+    SUM('FactLandCover'[BuiltUpSqKm]),
+    'FactLandCover'[Year] = MAX('FactLandCover'[Year])
+)
+
+Baseline Built-up Area 2001 (sq km) = 
+CALCULATE(
+    SUM('FactLandCover'[BuiltUpSqKm]),
+    'FactLandCover'[Year] = 2001
+)
+
+Net Built-up Expansion (sq km) = 
+[Current Built-up Area (sq km)] - [Baseline Built-up Area 2001 (sq km)]
+
+Built-up Expansion Rate (%) = 
+DIVIDE([Net Built-up Expansion (sq km)], [Baseline Built-up Area 2001 (sq km)], 0) * 100
+
+Current Impervious Percentage = 
+CALCULATE(
+    AVERAGE('FactLandCover'[ImperviousSurfacePercentage]),
+    'FactLandCover'[Year] = MAX('FactLandCover'[Year])
+)
+
+Current Water Retention Area (sq km) = 
+CALCULATE(
+    SUM('FactLandCover'[WaterBodiesSqKm]),
+    'FactLandCover'[Year] = MAX('FactLandCover'[Year])
+)
+
+Retention Basin Loss Since 2001 (%) = 
+VAR BaseWater = CALCULATE(SUM('FactLandCover'[WaterBodiesSqKm]), 'FactLandCover'[Year] = 2001)
+VAR CurWater = [Current Water Retention Area (sq km)]
+RETURN
+DIVIDE(BaseWater - CurWater, BaseWater, 0) * 100
+
+// --- 3. EXTREME RAINFALL & CLIMATE INDICATORS ---
+
+Max Daily Rainfall Rx1day (mm) = 
+MAX('FactRainfall'[MaxDailyRainfallRx1dayMm])
+
+Total Annual Rainfall (mm) = 
+SUM('FactRainfall'[MonthlyRainfallMm])
+
+Heavy Rainfall Days Count (R50mm) = 
+SUM('FactRainfall'[HeavyRainfallDaysR50mm])
+
+Rainfall Anomaly vs Climatology (%) = 
+AVERAGE('FactRainfall'[PrecipitationAnomalyPercentage])
+
+Monsoon Season Precipitation Share = 
+VAR MonsoonRain = CALCULATE(SUM('FactRainfall'[MonthlyRainfallMm]), 'DimDate'[Season] = "Monsoon")
+VAR TotalRain = SUM('FactRainfall'[MonthlyRainfallMm])
+RETURN
+DIVIDE(MonsoonRain, TotalRain, 0) * 100
+
+// --- 4. COMPOUND FLOOD RISK INDEX ---
+
+Compound Flood Risk Score = 
+VAR PopFactor = DIVIDE([Total Exposed Population], 50000, 1)
+VAR DepthFactor = [Average Inundation Depth (m)]
+VAR DurationFactor = DIVIDE([Average Stagnant Duration (Hours)], 24, 1)
+VAR ImperviousFactor = DIVIDE([Current Impervious Percentage], 100, 0.5)
+RETURN
+ROUND(
+    MIN(100, (PopFactor * 30) + (DepthFactor * 25) + (DurationFactor * 25) + (ImperviousFactor * 20)),
+    1
+)
+
+Risk Category Tier = 
+SWITCH(
+    TRUE(),
+    [Compound Flood Risk Score] >= 75, "?? Critical Extreme Risk",
+    [Compound Flood Risk Score] >= 50, "?? High Risk",
+    [Compound Flood Risk Score] >= 25, "?? Moderate Risk",
+    "?? Low Baseline Risk"
+)
+
+// --- 5. WHAT-IF SCENARIO SIMULATION LEVERS ---
+
+Scenario Projected Exposed Population = 
+VAR ClimateShockMultiplier = 1 + (SELECTEDVALUE('ScenarioLevers'[PrecipitationIncreasePct], 15) / 100)
+VAR UrbanExpansionMultiplier = 1 + (SELECTEDVALUE('ScenarioLevers'[BuiltUpGrowthPct], 20) / 100)
+VAR DrainageImprovementMitigation = 1 - (SELECTEDVALUE('ScenarioLevers'[DrainageCanalClearingPct], 10) / 100)
+RETURN
+[Total Exposed Population] * ClimateShockMultiplier * UrbanExpansionMultiplier * DrainageImprovementMitigation

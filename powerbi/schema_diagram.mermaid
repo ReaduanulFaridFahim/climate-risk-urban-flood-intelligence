@@ -1,0 +1,89 @@
+erDiagram
+    DimDate ||--o{ FactRainfall : "DateKey"
+    DimArea ||--o{ FactLandCover : "AreaKey"
+    DimArea ||--o{ FactFloodExtent : "AreaKey"
+    DimArea ||--o{ FactExposure : "AreaKey"
+    DimEvent ||--o{ FactFloodExtent : "EventKey"
+    DimEvent ||--o{ FactExposure : "EventKey"
+
+    DimDate {
+        int DateKey PK
+        date Date
+        int Year
+        string Quarter
+        int Month
+        string MonthName
+        string Season
+        int HydrologicalYear
+    }
+
+    DimArea {
+        int AreaKey PK
+        string WardID
+        string WardName
+        string Thana
+        decimal AreaSqKm
+        decimal MeanElevationM
+        decimal MeanSlopeDeg
+        decimal BaselineImperviousRatio
+        decimal DistanceToRiverKm
+        string GeomorphicTerrainClass
+    }
+
+    DimEvent {
+        int EventKey PK
+        string EventName
+        date StartDate
+        date EndDate
+        string EventType
+        int DurationDays
+        string SeverityClass
+        decimal PeakRainfallMm
+    }
+
+    FactRainfall {
+        int RainfallKey PK
+        int Year
+        int Month
+        int DateKey FK
+        decimal MonthlyRainfallMm
+        decimal MaxDailyRainfallRx1dayMm
+        int HeavyRainfallDaysR50mm
+        int ConsecutiveDryDaysCDD
+        decimal PrecipitationAnomalyPercentage
+    }
+
+    FactLandCover {
+        int LandCoverKey PK
+        int Year
+        int AreaKey FK
+        decimal BuiltUpSqKm
+        decimal VegetationSqKm
+        decimal WaterBodiesSqKm
+        decimal ImperviousSurfacePercentage
+        decimal NaturalDrainageLossIndex
+    }
+
+    FactFloodExtent {
+        int FloodExtentKey PK
+        int EventKey FK
+        int AreaKey FK
+        decimal InundatedAreaSqKm
+        decimal InundatedPercentageOfWard
+        decimal MeanInundationDepthM
+        int StagnantDurationHours
+        string PrimaryMechanism
+    }
+
+    FactExposure {
+        int ExposureKey PK
+        int EventKey FK
+        int AreaKey FK
+        int TotalWardPopulation
+        int ExposedPopulation
+        int ExposedVulnerablePopulation
+        decimal PopulationExposureRatePct
+        decimal ExposedBuiltUpSqKm
+        decimal EstimatedDirectDamageUSD_Millions
+        decimal CompoundRiskIndex
+    }

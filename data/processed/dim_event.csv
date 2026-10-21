@@ -1,0 +1,13 @@
+EventKey,EventName,StartDate,EndDate,EventType,DurationDays,SeverityClass,PeakRainfallMm,MeteorologicalNotes
+1,2004 Monsoon Deluge,2004-07-12,2004-07-18,Monsoon Extreme,7,Severe,412.5,Prolonged rainfall across southeast coast; widespread inundation in Agrabad & Bakolia
+2,2007 Deadly Flash Flood & Landslide,2007-06-11,2007-06-13,Extreme Flash Flood,3,Catastrophic,425.0,Record 315mm in 24h; hill collapse in Lalkhan Bazar & extensive city waterlogging
+3,2007 Cyclone Sidr Surge,2007-11-15,2007-11-16,Cyclonic Tidal Surge,2,Severe,185.0,Coastal storm surge compounding high spring tide in Patenga & Halishahar
+4,2011 Cloudburst Inundation,2011-06-22,2011-06-24,Urban Cloudburst,3,High,290.0,Intense convective precipitation submerging Khatunganj commercial hub
+5,2012 Southeast Mega Deluge,2012-06-26,2012-06-29,Monsoon Extreme,4,Severe,463.0,Over 400mm rainfall in 3 days paralyzing port access and downtown transit
+6,2015 Chaktai-Karnaphuli Tidal Flood,2015-07-24,2015-07-28,Compound Tidal-Rainfall,5,Severe,380.0,Coincident spring tide blocking drainage gates; 1.5m water in Chaktai & Agrabad
+7,2017 Cyclone Mora & Monsoon Shock,2017-05-30,2017-06-02,Cyclonic Deluge,4,High,310.0,Landfall triggering flash flooding and hill cutting debris in drainage canals
+8,2019 Extended Monsoon Waterlogging,2019-07-08,2019-07-14,Monsoon Extreme,7,High,395.0,Over 50% city area inundated for over 5 days due to silted primary canals
+9,2022 Pre-Monsoon Heavy Surge,2022-06-18,2022-06-21,Urban Flash Flood,4,Moderate,245.0,"Flash waterlogging in GEC, Agrabad, and Muradpur intersections"
+10,2023 Cyclone Midhili & Flash Flood,2023-11-17,2023-11-19,Tropical Cyclone Shock,3,High,228.0,Late season cyclonic downpour causing coastal surge and road transit paralysis
+11,2024 Cyclone Remal Record Surge,2024-05-26,2024-05-29,Compound Cyclone-Tidal,4,Severe,335.0,2.5m storm surge overtopping Patenga dykes coinciding with 200mm precipitation
+12,2025 Monsoonal Flash Inundation,2025-08-04,2025-08-08,Monsoon Extreme,5,High,312.0,Severe urban flash flooding following 180mm 24-hr convective storm
