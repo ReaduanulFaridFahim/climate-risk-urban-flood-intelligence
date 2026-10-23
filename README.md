@@ -1,6 +1,6 @@
 # 🌊 Climate Risk & Urban Flood Intelligence for Bangladesh
 
-### Nationwide Multi-Hazard AI Forecasting, Real-Time Satellite Intelligence & Automated Early Warning Platform (All 64 Districts)
+## Nationwide Multi-Hazard AI Forecasting, Real-Time Satellite Intelligence & Automated Early Warning Platform (All 64 Districts)
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg?logo=python&logoColor=white)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.40+-FF4B4B.svg?logo=streamlit&logoColor=white)](https://streamlit.io)
@@ -14,10 +14,10 @@
 ---
 
 > ### 🌐 [Click Here to Access the Live Web Platform (Hosted on GitHub Pages)](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/)
+>
 > **Explore 9 interactive dashboards**: *Overview*, *Geospatial Atlas*, *AI Models & 2050*, *60-Day Weather Forecast*, *UN HDX Humanitarian Hub*, *Emergency Alert Broadcaster*, *Chattogram Wards*, *Open Data Catalog*, and *Streamlit Analytics Lab*.
 
 ---
-
 
 ## 📌 Executive Overview & Platform Vision
 
@@ -25,7 +25,7 @@ Bangladesh is one of the most climate-vulnerable nations on Earth. Compound clim
 
 This repository hosts an **end-to-end, reproducible, data-driven climate intelligence and disaster decision-support system**. Originally initiated as a high-resolution urban flood study across the 41 wards of the Chattogram Metropolitan Area (2001–2025), the platform has been scaled into a **nationwide multi-hazard artificial intelligence platform covering all 64 districts across all 8 administrative divisions of Bangladesh**.
 
-```
+```text
    [ Himawari-9 & INSAT-3D ]      [ RainViewer Live Radar ]      [ ECMWF 60-Day Ensemble ]
               │                               │                              │
               └───────────────────────┬───────┴──────────────────────────────┘
@@ -74,6 +74,7 @@ To achieve high generalization accuracy on unseen climate shocks, machine learni
 | **HistGradientBoosting** (Fast GB) | **0.8063** | **5.69** | **4.78** | **Rank 4** | Ultra-fast histogram binning with native Cython execution |
 
 All trained model pipelines are serialized and ready for inference in [`models/`](file:///d:/climate-risk-urban-flood-intelligence/models):
+
 - [`deep_mlp_neural_network_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/deep_mlp_neural_network_pipeline.joblib)
 - [`future_xgboost_monotonic_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/future_xgboost_monotonic_pipeline.joblib)
 - [`stacking_meta-ensemble_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/stacking_meta-ensemble_pipeline.joblib)
@@ -86,7 +87,7 @@ All trained model pipelines are serialized and ready for inference in [`models/`
 All **64 districts across all 8 divisions** were modeled across three multi-decadal planning horizons under coupled CMIP6 climate pathways (SSP2-4.5 & SSP5-8.5) and urban impervious expansion models:
 
 | Horizon Year | Mean Inundation Rate (%) | Flooded Footprint ($\text{km}^2$) | Exposed Population | Estimated Damage (USD) | Projected Summer Peak Temp | Projected Winter Min Temp |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **2030 Baseline** | 48.24% | 72,771.5 $\text{km}^2$ | 55.17 Million | $406.8 Billion | 40.66°C | 6.59°C |
 | **2040 Mid-Term** | 52.44% | 79,065.7 $\text{km}^2$ | 74.31 Million | $506.5 Billion | 41.76°C | 5.99°C |
 | **2050 Long-Term** | **61.19%** | **91,227.9 $\text{km}^2$** | **105.60 Million** | **$693.2 Billion** | **43.06°C** | **5.19°C** |
@@ -109,6 +110,7 @@ The complete 192-record multi-hazard projection dataset is located in [`data/pro
 ## 📡 Real Live Weather Satellite Connection & Doppler Radar
 
 Tab 3 streams live meteorological feeds directly into the interactive dashboard:
+
 - **Geostationary Satellites**: Connected to **Himawari-9 (JMA)**, **INSAT-3D (ISRO)**, and **MetOp-C**.
 - **Live Atmospheric Telemetry**: Real-time Total Cloud Cover (%), Shortwave Solar Radiation ($W/m^2$), Surface Barometric Pressure ($hPa$), Ambient Temperature, and Relative Humidity.
 - **Interactive RainViewer Doppler Radar Map**: Streams sub-kilometer resolution precipitation radar tiles directly over Bangladesh and the Bay of Bengal, overlaid with calibrated BMD synoptic radar stations (*Dhaka Agargaon, Cox's Bazar, Khepupara, Moulvibazar*).
@@ -118,6 +120,7 @@ Tab 3 streams live meteorological feeds directly into the interactive dashboard:
 ## 📅 Advance 20-Day Weather & Hazard Forecast Engine (ECMWF IFS)
 
 Tab 4 provides extended medium-range forecasting driven by the **European Centre for Medium-Range Weather Forecasts (ECMWF IFS 0.25° 51-member ensemble)**:
+
 - **20-Day Thermal Trajectory**: Dynamic daily maximum and minimum temperature envelope with danger lines for heatwaves ($38^\circ\text{C}$) and cold waves ($8^\circ\text{C}$).
 - **Precipitation Accumulation Bars**: Daily rainfall bars with flash flood hazard lines ($50\text{ mm}$ Heavy Downpour, $100\text{ mm}$ Extreme Surge).
 - **20-Day Daily Horizon Table & CSV Bulletin Export**: Ready for disaster management committees and agricultural extension teams.
@@ -127,6 +130,7 @@ Tab 4 provides extended medium-range forecasting driven by the **European Centre
 ## 📱 Automated Mobile Phone Early Warning Sentinel (Cell Broadcast / SMS)
 
 Tab 2 implements an automated, zero-latency emergency alert dispatcher compliant with **ITU-T X.1303 CAP v1.2** and **3GPP TS 23.041 CBS Channel 4370**:
+
 - **Continuous Watch**: Autonomously scans live radar and inundation models across all 64 districts.
 - **Automatic Broadcast**: If rainfall $>50\text{ mm}$, inundation $>40\%$, heat $>38^\circ\text{C}$, or cold $<8^\circ\text{C}$, the system autonomously generates siren alerts in both **English and Bengali (বাংলা)**.
 - **No App or Internet Required**: Broadcasted directly via cellular tower sectors (Grameenphone, Robi, Banglalink, Teletalk via BTRC gateway).
@@ -258,6 +262,7 @@ The application will launch on `http://localhost:8501`.
 The platform integrates **111 authoritative geospatial, climatological, and humanitarian datasets** covering Bangladesh, curated from BISTO and the UN Humanitarian Data Exchange (HDX):
 
 ### 1. Core Spatial Raster & Vector Layers (49 Datasets)
+
 - **CMIP6 Climate Scenarios (Beck et al. 2023):** 1 km Köppen-Geiger classifications for Baseline (1991–2020), SSP2-4.5 (2041–2070, 2071–2099), and SSP5-8.5 (2041–2070, 2071–2099).
 - **Forestry & Ecological Canopy (UMD Hansen GFC v1.13, DeepMind, GEDI, ESA):** 30 m Tree Cover 2000, 2001–2025 Annual Forest Loss, Loss Drivers, 2025 Loss, 25 m Mangrove Extent (GMW v3), 100 m Above-ground Biomass (ESA CCI), 250 m Canopy Height (GEDI RH98).
 - **Land Cover & Phenology:** 10 m ESA WorldCover 2020, 10 m ESRI Land Cover 2025, 10 m Dynamic World near-real-time 2026, 250 m MODIS NDVI 2025, and seasonal rice phenology (Boro, Aus, Aman NDVI).
@@ -269,6 +274,7 @@ The platform integrates **111 authoritative geospatial, climatological, and huma
 - **Extreme Hazards & Renewable Energy:** 150 Historical Cyclone Tracks (NOAA IBTrACS 1877–2024), 250 m Global Wind Atlas 4.0 (Wind Speed & Power Density at 100 m), and Malaria Atlas Project (MAP 2024) parasite rates.
 
 ### 2. Curated UN HDX Humanitarian Datasets (62 Datasets)
+
 - **Disasters & Risk (18 Datasets):** Copernicus EMS flood extents, HDX HAPI API, INFORM Subnational Risk Models (UN in Bangladesh), HeiGIT Risk Indicators, UNDRR GAR15 Exposure, CRED EM-DAT Historical Loss, UNOSAT Sentinel-1 SAR flood detections (Sylhet June & July 2024), Cyclone Mocha exposure, UNHCR refugee registers, IDMC internal displacements, and ACLED/VIEWS conflict forecasting.
 - **Population & Demographics (7 Datasets):** BBS 2022 Decennial Population & Housing Census, UNFPA subnational statistics, WorldPop grids, Meta 100 m High-Resolution Population Maps, Kontur 400 m H3 hexagons, and US Census Bureau boundaries.
 - **Economy & Livelihoods (7 Datasets):** OCHA COD Admin Boundaries, Oxford Multidimensional Poverty Index (OPHI MPI), Flowminder 1 km mobile-satellite poverty models, Meta RWI, FAOSTAT crop/livestock production, and World Bank poverty indicators.
@@ -286,6 +292,7 @@ The platform integrates **111 authoritative geospatial, climatological, and huma
 The repository now incorporates the complete **Bangladesh Climate Intelligence Platform (BCIP)**, an enterprise-grade scientific decision-support system connecting CMIP6 macro-climatic biome transitions with high-resolution human exposure, agricultural phenology, and critical service deficits across all 64 districts.
 
 ### 🔬 Core Scientific Breakthroughs & Findings
+
 1. **CMIP6 Biome Transitions:** Evaluates Beck et al. (2023) 1 km Köppen-Geiger classifications:
    - Under mid-century SSP5-8.5, **$45,023.4\text{ km}^2$ (30.3% of Bangladesh)** shifts climate classes. The temperate highland zone ($Cwa$, $34,453.7\text{ km}^2$) contracts entirely into tropical biomes ($Aw, Am$).
    - By 2071–2099, **100% of districts transition to Tropical Monsoon ($Am$)** under both SSP2-4.5 and SSP5-8.5.
@@ -303,46 +310,56 @@ The repository now incorporates the complete **Bangladesh Climate Intelligence P
 ## 🚀 Production Deployment & API
 
 ### 1. High-Performance REST API (FastAPI)
+
 The platform includes an enterprise REST API serving metadata, transition matrices, district metrics, and GeoJSON boundaries:
+
 ```bash
 # Launch production API service
 uvicorn api.main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
-* **Interactive Swagger UI:** `http://localhost:8000/docs`
-* **API Health Check:** `http://localhost:8000/health`
-* **Desktop GIS GeoJSON Feed:** `http://localhost:8000/api/v1/spatial/geojson`
+
+- **Interactive Swagger UI:** `http://localhost:8000/docs`
+- **API Health Check:** `http://localhost:8000/health`
+- **Desktop GIS GeoJSON Feed:** `http://localhost:8000/api/v1/spatial/geojson`
 
 ### 2. Containerized Deployment (Docker Compose)
+
 Deploy both the FastAPI backend and Streamlit frontend in one command:
+
 ```bash
 docker compose up -d --build
 ```
 
-### 3. Automated Testing Suite (35 Tests)
+### 3. Automated Testing Suite (41 Tests)
+
 ```bash
 pytest tests/ -v
 ```
-* `tests/test_data_integrity.py`: 111-dataset completeness, 60-day forecast & BMD cold wave threshold validation.
-* `tests/test_climate_transitions.py`: Mathematical conservation of land area ($\sum T_{ij} = A_{\text{total}}$).
-* `tests/test_models.py`: Score boundedness, rank permutations, and incremental value bounds.
-* `tests/test_api.py`: FastAPI endpoints and schema validations.
-* `tests/test_boundary_conditions.py`: GPS coordinate resolution and nearest district fallback bounds.
-* `tests/test_biomes_and_regions.py`: 4 ecological biomes and division-district topology.
+
+- `tests/test_data_integrity.py`: 111-dataset completeness, 60-day forecast & BMD cold wave threshold validation.
+- `tests/test_climate_transitions.py`: Mathematical conservation of land area ($\sum T_{ij} = A_{\text{total}}$).
+- `tests/test_models.py`: Score boundedness, rank permutations, and incremental value bounds.
+- `tests/test_api.py`: FastAPI endpoints and schema validations.
+- `tests/test_boundary_conditions.py`: GPS coordinate resolution and nearest district fallback bounds.
+- `tests/test_biomes_and_regions.py`: 4 ecological biomes and division-district topology.
 
 ### 4. Single-Click Reproduction
+
 ```bash
 python scripts/run_all_bcip_pipelines.py
 ```
-* **Runtime:** 15.26 seconds end-to-end.
+
+- **Runtime:** 15.26 seconds end-to-end.
 
 ---
 
 ## 📚 Technical Documentation & Runbooks
-* **Scientific Manuscript:** [`paper/bcip_research_paper.md`](paper/bcip_research_paper.md)
-* **Production Operations Runbook:** [`docs/PRODUCTION_RUNBOOK.md`](docs/PRODUCTION_RUNBOOK.md)
-* **REST API Specification:** [`docs/API_SPECIFICATION.md`](docs/API_SPECIFICATION.md)
-* **Master Data Dictionary:** [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md)
-* **Configuration Suite:** [`config/datasets.yaml`](config/datasets.yaml), [`config/scenarios.yaml`](config/scenarios.yaml), [`config/indicators.yaml`](config/indicators.yaml)
+
+- **Scientific Manuscript:** [`paper/bcip_research_paper.md`](paper/bcip_research_paper.md)
+- **Production Operations Runbook:** [`docs/PRODUCTION_RUNBOOK.md`](docs/PRODUCTION_RUNBOOK.md)
+- **REST API Specification:** [`docs/API_SPECIFICATION.md`](docs/API_SPECIFICATION.md)
+- **Master Data Dictionary:** [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md)
+- **Configuration Suite:** [`config/datasets.yaml`](config/datasets.yaml), [`config/scenarios.yaml`](config/scenarios.yaml), [`config/indicators.yaml`](config/indicators.yaml)
 
 ---
 
