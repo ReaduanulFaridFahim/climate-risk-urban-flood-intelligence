@@ -186,12 +186,6 @@ def generate_plot():
     print(f"\n[+] Saved chart to: {out_path}")
 
 
-def interactive_menu():
-    while True:
-        print("\n" + "=" * 50)
-        print("   BANGLADESH CLIMATE RISK INTELLIGENCE")
-        print("=" * 50)
-        print("1. View Nationwide Risk Summary (Top Districts)")
 def start_live_dashboard(port=8000):
     import http.server
     import socketserver
@@ -208,12 +202,15 @@ def start_live_dashboard(port=8000):
         def log_message(self, format, *args):
             pass
 
+    class ThreadingServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
+        daemon_threads = True
+
     print("\n" + "=" * 70)
     print("BANGLADESH CLIMATE INTELLIGENCE LIVE DASHBOARD")
     print("=" * 70)
     print(f"[+] Live Server running at: http://localhost:{port}")
     print(f"[+] Direct link: http://127.0.0.1:{port}/")
-    print("[+] Zero Streamlit overhead, pure lightweight web dashboard.")
+    print("[+] Zero Streamlit overhead, fast multi-threaded web dashboard.")
     print("[+] Press Ctrl+C in this terminal to stop.")
     print("=" * 70)
 
@@ -222,7 +219,7 @@ def start_live_dashboard(port=8000):
     except Exception:
         pass
 
-    with socketserver.TCPServer(("", port), Handler) as httpd:
+    with ThreadingServer(("", port), Handler) as httpd:
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:

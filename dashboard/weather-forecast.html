@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advance 60-Day Weather & Winter Cold Wave Outlook | Bangladesh Climate Intelligence</title>
+  <meta name="description" content="Sub-seasonal 60-day meteorological projections across all 8 divisions of Bangladesh. Monitors official BMD Cold Wave thresholds, wind chill, and dense fog hours.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❄️</text></svg>">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="header-nav">
+    <a href="index.html" class="nav-brand">
+      <div class="brand-icon">❄️</div>
+      <div>
+        <div class="brand-title">BANGLADESH CLIMATE INTELLIGENCE</div>
+        <div class="brand-subtitle">Advance 60-Day (2-Month) Weather & Cold Wave Engine</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="geospatial.html">Geospatial Atlas</a></li>
+      <li><a href="ai-models.html">AI Models & 2050</a></li>
+      <li><a href="weather-forecast.html" class="active">60-Day Forecast</a></li>
+      <li><a href="humanitarian.html">UN HDX Hub</a></li>
+      <li><a href="emergency-alert.html">Alert Broadcast</a></li>
+      <li><a href="chattogram.html">Chattogram Wards</a></li>
+      <li><a href="data-catalog.html">Data & API</a></li>
+      <li><a href="analytics-lab.html" class="nav-highlight">🔬 Streamlit Lab</a></li>
+    </ul>
+
+    <div class="nav-telemetry">
+      <div class="server-links-group" id="navServerCluster">
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="server-link-badge streamlit" id="navBadgeStreamlit" title="Terminal 1: Streamlit Engine (:8501)">
+          <span class="server-status-dot"></span>
+          <span>🔬 Streamlit :8501</span>
+        </a>
+        <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="server-link-badge fastapi" id="navBadgeFastapi" title="Terminal 2: FastAPI Gateway & Docs (:8000)">
+          <span class="server-status-dot"></span>
+          <span>⚡ FastAPI :8000</span>
+        </a>
+      </div>
+      <div class="telemetry-beacon">
+        <span class="pulse-dot"></span>
+        <span>60-DAY ENSEMBLE LIVE</span>
+      </div>
+      <div class="clock-badge" id="liveBstClock">BST --:--:--</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Page Title Header -->
+    <div class="section-header page-header-spacing">
+      <div>
+        <h1 class="hero-title hero-title-sub">
+          📅 Advance 60-Day Sub-Seasonal Weather & <br>
+          <span class="gradient-text">Winter Cold Wave Early Warning System</span>
+        </h1>
+        <p class="section-subtitle">
+          Coupled atmospheric-oceanic predictions integrating ECMWF ensemble and SEAS5 sub-seasonal models. Tracks official BMD Cold Wave alert tiers, perceived wind chill, and Boro seedbed hypothermia risks across all 8 divisions.
+        </p>
+      </div>
+      <div class="flex-gap-sm">
+        <span class="hero-pill pill-cyan">ECMWF & SEAS5</span>
+        <span class="hero-pill pill-emerald">BMD Criteria Aligned</span>
+      </div>
+    </div>
+
+    <!-- Official BMD Cold Wave Thresholds Legend -->
+    <section class="glass-panel p-panel-md mb-4">
+      <h3 class="section-title-md mb-1">
+        🌡️ Official Bangladesh Meteorological Department (BMD) Cold Wave Standards
+      </h3>
+      <div class="grid-autofit-220">
+        <div class="hazard-box-purple">
+          <strong class="text-purple-mid text-sm">VERY SEVERE COLD WAVE</strong>
+          <div class="stat-num-md">&lt; 4.0 °C</div>
+          <p class="text-purple-light text-xs">Extreme hypothermia alert; severe disruption to northern agriculture.</p>
+        </div>
+        <div class="hazard-box-rose">
+          <strong class="text-rose text-sm">SEVERE COLD WAVE</strong>
+          <div class="stat-num-md">4.0 – 6.0 °C</div>
+          <p class="text-rose-light text-xs">Severe cold conditions; extensive fog and respiratory health spikes.</p>
+        </div>
+        <div class="hazard-box-amber">
+          <strong class="text-amber text-sm">MODERATE COLD WAVE</strong>
+          <div class="stat-num-md">6.0 – 8.0 °C</div>
+          <p class="text-amber-light text-xs">Elevated chill; livestock protection and Boro nursery polythene cover required.</p>
+        </div>
+        <div class="hazard-box-cyan">
+          <strong class="text-cyan text-sm">MILD COLD WAVE</strong>
+          <div class="stat-num-md">8.0 – 10.0 °C</div>
+          <p class="text-cyan-light text-xs">Chilly weather advisory; nocturnal dense fog across river basins.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Division Forecast Interactive Workspace -->
+    <section class="glass-panel p-panel mb-5">
+      <div class="flex-between-wrap mb-3">
+        <div>
+          <h3 class="section-title">🌐 Division Sub-Seasonal Meteorological Timeline</h3>
+          <p class="section-desc">Select administrative division to inspect full 60-day daily temperature, fog duration, and agricultural hazard advisories.</p>
+        </div>
+        <select id="divisionSelect" class="filter-select select-min-320 font-bold" title="Select Administrative Division" aria-label="Select Administrative Division">
+          <option value="Rangpur" selected>Rangpur Division (Northern Cold Wave Front)</option>
+          <option value="Rajshahi">Rajshahi Division (North-Western Fog Belt)</option>
+          <option value="Sylhet">Sylhet Division (Haor Basin Flash Zone)</option>
+          <option value="Dhaka">Dhaka Division (Central Metropolis)</option>
+          <option value="Chattogram">Chattogram Division (South-Eastern Coastal)</option>
+          <option value="Khulna">Khulna Division (South-Western Coastal Mangrove)</option>
+          <option value="Barishal">Barishal Division (Delta Estuarine)</option>
+          <option value="Mymensingh">Mymensingh Division (Garo Hills Foothill)</option>
+        </select>
+      </div>
+
+      <!-- Division Summary Stats -->
+      <div class="kpi-grid mb-3">
+        <div class="kpi-card rose">
+          <div class="kpi-header"><span class="kpi-label">Minimum Temperature</span><span class="kpi-icon">❄️</span></div>
+          <div class="kpi-value" id="divMinTemp">6.2 °C</div>
+          <div class="kpi-subtitle" id="divMinDate">Expected Peak Chill</div>
+        </div>
+        <div class="kpi-card cyan">
+          <div class="kpi-header"><span class="kpi-label">Perceived Wind Chill</span><span class="kpi-icon">💨</span></div>
+          <div class="kpi-value" id="divMinWindChill">4.8 °C</div>
+          <div class="kpi-subtitle">Thermal Body Sensation</div>
+        </div>
+        <div class="kpi-card amber">
+          <div class="kpi-header"><span class="kpi-label">Max Fog Duration</span><span class="kpi-icon">🌫️</span></div>
+          <div class="kpi-value" id="divMaxFog">10.5 hrs</div>
+          <div class="kpi-subtitle">Dense Fog Highway/River Hazard</div>
+        </div>
+        <div class="kpi-card emerald">
+          <div class="kpi-header"><span class="kpi-label">Cold Wave Days Ahead</span><span class="kpi-icon">📅</span></div>
+          <div class="kpi-value" id="divColdWaveDays">14 Days</div>
+          <div class="kpi-subtitle">Days meeting BMD Criteria</div>
+        </div>
+      </div>
+
+      <!-- Daily Forecast Cards Grid (60 Days) -->
+      <div class="grid-scroll-forecast" id="dailyForecastScroll">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-section">
+    <div class="footer-content">
+      <div>
+        <div class="footer-title">
+          Bangladesh Climate Risk & Flood Intelligence Platform (BCIP)
+        </div>
+        <p class="footer-credits">
+          Sub-seasonal weather forecasts driven by ECMWF Ensemble prediction systems and SEAS5 long-range models.<br>
+          Cold wave thresholds calibrated with the Bangladesh Meteorological Department (BMD).
+        </p>
+      </div>
+      <div class="footer-badges">
+        <span class="hero-pill pill-cyan">ECMWF Ensemble</span>
+        <span class="hero-pill pill-indigo">60-Day Advance</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const data = await getPlatformData();
+      if (!data) return;
+
+      const divSelect = document.getElementById("divisionSelect");
+      renderDivisionForecast(divSelect.value, data.forecast_60d || {});
+
+      divSelect.addEventListener("change", (e) => {
+        renderDivisionForecast(e.target.value, data.forecast_60d || {});
+      });
+    });
+
+    function renderDivisionForecast(divName, forecastMap) {
+      const days = forecastMap[divName] || [];
+      const scrollEl = document.getElementById("dailyForecastScroll");
+      if (!scrollEl) return;
+      scrollEl.innerHTML = "";
+
+      if (days.length === 0) {
+        scrollEl.innerHTML = `<div class="forecast-empty-state">No forecast data available for ${divName}.</div>`;
+        return;
+      }
+
+      // Calculate division summary
+      let minTemp = 99;
+      let minDate = "";
+      let minWindChill = 99;
+      let maxFog = 0;
+      let coldDays = 0;
+
+      days.forEach(d => {
+        if (d.temp_min_c < minTemp) {
+          minTemp = d.temp_min_c;
+          minDate = d.date;
+        }
+        if (d.wind_chill_c && d.wind_chill_c < minWindChill) {
+          minWindChill = d.wind_chill_c;
+        }
+        if (d.fog_duration_hrs && d.fog_duration_hrs > maxFog) {
+          maxFog = d.fog_duration_hrs;
+        }
+        if (d.cold_status && !d.cold_status.includes("NORMAL")) {
+          coldDays++;
+        }
+      });
+
+      document.getElementById("divMinTemp").textContent = `${minTemp.toFixed(1)} °C`;
+      document.getElementById("divMinDate").textContent = `Expected on ${minDate}`;
+      document.getElementById("divMinWindChill").textContent = `${minWindChill < 90 ? minWindChill.toFixed(1) : minTemp.toFixed(1)} °C`;
+      document.getElementById("divMaxFog").textContent = `${maxFog.toFixed(1)} hrs`;
+      document.getElementById("divColdWaveDays").textContent = `${coldDays} Days`;
+
+      // Render 60-day cards
+      days.forEach(d => {
+        const card = document.createElement("div");
+        card.className = "forecast-mini-card";
+
+        let badgeClass = "badge-normal";
+        let badge = d.cold_status || "NORMAL";
+        if (badge.includes("VERY SEVERE")) badgeClass = "badge-very-severe";
+        else if (badge.includes("SEVERE")) badgeClass = "badge-severe";
+        else if (badge.includes("MODERATE")) badgeClass = "badge-moderate";
+        else if (badge.includes("MILD")) badgeClass = "badge-mild";
+
+        card.innerHTML = `
+          <div class="font-mono text-muted text-xs">Day +${d.day}</div>
+          <div class="forecast-card-date">${d.date}</div>
+          <div class="forecast-card-temp">${d.temp_min_c.toFixed(1)}°C</div>
+          <div class="text-muted text-xs">Max: ${d.temp_max_c.toFixed(1)}°C</div>
+          <div class="forecast-card-chill">Wind Chill: ${d.wind_chill_c ? d.wind_chill_c.toFixed(1) + '°C' : 'N/A'}</div>
+          <div class="forecast-card-detail">Fog: ${d.fog_duration_hrs ? d.fog_duration_hrs.toFixed(1) + ' hrs' : '0 hrs'}</div>
+          <div class="forecast-status-badge ${badgeClass}">
+            ${badge.split('(')[0].trim()}
+          </div>
+        `;
+        scrollEl.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

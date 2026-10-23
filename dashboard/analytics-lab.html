@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streamlit Research Lab | Bangladesh Climate Intelligence Platform (BCIP)</title>
+  <meta name="description" content="Live interactive Streamlit research laboratory for multi-criteria adaptation decision support, 4x4 CMIP6 bioclimatic transition matrix suite, and dynamic policy weighting models.">
+  <meta name="keywords" content="Streamlit, Python Analytics, Bangladesh Climate Intelligence, MCDA, CMIP6, Machine Learning, Decision Support">
+  <meta name="author" content="Bangladesh Climate Intelligence Platform Research Consortium">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Streamlit Research Laboratory - BCIP">
+  <meta property="og:description" content="Interactive Streamlit research laboratory for multi-criteria adaptation decision support and dynamic policy weighting.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+
+  <!-- Core Production Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="header-nav">
+    <a href="index.html" class="nav-brand">
+      <div class="brand-icon">🌊</div>
+      <div>
+        <div class="brand-title">BANGLADESH CLIMATE INTELLIGENCE</div>
+        <div class="brand-subtitle">Multi-Hazard AI & Humanitarian Early Warning</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="geospatial.html">Geospatial Atlas</a></li>
+      <li><a href="ai-models.html">AI Models & 2050</a></li>
+      <li><a href="weather-forecast.html">60-Day Forecast</a></li>
+      <li><a href="humanitarian.html">UN HDX Hub</a></li>
+      <li><a href="emergency-alert.html">Alert Broadcast</a></li>
+      <li><a href="chattogram.html">Chattogram Wards</a></li>
+      <li><a href="data-catalog.html">Data & API</a></li>
+      <li><a href="analytics-lab.html" class="nav-highlight active">🔬 Streamlit Lab</a></li>
+    </ul>
+
+    <div class="nav-telemetry">
+      <div class="server-links-group" id="navServerCluster">
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="server-link-badge streamlit" id="navBadgeStreamlit" title="Terminal 1: Streamlit Engine (:8501)">
+          <span class="server-status-dot"></span>
+          <span>🔬 Streamlit :8501</span>
+        </a>
+        <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="server-link-badge fastapi" id="navBadgeFastapi" title="Terminal 2: FastAPI Gateway & Docs (:8000)">
+          <span class="server-status-dot"></span>
+          <span>⚡ FastAPI :8000</span>
+        </a>
+      </div>
+      <div class="telemetry-beacon">
+        <span class="pulse-dot"></span>
+        <span>TELEMETRY LIVE</span>
+      </div>
+      <div class="clock-badge" id="liveBstClock">BST --:--:--</div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Page Title Header -->
+    <div class="section-header page-header-spacing">
+      <div>
+        <h1 class="hero-title hero-title-sub">
+          🔬 Interactive Streamlit Research Laboratory & <br>
+          <span class="gradient-text">Executive Decision-Support Suite (Port 8501)</span>
+        </h1>
+        <p class="section-subtitle">
+          Direct operational connection to our interactive 4x4 CMIP6 bioclimatic transition matrix suite, multi-dimensional exposure explorer, and dynamic multi-criteria decision analysis (MCDA) weight sensitivity engine.
+        </p>
+      </div>
+      <div class="flex-gap-sm flex-wrap">
+        <span class="hero-pill pill-emerald">Streamlit Core Active</span>
+        <span class="hero-pill pill-cyan">Python 3.12 Engine</span>
+        <span class="hero-pill pill-indigo">Port 8501</span>
+      </div>
+    </div>
+
+    <!-- Dual-Terminal Server Connection Control Hub -->
+    <div class="terminal-connection-panel mb-4">
+      <!-- Terminal 1: Streamlit Engine -->
+      <div class="terminal-card">
+        <div>
+          <div class="terminal-card-header">
+            <span class="terminal-tag streamlit">Terminal 1 • Streamlit Engine</span>
+            <span class="hero-pill pill-emerald">Port 8501</span>
+          </div>
+          <h3 class="section-title-sm mb-xs">🔬 Interactive Python Streamlit Engine</h3>
+          <p class="text-slate text-xs mb-1">
+            Hosts the dynamic 13-tab multi-hazard analytics engine, Plotly WebGL graphics, and live MCDA sliders.
+          </p>
+          <div class="terminal-command-box">streamlit run web/app.py --server.port 8501</div>
+        </div>
+        <div class="flex-gap-xs flex-wrap">
+          <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="lab-btn-primary">
+            🚀 Open Streamlit (:8501) ↗
+          </a>
+          <button type="button" class="lab-btn-secondary" id="btnReloadDirect" title="Reconnect Frame" aria-label="Reconnect Frame">
+            🔄 Reconnect Frame
+          </button>
+        </div>
+      </div>
+
+      <!-- Terminal 2: FastAPI Gateway -->
+      <div class="terminal-card">
+        <div>
+          <div class="terminal-card-header">
+            <span class="terminal-tag fastapi">Terminal 2 • FastAPI Gateway</span>
+            <span class="hero-pill pill-cyan">Port 8000</span>
+          </div>
+          <h3 class="section-title-sm mb-xs">⚡ Enterprise REST API & Static Portal</h3>
+          <p class="text-slate text-xs mb-1">
+            Serves high-throughput JSON endpoints, Prometheus metrics, GeoJSON feeds, and Swagger OpenAPI documentation.
+          </p>
+          <div class="terminal-command-box">uvicorn api.main:app --host 127.0.0.1 --port 8000</div>
+        </div>
+        <div class="flex-gap-xs flex-wrap">
+          <a href="http://localhost:8000/portal/index.html" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+            🏠 Web Portal (:8000) ↗
+          </a>
+          <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+            📚 Swagger Docs (/docs) ↗
+          </a>
+          <a href="http://localhost:8000/streamlit" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+            🔀 /streamlit Route ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control Toolbar -->
+    <div class="lab-toolbar">
+      <div class="flex-gap-md flex-center flex-wrap">
+        <div class="lab-status-badge" id="labStatusBadge">
+          <span class="pulse-dot"></span>
+          <span>STREAMLIT ENGINE CONNECTED</span>
+        </div>
+        <span class="text-muted text-xs font-mono">http://localhost:8501/</span>
+      </div>
+      <div class="flex-gap-sm flex-wrap">
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="lab-btn-primary">
+          🚀 Open Standalone Window ↗
+        </a>
+        <button type="button" class="lab-btn-secondary" id="btnReloadFrame" title="Reload Streamlit Frame" aria-label="Reload Streamlit Frame">
+          🔄 Reload Workspace
+        </button>
+        <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+          🌐 API Docs (/docs) ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Embedded Streamlit Workspace Frame -->
+    <div class="lab-iframe-container" id="labIframeContainer">
+      <iframe 
+        id="streamlitFrame"
+        class="lab-iframe" 
+        src="http://localhost:8501/?embed=true"
+        title="Bangladesh Climate Intelligence Platform - Streamlit Research Laboratory"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+    </div>
+
+    <!-- Executive Research Modules Breakdown -->
+    <section class="mb-6">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📊 Key Analytical Modules in the Streamlit Laboratory</h2>
+          <p class="section-subtitle">
+            Explore deep scientific capabilities powered by pandas, NumPy, Plotly WebGL, scikit-learn, and joblib.
+          </p>
+        </div>
+        <span class="hero-pill pill-indigo">5 Executive Tabs</span>
+      </div>
+
+      <div class="grid-autofit-280 mb-4">
+        <div class="lab-card">
+          <div class="label-eyebrow mb-xs">Module 01</div>
+          <h3 class="section-title-md mb-1">🌐 CMIP6 Climate Transition Atlas</h3>
+          <p class="text-slate text-sm leading-tight mb-2">
+            Inspect peer-reviewed 4x4 transition matrices decomposing macro-climate shifts across Baseline, SSP2-4.5 (2050), and SSP5-8.5 (2050). Visualizes zone expansions and rainfall variability.
+          </p>
+          <div class="stat-highlight-sm">4 Scenarios • 4x4 Matrices</div>
+        </div>
+
+        <div class="lab-card">
+          <div class="label-eyebrow mb-xs">Module 02</div>
+          <h3 class="section-title-md mb-1">🔍 Multi-Dimensional Exposure Explorer</h3>
+          <p class="text-slate text-sm leading-tight mb-2">
+            Cross-references 170M population density with 45K km² rice crop loss, 7,029 healthcare deserts, and 842K submerged tube-wells across all 64 administrative districts.
+          </p>
+          <div class="stat-highlight-sm">170M Pop • Rice Loss • WASH</div>
+        </div>
+
+        <div class="lab-card">
+          <div class="label-eyebrow mb-xs">Module 03</div>
+          <h3 class="section-title-md mb-1">⚖️ Real-Time Adaptation-Priority Suite</h3>
+          <p class="text-slate text-sm leading-tight mb-2">
+            Interactive slider-based multi-criteria decision analysis (MCDA). Dynamically tune weights (wC, wP, wA, wH) to test policy priority robustness and Tier 1 rankings in real time.
+          </p>
+          <div class="stat-highlight-sm">MCDA Sliders • Spearman R²</div>
+        </div>
+
+        <div class="lab-card">
+          <div class="label-eyebrow mb-xs">Module 04</div>
+          <h3 class="section-title-md mb-1">📈 300 DPI Publication Diagnostic Suite</h3>
+          <p class="text-slate text-sm leading-tight mb-2">
+            Render high-resolution scientific diagnostic plots, rank displacement charts, scenario agreement heatmaps, and weight sensitivity distribution curves ready for publication.
+          </p>
+          <div class="stat-highlight-sm">300 DPI High Resolution</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Architecture & Developer Quickstart -->
+    <section class="glass-panel p-panel mb-6">
+      <div class="flex-between-wrap mb-2">
+        <div>
+          <h3 class="section-title">⚙️ Architecture & Local Startup Guide</h3>
+          <p class="section-desc">Technical specification for operating and scaling the dual FastAPI + Streamlit platform.</p>
+        </div>
+        <span class="hero-pill pill-cyan">Developer Reference</span>
+      </div>
+
+      <div class="grid-2col-gap-16">
+        <div class="code-preview-box">
+          <div class="stat-label-bold text-cyan mb-xs">Launch Streamlit Directly via Terminal</div>
+          <p class="text-slate text-sm leading-tight mb-2 font-mono">
+            .\.venv\Scripts\python.exe -m streamlit run web/app.py --server.port 8501 --server.headless true
+          </p>
+          <div class="text-muted text-xs">
+            Runs headless on port 8501 with bi-directional WebSocket streaming enabled.
+          </div>
+        </div>
+
+        <div class="code-preview-box">
+          <div class="stat-label-bold text-emerald mb-xs">Launch FastAPI Gateway Server</div>
+          <p class="text-slate text-sm leading-tight mb-2 font-mono">
+            .\.venv\Scripts\python.exe -m uvicorn api.main:app --host 127.0.0.1 --port 8000
+          </p>
+          <div class="text-muted text-xs">
+            Serves REST endpoints, master static portals, and automatic redirection to Streamlit at <span class="text-cyan">/streamlit</span>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="footer-content">
+      <div>
+        <div class="footer-title">
+          Bangladesh Climate Risk & Flood Intelligence Platform (BCIP)
+        </div>
+        <p class="footer-credits">
+          Developed in partnership with North South University, BMD, BWDB, and UN OCHA HDX.<br>
+          Streamlit analytics engine calibrated for real-time policy simulation and multi-hazard forecasting.
+        </p>
+      </div>
+      <div class="footer-badges">
+        <span class="hero-pill pill-emerald">Streamlit 1.40+</span>
+        <span class="hero-pill pill-cyan">FastAPI 0.115+</span>
+        <span class="hero-pill pill-indigo">Python 3.12</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnReload = document.getElementById("btnReloadFrame");
+      const iframe = document.getElementById("streamlitFrame");
+      const badge = document.getElementById("labStatusBadge");
+
+      const btnReloadDirect = document.getElementById("btnReloadDirect");
+      const doReload = () => {
+        if (!iframe) return;
+        badge.innerHTML = '<span class="pulse-dot"></span><span>RECONNECTING...</span>';
+        iframe.src = "http://localhost:8501/?embed=true&t=" + Date.now();
+        setTimeout(() => {
+          badge.innerHTML = '<span class="pulse-dot"></span><span>STREAMLIT ENGINE CONNECTED</span>';
+        }, 1500);
+      };
+
+      if (btnReload && iframe) {
+        btnReload.addEventListener("click", doReload);
+      }
+      if (btnReloadDirect && iframe) {
+        btnReloadDirect.addEventListener("click", doReload);
+      }
+    });
+  </script>
+</body>
+</html>
