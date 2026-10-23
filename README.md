@@ -9,6 +9,15 @@
 [![ECMWF IFS](https://img.shields.io/badge/ECMWF-IFS%200.25%C2%B0%20Ensemble-005A9C.svg)](https://www.ecmwf.int)
 [![CAP v1.2](https://img.shields.io/badge/Standard-ITU--T%20CAP%20v1.2%20%2F%20CBS-22c55e.svg)](https://docs.oasis-open.org/emergency/cap/v1.2/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=ReaduanulFaridFahim/climate-risk-urban-flood-intelligence&branch=main&mainModule=web/app.py)
+
+---
+
+> ### 🚀 [Click Here to Deploy or Launch the Streamlit Engine Live](https://share.streamlit.io/deploy?repository=ReaduanulFaridFahim/climate-risk-urban-flood-intelligence&branch=main&mainModule=web/app.py)
+>
+> Directly runs `web/app.py` with multi-hazard forecasting, AI models, and real-time interactive decision support.
+
+---
 
 ## 📌 Executive Overview & Platform Vision
 
