@@ -48,6 +48,16 @@
     </ul>
 
     <div class="nav-telemetry">
+      <div class="server-links-group" id="navServerCluster">
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="server-link-badge streamlit" id="navBadgeStreamlit" title="Terminal 1: Streamlit Engine (:8501)">
+          <span class="server-status-dot"></span>
+          <span>🔬 Streamlit :8501</span>
+        </a>
+        <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="server-link-badge fastapi" id="navBadgeFastapi" title="Terminal 2: FastAPI Gateway & Docs (:8000)">
+          <span class="server-status-dot"></span>
+          <span>⚡ FastAPI :8000</span>
+        </a>
+      </div>
       <div class="telemetry-beacon">
         <span class="pulse-dot"></span>
         <span>TELEMETRY LIVE</span>
@@ -422,6 +432,55 @@
           <div class="flex-gap-sm flex-wrap">
             <a href="analytics-lab.html" class="hero-pill pill-cyan no-underline">Open Embedded Lab →</a>
             <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="hero-pill pill-indigo no-underline">Standalone Dashboard ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual-Terminal Server Connection Control Hub -->
+      <div class="terminal-connection-panel">
+        <!-- Terminal 1: Streamlit Engine -->
+        <div class="terminal-card">
+          <div>
+            <div class="terminal-card-header">
+              <span class="terminal-tag streamlit">Terminal 1 • Streamlit Engine</span>
+              <span class="hero-pill pill-emerald">Port 8501</span>
+            </div>
+            <h3 class="section-title-sm mb-xs">🔬 Interactive Python Streamlit Engine</h3>
+            <p class="text-slate text-xs mb-1">
+              Hosts the dynamic 13-tab multi-hazard analytics engine, Plotly WebGL graphics, and live MCDA sliders.
+            </p>
+            <div class="terminal-command-box">streamlit run web/app.py --server.port 8501</div>
+          </div>
+          <div class="flex-gap-xs flex-wrap">
+            <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="lab-btn-primary">
+              🚀 Open Streamlit (:8501) ↗
+            </a>
+            <a href="analytics-lab.html" class="lab-btn-secondary">
+              🖥️ View in Embedded Lab ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Terminal 2: FastAPI Gateway -->
+        <div class="terminal-card">
+          <div>
+            <div class="terminal-card-header">
+              <span class="terminal-tag fastapi">Terminal 2 • FastAPI Gateway</span>
+              <span class="hero-pill pill-cyan">Port 8000</span>
+            </div>
+            <h3 class="section-title-sm mb-xs">⚡ Enterprise REST API & Static Portal</h3>
+            <p class="text-slate text-xs mb-1">
+              Serves high-throughput JSON endpoints, Prometheus metrics, GeoJSON feeds, and Swagger OpenAPI documentation.
+            </p>
+            <div class="terminal-command-box">uvicorn api.main:app --host 127.0.0.1 --port 8000</div>
+          </div>
+          <div class="flex-gap-xs flex-wrap">
+            <a href="http://localhost:8000/portal/index.html" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+              🏠 Local Web Portal (:8000) ↗
+            </a>
+            <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+              📚 Swagger Docs (/docs) ↗
+            </a>
           </div>
         </div>
       </div>

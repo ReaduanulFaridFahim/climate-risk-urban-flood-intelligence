@@ -44,6 +44,16 @@
     </ul>
 
     <div class="nav-telemetry">
+      <div class="server-links-group" id="navServerCluster">
+        <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="server-link-badge streamlit" id="navBadgeStreamlit" title="Terminal 1: Streamlit Engine (:8501)">
+          <span class="server-status-dot"></span>
+          <span>🔬 Streamlit :8501</span>
+        </a>
+        <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="server-link-badge fastapi" id="navBadgeFastapi" title="Terminal 2: FastAPI Gateway & Docs (:8000)">
+          <span class="server-status-dot"></span>
+          <span>⚡ FastAPI :8000</span>
+        </a>
+      </div>
       <div class="telemetry-beacon">
         <span class="pulse-dot"></span>
         <span>TELEMETRY LIVE</span>
@@ -73,6 +83,58 @@
       </div>
     </div>
 
+    <!-- Dual-Terminal Server Connection Control Hub -->
+    <div class="terminal-connection-panel mb-4">
+      <!-- Terminal 1: Streamlit Engine -->
+      <div class="terminal-card">
+        <div>
+          <div class="terminal-card-header">
+            <span class="terminal-tag streamlit">Terminal 1 • Streamlit Engine</span>
+            <span class="hero-pill pill-emerald">Port 8501</span>
+          </div>
+          <h3 class="section-title-sm mb-xs">🔬 Interactive Python Streamlit Engine</h3>
+          <p class="text-slate text-xs mb-1">
+            Hosts the dynamic 13-tab multi-hazard analytics engine, Plotly WebGL graphics, and live MCDA sliders.
+          </p>
+          <div class="terminal-command-box">streamlit run web/app.py --server.port 8501</div>
+        </div>
+        <div class="flex-gap-xs flex-wrap">
+          <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="lab-btn-primary">
+            🚀 Open Streamlit (:8501) ↗
+          </a>
+          <button type="button" class="lab-btn-secondary" id="btnReloadDirect" title="Reconnect Frame" aria-label="Reconnect Frame">
+            🔄 Reconnect Frame
+          </button>
+        </div>
+      </div>
+
+      <!-- Terminal 2: FastAPI Gateway -->
+      <div class="terminal-card">
+        <div>
+          <div class="terminal-card-header">
+            <span class="terminal-tag fastapi">Terminal 2 • FastAPI Gateway</span>
+            <span class="hero-pill pill-cyan">Port 8000</span>
+          </div>
+          <h3 class="section-title-sm mb-xs">⚡ Enterprise REST API & Static Portal</h3>
+          <p class="text-slate text-xs mb-1">
+            Serves high-throughput JSON endpoints, Prometheus metrics, GeoJSON feeds, and Swagger OpenAPI documentation.
+          </p>
+          <div class="terminal-command-box">uvicorn api.main:app --host 127.0.0.1 --port 8000</div>
+        </div>
+        <div class="flex-gap-xs flex-wrap">
+          <a href="http://localhost:8000/portal/index.html" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+            🏠 Web Portal (:8000) ↗
+          </a>
+          <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+            📚 Swagger Docs (/docs) ↗
+          </a>
+          <a href="http://localhost:8000/streamlit" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+            🔀 /streamlit Route ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Control Toolbar -->
     <div class="lab-toolbar">
       <div class="flex-gap-md flex-center flex-wrap">
@@ -89,7 +151,7 @@
         <button type="button" class="lab-btn-secondary" id="btnReloadFrame" title="Reload Streamlit Frame" aria-label="Reload Streamlit Frame">
           🔄 Reload Workspace
         </button>
-        <a href="/docs" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
+        <a href="http://localhost:8000/docs" target="_blank" rel="noopener noreferrer" class="lab-btn-secondary">
           🌐 API Docs (/docs) ↗
         </a>
       </div>
@@ -220,14 +282,21 @@
       const iframe = document.getElementById("streamlitFrame");
       const badge = document.getElementById("labStatusBadge");
 
+      const btnReloadDirect = document.getElementById("btnReloadDirect");
+      const doReload = () => {
+        if (!iframe) return;
+        badge.innerHTML = '<span class="pulse-dot"></span><span>RECONNECTING...</span>';
+        iframe.src = "http://localhost:8501/?embed=true&t=" + Date.now();
+        setTimeout(() => {
+          badge.innerHTML = '<span class="pulse-dot"></span><span>STREAMLIT ENGINE CONNECTED</span>';
+        }, 1500);
+      };
+
       if (btnReload && iframe) {
-        btnReload.addEventListener("click", () => {
-          badge.innerHTML = '<span class="pulse-dot"></span><span>RECONNECTING...</span>';
-          iframe.src = iframe.src;
-          setTimeout(() => {
-            badge.innerHTML = '<span class="pulse-dot"></span><span>STREAMLIT ENGINE CONNECTED</span>';
-          }, 1500);
-        });
+        btnReload.addEventListener("click", doReload);
+      }
+      if (btnReloadDirect && iframe) {
+        btnReloadDirect.addEventListener("click", doReload);
       }
     });
   </script>
