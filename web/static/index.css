@@ -339,6 +339,7 @@ body {
   color: #38bdf8;
   margin: 8px 0 12px 0;
   word-break: break-all;
+  -webkit-user-select: all;
   user-select: all;
 }
 
