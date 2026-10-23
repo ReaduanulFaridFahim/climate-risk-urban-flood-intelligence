@@ -1,13 +1,13 @@
 Scale,Model,Train R2,10F-CV R2,Test/OOF R2,R2 95% CI,RMSE (%),RMSE 95% CI,MAE (%),Latency (us/sample)
-Urban Ward Hydrological Shock (41 Wards),Baseline Dummy Mean,0.0,-0.021 (+/-0.030),-0.4945,"[-0.810, -0.268]",15.8174,"[13.86, 17.77]",12.6344,32.5
-Urban Ward Hydrological Shock (41 Wards),Ridge Regression,0.9278,0.913 (+/-0.014),0.8325,"[0.776, 0.871]",5.296,"[4.85, 5.72]",4.6575,148.6
-Urban Ward Hydrological Shock (41 Wards),ElasticNet,0.9089,0.902 (+/-0.015),0.816,"[0.746, 0.863]",5.5497,"[5.04, 6.03]",4.7253,97.6
-Urban Ward Hydrological Shock (41 Wards),XGBoost (Monotonic),0.9681,0.916 (+/-0.016),0.8074,"[0.736, 0.856]",5.6776,"[5.11, 6.28]",4.8112,88.1
-Urban Ward Hydrological Shock (41 Wards),LightGBM Regressor,0.9702,0.916 (+/-0.015),0.8175,"[0.760, 0.857]",5.5271,"[4.95, 6.11]",4.6348,179.6
-Urban Ward Hydrological Shock (41 Wards),HistGradientBoosting,0.9867,0.909 (+/-0.014),0.7964,"[0.735, 0.844]",5.8385,"[5.08, 6.57]",4.6996,97.5
-Urban Ward Hydrological Shock (41 Wards),Extra Trees Regressor,0.9449,0.905 (+/-0.011),0.7562,"[0.669, 0.810]",6.3886,"[5.82, 6.93]",5.4511,724.3
-Urban Ward Hydrological Shock (41 Wards),Random Forest,0.9608,0.907 (+/-0.009),0.6743,"[0.594, 0.739]",7.3842,"[6.54, 8.27]",6.0127,830.9
-Urban Ward Hydrological Shock (41 Wards),Deep MLP Neural Network,0.9643,0.886 (+/-0.019),0.1204,"[-0.243, 0.346]",12.1344,"[11.07, 13.19]",10.4791,68.8
+Urban Ward Hydrological Shock (41 Wards),Baseline Dummy Mean,0.0,-0.021 (+/-0.030),-0.4945,"[-0.810, -0.268]",15.8174,"[13.86, 17.77]",12.6344,139.0
+Urban Ward Hydrological Shock (41 Wards),Ridge Regression,0.9278,0.913 (+/-0.014),0.8325,"[0.776, 0.871]",5.296,"[4.85, 5.72]",4.6575,51.8
+Urban Ward Hydrological Shock (41 Wards),ElasticNet,0.9089,0.902 (+/-0.015),0.816,"[0.746, 0.863]",5.5497,"[5.04, 6.03]",4.7253,50.2
+Urban Ward Hydrological Shock (41 Wards),XGBoost (Monotonic),0.9681,0.916 (+/-0.016),0.8074,"[0.736, 0.856]",5.6776,"[5.11, 6.28]",4.8112,77.0
+Urban Ward Hydrological Shock (41 Wards),LightGBM Regressor,0.9702,0.916 (+/-0.015),0.8175,"[0.760, 0.857]",5.5271,"[4.95, 6.11]",4.6348,65.3
+Urban Ward Hydrological Shock (41 Wards),HistGradientBoosting,0.9867,0.909 (+/-0.014),0.7964,"[0.735, 0.844]",5.8385,"[5.08, 6.57]",4.6996,101.5
+Urban Ward Hydrological Shock (41 Wards),Extra Trees Regressor,0.9449,0.905 (+/-0.011),0.7562,"[0.669, 0.810]",6.3886,"[5.82, 6.93]",5.4511,421.8
+Urban Ward Hydrological Shock (41 Wards),Random Forest,0.9608,0.907 (+/-0.009),0.6743,"[0.594, 0.739]",7.3842,"[6.54, 8.27]",6.0127,627.8
+Urban Ward Hydrological Shock (41 Wards),Deep MLP Neural Network,0.9643,0.886 (+/-0.019),0.1204,"[-0.243, 0.346]",12.1344,"[11.07, 13.19]",10.4791,136.1
 Urban Ward Hydrological Shock (41 Wards),Stacking Meta-Ensemble,0.9654,0.812 (+/-0.032),0.8187,"[0.750, 0.864]",5.5092,"[4.98, 6.04]",4.6782,120.5
 Urban Ward Hydrological Shock (41 Wards),Simplex Blended SuperLearner,0.8842,0.824 (+/-0.029),0.807,"[0.737, 0.854]",5.6841,"[5.13, 6.26]",4.8241,95.0
 Nationwide 49-Layer Spatial Susceptibility (64 Districts),Baseline Dummy Mean,N/A,-0.222 (+/-0.316),-0.0212,"[-0.109, -0.011]",5.8082,"[4.49, 7.03]",4.4711,N/A
