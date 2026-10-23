@@ -15,11 +15,12 @@ No web server or complex dependencies required. Simply run:
 python main.py
 ```
 
-### Options:
-* `python main.py` : View nationwide risk summary and top 10 vulnerable districts
-* `python main.py --district "Sylhet"` : View detailed risk profile for any district
-* `python main.py --models` : View AI/ML model performance metrics (R², RMSE)
-* `python main.py --plot` : Generate and save the top vulnerable districts chart to `assets/`
+### Available Options
+
+- `python main.py`: View nationwide risk summary and top 10 vulnerable districts
+- `python main.py --district "Sylhet"`: View detailed risk profile for any district
+- `python main.py --models`: View AI/ML model performance metrics (R², RMSE)
+- `python main.py --plot`: Generate and save the top vulnerable districts chart to `assets/`
 
 ---
 
