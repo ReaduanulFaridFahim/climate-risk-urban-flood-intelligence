@@ -135,8 +135,6 @@ def root(request: Request):
         "platform": "Bangladesh Climate Intelligence Platform (BCIP)",
         "version": "1.0.0",
         "documentation": "/docs",
-        "portal_ui": "/portal" if os.path.exists(STATIC_WEB_DIR) else "Unmounted (Static files removed)",
-        "streamlit_lab": "http://localhost:8501/",
         "endpoints": {
             "health": "/health",
             "metrics": "/metrics",
@@ -147,16 +145,9 @@ def root(request: Request):
             "prioritize": "/api/v1/prioritize",
             "correlations": "/api/v1/correlations",
             "export_csv": "/api/v1/export/csv",
-            "spatial_geojson": "/api/v1/spatial/geojson",
-            "streamlit": "/streamlit"
+            "spatial_geojson": "/api/v1/spatial/geojson"
         }
     }
-
-
-@app.get("/streamlit", tags=["Platform Info"])
-def redirect_to_streamlit():
-    """Redirects to the live Streamlit interactive research suite on port 8501."""
-    return RedirectResponse(url="http://localhost:8501/")
 
 
 @app.get("/health", tags=["System Health"])

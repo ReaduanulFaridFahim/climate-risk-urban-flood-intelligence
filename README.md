@@ -3,19 +3,23 @@
 ## Nationwide Multi-Hazard AI Forecasting, Real-Time Satellite Intelligence & Automated Early Warning Platform (All 64 Districts)
 
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg?logo=python&logoColor=white)](https://python.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.40+-FF4B4B.svg?logo=streamlit&logoColor=white)](https://streamlit.io)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.5+-F7931E.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
-[![XGBoost](https://img.shields.io/badge/XGBoost-2.1+-117CAD.svg?logo=xgboost&logoColor=white)](https://xgboost.ai)
-[![ECMWF IFS](https://img.shields.io/badge/ECMWF-IFS%200.25%C2%B0%20Ensemble-005A9C.svg)](https://www.ecmwf.int)
-[![CAP v1.2](https://img.shields.io/badge/Standard-ITU--T%20CAP%20v1.2%20%2F%20CBS-22c55e.svg)](https://docs.oasis-open.org/emergency/cap/v1.2/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=ReaduanulFaridFahim/climate-risk-urban-flood-intelligence&branch=main&mainModule=web/app.py)
 
 ---
 
-> ### 🚀 [Click Here to Deploy or Launch the Streamlit Engine Live](https://share.streamlit.io/deploy?repository=ReaduanulFaridFahim/climate-risk-urban-flood-intelligence&branch=main&mainModule=web/app.py)
->
-> Directly runs `web/app.py` with multi-hazard forecasting, AI models, and real-time interactive decision support.
+## 🚀 Quickstart (Run with Standard Python)
+
+No web server or complex dependencies required. Simply run:
+
+```bash
+python main.py
+```
+
+### Options:
+* `python main.py` : View nationwide risk summary and top 10 vulnerable districts
+* `python main.py --district "Sylhet"` : View detailed risk profile for any district
+* `python main.py --models` : View AI/ML model performance metrics (R², RMSE)
+* `python main.py --plot` : Generate and save the top vulnerable districts chart to `assets/`
 
 ---
 

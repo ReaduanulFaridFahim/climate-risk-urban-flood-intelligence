@@ -138,11 +138,7 @@ def test_all_multipage_routes():
         assert "BANGLADESH CLIMATE INTELLIGENCE" in res.text
 
 
-def test_streamlit_redirect():
-    # Follow redirects = False to verify 307 temporary redirect to port 8501
-    res = client.get("/streamlit", follow_redirects=False)
-    assert res.status_code in [302, 307]
-    assert "8501" in res.headers.get("location", "")
+
 
 
 
