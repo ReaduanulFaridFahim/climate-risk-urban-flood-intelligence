@@ -1,0 +1,3275 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.1925,
+              23.6103
+            ],
+            [
+              90.6325,
+              23.6103
+            ],
+            [
+              90.6325,
+              24.0103
+            ],
+            [
+              90.1925,
+              24.0103
+            ],
+            [
+              90.1925,
+              23.6103
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 1,
+        "DistrictName": "Dhaka",
+        "Division": "Dhaka",
+        "AreaSqKm": 1463.6,
+        "Population": 12518000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 2.8,
+        "RoadDensityKmPerSqKm": 3.14,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 1.0,
+        "Score_AssetExposure_Az": 0.1809,
+        "Score_ServiceDeficit_Hz": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.2064,
+              23.8023
+            ],
+            [
+              90.6464,
+              23.8023
+            ],
+            [
+              90.6464,
+              24.2023
+            ],
+            [
+              90.2064,
+              24.2023
+            ],
+            [
+              90.2064,
+              23.8023
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 2,
+        "DistrictName": "Gazipur",
+        "Division": "Dhaka",
+        "AreaSqKm": 1806.4,
+        "Population": 3890000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.0,
+        "RoadDensityKmPerSqKm": 2.46,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.2424,
+        "Score_AssetExposure_Az": 0.2013,
+        "Score_ServiceDeficit_Hz": 0.2071
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.28,
+              23.4238
+            ],
+            [
+              90.72,
+              23.4238
+            ],
+            [
+              90.72,
+              23.8238
+            ],
+            [
+              90.28,
+              23.8238
+            ],
+            [
+              90.28,
+              23.4238
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 3,
+        "DistrictName": "Narayanganj",
+        "Division": "Dhaka",
+        "AreaSqKm": 684.4,
+        "Population": 3900000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 3.3,
+        "RoadDensityKmPerSqKm": 2.88,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.6621,
+        "Score_AssetExposure_Az": 0.0489,
+        "Score_ServiceDeficit_Hz": 0.0568
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.6967,
+              24.0513
+            ],
+            [
+              90.1367,
+              24.0513
+            ],
+            [
+              90.1367,
+              24.4513
+            ],
+            [
+              89.6967,
+              24.4513
+            ],
+            [
+              89.6967,
+              24.0513
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 4,
+        "DistrictName": "Tangail",
+        "Division": "Dhaka",
+        "AreaSqKm": 3414.4,
+        "Population": 4030000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.2,
+        "RoadDensityKmPerSqKm": 1.76,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1272,
+        "Score_AssetExposure_Az": 0.3621,
+        "Score_ServiceDeficit_Hz": 0.3587
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.5566,
+              24.2449
+            ],
+            [
+              90.9966,
+              24.2449
+            ],
+            [
+              90.9966,
+              24.6449
+            ],
+            [
+              90.5566,
+              24.6449
+            ],
+            [
+              90.5566,
+              24.2449
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 5,
+        "DistrictName": "Kishoreganj",
+        "Division": "Dhaka",
+        "AreaSqKm": 2688.6,
+        "Population": 3260000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.58,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.131,
+        "Score_AssetExposure_Az": 0.2588,
+        "Score_ServiceDeficit_Hz": 0.4245
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.7803,
+              23.6617
+            ],
+            [
+              90.2203,
+              23.6617
+            ],
+            [
+              90.2203,
+              24.0617
+            ],
+            [
+              89.7803,
+              24.0617
+            ],
+            [
+              89.7803,
+              23.6617
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 6,
+        "DistrictName": "Manikganj",
+        "Division": "Dhaka",
+        "AreaSqKm": 1383.7,
+        "Population": 1550000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.63,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.12,
+        "Score_AssetExposure_Az": 0.1075,
+        "Score_ServiceDeficit_Hz": 0.3688
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.3105,
+              23.3422
+            ],
+            [
+              90.7505,
+              23.3422
+            ],
+            [
+              90.7505,
+              23.7422
+            ],
+            [
+              90.3105,
+              23.7422
+            ],
+            [
+              90.3105,
+              23.3422
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 7,
+        "DistrictName": "Munshiganj",
+        "Division": "Dhaka",
+        "AreaSqKm": 1004.4,
+        "Population": 1620000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.1,
+        "RoadDensityKmPerSqKm": 1.84,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1784,
+        "Score_AssetExposure_Az": 0.0684,
+        "Score_ServiceDeficit_Hz": 0.3187
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.4954,
+              23.7322
+            ],
+            [
+              90.9354,
+              23.7322
+            ],
+            [
+              90.9354,
+              24.1322
+            ],
+            [
+              90.4954,
+              24.1322
+            ],
+            [
+              90.4954,
+              23.7322
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 8,
+        "DistrictName": "Narsingdi",
+        "Division": "Dhaka",
+        "AreaSqKm": 1150.1,
+        "Population": 2400000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.9,
+        "RoadDensityKmPerSqKm": 1.94,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.2345,
+        "Score_AssetExposure_Az": 0.0901,
+        "Score_ServiceDeficit_Hz": 0.298
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.6229,
+              23.4071
+            ],
+            [
+              90.0629,
+              23.4071
+            ],
+            [
+              90.0629,
+              23.8071
+            ],
+            [
+              89.6229,
+              23.8071
+            ],
+            [
+              89.6229,
+              23.4071
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 9,
+        "DistrictName": "Faridpur",
+        "Division": "Dhaka",
+        "AreaSqKm": 2072.7,
+        "Population": 2160000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1108,
+        "Score_AssetExposure_Az": 0.1926,
+        "Score_ServiceDeficit_Hz": 0.3632
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.6066,
+              22.8051
+            ],
+            [
+              90.0466,
+              22.8051
+            ],
+            [
+              90.0466,
+              23.2051
+            ],
+            [
+              89.6066,
+              23.2051
+            ],
+            [
+              89.6066,
+              22.8051
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 10,
+        "DistrictName": "Gopalganj",
+        "Division": "Dhaka",
+        "AreaSqKm": 1490.0,
+        "Population": 1290000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.5,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0899,
+        "Score_AssetExposure_Az": 0.1145,
+        "Score_ServiceDeficit_Hz": 0.4468
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.9697,
+              22.9641
+            ],
+            [
+              90.4097,
+              22.9641
+            ],
+            [
+              90.4097,
+              23.3641
+            ],
+            [
+              89.9697,
+              23.3641
+            ],
+            [
+              89.9697,
+              22.9641
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 11,
+        "DistrictName": "Madaripur",
+        "Division": "Dhaka",
+        "AreaSqKm": 1144.9,
+        "Population": 1290000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.58,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1208,
+        "Score_AssetExposure_Az": 0.0773,
+        "Score_ServiceDeficit_Hz": 0.4227
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.4245,
+              23.5574
+            ],
+            [
+              89.8645,
+              23.5574
+            ],
+            [
+              89.8645,
+              23.9574
+            ],
+            [
+              89.4245,
+              23.9574
+            ],
+            [
+              89.4245,
+              23.5574
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 12,
+        "DistrictName": "Rajbari",
+        "Division": "Dhaka",
+        "AreaSqKm": 1118.8,
+        "Population": 1180000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.6,
+        "RoadDensityKmPerSqKm": 1.53,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1123,
+        "Score_AssetExposure_Az": 0.0726,
+        "Score_ServiceDeficit_Hz": 0.398
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.2148,
+              23.0423
+            ],
+            [
+              90.6548,
+              23.0423
+            ],
+            [
+              90.6548,
+              23.4423
+            ],
+            [
+              90.2148,
+              23.4423
+            ],
+            [
+              90.2148,
+              23.0423
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 13,
+        "DistrictName": "Shariatpur",
+        "Division": "Dhaka",
+        "AreaSqKm": 1181.5,
+        "Population": 1250000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.6,
+        "RoadDensityKmPerSqKm": 1.53,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1127,
+        "Score_AssetExposure_Az": 0.0799,
+        "Score_ServiceDeficit_Hz": 0.4098
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.5632,
+              22.1569
+            ],
+            [
+              92.0032,
+              22.1569
+            ],
+            [
+              92.0032,
+              22.5569
+            ],
+            [
+              91.5632,
+              22.5569
+            ],
+            [
+              91.5632,
+              22.1569
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 14,
+        "DistrictName": "Chattogram",
+        "Division": "Chattogram",
+        "AreaSqKm": 5283.0,
+        "Population": 9169000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 3.6,
+        "RoadDensityKmPerSqKm": 2.72,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1929,
+        "Score_AssetExposure_Az": 0.7386,
+        "Score_ServiceDeficit_Hz": 0.1091
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.7858,
+              21.2272
+            ],
+            [
+              92.2258,
+              21.2272
+            ],
+            [
+              92.2258,
+              21.6272
+            ],
+            [
+              91.7858,
+              21.6272
+            ],
+            [
+              91.7858,
+              21.2272
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 15,
+        "DistrictName": "Cox's Bazar",
+        "Division": "Chattogram",
+        "AreaSqKm": 2491.9,
+        "Population": 2820000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.8,
+        "RoadDensityKmPerSqKm": 2.02,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1214,
+        "Score_AssetExposure_Az": 0.2675,
+        "Score_ServiceDeficit_Hz": 0.3068
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.9609,
+              23.2607
+            ],
+            [
+              91.4009,
+              23.2607
+            ],
+            [
+              91.4009,
+              23.6607
+            ],
+            [
+              90.9609,
+              23.6607
+            ],
+            [
+              90.9609,
+              23.2607
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 16,
+        "DistrictName": "Cumilla",
+        "Division": "Chattogram",
+        "AreaSqKm": 3146.3,
+        "Population": 6210000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.6,
+        "RoadDensityKmPerSqKm": 2.1,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.2211,
+        "Score_AssetExposure_Az": 0.3599,
+        "Score_ServiceDeficit_Hz": 0.2757
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.1776,
+              22.8159
+            ],
+            [
+              91.6176,
+              22.8159
+            ],
+            [
+              91.6176,
+              23.2159
+            ],
+            [
+              91.1776,
+              23.2159
+            ],
+            [
+              91.1776,
+              22.8159
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 17,
+        "DistrictName": "Feni",
+        "Division": "Chattogram",
+        "AreaSqKm": 928.3,
+        "Population": 1640000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.9,
+        "RoadDensityKmPerSqKm": 1.94,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1966,
+        "Score_AssetExposure_Az": 0.0616,
+        "Score_ServiceDeficit_Hz": 0.3591
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.8919,
+              23.7571
+            ],
+            [
+              91.3319,
+              23.7571
+            ],
+            [
+              91.3319,
+              24.1571
+            ],
+            [
+              90.8919,
+              24.1571
+            ],
+            [
+              90.8919,
+              23.7571
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 18,
+        "DistrictName": "Brahmanbaria",
+        "Division": "Chattogram",
+        "AreaSqKm": 1927.1,
+        "Population": 3300000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.2,
+        "RoadDensityKmPerSqKm": 1.76,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1902,
+        "Score_AssetExposure_Az": 0.1794,
+        "Score_ServiceDeficit_Hz": 0.3849
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.8794,
+              22.6696
+            ],
+            [
+              91.3194,
+              22.6696
+            ],
+            [
+              91.3194,
+              23.0696
+            ],
+            [
+              90.8794,
+              23.0696
+            ],
+            [
+              90.8794,
+              22.6696
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 19,
+        "DistrictName": "Noakhali",
+        "Division": "Chattogram",
+        "AreaSqKm": 4202.7,
+        "Population": 3620000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.1,
+        "RoadDensityKmPerSqKm": 1.84,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0894,
+        "Score_AssetExposure_Az": 0.4684,
+        "Score_ServiceDeficit_Hz": 0.3862
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.6212,
+              22.7425
+            ],
+            [
+              91.0612,
+              22.7425
+            ],
+            [
+              91.0612,
+              23.1425
+            ],
+            [
+              90.6212,
+              23.1425
+            ],
+            [
+              90.6212,
+              22.7425
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 20,
+        "DistrictName": "Lakshmipur",
+        "Division": "Chattogram",
+        "AreaSqKm": 1455.9,
+        "Population": 1930000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.3,
+        "RoadDensityKmPerSqKm": 1.73,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1444,
+        "Score_AssetExposure_Az": 0.1205,
+        "Score_ServiceDeficit_Hz": 0.367
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.4467,
+              23.0333
+            ],
+            [
+              90.8867,
+              23.0333
+            ],
+            [
+              90.8867,
+              23.4333
+            ],
+            [
+              90.4467,
+              23.4333
+            ],
+            [
+              90.4467,
+              23.0333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 21,
+        "DistrictName": "Chandpur",
+        "Division": "Chattogram",
+        "AreaSqKm": 1704.1,
+        "Population": 2630000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.9,
+        "RoadDensityKmPerSqKm": 1.94,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1701,
+        "Score_AssetExposure_Az": 0.161,
+        "Score_ServiceDeficit_Hz": 0.3573
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.7647,
+              22.9193
+            ],
+            [
+              92.2047,
+              22.9193
+            ],
+            [
+              92.2047,
+              23.3193
+            ],
+            [
+              91.7647,
+              23.3193
+            ],
+            [
+              91.7647,
+              22.9193
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 22,
+        "DistrictName": "Khagrachhari",
+        "Division": "Chattogram",
+        "AreaSqKm": 2699.5,
+        "Population": 714000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 18.0,
+        "RoadDensityKmPerSqKm": 1.32,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0187,
+        "Score_AssetExposure_Az": 0.2397,
+        "Score_ServiceDeficit_Hz": 0.9444
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              92.0785,
+              22.5324
+            ],
+            [
+              92.5185,
+              22.5324
+            ],
+            [
+              92.5185,
+              22.9324
+            ],
+            [
+              92.0785,
+              22.9324
+            ],
+            [
+              92.0785,
+              22.5324
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 23,
+        "DistrictName": "Rangamati",
+        "Division": "Chattogram",
+        "AreaSqKm": 6116.1,
+        "Population": 650000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 18.1,
+        "RoadDensityKmPerSqKm": 1.24,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0,
+        "Score_AssetExposure_Az": 0.6018,
+        "Score_ServiceDeficit_Hz": 1.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.9984,
+              21.9953
+            ],
+            [
+              92.4384,
+              21.9953
+            ],
+            [
+              92.4384,
+              22.3953
+            ],
+            [
+              91.9984,
+              22.3953
+            ],
+            [
+              91.9984,
+              21.9953
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 24,
+        "DistrictName": "Bandarban",
+        "Division": "Chattogram",
+        "AreaSqKm": 4479.0,
+        "Population": 480000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 18.3,
+        "RoadDensityKmPerSqKm": 1.16,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0001,
+        "Score_AssetExposure_Az": 0.4153,
+        "Score_ServiceDeficit_Hz": 0.6322
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.6487,
+              24.6949
+            ],
+            [
+              92.0887,
+              24.6949
+            ],
+            [
+              92.0887,
+              25.0949
+            ],
+            [
+              91.6487,
+              25.0949
+            ],
+            [
+              91.6487,
+              24.6949
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 25,
+        "DistrictName": "Sylhet",
+        "Division": "Sylhet",
+        "AreaSqKm": 3490.4,
+        "Population": 3850000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.5,
+        "RoadDensityKmPerSqKm": 2.2,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.118,
+        "Score_AssetExposure_Az": 0.4161,
+        "Score_ServiceDeficit_Hz": 0.2726
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.175,
+              24.8658
+            ],
+            [
+              91.615,
+              24.8658
+            ],
+            [
+              91.615,
+              25.2658
+            ],
+            [
+              91.175,
+              25.2658
+            ],
+            [
+              91.175,
+              24.8658
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 26,
+        "DistrictName": "Sunamganj",
+        "Division": "Sylhet",
+        "AreaSqKm": 3670.0,
+        "Population": 2700000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.8,
+        "RoadDensityKmPerSqKm": 1.42,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0745,
+        "Score_AssetExposure_Az": 0.3576,
+        "Score_ServiceDeficit_Hz": 0.5056
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.5574,
+              24.2829
+            ],
+            [
+              91.9974,
+              24.2829
+            ],
+            [
+              91.9974,
+              24.6829
+            ],
+            [
+              91.5574,
+              24.6829
+            ],
+            [
+              91.5574,
+              24.2829
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 27,
+        "DistrictName": "Moulvibazar",
+        "Division": "Sylhet",
+        "AreaSqKm": 2799.4,
+        "Population": 2120000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0771,
+        "Score_AssetExposure_Az": 0.2802,
+        "Score_ServiceDeficit_Hz": 0.4378
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.1967,
+              24.175
+            ],
+            [
+              91.6367,
+              24.175
+            ],
+            [
+              91.6367,
+              24.575
+            ],
+            [
+              91.1967,
+              24.575
+            ],
+            [
+              91.1967,
+              24.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 28,
+        "DistrictName": "Habiganj",
+        "Division": "Sylhet",
+        "AreaSqKm": 2636.6,
+        "Population": 2350000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.6,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0929,
+        "Score_AssetExposure_Az": 0.2546,
+        "Score_ServiceDeficit_Hz": 0.4356
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.1335,
+              22.501
+            ],
+            [
+              90.5735,
+              22.501
+            ],
+            [
+              90.5735,
+              22.901
+            ],
+            [
+              90.1335,
+              22.901
+            ],
+            [
+              90.1335,
+              22.501
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 29,
+        "DistrictName": "Barishal",
+        "Division": "Barishal",
+        "AreaSqKm": 2790.5,
+        "Population": 2570000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.8,
+        "RoadDensityKmPerSqKm": 2.02,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0965,
+        "Score_AssetExposure_Az": 0.3064,
+        "Score_ServiceDeficit_Hz": 0.2798
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.4281,
+              22.4859
+            ],
+            [
+              90.8681,
+              22.4859
+            ],
+            [
+              90.8681,
+              22.8859
+            ],
+            [
+              90.4281,
+              22.8859
+            ],
+            [
+              90.4281,
+              22.4859
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 30,
+        "DistrictName": "Bhola",
+        "Division": "Barishal",
+        "AreaSqKm": 3737.2,
+        "Population": 1930000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.58,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0486,
+        "Score_AssetExposure_Az": 0.382,
+        "Score_ServiceDeficit_Hz": 0.4079
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.1098,
+              22.1596
+            ],
+            [
+              90.5498,
+              22.1596
+            ],
+            [
+              90.5498,
+              22.5596
+            ],
+            [
+              90.1098,
+              22.5596
+            ],
+            [
+              90.1098,
+              22.1596
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 31,
+        "DistrictName": "Patuakhali",
+        "Division": "Barishal",
+        "AreaSqKm": 3220.2,
+        "Population": 1720000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.5,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0507,
+        "Score_AssetExposure_Az": 0.314,
+        "Score_ServiceDeficit_Hz": 0.4091
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.752,
+              22.3841
+            ],
+            [
+              90.192,
+              22.3841
+            ],
+            [
+              90.192,
+              22.7841
+            ],
+            [
+              89.752,
+              22.7841
+            ],
+            [
+              89.752,
+              22.3841
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 32,
+        "DistrictName": "Pirojpur",
+        "Division": "Barishal",
+        "AreaSqKm": 1307.6,
+        "Population": 1200000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.63,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0961,
+        "Score_AssetExposure_Az": 0.0984,
+        "Score_ServiceDeficit_Hz": 0.4679
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.9056,
+              21.9587
+            ],
+            [
+              90.3456,
+              21.9587
+            ],
+            [
+              90.3456,
+              22.3587
+            ],
+            [
+              89.9056,
+              22.3587
+            ],
+            [
+              89.9056,
+              21.9587
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 33,
+        "DistrictName": "Barguna",
+        "Division": "Barishal",
+        "AreaSqKm": 1831.3,
+        "Population": 1010000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.47,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0527,
+        "Score_AssetExposure_Az": 0.1525,
+        "Score_ServiceDeficit_Hz": 0.4047
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.9787,
+              22.4406
+            ],
+            [
+              90.4187,
+              22.4406
+            ],
+            [
+              90.4187,
+              22.8406
+            ],
+            [
+              89.9787,
+              22.8406
+            ],
+            [
+              89.9787,
+              22.4406
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 34,
+        "DistrictName": "Jhalokati",
+        "Division": "Barishal",
+        "AreaSqKm": 758.1,
+        "Population": 680000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0936,
+        "Score_AssetExposure_Az": 0.0341,
+        "Score_ServiceDeficit_Hz": 0.4055
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.3203,
+              22.6456
+            ],
+            [
+              89.7603,
+              22.6456
+            ],
+            [
+              89.7603,
+              23.0456
+            ],
+            [
+              89.3203,
+              23.0456
+            ],
+            [
+              89.3203,
+              22.6456
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 35,
+        "DistrictName": "Khulna",
+        "Division": "Khulna",
+        "AreaSqKm": 4394.5,
+        "Population": 2610000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.2,
+        "RoadDensityKmPerSqKm": 2.36,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0577,
+        "Score_AssetExposure_Az": 0.5585,
+        "Score_ServiceDeficit_Hz": 0.1987
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.5659,
+              22.4516
+            ],
+            [
+              90.0059,
+              22.4516
+            ],
+            [
+              90.0059,
+              22.8516
+            ],
+            [
+              89.5659,
+              22.8516
+            ],
+            [
+              89.5659,
+              22.4516
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 36,
+        "DistrictName": "Bagerhat",
+        "Division": "Khulna",
+        "AreaSqKm": 3959.1,
+        "Population": 1610000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.63,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0356,
+        "Score_AssetExposure_Az": 0.4141,
+        "Score_ServiceDeficit_Hz": 0.4629
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.8505,
+              22.5185
+            ],
+            [
+              89.2905,
+              22.5185
+            ],
+            [
+              89.2905,
+              22.9185
+            ],
+            [
+              88.8505,
+              22.9185
+            ],
+            [
+              88.8505,
+              22.5185
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 37,
+        "DistrictName": "Satkhira",
+        "Division": "Khulna",
+        "AreaSqKm": 3858.3,
+        "Population": 2190000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0546,
+        "Score_AssetExposure_Az": 0.4079,
+        "Score_ServiceDeficit_Hz": 0.442
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.9881,
+              22.9664
+            ],
+            [
+              89.4281,
+              22.9664
+            ],
+            [
+              89.4281,
+              23.3664
+            ],
+            [
+              88.9881,
+              23.3664
+            ],
+            [
+              88.9881,
+              22.9664
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 38,
+        "DistrictName": "Jashore",
+        "Division": "Khulna",
+        "AreaSqKm": 2570.4,
+        "Population": 3070000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 4.9,
+        "RoadDensityKmPerSqKm": 1.94,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1288,
+        "Score_AssetExposure_Az": 0.272,
+        "Score_ServiceDeficit_Hz": 0.3499
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.9339,
+              23.3448
+            ],
+            [
+              89.3739,
+              23.3448
+            ],
+            [
+              89.3739,
+              23.7448
+            ],
+            [
+              88.9339,
+              23.7448
+            ],
+            [
+              88.9339,
+              23.3448
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 39,
+        "DistrictName": "Jhenaidah",
+        "Division": "Khulna",
+        "AreaSqKm": 1941.4,
+        "Population": 2000000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1094,
+        "Score_AssetExposure_Az": 0.1768,
+        "Score_ServiceDeficit_Hz": 0.3884
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.9004,
+              23.7013
+            ],
+            [
+              89.3404,
+              23.7013
+            ],
+            [
+              89.3404,
+              24.1013
+            ],
+            [
+              88.9004,
+              24.1013
+            ],
+            [
+              88.9004,
+              23.7013
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 40,
+        "DistrictName": "Kushtia",
+        "Division": "Khulna",
+        "AreaSqKm": 1621.2,
+        "Population": 2140000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.1,
+        "RoadDensityKmPerSqKm": 1.84,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1437,
+        "Score_AssetExposure_Az": 0.1455,
+        "Score_ServiceDeficit_Hz": 0.3556
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.1999,
+              23.2873
+            ],
+            [
+              89.6399,
+              23.2873
+            ],
+            [
+              89.6399,
+              23.6873
+            ],
+            [
+              89.1999,
+              23.6873
+            ],
+            [
+              89.1999,
+              23.2873
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 41,
+        "DistrictName": "Magura",
+        "Division": "Khulna",
+        "AreaSqKm": 1049.0,
+        "Population": 1030000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.58,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1037,
+        "Score_AssetExposure_Az": 0.066,
+        "Score_ServiceDeficit_Hz": 0.4869
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.4118,
+              23.5725
+            ],
+            [
+              88.8518,
+              23.5725
+            ],
+            [
+              88.8518,
+              23.9725
+            ],
+            [
+              88.4118,
+              23.9725
+            ],
+            [
+              88.4118,
+              23.5725
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 42,
+        "DistrictName": "Meherpur",
+        "Division": "Khulna",
+        "AreaSqKm": 716.1,
+        "Population": 705000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.5,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.104,
+        "Score_AssetExposure_Az": 0.0253,
+        "Score_ServiceDeficit_Hz": 0.3827
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.2927,
+              22.9725
+            ],
+            [
+              89.7327,
+              22.9725
+            ],
+            [
+              89.7327,
+              23.3725
+            ],
+            [
+              89.2927,
+              23.3725
+            ],
+            [
+              89.2927,
+              22.9725
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 43,
+        "DistrictName": "Narail",
+        "Division": "Khulna",
+        "AreaSqKm": 990.2,
+        "Population": 780000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.6,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.0807,
+        "Score_AssetExposure_Az": 0.0599,
+        "Score_ServiceDeficit_Hz": 0.4113
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.6218,
+              23.4402
+            ],
+            [
+              89.0618,
+              23.4402
+            ],
+            [
+              89.0618,
+              23.8402
+            ],
+            [
+              88.6218,
+              23.8402
+            ],
+            [
+              88.6218,
+              23.4402
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 44,
+        "DistrictName": "Chuadanga",
+        "Division": "Khulna",
+        "AreaSqKm": 1172.9,
+        "Population": 1230000,
+        "Koppen_Baseline": "Am (Tropical Monsoon)",
+        "Koppen_SSP245_2050": "Am (Tropical Monsoon)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "High Agreement (Stable Class)",
+        "IsTransitioning_MidSSP585": 0,
+        "ExposedPop_MidSSP585": 0,
+        "ExposedBuiltUpKm2_MidSSP585": 0.0,
+        "ExposedCroplandKm2_MidSSP585": 0.0,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 0.0,
+        "Score_PopulationExposure_Pz": 0.1116,
+        "Score_AssetExposure_Az": 0.0841,
+        "Score_ServiceDeficit_Hz": 0.4333
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.4041,
+              24.1636
+            ],
+            [
+              88.8441,
+              24.1636
+            ],
+            [
+              88.8441,
+              24.5636
+            ],
+            [
+              88.4041,
+              24.5636
+            ],
+            [
+              88.4041,
+              24.1636
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 45,
+        "DistrictName": "Rajshahi",
+        "Division": "Rajshahi",
+        "AreaSqKm": 2407.0,
+        "Population": 2910000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2910000,
+        "ExposedBuiltUpKm2_MidSSP585": 751.0,
+        "ExposedCroplandKm2_MidSSP585": 1076.4,
+        "DistanceToHealthFacility_Km": 4.6,
+        "RoadDensityKmPerSqKm": 2.1,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1305,
+        "Score_AssetExposure_Az": 0.2619,
+        "Score_ServiceDeficit_Hz": 0.2593
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.1577,
+              24.6465
+            ],
+            [
+              89.5977,
+              24.6465
+            ],
+            [
+              89.5977,
+              25.0465
+            ],
+            [
+              89.1577,
+              25.0465
+            ],
+            [
+              89.1577,
+              24.6465
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 46,
+        "DistrictName": "Bogura",
+        "Division": "Rajshahi",
+        "AreaSqKm": 2919.9,
+        "Population": 3830000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 3830000,
+        "ExposedBuiltUpKm2_MidSSP585": 854.1,
+        "ExposedCroplandKm2_MidSSP585": 1342.77,
+        "DistanceToHealthFacility_Km": 4.8,
+        "RoadDensityKmPerSqKm": 2.02,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1427,
+        "Score_AssetExposure_Az": 0.3233,
+        "Score_ServiceDeficit_Hz": 0.293
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.0172,
+              23.8064
+            ],
+            [
+              89.4572,
+              23.8064
+            ],
+            [
+              89.4572,
+              24.2064
+            ],
+            [
+              89.0172,
+              24.2064
+            ],
+            [
+              89.0172,
+              23.8064
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 47,
+        "DistrictName": "Pabna",
+        "Division": "Rajshahi",
+        "AreaSqKm": 2371.5,
+        "Population": 2900000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2900000,
+        "ExposedBuiltUpKm2_MidSSP585": 585.8,
+        "ExposedCroplandKm2_MidSSP585": 1160.71,
+        "DistanceToHealthFacility_Km": 5.1,
+        "RoadDensityKmPerSqKm": 1.84,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1322,
+        "Score_AssetExposure_Az": 0.2394,
+        "Score_ServiceDeficit_Hz": 0.3807
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.4808,
+              24.2534
+            ],
+            [
+              89.9208,
+              24.2534
+            ],
+            [
+              89.9208,
+              24.6534
+            ],
+            [
+              89.4808,
+              24.6534
+            ],
+            [
+              89.4808,
+              24.2534
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 48,
+        "DistrictName": "Sirajganj",
+        "Division": "Rajshahi",
+        "AreaSqKm": 2497.9,
+        "Population": 3540000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 3540000,
+        "ExposedBuiltUpKm2_MidSSP585": 584.5,
+        "ExposedCroplandKm2_MidSSP585": 1243.71,
+        "DistanceToHealthFacility_Km": 5.2,
+        "RoadDensityKmPerSqKm": 1.79,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1552,
+        "Score_AssetExposure_Az": 0.2514,
+        "Score_ServiceDeficit_Hz": 0.3823
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.7118,
+              24.5936
+            ],
+            [
+              89.1518,
+              24.5936
+            ],
+            [
+              89.1518,
+              24.9936
+            ],
+            [
+              88.7118,
+              24.9936
+            ],
+            [
+              88.7118,
+              24.5936
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 49,
+        "DistrictName": "Naogaon",
+        "Division": "Rajshahi",
+        "AreaSqKm": 3435.7,
+        "Population": 2780000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2780000,
+        "ExposedBuiltUpKm2_MidSSP585": 625.3,
+        "ExposedCroplandKm2_MidSSP585": 1826.76,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.58,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.0832,
+        "Score_AssetExposure_Az": 0.3466,
+        "Score_ServiceDeficit_Hz": 0.4151
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.7803,
+              24.2206
+            ],
+            [
+              89.2203,
+              24.2206
+            ],
+            [
+              89.2203,
+              24.6206
+            ],
+            [
+              88.7803,
+              24.6206
+            ],
+            [
+              88.7803,
+              24.2206
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 50,
+        "DistrictName": "Natore",
+        "Division": "Rajshahi",
+        "AreaSqKm": 1896.1,
+        "Population": 1850000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 1850000,
+        "ExposedBuiltUpKm2_MidSSP585": 382.1,
+        "ExposedCroplandKm2_MidSSP585": 984.1,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.66,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1029,
+        "Score_AssetExposure_Az": 0.1699,
+        "Score_ServiceDeficit_Hz": 0.4543
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.0575,
+              24.3965
+            ],
+            [
+              88.4975,
+              24.3965
+            ],
+            [
+              88.4975,
+              24.7965
+            ],
+            [
+              88.0575,
+              24.7965
+            ],
+            [
+              88.0575,
+              24.3965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 51,
+        "DistrictName": "Chapai Nawabganj",
+        "Division": "Rajshahi",
+        "AreaSqKm": 1702.6,
+        "Population": 1830000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 1830000,
+        "ExposedBuiltUpKm2_MidSSP585": 354.1,
+        "ExposedCroplandKm2_MidSSP585": 876.52,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1147,
+        "Score_AssetExposure_Az": 0.148,
+        "Score_ServiceDeficit_Hz": 0.3868
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.8077,
+              24.9015
+            ],
+            [
+              89.2477,
+              24.9015
+            ],
+            [
+              89.2477,
+              25.3015
+            ],
+            [
+              88.8077,
+              25.3015
+            ],
+            [
+              88.8077,
+              24.9015
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 52,
+        "DistrictName": "Joypurhat",
+        "Division": "Rajshahi",
+        "AreaSqKm": 965.4,
+        "Population": 990000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 990000,
+        "ExposedBuiltUpKm2_MidSSP585": 163.2,
+        "ExposedCroplandKm2_MidSSP585": 521.43,
+        "DistanceToHealthFacility_Km": 5.6,
+        "RoadDensityKmPerSqKm": 1.53,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1088,
+        "Score_AssetExposure_Az": 0.0548,
+        "Score_ServiceDeficit_Hz": 0.4694
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.0552,
+              25.5439
+            ],
+            [
+              89.4952,
+              25.5439
+            ],
+            [
+              89.4952,
+              25.9439
+            ],
+            [
+              89.0552,
+              25.9439
+            ],
+            [
+              89.0552,
+              25.5439
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 53,
+        "DistrictName": "Rangpur",
+        "Division": "Rangpur",
+        "AreaSqKm": 2307.7,
+        "Population": 3160000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 3160000,
+        "ExposedBuiltUpKm2_MidSSP585": 660.0,
+        "ExposedCroplandKm2_MidSSP585": 1071.0,
+        "DistanceToHealthFacility_Km": 4.8,
+        "RoadDensityKmPerSqKm": 1.99,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1495,
+        "Score_AssetExposure_Az": 0.2418,
+        "Score_ServiceDeficit_Hz": 0.3128
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.4155,
+              25.4217
+            ],
+            [
+              88.8555,
+              25.4217
+            ],
+            [
+              88.8555,
+              25.8217
+            ],
+            [
+              88.4155,
+              25.8217
+            ],
+            [
+              88.4155,
+              25.4217
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 54,
+        "DistrictName": "Dinajpur",
+        "Division": "Rangpur",
+        "AreaSqKm": 3438.0,
+        "Population": 3310000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 3310000,
+        "ExposedBuiltUpKm2_MidSSP585": 782.1,
+        "ExposedCroplandKm2_MidSSP585": 1726.34,
+        "DistanceToHealthFacility_Km": 5.2,
+        "RoadDensityKmPerSqKm": 1.76,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1014,
+        "Score_AssetExposure_Az": 0.365,
+        "Score_ServiceDeficit_Hz": 0.4021
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.3204,
+              25.1288
+            ],
+            [
+              89.7604,
+              25.1288
+            ],
+            [
+              89.7604,
+              25.5288
+            ],
+            [
+              89.3204,
+              25.5288
+            ],
+            [
+              89.3204,
+              25.1288
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 55,
+        "DistrictName": "Gaibandha",
+        "Division": "Rangpur",
+        "AreaSqKm": 2179.3,
+        "Population": 2560000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2560000,
+        "ExposedBuiltUpKm2_MidSSP585": 396.6,
+        "ExposedCroplandKm2_MidSSP585": 1158.76,
+        "DistanceToHealthFacility_Km": 5.5,
+        "RoadDensityKmPerSqKm": 1.58,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1265,
+        "Score_AssetExposure_Az": 0.1989,
+        "Score_ServiceDeficit_Hz": 0.4538
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.4162,
+              25.6054
+            ],
+            [
+              89.8562,
+              25.6054
+            ],
+            [
+              89.8562,
+              26.0054
+            ],
+            [
+              89.4162,
+              26.0054
+            ],
+            [
+              89.4162,
+              25.6054
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 56,
+        "DistrictName": "Kurigram",
+        "Division": "Rangpur",
+        "AreaSqKm": 2296.1,
+        "Population": 2320000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2320000,
+        "ExposedBuiltUpKm2_MidSSP585": 373.1,
+        "ExposedCroplandKm2_MidSSP585": 1249.95,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.5,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.107,
+        "Score_AssetExposure_Az": 0.2075,
+        "Score_ServiceDeficit_Hz": 0.4753
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.0647,
+              25.7923
+            ],
+            [
+              89.5047,
+              25.7923
+            ],
+            [
+              89.5047,
+              26.1923
+            ],
+            [
+              89.0647,
+              26.1923
+            ],
+            [
+              89.0647,
+              25.7923
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 57,
+        "DistrictName": "Lalmonirhat",
+        "Division": "Rangpur",
+        "AreaSqKm": 1241.5,
+        "Population": 1420000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 1420000,
+        "ExposedBuiltUpKm2_MidSSP585": 209.8,
+        "ExposedCroplandKm2_MidSSP585": 670.61,
+        "DistanceToHealthFacility_Km": 5.6,
+        "RoadDensityKmPerSqKm": 1.53,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1228,
+        "Score_AssetExposure_Az": 0.0868,
+        "Score_ServiceDeficit_Hz": 0.4142
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.636,
+              25.7318
+            ],
+            [
+              89.076,
+              25.7318
+            ],
+            [
+              89.076,
+              26.1318
+            ],
+            [
+              88.636,
+              26.1318
+            ],
+            [
+              88.636,
+              25.7318
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 58,
+        "DistrictName": "Nilphamari",
+        "Division": "Rangpur",
+        "AreaSqKm": 1580.9,
+        "Population": 2090000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2090000,
+        "ExposedBuiltUpKm2_MidSSP585": 328.8,
+        "ExposedCroplandKm2_MidSSP585": 813.87,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1439,
+        "Score_AssetExposure_Az": 0.1333,
+        "Score_ServiceDeficit_Hz": 0.4492
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.3342,
+              26.1411
+            ],
+            [
+              88.7742,
+              26.1411
+            ],
+            [
+              88.7742,
+              26.5411
+            ],
+            [
+              88.3342,
+              26.5411
+            ],
+            [
+              88.3342,
+              26.1411
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 59,
+        "DistrictName": "Panchagarh",
+        "Division": "Rangpur",
+        "AreaSqKm": 1404.6,
+        "Population": 1170000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 1170000,
+        "ExposedBuiltUpKm2_MidSSP585": 200.9,
+        "ExposedCroplandKm2_MidSSP585": 782.4,
+        "DistanceToHealthFacility_Km": 5.8,
+        "RoadDensityKmPerSqKm": 1.42,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.086,
+        "Score_AssetExposure_Az": 0.1015,
+        "Score_ServiceDeficit_Hz": 0.5443
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.2417,
+              25.8337
+            ],
+            [
+              88.6817,
+              25.8337
+            ],
+            [
+              88.6817,
+              26.2337
+            ],
+            [
+              88.2417,
+              26.2337
+            ],
+            [
+              88.2417,
+              25.8337
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 60,
+        "DistrictName": "Thakurgaon",
+        "Division": "Rangpur",
+        "AreaSqKm": 1809.5,
+        "Population": 1530000,
+        "Koppen_Baseline": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP245_2050": "Cwa (Temperate, Dry Winter, Hot Summer)",
+        "Koppen_SSP585_2050": "Aw (Tropical Savannah)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 1530000,
+        "ExposedBuiltUpKm2_MidSSP585": 282.3,
+        "ExposedCroplandKm2_MidSSP585": 992.68,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.47,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.0875,
+        "Score_AssetExposure_Az": 0.15,
+        "Score_ServiceDeficit_Hz": 0.4612
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.2003,
+              24.5471
+            ],
+            [
+              90.6403,
+              24.5471
+            ],
+            [
+              90.6403,
+              24.9471
+            ],
+            [
+              90.2003,
+              24.9471
+            ],
+            [
+              90.2003,
+              24.5471
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 61,
+        "DistrictName": "Mymensingh",
+        "Division": "Mymensingh",
+        "AreaSqKm": 4363.5,
+        "Population": 5890000,
+        "Koppen_Baseline": "Aw (Tropical Savannah)",
+        "Koppen_SSP245_2050": "Aw (Tropical Savannah)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 5890000,
+        "ExposedBuiltUpKm2_MidSSP585": 1191.2,
+        "ExposedCroplandKm2_MidSSP585": 2062.0,
+        "DistanceToHealthFacility_Km": 4.9,
+        "RoadDensityKmPerSqKm": 1.94,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1472,
+        "Score_AssetExposure_Az": 0.5016,
+        "Score_ServiceDeficit_Hz": 0.339
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.7178,
+              24.7375
+            ],
+            [
+              90.1578,
+              24.7375
+            ],
+            [
+              90.1578,
+              25.1375
+            ],
+            [
+              89.7178,
+              25.1375
+            ],
+            [
+              89.7178,
+              24.7375
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 62,
+        "DistrictName": "Jamalpur",
+        "Division": "Mymensingh",
+        "AreaSqKm": 2032.0,
+        "Population": 2490000,
+        "Koppen_Baseline": "Aw (Tropical Savannah)",
+        "Koppen_SSP245_2050": "Aw (Tropical Savannah)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2490000,
+        "ExposedBuiltUpKm2_MidSSP585": 422.7,
+        "ExposedCroplandKm2_MidSSP585": 1046.05,
+        "DistanceToHealthFacility_Km": 5.4,
+        "RoadDensityKmPerSqKm": 1.68,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1325,
+        "Score_AssetExposure_Az": 0.1877,
+        "Score_ServiceDeficit_Hz": 0.4238
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              90.5079,
+              24.6709
+            ],
+            [
+              90.9479,
+              24.6709
+            ],
+            [
+              90.9479,
+              25.0709
+            ],
+            [
+              90.5079,
+              25.0709
+            ],
+            [
+              90.5079,
+              24.6709
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 63,
+        "DistrictName": "Netrokona",
+        "Division": "Mymensingh",
+        "AreaSqKm": 2810.4,
+        "Population": 2320000,
+        "Koppen_Baseline": "Aw (Tropical Savannah)",
+        "Koppen_SSP245_2050": "Aw (Tropical Savannah)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 2320000,
+        "ExposedBuiltUpKm2_MidSSP585": 456.7,
+        "ExposedCroplandKm2_MidSSP585": 1529.91,
+        "DistanceToHealthFacility_Km": 5.7,
+        "RoadDensityKmPerSqKm": 1.5,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.0851,
+        "Score_AssetExposure_Az": 0.2668,
+        "Score_ServiceDeficit_Hz": 0.4753
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.7953,
+              24.8205
+            ],
+            [
+              90.2353,
+              24.8205
+            ],
+            [
+              90.2353,
+              25.2205
+            ],
+            [
+              89.7953,
+              25.2205
+            ],
+            [
+              89.7953,
+              24.8205
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "DistrictID": 64,
+        "DistrictName": "Sherpur",
+        "Division": "Mymensingh",
+        "AreaSqKm": 1363.8,
+        "Population": 1500000,
+        "Koppen_Baseline": "Aw (Tropical Savannah)",
+        "Koppen_SSP245_2050": "Aw (Tropical Savannah)",
+        "Koppen_SSP585_2050": "Am (Tropical Monsoon)",
+        "MidCentury_AgreementStatus": "Scenario Divergence (One Transitions, One Stable)",
+        "IsTransitioning_MidSSP585": 1,
+        "ExposedPop_MidSSP585": 1500000,
+        "ExposedBuiltUpKm2_MidSSP585": 230.5,
+        "ExposedCroplandKm2_MidSSP585": 736.64,
+        "DistanceToHealthFacility_Km": 5.6,
+        "RoadDensityKmPerSqKm": 1.53,
+        "Score_ClimateTransition_Cz": 1.0,
+        "Score_PopulationExposure_Pz": 0.1176,
+        "Score_AssetExposure_Az": 0.101,
+        "Score_ServiceDeficit_Hz": 0.4616
+      }
+    }
+  ]
+}

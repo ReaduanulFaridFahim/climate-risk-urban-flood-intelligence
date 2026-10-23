@@ -1,0 +1,49 @@
+version: "1.0"
+platform: "Bangladesh Climate Intelligence Platform (BCIP)"
+metadata:
+  organization: "Department of Computer Science & Engineering, North South University"
+  lead_researcher: "Readuanul Farid Fahim"
+  contact: "Readuanulfaridfahim1@gmail.com"
+  license: "MIT / CC BY 4.0"
+
+thematic_domains:
+  - "Climate & Weather"
+  - "Population & Demographics"
+  - "Agriculture & Food Security"
+  - "Forests & Ecosystems"
+  - "Infrastructure & Settlement"
+  - "Water & Hydrology"
+  - "Disasters & Risk"
+  - "Health & Nutrition"
+  - "Economy & Livelihoods"
+
+analytical_roles:
+  Core:
+    description: "Directly evaluates the primary climate transition research question."
+    criteria: "CMIP6 Köppen-Geiger bioclimatic classifications."
+  Exposure:
+    description: "Quantifies human population, built structures, or cropland overlapping transition zones."
+    criteria: "GHSL population and building surface, WorldPop, ESA WorldCover, MODIS Rice NDVI."
+  Context:
+    description: "Evaluates surrounding topographic, ecological, and lifeline infrastructure buffers."
+    criteria: "SRTM 30m elevation and slope, GEDI canopy height, ESA CCI biomass, HOTOSM lifelines."
+  Validation_Comparison:
+    description: "Checks results against independent empirical evidence or alternative products."
+    criteria: "JRC 40-year water dynamics, UNOSAT satellite SAR flood footprints, UN INFORM risk index."
+  Supplementary:
+    description: "Supports secondary sectoral monitoring without distorting core climate transition scoring."
+    criteria: "IBTrACS cyclone tracks, WFP food prices, WHO cholera surveillance, MAP malaria rate."
+  Excluded_From_Specific_Model:
+    description: "Formally documented and excluded to prevent scientific index contamination."
+    criteria: "Tectonic seismic hazard zones (zero physical link to atmospheric warming), outdated 2013 poverty models."
+
+file_paths:
+  master_catalog_csv: "data/processed/bcip_master_catalog.csv"
+  master_catalog_json: "data/processed/bcip_master_catalog.json"
+  transitions_summary_csv: "data/processed/bcip_climate_transitions_national_summary.csv"
+  transition_matrices_json: "data/processed/bcip_climate_transition_matrices.json"
+  district_transitions_csv: "data/processed/bcip_district_climate_transitions_and_exposure.csv"
+  scenario_agreement_csv: "data/processed/bcip_scenario_agreement_analysis.csv"
+  model_rankings_csv: "data/processed/bcip_model_comparison_and_rankings.csv"
+  spearman_correlations_json: "data/processed/bcip_spearman_rank_correlations.json"
+  district_geojson: "data/spatial/bcip_district_climate_transitions.geojson"

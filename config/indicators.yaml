@@ -1,0 +1,66 @@
+version: "1.0"
+platform: "Bangladesh Climate Intelligence Platform (BCIP)"
+
+models:
+  model_1:
+    name: "Model 1: Exposure-Only Baseline"
+    formula: "S_1 = 0.50 * P_z + 0.50 * A_z"
+    purpose: "Evaluates prioritization based strictly on human population and physical asset density."
+  model_2:
+    name: "Model 2: Hazard/Context-Only Baseline"
+    formula: "S_2 = 0.35 * WaterOcc + 0.35 * FloodTier + 0.15 * Depression + 0.15 * Slope"
+    purpose: "Evaluates prioritization based on historical empirical hydrology and topography."
+  model_3:
+    name: "Model 3: Climate-Transition-Only Baseline"
+    formula: "S_3 = C_z"
+    purpose: "Evaluates prioritization based solely on macro-climatic biome shift magnitude."
+  model_4:
+    name: "Model 4: Integrated BCIP Screening Framework"
+    formula: "S_4 = w_C * C_z + w_P * P_z + w_A * A_z + w_H * H_z"
+    purpose: "Multi-dimensional adaptation decision-support framework."
+
+default_weights:
+  w_C: 0.25  # Climate Transition Intensity
+  w_P: 0.25  # Population Density Exposure
+  w_A: 0.25  # Built Assets & Agrarian Cropland
+  w_H: 0.25  # Service Accessibility Deficit
+
+sensitivity_schemes:
+  balanced_equal:
+    wC: 0.25
+    wP: 0.25
+    wA: 0.25
+    wH: 0.25
+  climate_heavy:
+    wC: 0.50
+    wP: 0.20
+    wA: 0.20
+    wH: 0.10
+  exposure_heavy:
+    wC: 0.20
+    wP: 0.50
+    wA: 0.20
+    wH: 0.10
+  service_deficit:
+    wC: 0.20
+    wP: 0.20
+    wA: 0.20
+    wH: 0.40
+
+robustness_tiers:
+  tier_1:
+    name: "Tier 1: Highly Robust Priority"
+    definition: "Districts consistently ranked in the Top 18 across all four weighting configurations."
+    action: "Immediate multi-sectoral climate adaptation investment and pre-positioned relief."
+  tier_2:
+    name: "Tier 2: Climate-Sensitive Priority"
+    definition: "Districts whose priority surges primarily under high-emissions climate transitions."
+    action: "Long-term agrarian crop diversification and haor flash-flood protection."
+  tier_3:
+    name: "Tier 3: Exposure-Driven Priority"
+    definition: "High-density metropolitan hubs with lower macro-climatic shift."
+    action: "Urban stormwater drainage upgrades and heatwave mitigation."
+  tier_4:
+    name: "Tier 4: Stable Moderate / Lower Urgency"
+    definition: "Districts with stable bioclimatic regimes and sufficient coping capacity."
+    action: "Baseline surveillance and ecosystem preservation."

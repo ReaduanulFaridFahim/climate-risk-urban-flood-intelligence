@@ -1,0 +1,48 @@
+version: "1.0"
+platform: "Bangladesh Climate Intelligence Platform (BCIP)"
+scenario_framework: "CMIP6 (Coupled Model Intercomparison Project Phase 6)"
+provider: "Beck et al. (2023), Scientific Data"
+
+baseline:
+  id: "baseline_1991_2020"
+  period: "1991-2020"
+  type: "Observed 30-Year Climatological Normal"
+  spatial_resolution: "0.00833 deg (~1 km)"
+  crs: "EPSG:4326 (WGS 84)"
+
+scenarios:
+  ssp245_2050:
+    id: "ssp245_2041_2070"
+    name: "SSP2-4.5 (2041-2070)"
+    forcing: "+4.5 W/m² by 2100"
+    description: "Moderate emissions pathway / Middle of the road."
+    resampling_method: "Nearest Neighbour (Categorical Class Integrity)"
+  ssp585_2050:
+    id: "ssp585_2041_2070"
+    name: "SSP5-8.5 (2041-2070)"
+    forcing: "+8.5 W/m² by 2100"
+    description: "High emissions pathway / Fossil-fueled development."
+    resampling_method: "Nearest Neighbour"
+
+
+bioclimatic_classes:
+  4:
+    code: "Am"
+    name: "Tropical Monsoon"
+    color: "#2563eb"
+    description: "High annual precipitation with short dry season."
+  5:
+    code: "Aw"
+    name: "Tropical Savannah"
+    color: "#38bdf8"
+    description: "Distinct pronounced winter dry season."
+  14:
+    code: "Cwa"
+    name: "Temperate, Dry Winter, Hot Summer"
+    color: "#22c55e"
+    description: "Subtropical highland regime historically present in northern/northeastern Bangladesh."
+  15:
+    code: "Cwb"
+    name: "Temperate, Dry Winter, Warm Summer"
+    color: "#15803d"
+    description: "High-altitude montane temperate zone in southeastern hill tracts."

@@ -1,0 +1,341 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-23T13:01:48Z",
+    "climate_horizons": "Mid-Century 2041-2070 (No 2090 projections)",
+    "spatial_layers_evaluated": 49,
+    "districts_evaluated": 64,
+    "urban_wards_evaluated": 41,
+    "champion_urban_model": "Ridge Regression",
+    "champion_nationwide_model": "Simplex Blended SuperLearner"
+  },
+  "urban_models": {
+    "Baseline Dummy Mean": {
+      "train_r2": 0.0,
+      "cv_10f_r2_mean": -0.0211,
+      "test_r2": -0.4945,
+      "test_r2_ci_95": [
+        -0.8104,
+        -0.2682
+      ],
+      "test_rmse": 15.8174,
+      "test_rmse_ci_95": [
+        13.8572,
+        17.7721
+      ],
+      "test_mae": 12.6344,
+      "inference_latency_us": 32.5
+    },
+    "Ridge Regression": {
+      "train_r2": 0.9278,
+      "cv_10f_r2_mean": 0.9133,
+      "test_r2": 0.8325,
+      "test_r2_ci_95": [
+        0.7761,
+        0.8705
+      ],
+      "test_rmse": 5.296,
+      "test_rmse_ci_95": [
+        4.8473,
+        5.7216
+      ],
+      "test_mae": 4.6575,
+      "inference_latency_us": 148.6
+    },
+    "ElasticNet": {
+      "train_r2": 0.9089,
+      "cv_10f_r2_mean": 0.9022,
+      "test_r2": 0.816,
+      "test_r2_ci_95": [
+        0.7464,
+        0.8633
+      ],
+      "test_rmse": 5.5497,
+      "test_rmse_ci_95": [
+        5.037,
+        6.0298
+      ],
+      "test_mae": 4.7253,
+      "inference_latency_us": 97.6
+    },
+    "XGBoost (Monotonic)": {
+      "train_r2": 0.9681,
+      "cv_10f_r2_mean": 0.9163,
+      "test_r2": 0.8074,
+      "test_r2_ci_95": [
+        0.7356,
+        0.8558
+      ],
+      "test_rmse": 5.6776,
+      "test_rmse_ci_95": [
+        5.1069,
+        6.2799
+      ],
+      "test_mae": 4.8112,
+      "inference_latency_us": 88.1
+    },
+    "LightGBM Regressor": {
+      "train_r2": 0.9702,
+      "cv_10f_r2_mean": 0.9159,
+      "test_r2": 0.8175,
+      "test_r2_ci_95": [
+        0.7598,
+        0.8574
+      ],
+      "test_rmse": 5.5271,
+      "test_rmse_ci_95": [
+        4.9518,
+        6.1078
+      ],
+      "test_mae": 4.6348,
+      "inference_latency_us": 179.6
+    },
+    "HistGradientBoosting": {
+      "train_r2": 0.9867,
+      "cv_10f_r2_mean": 0.9091,
+      "test_r2": 0.7964,
+      "test_r2_ci_95": [
+        0.7353,
+        0.8439
+      ],
+      "test_rmse": 5.8385,
+      "test_rmse_ci_95": [
+        5.0785,
+        6.5666
+      ],
+      "test_mae": 4.6996,
+      "inference_latency_us": 97.5
+    },
+    "Extra Trees Regressor": {
+      "train_r2": 0.9449,
+      "cv_10f_r2_mean": 0.9051,
+      "test_r2": 0.7562,
+      "test_r2_ci_95": [
+        0.669,
+        0.8104
+      ],
+      "test_rmse": 6.3886,
+      "test_rmse_ci_95": [
+        5.8248,
+        6.9309
+      ],
+      "test_mae": 5.4511,
+      "inference_latency_us": 724.3
+    },
+    "Random Forest": {
+      "train_r2": 0.9608,
+      "cv_10f_r2_mean": 0.9074,
+      "test_r2": 0.6743,
+      "test_r2_ci_95": [
+        0.5944,
+        0.7391
+      ],
+      "test_rmse": 7.3842,
+      "test_rmse_ci_95": [
+        6.5415,
+        8.269
+      ],
+      "test_mae": 6.0127,
+      "inference_latency_us": 830.9
+    },
+    "Deep MLP Neural Network": {
+      "train_r2": 0.9643,
+      "cv_10f_r2_mean": 0.8864,
+      "test_r2": 0.1204,
+      "test_r2_ci_95": [
+        -0.2433,
+        0.3458
+      ],
+      "test_rmse": 12.1344,
+      "test_rmse_ci_95": [
+        11.0724,
+        13.1866
+      ],
+      "test_mae": 10.4791,
+      "inference_latency_us": 68.8
+    },
+    "Stacking Meta-Ensemble": {
+      "train_r2": 0.9654,
+      "cv_10f_r2_mean": 0.812,
+      "test_r2": 0.8187,
+      "test_r2_ci_95": [
+        0.7502,
+        0.8639
+      ],
+      "test_rmse": 5.5092,
+      "test_rmse_ci_95": [
+        4.9805,
+        6.0439
+      ],
+      "test_mae": 4.6782,
+      "inference_latency_us": 120.5
+    },
+    "Simplex Blended SuperLearner": {
+      "train_r2": 0.8842,
+      "cv_10f_r2_mean": 0.8235,
+      "test_r2": 0.807,
+      "test_r2_ci_95": [
+        0.737,
+        0.8538
+      ],
+      "test_rmse": 5.6841,
+      "test_rmse_ci_95": [
+        5.131,
+        6.2563
+      ],
+      "test_mae": 4.8241,
+      "inference_latency_us": 95.0
+    }
+  },
+  "nationwide_models": {
+    "Baseline Dummy Mean": {
+      "cv_10f_r2_mean": -0.2215,
+      "cv_10f_r2_std": 0.3161,
+      "oof_r2": -0.0212,
+      "r2_ci_95": [
+        -0.1088,
+        -0.0105
+      ],
+      "oof_rmse": 5.8082,
+      "rmse_ci_95": [
+        4.4855,
+        7.0253
+      ],
+      "cv_10f_mae_mean": 4.4711
+    },
+    "Ridge Regression": {
+      "cv_10f_r2_mean": 0.866,
+      "cv_10f_r2_std": 0.1174,
+      "oof_r2": 0.8453,
+      "r2_ci_95": [
+        0.7203,
+        0.9677
+      ],
+      "oof_rmse": 2.2609,
+      "rmse_ci_95": [
+        0.9188,
+        3.3923
+      ],
+      "cv_10f_mae_mean": 1.1232
+    },
+    "ElasticNet": {
+      "cv_10f_r2_mean": 0.9259,
+      "cv_10f_r2_std": 0.0968,
+      "oof_r2": 0.9005,
+      "r2_ci_95": [
+        0.7798,
+        0.9747
+      ],
+      "oof_rmse": 1.8127,
+      "rmse_ci_95": [
+        0.7688,
+        2.8383
+      ],
+      "cv_10f_mae_mean": 0.8876
+    },
+    "XGBoost (Spatial)": {
+      "cv_10f_r2_mean": 0.9861,
+      "cv_10f_r2_std": 0.0115,
+      "oof_r2": 0.9873,
+      "r2_ci_95": [
+        0.9799,
+        0.9936
+      ],
+      "oof_rmse": 0.6473,
+      "rmse_ci_95": [
+        0.4276,
+        0.8528
+      ],
+      "cv_10f_mae_mean": 0.3867
+    },
+    "LightGBM Regressor": {
+      "cv_10f_r2_mean": 0.7177,
+      "cv_10f_r2_std": 0.1618,
+      "oof_r2": 0.7981,
+      "r2_ci_95": [
+        0.7366,
+        0.8441
+      ],
+      "oof_rmse": 2.5824,
+      "rmse_ci_95": [
+        1.9932,
+        3.1931
+      ],
+      "cv_10f_mae_mean": 1.9603
+    },
+    "HistGradientBoosting": {
+      "cv_10f_r2_mean": 0.9935,
+      "cv_10f_r2_std": 0.004,
+      "oof_r2": 0.9934,
+      "r2_ci_95": [
+        0.9885,
+        0.9971
+      ],
+      "oof_rmse": 0.4667,
+      "rmse_ci_95": [
+        0.2788,
+        0.6243
+      ],
+      "cv_10f_mae_mean": 0.254
+    },
+    "Extra Trees Regressor": {
+      "cv_10f_r2_mean": 0.8318,
+      "cv_10f_r2_std": 0.1639,
+      "oof_r2": 0.8594,
+      "r2_ci_95": [
+        0.7698,
+        0.9395
+      ],
+      "oof_rmse": 2.1549,
+      "rmse_ci_95": [
+        1.2631,
+        2.9985
+      ],
+      "cv_10f_mae_mean": 1.3082
+    },
+    "Random Forest": {
+      "cv_10f_r2_mean": 0.8767,
+      "cv_10f_r2_std": 0.0851,
+      "oof_r2": 0.8977,
+      "r2_ci_95": [
+        0.8523,
+        0.9345
+      ],
+      "oof_rmse": 1.8386,
+      "rmse_ci_95": [
+        1.2634,
+        2.3847
+      ],
+      "cv_10f_mae_mean": 1.2119
+    },
+    "Gradient Boosting (GBR)": {
+      "cv_10f_r2_mean": 0.9933,
+      "cv_10f_r2_std": 0.0065,
+      "oof_r2": 0.9955,
+      "r2_ci_95": [
+        0.9917,
+        0.9977
+      ],
+      "oof_rmse": 0.3868,
+      "rmse_ci_95": [
+        0.2763,
+        0.496
+      ],
+      "cv_10f_mae_mean": 0.2331
+    },
+    "Simplex Blended SuperLearner": {
+      "cv_10f_r2_mean": 0.9963,
+      "cv_10f_r2_std": 0.0245,
+      "oof_r2": 0.9963,
+      "r2_ci_95": [
+        0.9934,
+        0.9983
+      ],
+      "oof_rmse": 0.3483,
+      "rmse_ci_95": [
+        0.223,
+        0.455
+      ],
+      "cv_10f_mae_mean": 0.2012
+    }
+  }
+}

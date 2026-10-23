@@ -1,0 +1,65 @@
+DistrictID,DistrictName,Division,Latitude,Longitude,AreaSqKm,Population,MeanElevationM,MeanSlopeDeg,BaselineImperviousRatio,DistanceToMajorRiverKm,MajorRiverBasin,TerrainClass,GeographicZone,JRC_WaterOccurrencePct,Meta_RWI_WealthIndex,GHSL_BuiltUpExpansionPct,HOTOSM_HealthFacilityCount,HOTOSM_RoadDensityKmPerSqKm,KoppenClimateClass
+1,Dhaka,Dhaka,23.8103,90.4125,1463.6,12518000,6.5,1.2,0.88,1.2,Buriganga-Meghna,Urban Delta Megacity,Active Floodplain,51.6,1.64,54.2,391,3.26,Am (Tropical Monsoon)
+2,Gazipur,Dhaka,24.0023,90.4264,1806.4,3890000,14.0,2.1,0.62,3.5,Turag-Balu,Industrial Lowland Corridor,Pleistocene Terrace,46.9,1.06,41.8,122,2.54,Am (Tropical Monsoon)
+3,Narayanganj,Dhaka,23.6238,90.5,684.4,3900000,5.5,1.0,0.78,0.8,Shitalakshya-Meghna,Riverine Industrial Basin,Active Floodplain,52.2,1.42,49.4,122,2.98,Am (Tropical Monsoon)
+4,Tangail,Dhaka,24.2513,89.9167,3414.4,4030000,11.5,1.5,0.35,2.0,Jamuna-Dhaleshwari,Riverine Floodplain,Active Floodplain,49.0,0.47,28.8,126,1.78,Am (Tropical Monsoon)
+5,Kishoreganj,Dhaka,24.4449,90.7766,2688.6,3260000,7.0,0.8,0.28,1.5,Old Brahmaputra-Meghna,Haor Fringe Lowland,Haor Basin,51.2,0.32,25.4,102,1.58,Am (Tropical Monsoon)
+6,Manikganj,Dhaka,23.8617,90.0003,1383.7,1550000,6.0,0.9,0.3,1.0,Padma-Dhaleshwari,Low-Lying Inundation Basin,Active Floodplain,51.9,0.36,26.4,48,1.64,Am (Tropical Monsoon)
+7,Munshiganj,Dhaka,23.5422,90.5305,1004.4,1620000,4.5,0.7,0.38,0.5,Padma-Meghna Confluence,Active Estuarine Plain,Active Floodplain,52.8,0.54,30.2,51,1.86,Am (Tropical Monsoon)
+8,Narsingdi,Dhaka,23.9322,90.7154,1150.1,2400000,9.5,1.2,0.42,1.8,Meghna Basin,Industrial Agricultural Plain,Active Floodplain,49.9,0.62,32.2,75,1.98,Am (Tropical Monsoon)
+9,Faridpur,Dhaka,23.6071,89.8429,2072.7,2160000,7.5,0.8,0.32,1.1,Padma Riverbank,Riparian Floodplain,Active Floodplain,51.2,0.4,27.4,68,1.7,Am (Tropical Monsoon)
+10,Gopalganj,Dhaka,23.0051,89.8266,1490.0,1290000,3.8,0.5,0.25,0.9,Madhumati Basin,Peat Wetland Depression,Beel & Depression,52.8,0.25,24.0,40,1.5,Am (Tropical Monsoon)
+11,Madaripur,Dhaka,23.1641,90.1897,1144.9,1290000,4.2,0.6,0.28,0.7,Padma-Arial Khan,Tidal Riparian Lowland,Active Floodplain,52.8,0.32,25.4,40,1.58,Am (Tropical Monsoon)
+12,Rajbari,Dhaka,23.7574,89.6445,1118.8,1180000,8.5,1.0,0.26,0.8,Padma Embankment,Riverbank Erosion Vulnerable,Active Floodplain,51.0,0.27,24.5,37,1.53,Am (Tropical Monsoon)
+13,Shariatpur,Dhaka,23.2423,90.4348,1181.5,1250000,4.0,0.5,0.26,0.5,Padma-Meghna Basin,Char & Channel Network,Active Floodplain,53.0,0.27,24.5,39,1.53,Am (Tropical Monsoon)
+14,Chattogram,Chattogram,22.3569,91.7832,5283.0,9169000,12.0,3.5,0.72,0.8,Karnaphuli River,Coastal Commercial Port Delta,Coastal Belt,49.6,1.08,46.6,287,2.82,Am (Tropical Monsoon)
+15,Cox's Bazar,Chattogram,21.4272,92.0058,2491.9,2820000,8.5,4.2,0.45,0.2,Bakkhali-Matamuhuri,Coastal Marine & Estuarine,Coastal Belt,51.5,0.49,33.6,88,2.06,Am (Tropical Monsoon)
+16,Cumilla,Chattogram,23.4607,91.1809,3146.3,6210000,8.0,1.1,0.48,1.4,Gumti River,Transboundary Flash Basin,Active Floodplain,50.8,0.56,35.0,194,2.14,Am (Tropical Monsoon)
+17,Feni,Chattogram,23.0159,91.3976,928.3,1640000,6.2,0.9,0.42,0.8,Feni-Muhuri River,Muhuri Estuary & Flood Basin,Active Floodplain,52.0,0.42,32.2,51,1.98,Am (Tropical Monsoon)
+18,Brahmanbaria,Chattogram,23.9571,91.1119,1927.1,3300000,6.8,0.8,0.35,1.2,Titas-Meghna,Haor-River Floodplain,Haor Basin,51.4,0.27,28.8,103,1.78,Am (Tropical Monsoon)
+19,Noakhali,Chattogram,22.8696,91.0994,4202.7,3620000,3.5,0.4,0.38,0.4,Meghna Estuary,Active Coastal Accretion Plain,Coastal Belt,53.3,0.34,30.2,113,1.86,Am (Tropical Monsoon)
+20,Lakshmipur,Chattogram,22.9425,90.8412,1455.9,1930000,3.8,0.5,0.34,0.5,Meghna Estuary,Estuarine Tidal Lowland,Coastal Belt,53.1,0.25,28.3,60,1.75,Am (Tropical Monsoon)
+21,Chandpur,Chattogram,23.2333,90.6667,1704.1,2630000,4.8,0.6,0.42,0.3,Padma-Meghna Confluence,High-Risk Erosion Delta,Active Floodplain,52.9,0.42,32.2,82,1.98,Am (Tropical Monsoon)
+22,Khagrachhari,Chattogram,23.1193,91.9847,2699.5,714000,95.0,14.5,0.18,5.0,Chengi-Maini River,Piedmont & Valleys,Hill Tracts,32.0,-0.1,20.6,22,1.3,Am (Tropical Monsoon)
+23,Rangamati,Chattogram,22.7324,92.2985,6116.1,650000,140.0,18.2,0.15,6.5,Karnafuli-Kaptai Basin,Hilly Forest Catchment,Hill Tracts,30.9,-0.17,19.2,20,1.22,Am (Tropical Monsoon)
+24,Bandarban,Chattogram,22.1953,92.2184,4479.0,480000,210.0,22.0,0.12,7.0,Sangu-Matamuhuri,Rugged Mountainous Watershed,Hill Tracts,30.6,-0.24,17.8,15,1.14,Am (Tropical Monsoon)
+25,Sylhet,Sylhet,24.8949,91.8687,3490.4,3850000,16.0,2.5,0.52,1.0,Surma-Kushiyara,Transboundary Flash Flood Corridor,Haor Basin,47.9,0.54,37.0,120,2.26,Am (Tropical Monsoon)
+26,Sunamganj,Sylhet,25.0658,91.395,3670.0,2700000,4.2,0.5,0.22,0.6,Surma-Baulai-Kalni,Deep Haor Wetland Depression,Haor Basin,52.9,-0.12,22.6,84,1.42,Am (Tropical Monsoon)
+27,Moulvibazar,Sylhet,24.4829,91.7774,2799.4,2120000,18.0,3.2,0.32,2.2,Manu-Dholai Basin,Tea Foothills & Haor Wetland,Haor Basin,46.3,0.1,27.4,66,1.7,Am (Tropical Monsoon)
+28,Habiganj,Sylhet,24.375,91.4167,2636.6,2350000,9.0,1.2,0.29,1.4,Khowai-Kushiyara,Flash Runoff Depression Basin,Haor Basin,50.4,0.04,25.9,73,1.61,Am (Tropical Monsoon)
+29,Barishal,Barishal,22.701,90.3535,2790.5,2570000,2.8,0.3,0.45,0.4,Kirtankhola-Meghna,Tidal Riverine Lowland,Coastal Belt,53.6,0.09,33.6,80,2.06,Am (Tropical Monsoon)
+30,Bhola,Barishal,22.6859,90.6481,3737.2,1930000,2.1,0.2,0.28,0.2,Meghna Estuary / Bay,Island Estuarine Floodplain,Coastal Belt,54.0,-0.28,25.4,60,1.58,Am (Tropical Monsoon)
+31,Patuakhali,Barishal,22.3596,90.3298,3220.2,1720000,2.0,0.2,0.25,0.3,Lauhajang-Andharmanik,Coastal Barrier Tidal Plain,Coastal Belt,54.0,-0.35,24.0,54,1.5,Am (Tropical Monsoon)
+32,Pirojpur,Barishal,22.5841,89.972,1307.6,1200000,2.5,0.3,0.3,0.4,Baleshwar-Sandhya,Tidal Khals & Mangrove Fringe,Coastal Belt,53.7,-0.24,26.4,38,1.64,Am (Tropical Monsoon)
+33,Barguna,Barishal,22.1587,90.1256,1831.3,1010000,1.8,0.2,0.24,0.2,Payra-Bishkhali,Storm Surge Inundation Front,Coastal Belt,54.1,-0.37,23.5,32,1.47,Am (Tropical Monsoon)
+34,Jhalokati,Barishal,22.6406,90.1987,758.1,680000,2.9,0.3,0.32,0.5,Sugandha-Dhaleshwari,Dense Canal Network Lowland,Coastal Belt,53.5,-0.2,27.4,21,1.7,Am (Tropical Monsoon)
+35,Khulna,Khulna,22.8456,89.5403,4394.5,2610000,3.2,0.4,0.58,0.6,Rupsha-Pasur Basin,Tidal Estuary & Port Zone,Coastal Belt,53.3,0.58,39.8,82,2.42,Am (Tropical Monsoon)
+36,Bagerhat,Khulna,22.6516,89.7859,3959.1,1610000,2.6,0.3,0.3,0.5,Pashur-Baleshwar,Sundarbans Ecotone Lowland,Coastal Belt,53.6,-0.04,26.4,50,1.64,Am (Tropical Monsoon)
+37,Satkhira,Khulna,22.7185,89.0705,3858.3,2190000,3.0,0.4,0.32,0.7,Kobadak-Ichamati,Saline Inundation Floodplain,Coastal Belt,53.3,0.0,27.4,68,1.7,Am (Tropical Monsoon)
+38,Jashore,Khulna,23.1664,89.2081,2570.4,3070000,8.5,0.9,0.42,2.0,Bhairab River,Mature Moribund Delta,Pleistocene Terrace,50.2,0.22,32.2,96,1.98,Am (Tropical Monsoon)
+39,Jhenaidah,Khulna,23.5448,89.1539,1941.4,2000000,11.0,1.0,0.32,2.5,Kumar-Nabaganga,Alluvial Moribund Plain,Active Floodplain,48.9,0.0,27.4,62,1.7,Am (Tropical Monsoon)
+40,Kushtia,Khulna,23.9013,89.1204,1621.2,2140000,13.5,1.2,0.38,1.2,Padma-Gorai Basin,Gorai Intake & Riparian Zone,Active Floodplain,48.8,0.14,30.2,67,1.86,Am (Tropical Monsoon)
+41,Magura,Khulna,23.4873,89.4199,1049.0,1030000,7.8,0.8,0.28,1.5,Gorai-Madhumati,Alluvial Lowland,Active Floodplain,50.8,-0.08,25.4,32,1.58,Am (Tropical Monsoon)
+42,Meherpur,Khulna,23.7725,88.6318,716.1,705000,15.0,1.2,0.25,3.0,Bhairab-Mathabhanga,Elevated Deltaic Plain,Pleistocene Terrace,46.9,-0.15,24.0,22,1.5,Am (Tropical Monsoon)
+43,Narail,Khulna,23.1725,89.5127,990.2,780000,6.2,0.7,0.29,1.1,Chitra-Nabaganga,Beel & Low Alluvial Basin,Beel & Depression,51.8,-0.06,25.9,24,1.61,Am (Tropical Monsoon)
+44,Chuadanga,Khulna,23.6402,88.8418,1172.9,1230000,14.2,1.1,0.32,2.8,Mathabhanga Basin,Deltaic Plain,Pleistocene Terrace,47.4,0.0,27.4,38,1.7,Am (Tropical Monsoon)
+45,Rajshahi,Rajshahi,24.3636,88.6241,2407.0,2910000,19.5,2.2,0.48,0.8,Padma Northern Bank,Barind Elevated Basin,Barind Tract,46.6,0.21,35.0,91,2.14,"Cwa (Temperate, Dry Winter, Hot Summer)"
+46,Bogura,Rajshahi,24.8465,89.3777,2919.9,3830000,17.0,1.8,0.45,2.5,Karatoya-Jamuna,Barind-Alluvial Ecotone,Barind Tract,46.5,0.14,33.6,120,2.06,"Cwa (Temperate, Dry Winter, Hot Summer)"
+47,Pabna,Rajshahi,24.0064,89.2372,2371.5,2900000,11.2,1.1,0.38,0.9,Padma-Jamuna Junction,Transboundary Lowland Basin,Active Floodplain,49.9,-0.01,30.2,91,1.86,"Cwa (Temperate, Dry Winter, Hot Summer)"
+48,Sirajganj,Rajshahi,24.4534,89.7008,2497.9,3540000,9.8,0.9,0.36,0.5,Jamuna Main Channel,Extreme Riverbank Inundation,Active Floodplain,50.7,-0.06,29.3,111,1.81,"Cwa (Temperate, Dry Winter, Hot Summer)"
+49,Naogaon,Rajshahi,24.7936,88.9318,3435.7,2780000,22.0,2.0,0.28,3.5,Atrai Basin,Barind Heavy Clay Lowland,Barind Tract,43.8,-0.23,25.4,87,1.58,"Cwa (Temperate, Dry Winter, Hot Summer)"
+50,Natore,Rajshahi,24.4206,89.0003,1896.1,1850000,10.5,1.0,0.31,1.2,Chalan Beel Catchment,Chalan Beel Wetland Core,Beel & Depression,50.0,-0.17,26.9,58,1.67,"Cwa (Temperate, Dry Winter, Hot Summer)"
+51,Chapai Nawabganj,Rajshahi,24.5965,88.2775,1702.6,1830000,21.0,2.4,0.32,1.0,Padma-Mahananda,Barind River Border,Barind Tract,45.9,-0.15,27.4,57,1.7,"Cwa (Temperate, Dry Winter, Hot Summer)"
+52,Joypurhat,Rajshahi,25.1015,89.0277,965.4,990000,24.0,2.2,0.26,4.0,Jamuna (Choto Jamuna),Barind Plain,Barind Tract,42.6,-0.28,24.5,31,1.53,"Cwa (Temperate, Dry Winter, Hot Summer)"
+53,Rangpur,Rangpur,25.7439,89.2752,2307.7,3160000,32.0,2.5,0.44,2.2,Teesta-Ghaghat,Tista Alluvial Fan,Active Floodplain,40.7,-0.08,33.1,99,2.03,"Cwa (Temperate, Dry Winter, Hot Summer)"
+54,Dinajpur,Rangpur,25.6217,88.6355,3438.0,3310000,38.0,3.1,0.35,4.0,Punarbhaba-Dhepa,Old Himalayan Piedmont Plain,Pleistocene Terrace,37.0,-0.28,28.8,103,1.78,"Cwa (Temperate, Dry Winter, Hot Summer)"
+55,Gaibandha,Rangpur,25.3288,89.5404,2179.3,2560000,19.0,1.2,0.28,0.6,Brahmaputra-Teesta,Active Char Flood Basin,Active Floodplain,47.0,-0.43,25.4,80,1.58,"Cwa (Temperate, Dry Winter, Hot Summer)"
+56,Kurigram,Rangpur,25.8054,89.6362,2296.1,2320000,22.0,1.3,0.25,0.4,Brahmaputra-Dharla-Dudh,Transboundary Inundation Front,Active Floodplain,45.9,-0.5,24.0,72,1.5,"Cwa (Temperate, Dry Winter, Hot Summer)"
+57,Lalmonirhat,Rangpur,25.9923,89.2847,1241.5,1420000,31.0,2.0,0.26,0.5,Teesta-Dharla Corridor,Flash Spilling Floodplain,Active Floodplain,42.2,-0.48,24.5,44,1.53,"Cwa (Temperate, Dry Winter, Hot Summer)"
+58,Nilphamari,Rangpur,25.9318,88.856,1580.9,2090000,39.0,2.8,0.32,2.5,Teesta Barrage Area,Himalayan Piedmont Lowland,Pleistocene Terrace,37.6,-0.35,27.4,65,1.7,"Cwa (Temperate, Dry Winter, Hot Summer)"
+59,Panchagarh,Rangpur,26.3411,88.5542,1404.6,1170000,55.0,3.8,0.22,3.5,Korotoa-Mahananda,Northern High Piedmont,Pleistocene Terrace,33.0,-0.57,22.6,37,1.42,"Cwa (Temperate, Dry Winter, Hot Summer)"
+60,Thakurgaon,Rangpur,26.0337,88.4617,1809.5,1530000,48.0,3.2,0.24,3.8,Tangon-Kulic Basin,Upper Piedmont Alluvium,Pleistocene Terrace,33.1,-0.52,23.5,48,1.47,"Cwa (Temperate, Dry Winter, Hot Summer)"
+61,Mymensingh,Mymensingh,24.7471,90.4203,4363.5,5890000,16.0,1.8,0.42,1.2,Old Brahmaputra,Alluvial Riverine Basin,Active Floodplain,47.8,-0.03,32.2,184,1.98,Aw (Tropical Savannah)
+62,Jamalpur,Mymensingh,24.9375,89.9378,2032.0,2490000,14.5,1.4,0.32,0.8,Jamuna Eastern Bank,High-Risk Flooding Floodplain,Active Floodplain,48.6,-0.25,27.4,78,1.7,Aw (Tropical Savannah)
+63,Netrokona,Mymensingh,24.8709,90.7279,2810.4,2320000,8.5,0.9,0.25,0.8,Kangsha-Dhanu Haor,Eastern Haor Depression,Haor Basin,51.0,-0.4,24.0,72,1.5,Aw (Tropical Savannah)
+64,Sherpur,Mymensingh,25.0205,90.0153,1363.8,1500000,22.0,4.5,0.26,2.0,Bhogai-Kongsho Watershed,Garo Foothills Flash Basin,Active Floodplain,44.8,-0.38,24.5,47,1.53,Aw (Tropical Savannah)

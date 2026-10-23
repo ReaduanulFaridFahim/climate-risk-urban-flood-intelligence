@@ -1,0 +1,1621 @@
+{
+  "metadata": {
+    "title": "Bangladesh Multi-Hazard & Climate Intelligence 111-Dataset Registry",
+    "version": "2.0.0",
+    "curator": "Department of Computer Science & Engineering, North South University",
+    "lead_researcher": "Readuanul Farid Fahim",
+    "total_datasets": 111,
+    "core_spatial_layers_count": 49,
+    "external_hdx_datasets_count": 62,
+    "categories": [
+      "Climate & Weather",
+      "Water & Hydrology",
+      "Forests & Biodiversity",
+      "Land Use & Land Cover",
+      "Disasters & Risk",
+      "Population & Demographics",
+      "Economy & Livelihoods",
+      "Energy & Infrastructure",
+      "Health & Nutrition",
+      "Education",
+      "Urban & WASH",
+      "Geospatial & Boundaries"
+    ]
+  },
+  "spatial_layers": [
+    {
+      "id": "koppen_baseline_1991_2020",
+      "title": "K\u00f6ppen-Geiger Climate Classification \u00b7 Baseline (1991-2020)",
+      "type": "Spatial Raster",
+      "provider": "Beck et al. (2023)",
+      "theme": "Climate & Weather",
+      "resolution": "0.00833 deg (~1 km)",
+      "temporal_range": "1991-2020",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Am: Tropical monsoon (blue)",
+        "Aw: Tropical savannah (light blue)",
+        "Cwa: Temperate dry winter hot summer (light green)",
+        "Cwb: Temperate dry winter warm summer (green)"
+      ],
+      "how_to_read": "Each pixel is the dominant K\u00f6ppen-Geiger climate class at ~1 km clipped to Bangladesh.",
+      "applications": "Climate-risk screening, crop/water/heat adaptation planning, mapping fastest-changing climate zones.",
+      "integration_role": "Baseline climate zone stratification for district hazard modeling."
+    },
+    {
+      "id": "koppen_ssp245_2041_2070",
+      "title": "K\u00f6ppen-Geiger Climate Classification \u00b7 SSP2-4.5 (2041-2070)",
+      "type": "Spatial Raster",
+      "provider": "Beck et al. (2023)",
+      "theme": "Climate & Weather",
+      "resolution": "0.00833 deg (~1 km)",
+      "temporal_range": "2041-2070",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Am: Tropical monsoon",
+        "Aw: Tropical savannah",
+        "Cwa: Temperate dry winter hot summer",
+        "Cwb: Temperate dry winter warm summer"
+      ],
+      "how_to_read": "Mid-century projection under moderate emissions scenario (SSP2-4.5) showing tropical monsoon expansion.",
+      "applications": "Mid-term adaptation planning, agrarian water budgeting, extreme heat mitigation.",
+      "integration_role": "Future projection scenario driver for 2040-2050 district vulnerability."
+    },
+    {
+      "id": "koppen_ssp585_2041_2070",
+      "title": "K\u00f6ppen-Geiger Climate Classification \u00b7 SSP5-8.5 (2041-2070)",
+      "type": "Spatial Raster",
+      "provider": "Beck et al. (2023)",
+      "theme": "Climate & Weather",
+      "resolution": "0.00833 deg (~1 km)",
+      "temporal_range": "2041-2070",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Am: Tropical monsoon",
+        "Aw: Tropical savannah",
+        "Cwa: Temperate dry winter hot summer",
+        "Cwb: Temperate dry winter warm summer"
+      ],
+      "how_to_read": "Mid-century high-emissions projection (SSP5-8.5) showing sharp contraction of temperate highland pockets.",
+      "applications": "Worst-case risk assessment, climate displacement projections, infrastructure resilience.",
+      "integration_role": "High-risk stress testing for national infrastructure portfolios."
+    },
+    {
+      "id": "koppen_ssp245_2071_2099",
+      "title": "K\u00f6ppen-Geiger Climate Classification \u00b7 SSP2-4.5 (2071-2099)",
+      "type": "Spatial Raster",
+      "provider": "Beck et al. (2023)",
+      "theme": "Climate & Weather",
+      "resolution": "0.00833 deg (~1 km)",
+      "temporal_range": "2071-2099",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Am: Tropical monsoon",
+        "Aw: Tropical savannah",
+        "Cwa: Temperate dry winter hot summer"
+      ],
+      "how_to_read": "Late-century moderate projection tracking permanent shifts in monsoon seasonality.",
+      "applications": "Long-term master planning, coastal zone embankment life-cycle design.",
+      "integration_role": "Century-scale climate shift reference."
+    },
+    {
+      "id": "koppen_ssp585_2071_2099",
+      "title": "K\u00f6ppen-Geiger Climate Classification \u00b7 SSP5-8.5 (2071-2099)",
+      "type": "Spatial Raster",
+      "provider": "Beck et al. (2023)",
+      "theme": "Climate & Weather",
+      "resolution": "0.00833 deg (~1 km)",
+      "temporal_range": "2071-2099",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Am: Tropical monsoon",
+        "Aw: Tropical savannah",
+        "Cwa: Temperate dry winter hot summer"
+      ],
+      "how_to_read": "Late-century extreme warming projection showing near-total tropicalization of northern Bangladesh.",
+      "applications": "National adaptation strategy (NAP 2050-2100) and delta plan calibration.",
+      "integration_role": "Delta Plan 2100 boundary condition modeling."
+    },
+    {
+      "id": "tree_cover_gfc_2000",
+      "title": "Tree cover (GFC) 2000",
+      "type": "Spatial Raster",
+      "provider": "Hansen GFC v1.13 (UMD)",
+      "theme": "Forests & Biodiversity",
+      "resolution": "30 m",
+      "temporal_range": "2000",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Tree canopy cover (0-100%)",
+        "Pixels >= 30% classified as forest"
+      ],
+      "how_to_read": "Landsat-derived tree canopy cover percentage in year 2000 representing baseline forest canopy.",
+      "applications": "Deforestation baseline, carbon accounting, natural flood attenuation capacity.",
+      "integration_role": "Baseline catchment vegetation density metric."
+    },
+    {
+      "id": "forest_loss_year_2001_2025",
+      "title": "Forest loss year 2001-25",
+      "type": "Spatial Raster",
+      "provider": "Hansen GFC v1.13 (UMD)",
+      "theme": "Forests & Biodiversity",
+      "resolution": "30 m",
+      "temporal_range": "2001-2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Annual stand-replacement forest loss (1-25)"
+      ],
+      "how_to_read": "Year of forest loss from 2001 to 2025 (Blue = early 2000s -> Red = 2025).",
+      "applications": "Catchment degradation tracking, landslide vulnerability in Chittagong Hill Tracts.",
+      "integration_role": "Dynamic watershed runoff multiplier."
+    },
+    {
+      "id": "forest_loss_drivers_2001_2025",
+      "title": "Forest loss drivers 2001-25",
+      "type": "Spatial Raster",
+      "provider": "WRI / Google DeepMind v1.3",
+      "theme": "Forests & Biodiversity",
+      "resolution": "1 km",
+      "temporal_range": "2001-2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Commodity agriculture",
+        "Shifting cultivation",
+        "Forestry / Logging",
+        "Wildfire",
+        "Settlement expansion",
+        "Other natural causes"
+      ],
+      "how_to_read": "Dominant driver of tree cover loss derived from ResNet deep learning classification.",
+      "applications": "Environmental law enforcement, land use policy, eco-corridor protection.",
+      "integration_role": "Anthropic environmental pressure indicator."
+    },
+    {
+      "id": "mangrove_extent_2020",
+      "title": "Mangrove extent 2020",
+      "type": "Spatial Raster",
+      "provider": "Global Mangrove Watch v3 (GMW)",
+      "theme": "Forests & Biodiversity",
+      "resolution": "25 m",
+      "temporal_range": "2020",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Mangrove forest canopy"
+      ],
+      "how_to_read": "High-resolution distribution of mangrove ecosystems across the Sundarbans and coastal belts.",
+      "applications": "Cyclonic storm surge attenuation modeling, coastal bio-shield design.",
+      "integration_role": "Coastal storm surge damping coefficient in Khulna, Barishal, and Chattogram."
+    },
+    {
+      "id": "land_cover_esa_worldcover_2020",
+      "title": "Land cover (ESA WorldCover) 2020",
+      "type": "Spatial Raster",
+      "provider": "ESA WorldCover v100",
+      "theme": "Land Use & Land Cover",
+      "resolution": "10 m",
+      "temporal_range": "2020",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Tree cover",
+        "Shrubland",
+        "Grassland",
+        "Cropland",
+        "Built-up",
+        "Bare/sparse",
+        "Snow/ice",
+        "Permanent water",
+        "Herbaceous wetland",
+        "Mangroves",
+        "Moss/lichen"
+      ],
+      "how_to_read": "11-class land cover derived from Sentinel-1 and Sentinel-2 satellite constellations.",
+      "applications": "Hydrological curve number (SCS-CN) derivation, surface roughness estimation.",
+      "integration_role": "Core baseline for district runoff generation."
+    },
+    {
+      "id": "land_cover_esri_2025",
+      "title": "Land cover (ESRI) 2025",
+      "type": "Spatial Raster",
+      "provider": "ESRI / Impact Observatory",
+      "theme": "Land Use & Land Cover",
+      "resolution": "10 m",
+      "temporal_range": "2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Water",
+        "Trees",
+        "Flooded vegetation",
+        "Crops",
+        "Built area",
+        "Bare ground",
+        "Snow/ice",
+        "Clouds",
+        "Rangeland"
+      ],
+      "how_to_read": "Annual 10 m land cover generated by deep learning on Sentinel-2 imagery for 2025.",
+      "applications": "Recent urbanization tracking, loss of natural flood retention zones.",
+      "integration_role": "Recent impervious surface benchmark."
+    },
+    {
+      "id": "land_cover_dynamic_world_2026",
+      "title": "Land cover (Dynamic World) 2026",
+      "type": "Spatial Raster",
+      "provider": "Dynamic World V1 (Google / WRI)",
+      "theme": "Land Use & Land Cover",
+      "resolution": "10 m",
+      "temporal_range": "2026",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Water",
+        "Trees",
+        "Grass",
+        "Flooded veg",
+        "Crops",
+        "Shrub/scrub",
+        "Built",
+        "Bare",
+        "Snow/ice"
+      ],
+      "how_to_read": "Near-real-time Sentinel-2 land cover composite (Jan-Jul 2026 class mode).",
+      "applications": "Current season baseline land surface state for live flood simulations.",
+      "integration_role": "Real-time surface impedance input."
+    },
+    {
+      "id": "ndvi_modis_2025",
+      "title": "NDVI (MODIS) 2025",
+      "type": "Spatial Raster",
+      "provider": "MODIS MOD13Q1 v6.1",
+      "theme": "Agriculture & Food",
+      "resolution": "250 m",
+      "temporal_range": "2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Normalized Difference Vegetation Index (0 to 0.98)"
+      ],
+      "how_to_read": "Annual mean NDVI from 16-day composites across Bangladesh (median ~0.57).",
+      "applications": "Vegetation health, soil moisture proxy, agricultural drought monitoring.",
+      "integration_role": "District-level canopy evapotranspiration and biomass factor."
+    },
+    {
+      "id": "above_ground_biomass_2022",
+      "title": "Above-ground biomass 2022",
+      "type": "Spatial Raster",
+      "provider": "ESA CCI Biomass v6",
+      "theme": "Forests & Biodiversity",
+      "resolution": "100 m",
+      "temporal_range": "2022",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Biomass density (Mg/ha)"
+      ],
+      "how_to_read": "Forest and woody vegetation carbon stock (Carbon stock \u2248 AGB \u00d7 0.47).",
+      "applications": "Carbon baseline, ecological resilience, natural flood defense evaluation.",
+      "integration_role": "Eco-hydrological retention capacity indicator."
+    },
+    {
+      "id": "canopy_height_gedi_2022",
+      "title": "Canopy height (GEDI) 2022",
+      "type": "Spatial Raster",
+      "provider": "GLAD GEDI V27 + CA Forest",
+      "theme": "Forests & Biodiversity",
+      "resolution": "250 m",
+      "temporal_range": "2022",
+      "license": "CC BY 4.0",
+      "classes": [
+        "RH98 canopy top height (0 to 23 m)"
+      ],
+      "how_to_read": "LiDAR-derived canopy height product showing tall forest in Sundarbans and Chittagong Hill Tracts.",
+      "applications": "Wind speed shear reduction, hill slope stabilization against flash floods.",
+      "integration_role": "Hill tract flash flood and landslide risk modulator."
+    },
+    {
+      "id": "built_up_surface_ghsl_2020",
+      "title": "Built-up surface (GHSL) 2020",
+      "type": "Spatial Raster",
+      "provider": "Copernicus GHSL R2023 (GHS-BUILT-S)",
+      "theme": "Urban & WASH",
+      "resolution": "100 m",
+      "temporal_range": "2020",
+      "license": "CC BY",
+      "classes": [
+        "Built-up surface (m2 per 100 m cell)"
+      ],
+      "how_to_read": "Built-up area per cell (value / 100 gives built-up percentage).",
+      "applications": "Urban impervious surface calculation, flash-flood runoff speed modeling.",
+      "integration_role": "Core impervious surface ratio for all 64 districts."
+    },
+    {
+      "id": "population_grid_ghsl_2020",
+      "title": "Population grid (GHSL) 2020",
+      "type": "Spatial Raster",
+      "provider": "Copernicus GHSL R2023 (GHS-POP)",
+      "theme": "Population & Demographics",
+      "resolution": "100 m",
+      "temporal_range": "2020",
+      "license": "CC BY",
+      "classes": [
+        "Population count per 100 m cell"
+      ],
+      "how_to_read": "Estimated population derived from census counts disaggregated onto built surfaces.",
+      "applications": "Human exposure modeling, casualty risk assessment during major inundations.",
+      "integration_role": "Population exposure denominator for district flood alerts."
+    },
+    {
+      "id": "population_density_worldpop_2020",
+      "title": "Population density (WorldPop) 2020",
+      "type": "Spatial Raster",
+      "provider": "WorldPop",
+      "theme": "Population & Demographics",
+      "resolution": "~1 km",
+      "temporal_range": "2020",
+      "license": "Other (Open Access)",
+      "classes": [
+        "Population density (people per km2)"
+      ],
+      "how_to_read": "Unconstrained population density across Bangladesh, log-scaled on maps.",
+      "applications": "Macro-level demographic exposure, regional shelter capacity sizing.",
+      "integration_role": "Regional population density baseline."
+    },
+    {
+      "id": "relative_wealth_index_meta_2021",
+      "title": "Relative wealth index (Meta RWI) 2021",
+      "type": "Spatial Raster",
+      "provider": "Meta / HDX",
+      "theme": "Economy & Livelihoods",
+      "resolution": "~100 m",
+      "temporal_range": "2021",
+      "license": "Other (Creative Commons with Attribution)",
+      "classes": [
+        "Relative standard of living (-1.3 to +2.0)"
+      ],
+      "how_to_read": "Values range from -1.3 (poorest) to +2.0 (wealthiest) across populated cells.",
+      "applications": "Socioeconomic vulnerability weighting, targeted humanitarian relief prioritization.",
+      "integration_role": "Core vulnerability index in damage assessment models."
+    },
+    {
+      "id": "land_surface_temp_modis_2024_2025",
+      "title": "Land surface temperature (MODIS LST) 2024-25",
+      "type": "Spatial Raster",
+      "provider": "MODIS MOD11A2 v061",
+      "theme": "Climate & Weather",
+      "resolution": "1 km",
+      "temporal_range": "2024-2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Daytime LST median (19 to 31 \u00b0C)"
+      ],
+      "how_to_read": "8-day daytime land surface temperature showing urban heat islands and Barind tract heat stress.",
+      "applications": "Heatwave early warning, thermal comfort, compound heat-flood risk modeling.",
+      "integration_role": "Heatwave Risk Score validation and calibration."
+    },
+    {
+      "id": "night_lights_viirs_2012_2025",
+      "title": "Night lights (VIIRS) 2012-25",
+      "type": "Spatial Raster",
+      "provider": "NOAA / NASA VIIRS Black Marble",
+      "theme": "Energy & Infrastructure",
+      "resolution": "500 m",
+      "temporal_range": "2012-2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Average radiance (nW/cm2/sr)"
+      ],
+      "how_to_read": "Annual nighttime radiance composites as an established proxy for electrification and asset density.",
+      "applications": "Economic asset exposure estimation, power outage detection post-cyclone.",
+      "integration_role": "Direct economic asset value proxy."
+    },
+    {
+      "id": "elevation_srtm_2000",
+      "title": "Elevation (SRTM) 2000",
+      "type": "Spatial Raster",
+      "provider": "USGS / NASA SRTMGL1 v003",
+      "theme": "Urban & WASH",
+      "resolution": "30 m",
+      "temporal_range": "2000",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Elevation in meters above sea level (-5 to 1000+ m)"
+      ],
+      "how_to_read": "Hypsometric digital elevation model covering delta topography, haor depressions, and hills.",
+      "applications": "Hydraulic gradient calculation, flood inundation modeling, sea level rise exposure.",
+      "integration_role": "Primary elevation and slope driver for all 64 districts."
+    },
+    {
+      "id": "water_occurrence_jrc_gsw_1984_2024",
+      "title": "Water occurrence (JRC GSW) 1984-2024",
+      "type": "Spatial Raster",
+      "provider": "JRC GSW v1.5 (Copernicus)",
+      "theme": "Water & Hydrology",
+      "resolution": "~30 m",
+      "temporal_range": "1984-2024",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Occurrence frequency (0 to 100%)"
+      ],
+      "how_to_read": "Frequency with which water was detected from Landsat constellations over 40 years.",
+      "applications": "Identification of permanent river channels, wetlands, and ephemeral floodplains.",
+      "integration_role": "Historical baseline water probability prior."
+    },
+    {
+      "id": "water_change_jrc_gsw_1984_2024",
+      "title": "Water change (JRC GSW) 1984-2024",
+      "type": "Spatial Raster",
+      "provider": "JRC GSW v1.5 (Copernicus)",
+      "theme": "Water & Hydrology",
+      "resolution": "~30 m",
+      "temporal_range": "1984-2024",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Water loss (Red)",
+        "Water gain (Green)",
+        "No change (Black)"
+      ],
+      "how_to_read": "Difference in water occurrence between 1984-1999 and 2000-2024 epochs.",
+      "applications": "River morphological dynamics, riverbank erosion, siltation tracking in Meghna estuary.",
+      "integration_role": "Active river shifting and erosion indicator."
+    },
+    {
+      "id": "water_seasonality_jrc_gsw_1984_2024",
+      "title": "Water seasonality (JRC GSW) 1984-2024",
+      "type": "Spatial Raster",
+      "provider": "JRC GSW v1.5 (Copernicus)",
+      "theme": "Water & Hydrology",
+      "resolution": "~30 m",
+      "temporal_range": "1984-2024",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Months of water presence per year (1 to 12)"
+      ],
+      "how_to_read": "Number of months each year water is present (1 month = seasonal flash flood, 12 = permanent river).",
+      "applications": "Haor basin duration analysis, wetland seasonal habitat tracking.",
+      "integration_role": "Monsoon water stagnation duration index."
+    },
+    {
+      "id": "water_recurrence_jrc_gsw_1984_2024",
+      "title": "Water recurrence (JRC GSW) 1984-2024",
+      "type": "Spatial Raster",
+      "provider": "JRC GSW v1.5 (Copernicus)",
+      "theme": "Water & Hydrology",
+      "resolution": "~30 m",
+      "temporal_range": "1984-2024",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Percentage of years water was present (0 to 100%)"
+      ],
+      "how_to_read": "Degree to which water returns year after year (Orange = low recurrence, Blue = high recurrence).",
+      "applications": "Return period validation, recurrent flood zone demarcation.",
+      "integration_role": "Flood return probability calibration."
+    },
+    {
+      "id": "water_extent_jrc_gsw_1984_2024",
+      "title": "Water extent (JRC GSW) 1984-2024",
+      "type": "Spatial Raster",
+      "provider": "JRC GSW v1.5 (Copernicus)",
+      "theme": "Water & Hydrology",
+      "resolution": "~30 m",
+      "temporal_range": "1984-2024",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Binary mask (ever water vs never water)"
+      ],
+      "how_to_read": "Binary mask of every pixel that was ever classified as water over the 40-year satellite record.",
+      "applications": "Maximum historical flood footprint boundary definition.",
+      "integration_role": "Theoretical upper-bound flood inundation envelope."
+    },
+    {
+      "id": "water_transitions_jrc_gsw_1984_2024",
+      "title": "Water transitions (JRC GSW) 1984-2024",
+      "type": "Spatial Raster",
+      "provider": "JRC GSW v1.5 (Copernicus)",
+      "theme": "Water & Hydrology",
+      "resolution": "~30 m",
+      "temporal_range": "1984-2024",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Permanent",
+        "New permanent",
+        "Lost permanent",
+        "Seasonal",
+        "New seasonal",
+        "Lost seasonal",
+        "Ephemeral"
+      ],
+      "how_to_read": "Categorical transitions describing hydrological regime shifts across Bangladesh.",
+      "applications": "Ecological transition monitoring, infrastructure risk along shifting chars.",
+      "integration_role": "Hydrological stability index for embankment structures."
+    },
+    {
+      "id": "flood_proneness_ocha_barc_2013",
+      "title": "Flood proneness (OCHA/BARC) 2013",
+      "type": "Spatial Vector / Raster",
+      "provider": "OCHA ROAP / BARC (SPARSSO)",
+      "theme": "Disasters & Risk",
+      "resolution": "~550 m (upazila polygons)",
+      "temporal_range": "2013",
+      "license": "CC BY",
+      "classes": [
+        "River flood prone",
+        "Flash flood prone",
+        "Tidal surge prone",
+        "Low risk"
+      ],
+      "how_to_read": "Official national flood proneness classes developed by BARC/SPARSSO and standardized by OCHA.",
+      "applications": "National disaster preparedness, union-level contingency planning.",
+      "integration_role": "Ground truth baseline category for flood alert calibration."
+    },
+    {
+      "id": "drought_risk_ocha_barc_2013",
+      "title": "Drought risk (OCHA/BARC) 2013",
+      "type": "Spatial Vector / Raster",
+      "provider": "OCHA ROAP / BARC (SPARSSO)",
+      "theme": "Disasters & Risk",
+      "resolution": "~550 m (upazila polygons)",
+      "temporal_range": "2013",
+      "license": "CC BY",
+      "classes": [
+        "Very high",
+        "High",
+        "Moderate",
+        "Slight",
+        "No risk"
+      ],
+      "how_to_read": "Drought risk classification for the Aman rice season across upazilas.",
+      "applications": "Agricultural drought early warning, irrigation allocation in Barind tract.",
+      "integration_role": "Multi-hazard drought comparison module."
+    },
+    {
+      "id": "seismic_zones_ocha_barc_2013",
+      "title": "Seismic zones (OCHA/BARC) 2013",
+      "type": "Spatial Vector / Raster",
+      "provider": "OCHA ROAP / BARC (SPARSSO)",
+      "theme": "Disasters & Risk",
+      "resolution": "~550 m",
+      "temporal_range": "2013",
+      "license": "CC BY",
+      "classes": [
+        "Zone 1: Low risk (g=0.045)",
+        "Zone 2: Moderate risk (g=0.15)",
+        "Zone 3: Severe risk (g=0.25)"
+      ],
+      "how_to_read": "Seismic hazard zonation of Bangladesh derived from BNBC and SPARSSO.",
+      "applications": "Building code compliance, compound earthquake-liquefaction risk during monsoon.",
+      "integration_role": "Compound disaster hazard layer."
+    },
+    {
+      "id": "riverbank_erosion_ocha_barc_2013",
+      "title": "Riverbank erosion (OCHA/BARC) 2013",
+      "type": "Spatial Vector / Raster",
+      "provider": "OCHA ROAP / BARC (SPARSSO)",
+      "theme": "Disasters & Risk",
+      "resolution": "~550 m",
+      "temporal_range": "2013",
+      "license": "CC BY",
+      "classes": [
+        "Highly vulnerable",
+        "Moderately vulnerable",
+        "Low"
+      ],
+      "how_to_read": "Riverbank erosion-prone areas along Jamuna, Padma, Meghna, and Teesta rivers.",
+      "applications": "Internal climate displacement prediction, embankment reinforcement priority.",
+      "integration_role": "Vulnerability multiplier for riverine districts (Kurigram, Sirajganj, Chandpur)."
+    },
+    {
+      "id": "flood_water_extent_unosat_2024",
+      "title": "Flood water extent (UNOSAT) 2024",
+      "type": "Spatial Vector (Polygons)",
+      "provider": "UNOSAT (UN): Sentinel-1 SAR",
+      "theme": "Disasters & Risk",
+      "resolution": "~170 m (flood polygons)",
+      "temporal_range": "2024",
+      "license": "CC BY-SA",
+      "classes": [
+        "Inundated flood extent (June 2024)"
+      ],
+      "how_to_read": "Satellite-detected flood extent over Sylhet and northeastern division on 22 June 2024.",
+      "applications": "Empirical validation of model inundation predictions against satellite truth.",
+      "integration_role": "Live model testing and verification ground truth benchmark."
+    },
+    {
+      "id": "population_exposure_gar15_2015",
+      "title": "Population exposure (GAR15) 2015",
+      "type": "Spatial Raster Grid",
+      "provider": "UNDRR GAR15 global exposure",
+      "theme": "Disasters & Risk",
+      "resolution": "5\u00d75 km grid",
+      "temporal_range": "2015",
+      "license": "CC BY",
+      "classes": [
+        "6 quantile exposure classes (up to 2M+ people/cell in Dhaka)"
+      ],
+      "how_to_read": "Global Assessment Report 2015 population exposed to multi-hazards in Bangladesh.",
+      "applications": "National risk profiling, international disaster risk reduction (SFDRR) alignment.",
+      "integration_role": "Multi-hazard exposure baseline."
+    },
+    {
+      "id": "distance_to_nearest_health_facility_2026",
+      "title": "Distance to nearest health facility",
+      "type": "Spatial Raster Grid",
+      "provider": "Derived from HOTOSM health facilities via BISTO",
+      "theme": "Health & Nutrition",
+      "resolution": "0.005 deg (~550 m)",
+      "temporal_range": "2024 facilities, derived 2026",
+      "license": "ODbL v1.0",
+      "classes": [
+        "Distance in km (0 to 72 km, national median 7.2 km)"
+      ],
+      "how_to_read": "Straight-line distance to the nearest clinical health facility (hospitals, clinics, health posts).",
+      "applications": "Emergency medical access planning, identifying healthcare deserts during floods.",
+      "integration_role": "Emergency medical accessibility feature in CBS alert module."
+    },
+    {
+      "id": "rice_season_ndvi_boro_jan_apr",
+      "title": "Rice season NDVI: Boro (Jan-Apr)",
+      "type": "Spatial Raster",
+      "provider": "MODIS MOD13Q1 (Terra) NDVI",
+      "theme": "Agriculture & Food",
+      "resolution": "250 m",
+      "temporal_range": "2020-2024 mean",
+      "license": "Public Domain",
+      "classes": [
+        "Mean NDVI (national mean 0.542)"
+      ],
+      "how_to_read": "Average vegetation condition during the dry-season irrigated Boro crop.",
+      "applications": "Irrigation water demand, early haor flash flood crop loss estimation.",
+      "integration_role": "Haor flash flood harvest risk index."
+    },
+    {
+      "id": "rice_season_ndvi_aus_may_jul",
+      "title": "Rice season NDVI: Aus (May-Jul)",
+      "type": "Spatial Raster",
+      "provider": "MODIS MOD13Q1 (Terra) NDVI",
+      "theme": "Agriculture & Food",
+      "resolution": "250 m",
+      "temporal_range": "2020-2024 mean",
+      "license": "Public Domain",
+      "classes": [
+        "Mean NDVI (national mean 0.463)"
+      ],
+      "how_to_read": "Pre-monsoon crop condition; lowest of the three seasons due to transplanting/bare land.",
+      "applications": "Early monsoon flood damage assessment on standing Aus rice.",
+      "integration_role": "Pre-monsoon agricultural vulnerability factor."
+    },
+    {
+      "id": "rice_season_ndvi_aman_aug_nov",
+      "title": "Rice season NDVI: Aman (Aug-Nov)",
+      "type": "Spatial Raster",
+      "provider": "MODIS MOD13Q1 (Terra) NDVI",
+      "theme": "Agriculture & Food",
+      "resolution": "250 m",
+      "temporal_range": "2020-2024 mean",
+      "license": "Public Domain",
+      "classes": [
+        "Mean NDVI (national mean 0.584)"
+      ],
+      "how_to_read": "Monsoon crop condition; highest NDVI reflecting peak vegetative growth across floodplains.",
+      "applications": "Main monsoon crop loss estimation, post-flood recovery tracking.",
+      "integration_role": "Monsoon agricultural asset loss calculation."
+    },
+    {
+      "id": "built_up_expansion_2000_2020",
+      "title": "Built-up expansion 2000-2020",
+      "type": "Spatial Raster",
+      "provider": "Copernicus GHSL (JRC/GHSL/P2023A)",
+      "theme": "Urban & WASH",
+      "resolution": "100 m",
+      "temporal_range": "2000-2020 change",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Percentage of cell converted to built-up (+56% national growth)"
+      ],
+      "how_to_read": "Share of each 100 m cell that became built-up between 2000 and 2020.",
+      "applications": "Urban sprawl analysis, loss of retention ponds, accelerated flash flood velocity.",
+      "integration_role": "Historical urbanization velocity factor in ML training."
+    },
+    {
+      "id": "poverty_likelihood_worldpop_2013",
+      "title": "Poverty likelihood, below $2.50 a day (2013)",
+      "type": "Spatial Raster",
+      "provider": "WorldPop / HDX",
+      "theme": "Economy & Livelihoods",
+      "resolution": "1 km",
+      "temporal_range": "2013",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Likelihood percentage (10th percentile 72%, median 78%, 90th percentile 83%)"
+      ],
+      "how_to_read": "Modelled mean likelihood that a household lives below the $2.50/day poverty line.",
+      "applications": "Targeting safety nets, equitable evacuation shelter resource allocation.",
+      "integration_role": "Socioeconomic coping capacity metric."
+    },
+    {
+      "id": "estimated_income_worldpop_2013",
+      "title": "Estimated income (2013)",
+      "type": "Spatial Raster",
+      "provider": "WorldPop / HDX",
+      "theme": "Economy & Livelihoods",
+      "resolution": "1 km",
+      "temporal_range": "2013",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Relative income index (median 173)"
+      ],
+      "how_to_read": "Modelled relative income across 1 km cells derived from satellite and mobile phone data.",
+      "applications": "Relative economic vulnerability comparison across districts.",
+      "integration_role": "Economic resilience scaling factor."
+    },
+    {
+      "id": "education_facilities_hotosm_2024",
+      "title": "Education facilities (HOT/OSM) 2024",
+      "type": "Spatial Vector (Points)",
+      "provider": "HOTOSM / OpenStreetMap via HDX",
+      "theme": "Education",
+      "resolution": "Point locations",
+      "temporal_range": "2024",
+      "license": "ODbL v1.0",
+      "classes": [
+        "10,521 facilities: 8,597 schools, 1,356 colleges, 315 universities, 253 kindergartens"
+      ],
+      "how_to_read": "Point locations of education facilities present across all 64 districts.",
+      "applications": "Emergency cyclone/flood shelter identification (schools serve as primary emergency shelters).",
+      "integration_role": "Designated emergency shelter registry in Live GPS module."
+    },
+    {
+      "id": "health_facilities_hotosm_2024",
+      "title": "Health facilities (HOT/OSM) 2024",
+      "type": "Spatial Vector (Points)",
+      "provider": "HOTOSM / OpenStreetMap",
+      "theme": "Health & Nutrition",
+      "resolution": "Point locations",
+      "temporal_range": "2024",
+      "license": "ODbL v1.0",
+      "classes": [
+        "7,029 facilities: 3,902 pharmacies, 1,841 hospitals, 783 clinics, 292 dentists, 210 doctors, 1 health post"
+      ],
+      "how_to_read": "Mapped health facilities with service classifications across Bangladesh.",
+      "applications": "Critical emergency care dispatch, hospital inundation warning.",
+      "integration_role": "Emergency medical route destination resolver."
+    },
+    {
+      "id": "road_network_hotosm_2024",
+      "title": "Road network (HOT/OSM) 2024",
+      "type": "Spatial Vector (Lines)",
+      "provider": "HOTOSM / OpenStreetMap",
+      "theme": "Energy & Infrastructure",
+      "resolution": "Line centrelines",
+      "temporal_range": "2024",
+      "license": "ODbL v1.0",
+      "classes": [
+        "362 motorway, 4,170 trunk, 3,617 primary, 6,420 secondary, 17,647 tertiary, 109,701 minor"
+      ],
+      "how_to_read": "Hierarchical national road network with class filters across all 64 districts.",
+      "applications": "Evacuation routing, critical transport corridor flood cut-off analysis.",
+      "integration_role": "Evacuation corridor connectivity and disruption analysis."
+    },
+    {
+      "id": "cyclone_tracks_ibtracs_1877_2024",
+      "title": "Cyclone tracks (IBTrACS) 1877-2024",
+      "type": "Spatial Vector (Lines/Tracks)",
+      "provider": "NOAA NCEI IBTrACS v04r01",
+      "theme": "Disasters & Risk",
+      "resolution": "Track polyline",
+      "temporal_range": "1877-2024",
+      "license": "Public Domain",
+      "classes": [
+        "150 historical cyclone tracks, 26 named storms (Sidr, Aila, Amphan, Mocha, etc.)"
+      ],
+      "how_to_read": "Historical tropical cyclone trajectories passing near or through Bangladesh graded by peak wind.",
+      "applications": "Storm surge scenario simulation, coastal hazard return period modeling.",
+      "integration_role": "Coastal cyclone surge risk module."
+    },
+    {
+      "id": "forest_loss_2025",
+      "title": "Forest loss 2025",
+      "type": "Spatial Raster",
+      "provider": "Hansen GFC v1.13 (UMD)",
+      "theme": "Forests & Biodiversity",
+      "resolution": "30 m",
+      "temporal_range": "2025",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Tree cover loss in 2025 (17,948 ha national loss)"
+      ],
+      "how_to_read": "Pixels where stand-replacement tree cover loss occurred specifically in year 2025.",
+      "applications": "Recent catchment degradation, rapid runoff hotspot detection.",
+      "integration_role": "Real-time forest loss runoff multiplier."
+    },
+    {
+      "id": "wind_power_density_gwa4_100m",
+      "title": "Wind power density at 100 m (Global Wind Atlas 4.0)",
+      "type": "Spatial Raster",
+      "provider": "Global Wind Atlas 4.0 (DTU / World Bank)",
+      "theme": "Energy & Infrastructure",
+      "resolution": "0.0025 deg (~250 m)",
+      "temporal_range": "GWA 4.0",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Wind power density (W/m2)"
+      ],
+      "how_to_read": "Mean wind power density at 100 m hub height across Bangladesh.",
+      "applications": "Renewable energy siting, cyclone wind hazard vulnerability on transmission towers.",
+      "integration_role": "Wind hazard risk component."
+    },
+    {
+      "id": "wind_speed_gwa4_100m",
+      "title": "Wind speed at 100 m (Global Wind Atlas 4.0)",
+      "type": "Spatial Raster",
+      "provider": "Global Wind Atlas 4.0 (DTU / World Bank)",
+      "theme": "Energy & Infrastructure",
+      "resolution": "0.0025 deg (~250 m)",
+      "temporal_range": "GWA 4.0",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Mean wind speed (m/s)"
+      ],
+      "how_to_read": "High-resolution wind speed map at 100 m above ground level.",
+      "applications": "Cyclonic gust modeling, structural building safety guidelines.",
+      "integration_role": "Structural vulnerability parameter."
+    },
+    {
+      "id": "malaria_parasite_rate_map_2024",
+      "title": "Malaria parasite rate, children 2-10 (MAP 2024)",
+      "type": "Spatial Raster",
+      "provider": "Malaria Atlas Project (202406 Global Pf)",
+      "theme": "Health & Nutrition",
+      "resolution": "0.0416667 deg (~4.6 km)",
+      "temporal_range": "2024 release",
+      "license": "CC BY 4.0",
+      "classes": [
+        "Pf Parasite Rate (0 to 1)"
+      ],
+      "how_to_read": "Modelled Plasmodium falciparum parasite rate in children aged 2-10 across Bangladesh.",
+      "applications": "Post-flood waterborne & vector-borne epidemic forecasting in border districts.",
+      "integration_role": "Post-flood vector-borne health risk index."
+    }
+  ],
+  "hdx_datasets": [
+    {
+      "id": "hdx_faostat_food_security_indicators",
+      "cluster": "Agriculture & Food",
+      "title": "Food Security and Nutrition Indicators (FAOSTAT)",
+      "source": "HDX / Food and Agriculture Organization (FAO)",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-faostat-food-security-indicators",
+      "format": "Tabular (CSV)",
+      "coverage": "2000-2025",
+      "license": "CC BY 4.0 IGO",
+      "description": "FAOSTAT food security and nutrition series for Bangladesh: dietary energy supply, prevalence of undernourishment, food supply variability.",
+      "use_case": "Food security tracking alongside agricultural flood loss indicators."
+    },
+    {
+      "id": "hdx_ipc_acute_food_insecurity",
+      "cluster": "Agriculture & Food",
+      "title": "Bangladesh: Acute Food Insecurity Country Data",
+      "source": "Integrated Food Security Phase Classification (IPC)",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-acute-food-insecurity-country-data",
+      "format": "Tabular / Spatial",
+      "coverage": "2023-2026",
+      "license": "Public Domain",
+      "description": "IPC Acute Food Insecurity classification providing strategic information for early warning and decision makers.",
+      "use_case": "Early warning narratives and famine prevention following severe monsoons."
+    },
+    {
+      "id": "hdx_wfp_food_prices",
+      "cluster": "Agriculture & Food",
+      "title": "Bangladesh - Food Prices",
+      "source": "WFP - World Food Programme",
+      "hdx_url": "https://data.humdata.org/dataset/wfp-food-prices-for-bangladesh",
+      "format": "Tabular (CSV)",
+      "coverage": "1900-2026",
+      "license": "CC BY-IGO",
+      "description": "Food prices database for essential staple commodities across Bangladesh markets.",
+      "use_case": "Post-disaster price shock and economic hardship tracking."
+    },
+    {
+      "id": "hdx_faostat_food_security_bulk",
+      "cluster": "Agriculture & Food",
+      "title": "Bangladesh - Food Security and Nutrition Indicators (Bulk)",
+      "source": "FAO bulk data service",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-faostat-food-security-indicators",
+      "format": "Tabular (CSV)",
+      "coverage": "2000-2025",
+      "license": "CC BY-IGO",
+      "description": "Comprehensive bulk nutritional and dietary supply datasets.",
+      "use_case": "Macro-level national food balance analysis."
+    },
+    {
+      "id": "hdx_wfp_coping_strategy_index",
+      "cluster": "Agriculture & Food",
+      "title": "Coping Strategy Index (CSI)",
+      "source": "WFP - World Food Programme",
+      "hdx_url": "https://data.humdata.org/dataset/coping-strategy-index-csi",
+      "format": "Tabular",
+      "coverage": "2015",
+      "license": "CC BY-IGO",
+      "description": "Measures the severity and frequency of strategies households use to cope with food insecurity.",
+      "use_case": "Household coping capacity estimation during prolonged inundation."
+    },
+    {
+      "id": "hdx_jrc_asap_hotspots",
+      "cluster": "Agriculture & Food",
+      "title": "Anomaly Hotspots of Agricultural Production (ASAP)",
+      "source": "Joint Research Centre of the European Commission",
+      "hdx_url": "https://data.humdata.org/dataset/asap-hotspots-monthly",
+      "format": "Spatial / Tabular",
+      "coverage": "2016-2026",
+      "license": "CC BY-IGO",
+      "description": "Online decision support system for early warning about crop and rangeland production anomalies.",
+      "use_case": "Monthly crop anomaly detection and drought/flood stress identification."
+    },
+    {
+      "id": "hdx_esa_worldcover_landcover",
+      "cluster": "Climate & Weather",
+      "title": "Bangladesh - Land Cover (ESA WorldCover)",
+      "source": "HDX / ESA WorldCover",
+      "hdx_url": "https://data.humdata.org/dataset/esa-worldcover-bangladesh",
+      "format": "GeoTIFF / Vector",
+      "coverage": "2020-2021",
+      "license": "CC BY 4.0",
+      "description": "ESA WorldCover 10 m resolution land-cover classification from Sentinel-1 and Sentinel-2.",
+      "use_case": "Surface roughness and runoff impedance."
+    },
+    {
+      "id": "hdx_worldbank_climate_change",
+      "cluster": "Climate & Weather",
+      "title": "Bangladesh - Climate Change Indicators",
+      "source": "World Bank Group",
+      "hdx_url": "https://data.humdata.org/dataset/world-bank-climate-change-indicators-for-bangladesh",
+      "format": "Tabular (CSV)",
+      "coverage": "1960-2025",
+      "license": "CC BY",
+      "description": "World Bank climate indicators covering temperature trends, greenhouse gases, and sector vulnerabilities.",
+      "use_case": "Long-term climate trend and adaptation analysis."
+    },
+    {
+      "id": "hdx_climate_trace_emissions",
+      "cluster": "Climate & Weather",
+      "title": "Bangladesh: Greenhouse Gas and Air Pollutant Emissions",
+      "source": "Climate TRACE",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-climate-trace",
+      "format": "Tabular / Spatial",
+      "coverage": "2024-2026",
+      "license": "CC BY",
+      "description": "Facility-level emissions inventory showing industrial and urban greenhouse gas emissions across Bangladesh.",
+      "use_case": "Urban emissions context and co-benefit adaptation planning."
+    },
+    {
+      "id": "hdx_copernicus_fapar_anomaly",
+      "cluster": "Climate & Weather",
+      "title": "Bangladesh: Copernicus Vegetation Index Anomaly (FAPAR)",
+      "source": "Copernicus (PROBA-V / Sentinel-3)",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-anomalies-fapar-viirs",
+      "format": "Spatial Raster",
+      "coverage": "2012-2026",
+      "license": "CC BY",
+      "description": "Fraction of Absorbed Photosynthetically Active Radiation anomaly tracking vegetation health fluctuations.",
+      "use_case": "Live agricultural drought and flood stress detection."
+    },
+    {
+      "id": "hdx_daily_precipitation_summaries",
+      "cluster": "Climate & Weather",
+      "title": "Daily Summaries of Precipitation Indicators for Bangladesh",
+      "source": "HDX / Station Network",
+      "hdx_url": "https://data.humdata.org/dataset/daily-summaries-of-precipitation-indicators-for-bangladesh",
+      "format": "Tabular (CSV)",
+      "coverage": "2015",
+      "license": "Public Domain",
+      "description": "Daily precipitation summaries from base stations across Bangladesh.",
+      "use_case": "Station rainfall calibration."
+    },
+    {
+      "id": "hdx_wfp_subnational_rainfall",
+      "cluster": "Climate & Weather",
+      "title": "Bangladesh: Rainfall Indicators at Subnational Level",
+      "source": "WFP / CHIRPS / ERA5",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-rainfall-subnational",
+      "format": "Tabular (CSV)",
+      "coverage": "1981-2026",
+      "license": "CC BY",
+      "description": "Dekadal rainfall indicators computed from CHIRPS satellite imagery and in-situ calibration.",
+      "use_case": "Long-term historical monsoon rainfall benchmarks across all divisions."
+    },
+    {
+      "id": "hdx_copernicus_ems_flood_2022",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - Flood Extent 2022",
+      "source": "HDX / Copernicus EMS / UNOSAT",
+      "hdx_url": "https://data.humdata.org/dataset/copernicus-ems-flood-bangladesh-2022",
+      "format": "Spatial Vector",
+      "coverage": "2022",
+      "license": "CC BY",
+      "description": "Satellite-detected water extent over Rangpur and Sylhet during catastrophic June 2022 floods.",
+      "use_case": "Historical mega-flood simulation and model benchmark."
+    },
+    {
+      "id": "hdx_hapi_humanitarian_api",
+      "cluster": "Disasters & Risk",
+      "title": "HDX HAPI Data for Bangladesh",
+      "source": "HDX Humanitarian API",
+      "hdx_url": "https://data.humdata.org/dataset/hdx-hapi-bgd",
+      "format": "API / Tabular",
+      "coverage": "Continuous",
+      "license": "Other (Open)",
+      "description": "Harmonised humanitarian indicators covering population, funding, and disaster events.",
+      "use_case": "Programmatic ingestion of national humanitarian metrics."
+    },
+    {
+      "id": "hdx_inform_subnational_risk",
+      "cluster": "Disasters & Risk",
+      "title": "INFORM Subnational Risk Model (Bangladesh)",
+      "source": "UN in Bangladesh / INFORM",
+      "hdx_url": "https://data.humdata.org/dataset/inform-subnational-model-of-bangladesh",
+      "format": "Tabular (CSV)",
+      "coverage": "2023-2024",
+      "license": "CC BY 4.0",
+      "description": "Hazard, exposure, vulnerability, and lack of coping capacity scored by division and district.",
+      "use_case": "District risk scoring and multi-hazard ranking validation."
+    },
+    {
+      "id": "hdx_heigit_risk_indicators",
+      "cluster": "Disasters & Risk",
+      "title": "Risk Assessment Indicators (Bangladesh)",
+      "source": "HeiGIT (Heidelberg University)",
+      "hdx_url": "https://data.humdata.org/dataset/heigit-risk-indicators-bangladesh",
+      "format": "Tabular",
+      "coverage": "Recent",
+      "license": "CC BY 4.0",
+      "description": "Exposure, vulnerability, and coping capacity measures derived from road networks and hazard maps.",
+      "use_case": "Accessibility-based vulnerability scoring."
+    },
+    {
+      "id": "hdx_ocha_hazards_spatial",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - Hazards (Drought, Earthquake, Flood, River Erosion)",
+      "source": "OCHA ROAP",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-hazards",
+      "format": "Shapefile / GeoJSON",
+      "coverage": "2013",
+      "license": "Other (Open)",
+      "description": "Multi-hazard spatial layer delineating national hazard zones across all 64 districts.",
+      "use_case": "Multi-hazard GIS overlay and zonation."
+    },
+    {
+      "id": "hdx_undrr_gar15_exposure",
+      "cluster": "Disasters & Risk",
+      "title": "GAR15 Global Exposure Dataset for Bangladesh",
+      "source": "UNDRR",
+      "hdx_url": "https://data.humdata.org/dataset/gar15-global-exposure-dataset-for-bangladesh",
+      "format": "Spatial Grid",
+      "coverage": "2015",
+      "license": "Other (Open)",
+      "description": "Socioeconomic building type and population exposure model.",
+      "use_case": "Built-asset flood damage calculation."
+    },
+    {
+      "id": "hdx_emdat_country_profile",
+      "cluster": "Disasters & Risk",
+      "title": "EM-DAT - Country Profiles, Bangladesh",
+      "source": "CRED (Universit\u00e9 Catholique de Louvain)",
+      "hdx_url": "https://data.humdata.org/dataset/emdat-country-profiles-bgd",
+      "format": "Tabular",
+      "coverage": "2000-2026",
+      "license": "Other (Academic)",
+      "description": "Official international disaster database recording historical flood, cyclone, and epidemic impacts.",
+      "use_case": "Historical casualty and economic loss calibration."
+    },
+    {
+      "id": "hdx_inform_model_64districts",
+      "cluster": "Disasters & Risk",
+      "title": "INFORM subnational model of Bangladesh (Districts)",
+      "source": "UN in Bangladesh",
+      "hdx_url": "https://data.humdata.org/dataset/inform-subnational-model-of-bangladesh",
+      "format": "Tabular (CSV)",
+      "coverage": "2023-2024",
+      "license": "CC BY",
+      "description": "Risk indexing and monitoring baseline for all 64 administrative districts.",
+      "use_case": "Cross-validation of AI-predicted alert tiers."
+    },
+    {
+      "id": "hdx_unosat_sylhet_june_2024",
+      "cluster": "Disasters & Risk",
+      "title": "Cumulative Satellite Detected Waters over Sylhet (19 & 22 June 2024)",
+      "source": "UNOSAT",
+      "hdx_url": "https://data.humdata.org/dataset/cumulative-satellite-detected-waters-over-sylhet-division-bangladesh-as-of-19-22-june-2024",
+      "format": "Shapefile / Geopackage",
+      "coverage": "2024",
+      "license": "CC BY-SA",
+      "description": "Aggregated radar water detections during peak Sylhet flash flooding.",
+      "use_case": "Flash flood validation benchmark."
+    },
+    {
+      "id": "hdx_unosat_july_2024_floods",
+      "cluster": "Disasters & Risk",
+      "title": "Satellite detected water extents between 16 & 23 July 2024",
+      "source": "UNOSAT",
+      "hdx_url": "https://data.humdata.org/dataset/satellite-detected-water-extents-between-16-23-july-2024-in-bangladesh",
+      "format": "Shapefile / Geopackage",
+      "coverage": "2024",
+      "license": "CC BY-SA",
+      "description": "Aggregated monsoon flood extent derived from Sentinel-1 SAR imagery.",
+      "use_case": "Late-monsoon flood extent testing."
+    },
+    {
+      "id": "hdx_unosat_cyclone_mocha_2023",
+      "cluster": "Disasters & Risk",
+      "title": "Tropical Cyclone MOCHA 23 - Population Exposure Analysis",
+      "source": "UNOSAT",
+      "hdx_url": "https://data.humdata.org/dataset/tropical-cyclone-mocha-23-population-exposure-analysis-in-bangladesh-and-myanmar-v2-issue-",
+      "format": "Vector / PDF",
+      "coverage": "2023",
+      "license": "CC BY-SA",
+      "description": "Population exposure and surge impact analysis in southern coastal belt.",
+      "use_case": "Coastal cyclone storm surge calibration."
+    },
+    {
+      "id": "hdx_unhcr_refugee_data",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - Data on forcibly displaced populations and stateless persons",
+      "source": "UNHCR",
+      "hdx_url": "https://data.humdata.org/dataset/unhcr-population-data-for-bgd",
+      "format": "Tabular",
+      "coverage": "1974-2025",
+      "license": "CC BY-IGO",
+      "description": "UNHCR demographic records on forcibly displaced populations.",
+      "use_case": "Cox's Bazar camp flood and landslide vulnerability."
+    },
+    {
+      "id": "hdx_idmc_displacement",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - Internal Displacements (IDPs)",
+      "source": "Internal Displacement Monitoring Centre (IDMC)",
+      "hdx_url": "https://data.humdata.org/dataset/idmc-idp-data-bgd",
+      "format": "Tabular",
+      "coverage": "2008-2025",
+      "license": "CC BY-IGO",
+      "description": "Annual disaster-induced and climate-induced internal displacement numbers.",
+      "use_case": "Climate displacement modeling."
+    },
+    {
+      "id": "hdx_rohingya_displacement_topline",
+      "cluster": "Disasters & Risk",
+      "title": "Rohingya Displacement Topline Figures",
+      "source": "HDX / Inter-Sector Coordination Group",
+      "hdx_url": "https://data.humdata.org/dataset/rohingya-displacement-topline-figures",
+      "format": "Tabular",
+      "coverage": "2019",
+      "license": "CC BY-IGO",
+      "description": "Topline shelter, population, and camp zone metrics.",
+      "use_case": "Refugee camp humanitarian planning."
+    },
+    {
+      "id": "hdx_iom_dtm_api",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh IOM Displacement Tracking Matrix (DTM)",
+      "source": "International Organization for Migration (IOM)",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-iom-dtm-from-api",
+      "format": "API / Tabular",
+      "coverage": "2025",
+      "license": "Other (Open)",
+      "description": "IOM DTM publicly accessible API tracking emergency displacement locations.",
+      "use_case": "Live evacuation movement tracking."
+    },
+    {
+      "id": "hdx_acled_conflict_events",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - Conflict Events (ACLED)",
+      "source": "Armed Conflict Location & Event Data Project",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-acled-conflict-data",
+      "format": "Tabular",
+      "coverage": "2010-2026",
+      "license": "Other (Research)",
+      "description": "Weekly dataset of reported civil events and demonstrations.",
+      "use_case": "Humanitarian access constraints during relief operations."
+    },
+    {
+      "id": "hdx_views_conflict_forecasts",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - VIEWS conflict forecasts",
+      "source": "Violence & Impacts Early-Warning System",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-views-conflict-forecasts",
+      "format": "Tabular",
+      "coverage": "2026-2029",
+      "license": "CC BY-SA",
+      "description": "Monthly predictive forecasts of civil stability.",
+      "use_case": "Compound political and natural crisis planning."
+    },
+    {
+      "id": "hdx_ucdp_conflict_data",
+      "cluster": "Disasters & Risk",
+      "title": "Bangladesh - Data on Conflict Events (UCDP)",
+      "source": "Uppsala Conflict Data Program via HDX",
+      "hdx_url": "https://data.humdata.org/dataset/ucdp-data-for-bangladesh",
+      "format": "Tabular",
+      "coverage": "1989-2024",
+      "license": "CC BY-IGO",
+      "description": "Georeferenced conflict event database.",
+      "use_case": "Security risk mapping."
+    },
+    {
+      "id": "hdx_ocha_cod_admin_boundaries",
+      "cluster": "Economy & Livelihoods",
+      "title": "Bangladesh - Administrative Boundaries (OCHA COD)",
+      "source": "HDX / OCHA COD",
+      "hdx_url": "https://data.humdata.org/dataset/cod-ab-bgd",
+      "format": "Shapefile / GeoJSON",
+      "coverage": "Current",
+      "license": "CC BY-IGO",
+      "description": "Official Common Operational Database boundaries (Admin 0-4).",
+      "use_case": "Spatial joins across all 64 districts and upazilas."
+    },
+    {
+      "id": "hdx_ophi_mpi_subnational",
+      "cluster": "Economy & Livelihoods",
+      "title": "Multidimensional Poverty Index (Bangladesh)",
+      "source": "Oxford Poverty & Human Development Initiative (OPHI)",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-mpi",
+      "format": "Tabular",
+      "coverage": "2014-2022",
+      "license": "Public Domain",
+      "description": "Measures deprivations across health, education, and living standards.",
+      "use_case": "Multi-dimensional vulnerability weighting for district flood relief."
+    },
+    {
+      "id": "hdx_ophi_mpi_national",
+      "cluster": "Economy & Livelihoods",
+      "title": "Bangladesh Multidimensional Poverty Index (National)",
+      "source": "Oxford Poverty & Human Development Initiative",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-mpi",
+      "format": "Tabular",
+      "coverage": "2014-2022",
+      "license": "Public Domain",
+      "description": "National breakdown of non-income poverty indicators.",
+      "use_case": "Social protection target allocation."
+    },
+    {
+      "id": "hdx_flowminder_poverty_1km",
+      "cluster": "Economy & Livelihoods",
+      "title": "Bangladesh 1km Resolution Poverty Estimates",
+      "source": "Flowminder",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-1km-resolution-poverty-estimates-mapping-poverty-using-mobile-phone-and-satellite-data",
+      "format": "Spatial Raster (1 km)",
+      "coverage": "2017",
+      "license": "CC BY",
+      "description": "Bayesian geostatistical model combining CDR mobile phone records and satellite covariates.",
+      "use_case": "Micro-level economic vulnerability surface."
+    },
+    {
+      "id": "hdx_meta_relative_wealth_index",
+      "cluster": "Economy & Livelihoods",
+      "title": "Relative Wealth Index (Meta)",
+      "source": "AI for Good at Meta",
+      "hdx_url": "https://data.humdata.org/dataset/relative-wealth-index",
+      "format": "Spatial / CSV (~2.4 km native)",
+      "coverage": "2021-2023",
+      "license": "Other (Open)",
+      "description": "Machine-learning predicted standard of living from satellite and connectivity data.",
+      "use_case": "Direct household asset resilience scoring."
+    },
+    {
+      "id": "hdx_faostat_crops_livestock",
+      "cluster": "Economy & Livelihoods",
+      "title": "Bangladesh - Crops and Livestock Production",
+      "source": "Food and Agriculture Organization (FAO)",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-faostat-crops-livestock-production",
+      "format": "Tabular (CSV)",
+      "coverage": "1961-2024",
+      "license": "CC BY-IGO",
+      "description": "Historical crop and livestock yield volumes across Bangladesh.",
+      "use_case": "Agricultural GDP loss modeling from monsoon inundation."
+    },
+    {
+      "id": "hdx_worldbank_poverty",
+      "cluster": "Economy & Livelihoods",
+      "title": "Bangladesh - Poverty Indicators (World Bank)",
+      "source": "World Bank Group",
+      "hdx_url": "https://data.humdata.org/dataset/world-bank-poverty-indicators-for-bangladesh",
+      "format": "Tabular",
+      "coverage": "1983-2022",
+      "license": "CC BY",
+      "description": "Poverty headcount ratios at national poverty lines and international PPP benchmarks.",
+      "use_case": "Macro-economic poverty baseline."
+    },
+    {
+      "id": "hdx_hotosm_education_facilities",
+      "cluster": "Education",
+      "title": "Education Facilities of Bangladesh (OSM)",
+      "source": "HDX / Humanitarian OpenStreetMap Team (HOT)",
+      "hdx_url": "https://data.humdata.org/dataset/hotosm_bgd_education_facilities",
+      "format": "Vector (Points)",
+      "coverage": "2024",
+      "license": "ODbL v1.0",
+      "description": "Over 10,500 schools, colleges, and educational institutes mapped in OpenStreetMap.",
+      "use_case": "School-based shelter network capacity and educational disruption analysis."
+    },
+    {
+      "id": "hdx_heigit_accessibility",
+      "cluster": "Energy & Infrastructure",
+      "title": "Accessibility Indicators (Bangladesh)",
+      "source": "HeiGIT (Heidelberg University)",
+      "hdx_url": "https://data.humdata.org/dataset/heigit-accessibility-indicators-bangladesh",
+      "format": "Tabular / Spatial",
+      "coverage": "Recent",
+      "license": "CC BY 4.0",
+      "description": "Travel-time indicators calculating hours to reach healthcare and commercial centers.",
+      "use_case": "Isolation risk modeling during severed road connections."
+    },
+    {
+      "id": "hdx_hotosm_roads",
+      "cluster": "Energy & Infrastructure",
+      "title": "Roads of Bangladesh (OSM)",
+      "source": "HDX / Humanitarian OpenStreetMap Team (HOT)",
+      "hdx_url": "https://data.humdata.org/dataset/hotosm_bgd_roads",
+      "format": "Vector (Lines)",
+      "coverage": "2024",
+      "license": "ODbL v1.0",
+      "description": "Complete OpenStreetMap road network categorized by surface and functional tier.",
+      "use_case": "Emergency supply routing and bridge inundation risk."
+    },
+    {
+      "id": "hdx_viirs_nighttime_lights",
+      "cluster": "Energy & Infrastructure",
+      "title": "VIIRS Night-time Lights",
+      "source": "NOAA / NASA",
+      "hdx_url": "https://data.humdata.org/dataset/viirs-night-time-lights",
+      "format": "Spatial Raster (500 m)",
+      "coverage": "2012-2025",
+      "license": "Public Domain",
+      "description": "Annual nighttime radiance composite showing electrification footprint.",
+      "use_case": "Power infrastructure exposure."
+    },
+    {
+      "id": "hdx_wdpa_protected_areas",
+      "cluster": "Forests & Biodiversity",
+      "title": "Protected and Conserved Areas (WDPA) in Bangladesh",
+      "source": "UNEP-WCMC",
+      "hdx_url": "https://data.humdata.org/dataset/unep_wdpca_bgd",
+      "format": "Vector (Polygons)",
+      "coverage": "1980-2025",
+      "license": "Other (Open)",
+      "description": "World Database on Protected Areas showing national parks, wildlife sanctuaries, and game reserves.",
+      "use_case": "Ecological reserve flood impact and biodiversity loss assessment."
+    },
+    {
+      "id": "hdx_geoboundaries_admin",
+      "cluster": "Geospatial & Boundaries",
+      "title": "Bangladesh - Subnational Administrative Boundaries (geoBoundaries)",
+      "source": "geoBoundaries",
+      "hdx_url": "https://data.humdata.org/dataset/geoboundaries-admin-boundaries-for-bangladesh",
+      "format": "Shapefile / GeoJSON",
+      "coverage": "2015-2020",
+      "license": "ODbL v1.0",
+      "description": "Standardized ADM0 to ADM4 administrative boundaries with open licensing.",
+      "use_case": "Harmonized spatial boundaries for machine learning aggregation."
+    },
+    {
+      "id": "hdx_ocha_fiss_cod_ab",
+      "cluster": "Geospatial & Boundaries",
+      "title": "Bangladesh - Subnational Administrative Boundaries (COD-AB)",
+      "source": "OCHA Field Information Services Section (FISS)",
+      "hdx_url": "https://data.humdata.org/dataset/cod-ab-bgd",
+      "format": "Geopackage / Shapefile",
+      "coverage": "2023-2025",
+      "license": "CC BY-IGO",
+      "description": "Authoritative UN Common Operational Datasets for Admin 0-3 (8 Divisions, 64 Districts, Upazilas).",
+      "use_case": "Official administrative reference geometry."
+    },
+    {
+      "id": "hdx_ocha_fiss_myanmar_bangladesh_adm2",
+      "cluster": "Geospatial & Boundaries",
+      "title": "Myanmar and Bangladesh combined administrative level 2 boundaries",
+      "source": "OCHA Field Information Services Section",
+      "hdx_url": "https://data.humdata.org/dataset/myanmar-and-bangladesh-combined-administrative-level-2-boundaries-shapefile",
+      "format": "Shapefile",
+      "coverage": "2023",
+      "license": "CC BY-IGO",
+      "description": "Emergency cross-border union of district-level boundaries.",
+      "use_case": "Transboundary flood and cyclone impact modeling."
+    },
+    {
+      "id": "hdx_dhs_subnational_health",
+      "cluster": "Health & Nutrition",
+      "title": "Demographic and Health Survey, Subnational (Bangladesh)",
+      "source": "The DHS Program / HDX",
+      "hdx_url": "https://data.humdata.org/dataset/dhs-subnational-bangladesh",
+      "format": "Tabular",
+      "coverage": "1994-2022",
+      "license": "Other (Research)",
+      "description": "DHS survey breakdown by region: child nutrition, maternal health, and sanitation.",
+      "use_case": "Health vulnerability mapping for post-flood waterborne outbreaks."
+    },
+    {
+      "id": "hdx_hotosm_health_facilities",
+      "cluster": "Health & Nutrition",
+      "title": "Health Facilities of Bangladesh (OSM)",
+      "source": "HDX / Humanitarian OpenStreetMap Team (HOT)",
+      "hdx_url": "https://data.humdata.org/dataset/hotosm_bgd_health_facilities",
+      "format": "Vector (Points)",
+      "coverage": "2024",
+      "license": "ODbL v1.0",
+      "description": "7,029 mapped hospitals, clinics, pharmacies, and health posts.",
+      "use_case": "Emergency healthcare routing and hospital surge capacity."
+    },
+    {
+      "id": "hdx_who_health_indicators",
+      "cluster": "Health & Nutrition",
+      "title": "Bangladesh - Health Indicators (WHO)",
+      "source": "World Health Organization",
+      "hdx_url": "https://data.humdata.org/dataset/who-data-for-bgd",
+      "format": "Tabular",
+      "coverage": "1950-2030",
+      "license": "Other (Open)",
+      "description": "Mortality rates, disease burdens, and healthcare capacity.",
+      "use_case": "Epidemic risk modeling."
+    },
+    {
+      "id": "hdx_dhs_national_data",
+      "cluster": "Health & Nutrition",
+      "title": "Bangladesh - National Demographic and Health Data (DHS)",
+      "source": "The DHS Program",
+      "hdx_url": "https://data.humdata.org/dataset/dhs-data-for-bangladesh",
+      "format": "Tabular",
+      "coverage": "1994-2022",
+      "license": "Other (Research)",
+      "description": "National series of population health indicators.",
+      "use_case": "National health baseline."
+    },
+    {
+      "id": "hdx_who_cholera_data",
+      "cluster": "Health & Nutrition",
+      "title": "World Health Organization (WHO) Cholera Data",
+      "source": "World Health Organization",
+      "hdx_url": "https://data.humdata.org/dataset/world-health-organization-who-cholera-data",
+      "format": "Tabular",
+      "coverage": "2023",
+      "license": "CC BY-IGO",
+      "description": "Historical and active cholera surveillance data.",
+      "use_case": "Post-monsoon waterborne disease outbreak warning."
+    },
+    {
+      "id": "hdx_unicef_sam_malnutrition",
+      "cluster": "Health & Nutrition",
+      "title": "Admissions for Treatment of Severe Acute Malnutrition (SAM)",
+      "source": "UNICEF Data and Analytics",
+      "hdx_url": "https://data.humdata.org/dataset/number-of-admissions-for-treatment-of-severe-acute-malnutrition-sam",
+      "format": "Tabular",
+      "coverage": "2021",
+      "license": "CC BY",
+      "description": "Child admissions for severe acute malnutrition treatment.",
+      "use_case": "Childhood nutritional vulnerability in flood-prone districts."
+    },
+    {
+      "id": "hdx_bbs_census_2022",
+      "cluster": "Population & Demographics",
+      "title": "Bangladesh - Population and Housing Census 2022",
+      "source": "Bangladesh Bureau of Statistics (BBS) via HDX",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-population-and-housing-census-2022",
+      "format": "Tabular / Spatial",
+      "coverage": "2022",
+      "license": "Other (Official Government Data)",
+      "description": "Decennial official population census providing district and upazila counts.",
+      "use_case": "Ground-truth demographic denominator for all 64 districts."
+    },
+    {
+      "id": "hdx_unfpa_subnational_population",
+      "cluster": "Population & Demographics",
+      "title": "Subnational Population Statistics (Bangladesh)",
+      "source": "UNFPA / OCHA COD",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-subnational-population",
+      "format": "Tabular (CSV)",
+      "coverage": "Recent",
+      "license": "CC BY 3.0 IGO",
+      "description": "Boundary-matched population statistics compiled for humanitarian planning.",
+      "use_case": "Harmonized district population weights."
+    },
+    {
+      "id": "hdx_worldpop_gridded_population",
+      "cluster": "Population & Demographics",
+      "title": "Bangladesh - Population Density (WorldPop)",
+      "source": "WorldPop",
+      "hdx_url": "https://data.humdata.org/dataset/worldpop-population-density-for-bangladesh",
+      "format": "Spatial Raster (1 km)",
+      "coverage": "2000-2020",
+      "license": "Other (Open)",
+      "description": "Modeled 1 km population count and density grid.",
+      "use_case": "Raster population exposure calculation."
+    },
+    {
+      "id": "hdx_meta_high_res_population",
+      "cluster": "Population & Demographics",
+      "title": "Bangladesh: High Resolution Population Density Maps (Meta)",
+      "source": "AI for Good at Meta",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-high-resolution-population-density-maps-demographic-estimates",
+      "format": "Spatial Raster (100 m)",
+      "coverage": "2019-2021",
+      "license": "CC BY",
+      "description": "High-resolution 100 m gridded population estimates combining computer vision and census.",
+      "use_case": "Ward-level and micro-zone population exposure."
+    },
+    {
+      "id": "hdx_copernicus_ghsl_population",
+      "cluster": "Population & Demographics",
+      "title": "Bangladesh: Copernicus Global Human Settlement Layer (GHSL)",
+      "source": "Copernicus GHSL",
+      "hdx_url": "https://data.humdata.org/dataset/bgd-ghsl",
+      "format": "Spatial Raster (100 m)",
+      "coverage": "2025",
+      "license": "CC BY",
+      "description": "Human settlement density grid derived from Sentinel and Landsat imagery.",
+      "use_case": "Urban density monitoring."
+    },
+    {
+      "id": "hdx_kontur_population_h3_400m",
+      "cluster": "Population & Demographics",
+      "title": "Bangladesh: Population Density for 400m H3 Hexagons",
+      "source": "Kontur",
+      "hdx_url": "https://data.humdata.org/dataset/kontur-population-bangladesh",
+      "format": "Vector H3 Hexagons (400 m)",
+      "coverage": "2023",
+      "license": "CC BY",
+      "description": "Uber H3 hexagonal grid population density surface.",
+      "use_case": "Hexagonal spatial indexing for scalable risk routing."
+    },
+    {
+      "id": "hdx_us_census_subnational_data",
+      "cluster": "Population & Demographics",
+      "title": "Bangladesh Subnational Population & Housing Data Tables",
+      "source": "U.S. Census Bureau",
+      "hdx_url": "https://data.humdata.org/dataset/bangladesh-subnational-boundaries-and-tabular-data",
+      "format": "Geodatabase / Tabular",
+      "coverage": "2021",
+      "license": "CC BY",
+      "description": "First to fourth-order administrative divisions and refugee settlements.",
+      "use_case": "Cross-verification of subnational administrative units."
+    },
+    {
+      "id": "hdx_jmp_wash_coverage",
+      "cluster": "Urban & WASH",
+      "title": "WASH Coverage (WHO / UNICEF JMP)",
+      "source": "WHO / UNICEF Joint Monitoring Programme",
+      "hdx_url": "https://data.humdata.org/dataset/jmp-wash-bangladesh",
+      "format": "Tabular",
+      "coverage": "2000-2022",
+      "license": "Free with attribution",
+      "description": "Household water supply, safely managed sanitation, and basic hygiene indicators.",
+      "use_case": "Sanitation crisis vulnerability in flooded urban slums."
+    },
+    {
+      "id": "hdx_hotosm_waterways",
+      "cluster": "Water & Hydrology",
+      "title": "Waterways of Bangladesh (OSM)",
+      "source": "HDX / Humanitarian OpenStreetMap Team (HOT)",
+      "hdx_url": "https://data.humdata.org/dataset/hotosm_bgd_waterways",
+      "format": "Vector (Lines)",
+      "coverage": "2024",
+      "license": "ODbL v1.0",
+      "description": "Rivers, canals (khals), and navigable waterways mapped as polylines.",
+      "use_case": "Hydraulic drainage network and canal blockage analysis."
+    },
+    {
+      "id": "hdx_wpdx_water_point_exchange",
+      "cluster": "Water & Hydrology",
+      "title": "Water Point Data Exchange (WPdx BGD)",
+      "source": "Water Point Data Exchange",
+      "hdx_url": "https://data.humdata.org/dataset/wpdx_bgd",
+      "format": "Point Data (CSV)",
+      "coverage": "2014-2019",
+      "license": "CC BY-SA",
+      "description": "Crowdsourced rural and peri-urban water points (tube wells, hand pumps, tapstands).",
+      "use_case": "Tube well submergence and drinking water contamination risk."
+    },
+    {
+      "id": "hdx_reach_unicef_wash_survey",
+      "cluster": "Water & Hydrology",
+      "title": "REACH-UNICEF WASH Household Baseline Survey",
+      "source": "REACH Initiative / UNICEF",
+      "hdx_url": "https://data.humdata.org/dataset/reach-unicef-wash-household-baseline-survey",
+      "format": "Tabular (CSV)",
+      "coverage": "2018",
+      "license": "CC BY",
+      "description": "Household-level WASH indicators across 35 refugee camp zones.",
+      "use_case": "Emergency drinking water supply disruption assessment."
+    }
+  ]
+}

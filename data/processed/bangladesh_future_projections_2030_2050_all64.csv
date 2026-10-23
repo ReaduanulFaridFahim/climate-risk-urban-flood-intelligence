@@ -1,0 +1,193 @@
+HorizonYear,ScenarioName,DistrictID,DistrictName,Division,Latitude,Longitude,AreaSqKm,MeanElevationM,GeographicZone,MajorRiverBasin,ProjectedPeakRainfallMm,ProjectedImperviousPct,PredictedInundatedPercentage,PredictedInundatedAreaSqKm,ProjectedTotalPopulation,ProjectedExposedPopulation,ProjectedDamageUSD_Millions,ProjectedMaxHeatwaveTempC,ProjectedMinWinterColdTempC
+2030,2030 Near-Term (SSP2-4.5),1,Dhaka,Dhaka,23.8103,90.4125,1463.6,6.5,Active Floodplain,Buriganga-Meghna,253.0,96.0,47.5,695.2,14180429,4041422,7264.8,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),2,Gazipur,Dhaka,24.0023,90.4264,1806.4,14.0,Pleistocene Terrace,Turag-Balu,253.0,69.4,26.7,482.3,4406604,705937,2833.0,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),3,Narayanganj,Dhaka,23.6238,90.5,684.4,5.5,Active Floodplain,Shitalakshya-Meghna,253.0,87.4,50.1,342.9,4417932,1328030,3779.4,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),4,Tangail,Dhaka,24.2513,89.9167,3414.4,11.5,Active Floodplain,Jamuna-Dhaleshwari,253.0,39.2,26.0,887.7,4565196,712170,1961.8,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),5,Kishoreganj,Dhaka,24.4449,90.7766,2688.6,7.0,Haor Basin,Old Brahmaputra-Meghna,253.0,31.4,36.0,967.9,3692938,797674,2961.8,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),6,Manikganj,Dhaka,23.8617,90.0003,1383.7,6.0,Active Floodplain,Padma-Dhaleshwari,253.0,33.6,36.7,507.8,1755844,386636,1584.1,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),7,Munshiganj,Dhaka,23.5422,90.5305,1004.4,4.5,Active Floodplain,Padma-Meghna Confluence,253.0,42.6,46.4,466.0,1835141,749324,1837.9,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),8,Narsingdi,Dhaka,23.9322,90.7154,1150.1,9.5,Active Floodplain,Meghna Basin,253.0,47.0,29.3,337.0,2718727,477952,839.3,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),9,Faridpur,Dhaka,23.6071,89.8429,2072.7,7.5,Active Floodplain,Padma Riverbank,253.0,35.8,37.3,773.1,2446854,547605,2451.1,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),10,Gopalganj,Dhaka,23.0051,89.8266,1490.0,3.8,Beel & Depression,Madhumati Basin,253.0,28.0,48.1,716.7,1461316,618545,2930.2,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),11,Madaripur,Dhaka,23.1641,90.1897,1144.9,4.2,Active Floodplain,Padma-Arial Khan,253.0,31.4,45.3,518.6,1461316,582539,1996.9,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),12,Rajbari,Dhaka,23.7574,89.6445,1118.8,8.5,Active Floodplain,Padma Embankment,253.0,29.1,42.8,478.8,1336707,343266,1741.9,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),13,Shariatpur,Dhaka,23.2423,90.4348,1181.5,4.0,Active Floodplain,Padma-Meghna Basin,253.0,29.1,43.9,518.7,1416003,547030,1935.5,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),14,Chattogram,Chattogram,22.3569,91.7832,5283.0,12.0,Coastal Belt,Karnaphuli River,391.0,80.6,66.0,3486.8,10386672,4113122,50628.3,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),15,Cox's Bazar,Chattogram,21.4272,92.0058,2491.9,8.5,Coastal Belt,Bakkhali-Matamuhuri,391.0,50.4,81.7,2035.9,3194504,1565945,14138.3,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),16,Cumilla,Chattogram,23.4607,91.1809,3146.3,8.0,Active Floodplain,Gumti River,391.0,53.8,67.5,2123.8,7034707,2849056,12185.3,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),17,Feni,Chattogram,23.0159,91.3976,928.3,6.2,Active Floodplain,Feni-Muhuri River,391.0,47.0,73.3,680.4,1857797,817059,4239.2,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),18,Brahmanbaria,Chattogram,23.9571,91.1119,1927.1,6.8,Haor Basin,Titas-Meghna,391.0,39.2,79.2,1526.3,3738250,1776416,10275.1,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),19,Noakhali,Chattogram,22.8696,91.0994,4202.7,3.5,Coastal Belt,Meghna Estuary,391.0,42.6,84.5,3551.3,4100747,3049315,25507.2,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),20,Lakshmipur,Chattogram,22.9425,90.8412,1455.9,3.8,Coastal Belt,Meghna Estuary,391.0,38.1,82.5,1201.1,2186310,1587261,8422.7,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),21,Chandpur,Chattogram,23.2333,90.6667,1704.1,4.8,Active Floodplain,Padma-Meghna Confluence,391.0,47.0,74.2,1264.4,2979272,1945345,7974.6,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),22,Khagrachhari,Chattogram,23.1193,91.9847,2699.5,95.0,Hill Tracts,Chengi-Maini River,391.0,20.2,15.5,418.4,808821,31341,551.2,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),23,Rangamati,Chattogram,22.7324,92.2985,6116.1,140.0,Hill Tracts,Karnafuli-Kaptai Basin,391.0,16.8,15.2,929.6,736322,27980,1201.0,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),24,Bandarban,Chattogram,22.1953,92.2184,4479.0,210.0,Hill Tracts,Sangu-Matamuhuri,391.0,13.4,14.6,653.9,543745,19846,811.5,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),25,Sylhet,Sylhet,24.8949,91.8687,3490.4,16.0,Haor Basin,Surma-Kushiyara,414.0,58.2,90.2,3148.3,4361292,983471,24138.0,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),26,Sunamganj,Sylhet,25.0658,91.395,3670.0,4.2,Haor Basin,Surma-Baulai-Kalni,414.0,24.6,87.6,3214.9,3058568,2357788,23938.1,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),27,Moulvibazar,Sylhet,24.4829,91.7774,2799.4,18.0,Haor Basin,Manu-Dholai Basin,414.0,35.8,65.4,1830.8,2401542,392652,10177.4,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),28,Habiganj,Sylhet,24.375,91.4167,2636.6,9.0,Haor Basin,Khowai-Kushiyara,414.0,32.5,85.9,2264.8,2662087,1372039,16536.4,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),29,Barishal,Barishal,22.701,90.3535,2790.5,2.8,Coastal Belt,Kirtankhola-Meghna,322.0,50.4,72.8,2031.5,2911304,1865097,12570.9,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),30,Bhola,Barishal,22.6859,90.6481,3737.2,2.1,Coastal Belt,Meghna Estuary / Bay,322.0,31.4,69.3,2589.9,2186310,1333299,15255.8,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),31,Patuakhali,Barishal,22.3596,90.3298,3220.2,2.0,Coastal Belt,Lauhajang-Andharmanik,322.0,28.0,68.9,2218.7,1948421,1181366,12993.8,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),32,Pirojpur,Barishal,22.5841,89.972,1307.6,2.5,Coastal Belt,Baleshwar-Sandhya,322.0,33.6,68.1,890.5,1359363,814639,5154.7,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),33,Barguna,Barishal,22.1587,90.1256,1831.3,1.8,Coastal Belt,Payra-Bishkhali,322.0,26.9,69.1,1265.4,1144131,695723,7432.3,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),34,Jhalokati,Barishal,22.6406,90.1987,758.1,2.9,Coastal Belt,Sugandha-Dhaleshwari,322.0,35.8,68.1,516.3,770306,461628,2988.6,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),35,Khulna,Khulna,22.8456,89.5403,4394.5,3.2,Coastal Belt,Rupsha-Pasur Basin,322.0,65.0,58.8,2584.0,2956616,1529871,12914.8,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),36,Bagerhat,Khulna,22.6516,89.7859,3959.1,2.6,Coastal Belt,Pashur-Baleshwar,322.0,33.6,68.1,2696.1,1823813,1092974,15606.4,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),37,Satkhira,Khulna,22.7185,89.0705,3858.3,3.0,Coastal Belt,Kobadak-Ichamati,322.0,35.8,52.3,2017.9,2480838,1141780,8970.6,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),38,Jashore,Khulna,23.1664,89.2081,2570.4,8.5,Pleistocene Terrace,Bhairab River,322.0,47.0,36.7,943.3,3477705,765790,2942.6,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),39,Jhenaidah,Khulna,23.5448,89.1539,1941.4,11.0,Active Floodplain,Kumar-Nabaganga,322.0,35.8,33.6,652.3,2265606,456746,1863.0,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),40,Kushtia,Khulna,23.9013,89.1204,1621.2,13.5,Active Floodplain,Padma-Gorai Basin,322.0,42.6,55.2,894.9,2424198,802894,4198.9,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),41,Magura,Khulna,23.4873,89.4199,1049.0,7.8,Active Floodplain,Gorai-Madhumati,322.0,31.4,48.9,513.0,1166787,342335,2132.3,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),42,Meherpur,Khulna,23.7725,88.6318,716.1,15.0,Pleistocene Terrace,Bhairab-Mathabhanga,322.0,28.0,25.6,183.3,798626,51112,398.9,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),43,Narail,Khulna,23.1725,89.5127,990.2,6.2,Beel & Depression,Chitra-Nabaganga,322.0,32.5,66.1,654.5,883586,350430,3677.3,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),44,Chuadanga,Khulna,23.6402,88.8418,1172.9,14.2,Pleistocene Terrace,Mathabhanga Basin,322.0,35.8,27.6,323.7,1393347,230738,759.4,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),45,Rajshahi,Rajshahi,24.3636,88.6241,2407.0,19.5,Barind Tract,Padma Northern Bank,253.0,53.8,38.4,924.3,3296457,316459,3016.9,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),46,Bogura,Rajshahi,24.8465,89.3777,2919.9,17.0,Barind Tract,Karatoya-Jamuna,253.0,50.4,21.1,616.1,4338636,228863,1105.0,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),47,Pabna,Rajshahi,24.0064,89.2372,2371.5,11.2,Active Floodplain,Padma-Jamuna Junction,253.0,42.6,40.3,955.7,3285129,794344,3273.8,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),48,Sirajganj,Rajshahi,24.4534,89.7008,2497.9,9.8,Active Floodplain,Jamuna Main Channel,253.0,40.3,43.3,1081.6,4010123,1041829,3980.8,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),49,Naogaon,Rajshahi,24.7936,88.9318,3435.7,22.0,Barind Tract,Atrai Basin,253.0,31.4,18.3,628.7,3149192,144075,977.9,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),50,Natore,Rajshahi,24.4206,89.0003,1896.1,10.5,Beel & Depression,Chalan Beel Catchment,253.0,34.7,42.6,807.7,2095685,535657,2924.7,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),51,Chapai Nawabganj,Rajshahi,24.5965,88.2775,1702.6,21.0,Barind Tract,Padma-Mahananda,253.0,35.8,29.6,504.0,2073029,153404,1268.1,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),52,Joypurhat,Rajshahi,25.1015,89.0277,965.4,24.0,Barind Tract,Jamuna (Choto Jamuna),253.0,29.1,19.4,187.3,1121475,54391,308.9,42.1,6.9
+2030,2030 Near-Term (SSP2-4.5),53,Rangpur,Rangpur,25.7439,89.2752,2307.7,32.0,Active Floodplain,Teesta-Ghaghat,322.0,49.3,36.3,837.7,3579657,324853,2584.7,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),54,Dinajpur,Rangpur,25.6217,88.6355,3438.0,38.0,Pleistocene Terrace,Punarbhaba-Dhepa,322.0,39.2,24.2,832.0,3749578,226849,1711.4,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),55,Gaibandha,Rangpur,25.3288,89.5404,2179.3,19.0,Active Floodplain,Brahmaputra-Teesta,322.0,31.4,53.4,1163.7,2899976,387146,5282.0,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),56,Kurigram,Rangpur,25.8054,89.6362,2296.1,22.0,Active Floodplain,Brahmaputra-Dharla-Dudh,322.0,28.0,53.4,1226.1,2628103,350851,5565.3,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),57,Lalmonirhat,Rangpur,25.9923,89.2847,1241.5,31.0,Active Floodplain,Teesta-Dharla Corridor,322.0,29.1,53.9,669.2,1608580,216756,3065.9,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),58,Nilphamari,Rangpur,25.9318,88.856,1580.9,39.0,Pleistocene Terrace,Teesta Barrage Area,322.0,35.8,25.9,409.5,2367558,153299,901.5,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),59,Panchagarh,Rangpur,26.3411,88.5542,1404.6,55.0,Pleistocene Terrace,Korotoa-Mahananda,322.0,24.6,23.5,330.1,1325379,77866,659.4,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),60,Thakurgaon,Rangpur,26.0337,88.4617,1809.5,48.0,Pleistocene Terrace,Tangon-Kulic Basin,322.0,26.9,23.9,432.5,1733188,103557,878.6,40.1,4.4
+2030,2030 Near-Term (SSP2-4.5),61,Mymensingh,Mymensingh,24.7471,90.4203,4363.5,16.0,Active Floodplain,Old Brahmaputra,253.0,47.0,36.4,1588.3,6672210,607171,4914.2,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),62,Jamalpur,Mymensingh,24.9375,89.9378,2032.0,14.5,Active Floodplain,Jamuna Eastern Bank,253.0,35.8,42.9,871.7,2820679,726042,3178.7,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),63,Netrokona,Mymensingh,24.8709,90.7279,2810.4,8.5,Haor Basin,Kangsha-Dhanu Haor,253.0,28.0,50.0,1405.2,2628103,788430,5972.1,40.1,6.9
+2030,2030 Near-Term (SSP2-4.5),64,Sherpur,Mymensingh,25.0205,90.0153,1363.8,22.0,Active Floodplain,Bhogai-Kongsho Watershed,253.0,29.1,22.1,301.4,1699204,93881,566.2,40.1,6.9
+2040,2040 Mid-Term (SSP2-4.5),1,Dhaka,Dhaka,23.8103,90.4125,1463.6,6.5,Active Floodplain,Buriganga-Meghna,275.0,96.0,49.6,725.9,17456083,5194930,7921.0,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),2,Gazipur,Dhaka,24.0023,90.4264,1806.4,14.0,Pleistocene Terrace,Turag-Balu,275.0,75.6,29.7,536.5,5424521,966649,3505.5,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),3,Narayanganj,Dhaka,23.6238,90.5,684.4,5.5,Active Floodplain,Shitalakshya-Meghna,275.0,95.2,53.2,364.1,5438466,1735958,4261.4,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),4,Tangail,Dhaka,24.2513,89.9167,3414.4,11.5,Active Floodplain,Jamuna-Dhaleshwari,275.0,42.7,27.6,942.4,5619749,930630,2210.9,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),5,Kishoreganj,Dhaka,24.4449,90.7766,2688.6,7.0,Haor Basin,Old Brahmaputra-Meghna,275.0,34.2,38.3,1029.7,4546000,1044670,3352.2,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),6,Manikganj,Dhaka,23.8617,90.0003,1383.7,6.0,Active Floodplain,Padma-Dhaleshwari,275.0,36.6,40.8,564.5,2161441,529120,1957.7,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),7,Munshiganj,Dhaka,23.5422,90.5305,1004.4,4.5,Active Floodplain,Padma-Meghna Confluence,275.0,46.4,46.5,467.0,2259055,924405,1845.8,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),8,Narsingdi,Dhaka,23.9322,90.7154,1150.1,9.5,Active Floodplain,Meghna Basin,275.0,51.2,33.9,389.9,3346748,680728,1123.5,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),9,Faridpur,Dhaka,23.6071,89.8429,2072.7,7.5,Active Floodplain,Padma Riverbank,275.0,39.0,41.2,854.0,3012073,744584,2990.7,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),10,Gopalganj,Dhaka,23.0051,89.8266,1490.0,3.8,Beel & Depression,Madhumati Basin,275.0,30.5,53.9,803.1,1798877,853243,3679.4,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),11,Madaripur,Dhaka,23.1641,90.1897,1144.9,4.2,Active Floodplain,Padma-Arial Khan,275.0,34.2,46.1,527.8,1798877,729768,2068.2,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),12,Rajbari,Dhaka,23.7574,89.6445,1118.8,8.5,Active Floodplain,Padma Embankment,275.0,31.7,43.5,486.7,1645484,429471,1799.6,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),13,Shariatpur,Dhaka,23.2423,90.4348,1181.5,4.0,Active Floodplain,Padma-Meghna Basin,275.0,31.7,46.7,551.8,1743098,716343,2190.4,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),14,Chattogram,Chattogram,22.3569,91.7832,5283.0,12.0,Coastal Belt,Karnaphuli River,425.0,87.8,74.7,3946.4,12785974,5730673,64855.1,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),15,Cox's Bazar,Chattogram,21.4272,92.0058,2491.9,8.5,Coastal Belt,Bakkhali-Matamuhuri,425.0,54.9,94.8,2362.3,3932429,2236765,19035.4,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),16,Cumilla,Chattogram,23.4607,91.1809,3146.3,8.0,Active Floodplain,Gumti River,425.0,58.6,85.4,2686.9,8659712,4437236,19504.2,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),17,Feni,Chattogram,23.0159,91.3976,928.3,6.2,Active Floodplain,Feni-Muhuri River,425.0,51.2,82.7,767.7,2286945,1134782,5396.5,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),18,Brahmanbaria,Chattogram,23.9571,91.1119,1927.1,6.8,Haor Basin,Titas-Meghna,425.0,42.7,90.3,1740.2,4601779,2493243,13356.9,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),19,Noakhali,Chattogram,22.8696,91.0994,4202.7,3.5,Coastal Belt,Meghna Estuary,425.0,46.4,96.5,4055.6,5048012,4286771,33266.1,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),20,Lakshmipur,Chattogram,22.9425,90.8412,1455.9,3.8,Coastal Belt,Meghna Estuary,425.0,41.5,95.8,1394.8,2691343,2268909,11357.9,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),21,Chandpur,Chattogram,23.2333,90.6667,1704.1,4.8,Active Floodplain,Padma-Meghna Confluence,425.0,51.2,88.0,1499.6,3667478,2840094,11217.0,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),22,Khagrachhari,Chattogram,23.1193,91.9847,2699.5,95.0,Hill Tracts,Chengi-Maini River,425.0,22.0,16.8,453.5,995657,41817,647.6,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),23,Rangamati,Chattogram,22.7324,92.2985,6116.1,140.0,Hill Tracts,Karnafuli-Kaptai Basin,425.0,18.3,16.7,1021.4,906411,37842,1449.9,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),24,Bandarban,Chattogram,22.1953,92.2184,4479.0,210.0,Hill Tracts,Sangu-Matamuhuri,425.0,14.6,16.1,721.1,669349,26941,986.8,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),25,Sylhet,Sylhet,24.8949,91.8687,3490.4,16.0,Haor Basin,Surma-Kushiyara,450.0,63.4,95.6,3336.8,5368742,1283129,27114.8,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),26,Sunamganj,Sylhet,25.0658,91.395,3670.0,4.2,Haor Basin,Surma-Baulai-Kalni,450.0,26.8,93.0,3413.1,3765092,3081351,26980.6,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),27,Moulvibazar,Sylhet,24.4829,91.7774,2799.4,18.0,Haor Basin,Manu-Dholai Basin,450.0,39.0,66.0,1847.6,2956294,487788,10365.0,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),28,Habiganj,Sylhet,24.375,91.4167,2636.6,9.0,Haor Basin,Khowai-Kushiyara,450.0,35.4,90.0,2372.9,3277024,1769592,18152.7,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),29,Barishal,Barishal,22.701,90.3535,2790.5,2.8,Coastal Belt,Kirtankhola-Meghna,350.0,54.9,77.7,2168.2,3583810,2450465,14319.9,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),30,Bhola,Barishal,22.6859,90.6481,3737.2,2.1,Coastal Belt,Meghna Estuary / Bay,350.0,34.2,72.5,2709.5,2691343,1717076,16697.3,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),31,Patuakhali,Barishal,22.3596,90.3298,3220.2,2.0,Coastal Belt,Lauhajang-Andharmanik,350.0,30.5,72.5,2334.6,2398503,1530244,14387.0,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),32,Pirojpur,Barishal,22.5841,89.972,1307.6,2.5,Coastal Belt,Baleshwar-Sandhya,350.0,36.6,72.2,944.1,1673374,1063194,5793.9,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),33,Barguna,Barishal,22.1587,90.1256,1831.3,1.8,Coastal Belt,Payra-Bishkhali,350.0,29.3,72.4,1325.9,1408423,897334,8159.6,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),34,Jhalokati,Barishal,22.6406,90.1987,758.1,2.9,Coastal Belt,Sugandha-Dhaleshwari,350.0,39.0,71.4,541.3,948245,595801,3285.1,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),35,Khulna,Khulna,22.8456,89.5403,4394.5,3.2,Coastal Belt,Rupsha-Pasur Basin,350.0,70.8,60.8,2671.9,3639589,1947325,35739.3,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),36,Bagerhat,Khulna,22.6516,89.7859,3959.1,2.6,Coastal Belt,Pashur-Baleshwar,350.0,36.6,71.3,2822.8,2245110,1408671,17107.6,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),37,Satkhira,Khulna,22.7185,89.0705,3858.3,3.0,Coastal Belt,Kobadak-Ichamati,350.0,39.0,54.6,2106.6,3053908,1467341,9776.7,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),38,Jashore,Khulna,23.1664,89.2081,2570.4,8.5,Pleistocene Terrace,Bhairab River,350.0,51.2,39.2,1007.6,4281049,1006902,3357.3,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),39,Jhenaidah,Khulna,23.5448,89.1539,1941.4,11.0,Active Floodplain,Kumar-Nabaganga,350.0,39.0,38.4,745.5,2788957,642575,2433.3,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),40,Kushtia,Khulna,23.9013,89.1204,1621.2,13.5,Active Floodplain,Padma-Gorai Basin,350.0,46.4,54.9,890.0,2984184,982990,4153.2,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),41,Magura,Khulna,23.4873,89.4199,1049.0,7.8,Active Floodplain,Gorai-Madhumati,350.0,34.2,55.4,581.1,1436313,477430,2736.4,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),42,Meherpur,Khulna,23.7725,88.6318,716.1,15.0,Pleistocene Terrace,Bhairab-Mathabhanga,350.0,30.5,29.0,207.7,983107,71275,512.0,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),43,Narail,Khulna,23.1725,89.5127,990.2,6.2,Beel & Depression,Chitra-Nabaganga,350.0,35.4,69.1,684.2,1087693,450957,4018.6,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),44,Chuadanga,Khulna,23.6402,88.8418,1172.9,14.2,Pleistocene Terrace,Mathabhanga Basin,350.0,39.0,31.0,363.6,1715208,319028,958.1,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),45,Rajshahi,Rajshahi,24.3636,88.6241,2407.0,19.5,Barind Tract,Padma Northern Bank,275.0,58.6,41.1,989.3,4057932,416952,3456.1,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),46,Bogura,Rajshahi,24.8465,89.3777,2919.9,17.0,Barind Tract,Karatoya-Jamuna,275.0,54.9,24.2,706.6,5340853,323121,1453.5,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),47,Pabna,Rajshahi,24.0064,89.2372,2371.5,11.2,Active Floodplain,Padma-Jamuna Junction,275.0,46.4,43.7,1036.3,4043988,1060333,3849.3,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),48,Sirajganj,Rajshahi,24.4534,89.7008,2497.9,9.8,Active Floodplain,Jamuna Main Channel,275.0,43.9,44.5,1111.6,4936454,1318033,4204.6,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),49,Naogaon,Rajshahi,24.7936,88.9318,3435.7,22.0,Barind Tract,Atrai Basin,275.0,34.2,19.3,663.1,3876650,187048,1087.8,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),50,Natore,Rajshahi,24.4206,89.0003,1896.1,10.5,Beel & Depression,Chalan Beel Catchment,275.0,37.8,43.2,819.1,2579785,668680,3007.7,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),51,Chapai Nawabganj,Rajshahi,24.5965,88.2775,1702.6,21.0,Barind Tract,Padma-Mahananda,275.0,39.0,33.2,565.3,2551895,211807,1595.3,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),52,Joypurhat,Rajshahi,25.1015,89.0277,965.4,24.0,Barind Tract,Jamuna (Choto Jamuna),275.0,31.7,19.6,189.2,1380533,67646,315.2,43.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),53,Rangpur,Rangpur,25.7439,89.2752,2307.7,32.0,Active Floodplain,Teesta-Ghaghat,350.0,53.7,45.1,1040.8,4406552,496838,3989.9,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),54,Dinajpur,Rangpur,25.6217,88.6355,3438.0,38.0,Pleistocene Terrace,Punarbhaba-Dhepa,350.0,42.7,27.8,955.8,4615724,320792,2258.6,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),55,Gaibandha,Rangpur,25.3288,89.5404,2179.3,19.0,Active Floodplain,Brahmaputra-Teesta,350.0,34.2,56.8,1237.8,3569865,506920,5976.1,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),56,Kurigram,Rangpur,25.8054,89.6362,2296.1,22.0,Active Floodplain,Brahmaputra-Dharla-Dudh,350.0,30.5,58.4,1340.9,3235190,472337,6656.2,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),57,Lalmonirhat,Rangpur,25.9923,89.2847,1241.5,31.0,Active Floodplain,Teesta-Dharla Corridor,350.0,31.7,57.8,717.6,1980159,286132,3525.6,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),58,Nilphamari,Rangpur,25.9318,88.856,1580.9,39.0,Pleistocene Terrace,Teesta Barrage Area,350.0,39.0,32.0,505.9,2914460,233156,1376.0,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),59,Panchagarh,Rangpur,26.3411,88.5542,1404.6,55.0,Pleistocene Terrace,Korotoa-Mahananda,350.0,26.8,28.8,404.5,1631540,117470,990.2,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),60,Thakurgaon,Rangpur,26.0337,88.4617,1809.5,48.0,Pleistocene Terrace,Tangon-Kulic Basin,350.0,29.3,27.8,503.0,2133552,148281,1188.6,41.2,3.8
+2040,2040 Mid-Term (SSP2-4.5),61,Mymensingh,Mymensingh,24.7471,90.4203,4363.5,16.0,Active Floodplain,Old Brahmaputra,275.0,51.2,37.9,1653.8,8213479,778227,5327.7,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),62,Jamalpur,Mymensingh,24.9375,89.9378,2032.0,14.5,Active Floodplain,Jamuna Eastern Bank,275.0,39.0,44.2,898.1,3472251,920840,3374.2,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),63,Netrokona,Mymensingh,24.8709,90.7279,2810.4,8.5,Haor Basin,Kangsha-Dhanu Haor,275.0,30.5,50.8,1427.7,3235190,986085,6164.8,41.2,6.3
+2040,2040 Mid-Term (SSP2-4.5),64,Sherpur,Mymensingh,25.0205,90.0153,1363.8,22.0,Active Floodplain,Bhogai-Kongsho Watershed,275.0,31.7,24.3,331.4,2091717,127071,684.5,41.2,6.3
+2050,2050 Long-Term Severe (SSP5-8.5),1,Dhaka,Dhaka,23.8103,90.4125,1463.6,6.5,Active Floodplain,Buriganga-Meghna,308.0,96.0,63.2,925.0,21488408,8148404,12861.2,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),2,Gazipur,Dhaka,24.0023,90.4264,1806.4,14.0,Pleistocene Terrace,Turag-Balu,308.0,83.7,33.7,608.8,6677576,1350205,4513.6,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),3,Narayanganj,Dhaka,23.6238,90.5,684.4,5.5,Active Floodplain,Shitalakshya-Meghna,308.0,96.0,68.4,468.1,6694742,2747522,7044.0,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),4,Tangail,Dhaka,24.2513,89.9167,3414.4,11.5,Active Floodplain,Jamuna-Dhaleshwari,308.0,47.2,40.1,1369.2,6917900,1664446,4666.9,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),5,Kishoreganj,Dhaka,24.4449,90.7766,2688.6,7.0,Haor Basin,Old Brahmaputra-Meghna,308.0,37.8,54.1,1454.5,5596118,1816499,6688.5,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),6,Manikganj,Dhaka,23.8617,90.0003,1383.7,6.0,Active Floodplain,Padma-Dhaleshwari,308.0,40.5,55.0,761.0,2660731,878041,3557.7,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),7,Munshiganj,Dhaka,23.5422,90.5305,1004.4,4.5,Active Floodplain,Padma-Meghna Confluence,308.0,51.3,59.2,594.6,2780893,1448734,2992.0,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),8,Narsingdi,Dhaka,23.9322,90.7154,1150.1,9.5,Active Floodplain,Meghna Basin,308.0,56.7,46.4,533.6,4119841,1146963,2104.5,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),9,Faridpur,Dhaka,23.6071,89.8429,2072.7,7.5,Active Floodplain,Padma Riverbank,308.0,43.2,52.6,1090.2,3707857,1170199,4874.3,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),10,Gopalganj,Dhaka,23.0051,89.8266,1490.0,3.8,Beel & Depression,Madhumati Basin,308.0,33.8,67.3,1002.8,2214414,1311464,5736.5,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),11,Madaripur,Dhaka,23.1641,90.1897,1144.9,4.2,Active Floodplain,Padma-Arial Khan,308.0,37.8,57.5,658.3,2214414,1120493,3217.4,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),12,Rajbari,Dhaka,23.7574,89.6445,1118.8,8.5,Active Floodplain,Padma Embankment,308.0,35.1,52.4,586.3,2025588,636844,2611.4,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),13,Shariatpur,Dhaka,23.2423,90.4348,1181.5,4.0,Active Floodplain,Padma-Meghna Basin,308.0,35.1,58.1,686.5,2145750,1097079,3390.3,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),14,Chattogram,Chattogram,22.3569,91.7832,5283.0,12.0,Coastal Belt,Karnaphuli River,476.0,96.0,79.7,4210.6,15739512,7526634,73828.7,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),15,Cox's Bazar,Chattogram,21.4272,92.0058,2491.9,8.5,Coastal Belt,Bakkhali-Matamuhuri,476.0,60.8,96.5,2404.7,4840814,2802831,19724.6,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),16,Cumilla,Chattogram,23.4607,91.1809,3146.3,8.0,Active Floodplain,Gumti River,476.0,64.8,89.6,2819.1,10660090,5730864,21470.3,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),17,Feni,Chattogram,23.0159,91.3976,928.3,6.2,Active Floodplain,Feni-Muhuri River,476.0,56.7,90.9,843.8,2815225,1535423,6519.6,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),18,Brahmanbaria,Chattogram,23.9571,91.1119,1927.1,6.8,Haor Basin,Titas-Meghna,476.0,47.2,97.7,1882.8,5664782,3320695,15635.7,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),19,Noakhali,Chattogram,22.8696,91.0994,4202.7,3.5,Coastal Belt,Meghna Estuary,476.0,51.3,96.5,4055.6,6214094,5277008,33266.1,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),20,Lakshmipur,Chattogram,22.9425,90.8412,1455.9,3.8,Coastal Belt,Meghna Estuary,476.0,45.9,96.5,1404.9,3313039,2813432,11523.7,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),21,Chandpur,Chattogram,23.2333,90.6667,1704.1,4.8,Active Floodplain,Padma-Meghna Confluence,476.0,56.7,92.0,1567.8,4514659,3655067,12260.2,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),22,Khagrachhari,Chattogram,23.1193,91.9847,2699.5,95.0,Hill Tracts,Chengi-Maini River,476.0,24.3,17.0,458.9,1225652,52090,663.1,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),23,Rangamati,Chattogram,22.7324,92.2985,6116.1,140.0,Hill Tracts,Karnafuli-Kaptai Basin,476.0,20.2,16.8,1027.5,1115790,46863,1467.3,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),24,Bandarban,Chattogram,22.1953,92.2184,4479.0,210.0,Hill Tracts,Sangu-Matamuhuri,476.0,16.2,16.2,725.6,823968,33370,999.2,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),25,Sylhet,Sylhet,24.8949,91.8687,3490.4,16.0,Haor Basin,Surma-Kushiyara,504.0,70.2,97.4,3399.6,6608912,1609270,72846.6,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),26,Sunamganj,Sylhet,25.0658,91.395,3670.0,4.2,Haor Basin,Surma-Baulai-Kalni,504.0,29.7,96.6,3545.2,4634821,3939968,29109.6,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),27,Moulvibazar,Sylhet,24.4829,91.7774,2799.4,18.0,Haor Basin,Manu-Dholai Basin,504.0,43.2,77.2,2161.1,3639193,702364,14181.1,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),28,Habiganj,Sylhet,24.375,91.4167,2636.6,9.0,Haor Basin,Khowai-Kushiyara,504.0,39.1,92.6,2441.5,4034011,2241296,19217.0,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),29,Barishal,Barishal,22.701,90.3535,2790.5,2.8,Coastal Belt,Kirtankhola-Meghna,392.0,60.8,93.6,2611.9,4411663,3633798,20780.3,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),30,Bhola,Barishal,22.6859,90.6481,3737.2,2.1,Coastal Belt,Meghna Estuary / Bay,392.0,37.8,87.9,3285.0,3313039,2562701,24543.9,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),31,Patuakhali,Barishal,22.3596,90.3298,3220.2,2.0,Coastal Belt,Lauhajang-Andharmanik,392.0,33.8,84.4,2717.8,2952553,2192920,19497.5,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),32,Pirojpur,Barishal,22.5841,89.972,1307.6,2.5,Coastal Belt,Baleshwar-Sandhya,392.0,40.5,84.3,1102.3,2059920,1528131,7898.5,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),33,Barguna,Barishal,22.1587,90.1256,1831.3,1.8,Coastal Belt,Payra-Bishkhali,392.0,32.4,85.6,1567.6,1733766,1306011,11405.9,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),34,Jhalokati,Barishal,22.6406,90.1987,758.1,2.9,Coastal Belt,Sugandha-Dhaleshwari,392.0,43.2,84.4,639.8,1167288,866968,4589.9,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),35,Khulna,Khulna,22.8456,89.5403,4394.5,3.2,Coastal Belt,Rupsha-Pasur Basin,392.0,78.3,73.2,3216.8,4480327,2886047,51803.3,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),36,Bagerhat,Khulna,22.6516,89.7859,3959.1,2.6,Coastal Belt,Pashur-Baleshwar,392.0,40.5,84.3,3337.5,2763727,2050243,23914.9,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),37,Satkhira,Khulna,22.7185,89.0705,3858.3,3.0,Coastal Belt,Kobadak-Ichamati,392.0,43.2,63.7,2457.7,3759355,2107344,13307.2,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),38,Jashore,Khulna,23.1664,89.2081,2570.4,8.5,Pleistocene Terrace,Bhairab River,392.0,56.7,52.4,1346.9,5269964,1656876,5999.1,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),39,Jhenaidah,Khulna,23.5448,89.1539,1941.4,11.0,Active Floodplain,Kumar-Nabaganga,392.0,43.2,44.3,860.0,3433201,912544,3238.3,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),40,Kushtia,Khulna,23.9013,89.1204,1621.2,13.5,Active Floodplain,Padma-Gorai Basin,392.0,51.3,68.1,1104.0,3673525,1501002,6390.5,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),41,Magura,Khulna,23.4873,89.4199,1049.0,7.8,Active Floodplain,Gorai-Madhumati,392.0,37.8,62.5,655.6,1768098,663036,3482.9,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),42,Meherpur,Khulna,23.7725,88.6318,716.1,15.0,Pleistocene Terrace,Bhairab-Mathabhanga,392.0,33.8,34.0,243.5,1210203,102867,703.7,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),43,Narail,Khulna,23.1725,89.5127,990.2,6.2,Beel & Depression,Chitra-Nabaganga,392.0,39.1,79.1,783.2,1338948,635464,5265.8,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),44,Chuadanga,Khulna,23.6402,88.8418,1172.9,14.2,Pleistocene Terrace,Mathabhanga Basin,392.0,43.2,36.6,429.3,2111418,463667,1335.6,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),45,Rajshahi,Rajshahi,24.3636,88.6241,2407.0,19.5,Barind Tract,Padma Northern Bank,308.0,64.8,48.0,1155.4,4995308,599436,4714.0,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),46,Bogura,Rajshahi,24.8465,89.3777,2919.9,17.0,Barind Tract,Karatoya-Jamuna,308.0,60.8,32.1,937.3,6574580,527610,2557.4,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),47,Pabna,Rajshahi,24.0064,89.2372,2371.5,11.2,Active Floodplain,Padma-Jamuna Junction,308.0,51.3,54.1,1283.0,4978142,1615904,5899.9,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),48,Sirajganj,Rajshahi,24.4534,89.7008,2497.9,9.8,Active Floodplain,Jamuna Main Channel,308.0,48.6,53.7,1341.4,6076766,1957934,6122.8,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),49,Naogaon,Rajshahi,24.7936,88.9318,3435.7,22.0,Barind Tract,Atrai Basin,308.0,37.8,21.8,749.0,4772150,260082,1387.9,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),50,Natore,Rajshahi,24.4206,89.0003,1896.1,10.5,Beel & Depression,Chalan Beel Catchment,308.0,41.9,58.1,1101.6,3175711,1107052,5440.3,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),51,Chapai Nawabganj,Rajshahi,24.5965,88.2775,1702.6,21.0,Barind Tract,Padma-Mahananda,308.0,43.2,42.7,727.0,3141379,335342,2638.6,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),52,Joypurhat,Rajshahi,25.1015,89.0277,965.4,24.0,Barind Tract,Jamuna (Choto Jamuna),308.0,35.1,23.2,224.0,1699434,98567,441.7,44.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),53,Rangpur,Rangpur,25.7439,89.2752,2307.7,32.0,Active Floodplain,Teesta-Ghaghat,392.0,59.4,55.2,1273.9,5424458,748575,5977.1,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),54,Dinajpur,Rangpur,25.6217,88.6355,3438.0,38.0,Pleistocene Terrace,Punarbhaba-Dhepa,392.0,47.2,35.4,1217.1,5681948,502852,3662.3,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),55,Gaibandha,Rangpur,25.3288,89.5404,2179.3,19.0,Active Floodplain,Brahmaputra-Teesta,392.0,37.8,66.1,1440.5,4394497,726190,8093.4,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),56,Kurigram,Rangpur,25.8054,89.6362,2296.1,22.0,Active Floodplain,Brahmaputra-Dharla-Dudh,392.0,33.8,68.6,1575.1,3982513,683000,9184.4,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),57,Lalmonirhat,Rangpur,25.9923,89.2847,1241.5,31.0,Active Floodplain,Teesta-Dharla Corridor,392.0,35.1,68.9,855.4,2437573,419871,5009.7,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),58,Nilphamari,Rangpur,25.9318,88.856,1580.9,39.0,Pleistocene Terrace,Teesta Barrage Area,392.0,43.2,37.5,592.8,3587695,336346,1889.5,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),59,Panchagarh,Rangpur,26.3411,88.5542,1404.6,55.0,Pleistocene Terrace,Korotoa-Mahananda,392.0,29.7,34.5,484.6,2008422,173226,1421.1,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),60,Thakurgaon,Rangpur,26.0337,88.4617,1809.5,48.0,Pleistocene Terrace,Tangon-Kulic Basin,392.0,32.4,34.4,622.5,2626399,225870,1820.2,42.5,3.0
+2050,2050 Long-Term Severe (SSP5-8.5),61,Mymensingh,Mymensingh,24.7471,90.4203,4363.5,16.0,Active Floodplain,Old Brahmaputra,308.0,56.7,53.7,2343.2,10110778,1357371,10695.5,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),62,Jamalpur,Mymensingh,24.9375,89.9378,2032.0,14.5,Active Floodplain,Jamuna Eastern Bank,308.0,43.2,53.0,1077.0,4274335,1359238,4851.9,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),63,Netrokona,Mymensingh,24.8709,90.7279,2810.4,8.5,Haor Basin,Kangsha-Dhanu Haor,308.0,33.8,60.9,1711.5,3982513,1455210,8859.6,42.5,5.5
+2050,2050 Long-Term Severe (SSP5-8.5),64,Sherpur,Mymensingh,25.0205,90.0153,1363.8,22.0,Active Floodplain,Bhogai-Kongsho Watershed,308.0,35.1,34.4,469.1,2574901,221441,1371.6,42.5,5.5

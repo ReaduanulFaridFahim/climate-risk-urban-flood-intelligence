@@ -1,0 +1,22 @@
+{
+  "Deep MLP Neural Network": {
+    "test_r2": 0.8186,
+    "test_rmse": 5.51,
+    "test_mae": 4.7
+  },
+  "HistGradientBoosting (Fast GB)": {
+    "test_r2": 0.8063,
+    "test_rmse": 5.69,
+    "test_mae": 4.78
+  },
+  "Monotonic XGBoost": {
+    "test_r2": 0.8145,
+    "test_rmse": 5.57,
+    "test_mae": 4.71
+  },
+  "Stacking Meta-Ensemble": {
+    "test_r2": 0.8093,
+    "test_rmse": 5.65,
+    "test_mae": 4.75
+  }
+}

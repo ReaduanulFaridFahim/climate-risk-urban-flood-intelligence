@@ -1,0 +1,198 @@
+{
+  "Comparison_A_SSP245_2050": {
+    "Title": "Baseline (1991\u20132020) vs SSP2-4.5 (2041\u20132070)",
+    "BaselineCol": "Koppen_Baseline",
+    "FutureCol": "Koppen_SSP245_2050",
+    "Results": {
+      "TotalNationalAreaKm2": 148575.2,
+      "TotalAreaChangedKm2": 0.0,
+      "TotalAreaChangedPct": 0.0,
+      "TotalAreaStableKm2": 148575.2,
+      "TotalAreaStablePct": 100.0,
+      "MatrixKm2": {
+        "Am (Tropical Monsoon)": {
+          "Am (Tropical Monsoon)": 103551.8,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Aw (Tropical Savannah)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 10569.699999999999,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwa (Temperate, Dry Winter, Hot Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 34453.7,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwb (Temperate, Dry Winter, Warm Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        }
+      },
+      "MatrixPct": {
+        "Am (Tropical Monsoon)": {
+          "Am (Tropical Monsoon)": 69.697,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Aw (Tropical Savannah)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 7.114,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwa (Temperate, Dry Winter, Hot Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 23.189,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwb (Temperate, Dry Winter, Warm Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        }
+      },
+      "ClassStats": {
+        "Am (Tropical Monsoon)": {
+          "BaselineAreaKm2": 103551.8,
+          "FutureAreaKm2": 103551.8,
+          "AreaLostKm2": 0.0,
+          "AreaGainedKm2": 0.0,
+          "NetChangeKm2": 0.0,
+          "NetChangePct": 0.0
+        },
+        "Aw (Tropical Savannah)": {
+          "BaselineAreaKm2": 10569.7,
+          "FutureAreaKm2": 10569.7,
+          "AreaLostKm2": 0.0,
+          "AreaGainedKm2": 0.0,
+          "NetChangeKm2": 0.0,
+          "NetChangePct": 0.0
+        },
+        "Cwa (Temperate, Dry Winter, Hot Summer)": {
+          "BaselineAreaKm2": 34453.7,
+          "FutureAreaKm2": 34453.7,
+          "AreaLostKm2": 0.0,
+          "AreaGainedKm2": 0.0,
+          "NetChangeKm2": 0.0,
+          "NetChangePct": 0.0
+        },
+        "Cwb (Temperate, Dry Winter, Warm Summer)": {
+          "BaselineAreaKm2": 0.0,
+          "FutureAreaKm2": 0.0,
+          "AreaLostKm2": 0.0,
+          "AreaGainedKm2": 0.0,
+          "NetChangeKm2": 0.0,
+          "NetChangePct": 0.0
+        }
+      }
+    }
+  },
+  "Comparison_B_SSP585_2050": {
+    "Title": "Baseline (1991\u20132020) vs SSP5-8.5 (2041\u20132070)",
+    "BaselineCol": "Koppen_Baseline",
+    "FutureCol": "Koppen_SSP585_2050",
+    "Results": {
+      "TotalNationalAreaKm2": 148575.2,
+      "TotalAreaChangedKm2": 45023.4,
+      "TotalAreaChangedPct": 30.3,
+      "TotalAreaStableKm2": 103551.8,
+      "TotalAreaStablePct": 69.7,
+      "MatrixKm2": {
+        "Am (Tropical Monsoon)": {
+          "Am (Tropical Monsoon)": 103551.8,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Aw (Tropical Savannah)": {
+          "Am (Tropical Monsoon)": 10569.699999999999,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwa (Temperate, Dry Winter, Hot Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 34453.7,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwb (Temperate, Dry Winter, Warm Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        }
+      },
+      "MatrixPct": {
+        "Am (Tropical Monsoon)": {
+          "Am (Tropical Monsoon)": 69.697,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Aw (Tropical Savannah)": {
+          "Am (Tropical Monsoon)": 7.114,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwa (Temperate, Dry Winter, Hot Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 23.189,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        },
+        "Cwb (Temperate, Dry Winter, Warm Summer)": {
+          "Am (Tropical Monsoon)": 0.0,
+          "Aw (Tropical Savannah)": 0.0,
+          "Cwa (Temperate, Dry Winter, Hot Summer)": 0.0,
+          "Cwb (Temperate, Dry Winter, Warm Summer)": 0.0
+        }
+      },
+      "ClassStats": {
+        "Am (Tropical Monsoon)": {
+          "BaselineAreaKm2": 103551.8,
+          "FutureAreaKm2": 114121.5,
+          "AreaLostKm2": 0.0,
+          "AreaGainedKm2": 10569.7,
+          "NetChangeKm2": 10569.7,
+          "NetChangePct": 10.21
+        },
+        "Aw (Tropical Savannah)": {
+          "BaselineAreaKm2": 10569.7,
+          "FutureAreaKm2": 34453.7,
+          "AreaLostKm2": 10569.7,
+          "AreaGainedKm2": 34453.7,
+          "NetChangeKm2": 23884.0,
+          "NetChangePct": 225.97
+        },
+        "Cwa (Temperate, Dry Winter, Hot Summer)": {
+          "BaselineAreaKm2": 34453.7,
+          "FutureAreaKm2": 0.0,
+          "AreaLostKm2": 34453.7,
+          "AreaGainedKm2": 0.0,
+          "NetChangeKm2": -34453.7,
+          "NetChangePct": -100.0
+        },
+        "Cwb (Temperate, Dry Winter, Warm Summer)": {
+          "BaselineAreaKm2": 0.0,
+          "FutureAreaKm2": 0.0,
+          "AreaLostKm2": 0.0,
+          "AreaGainedKm2": 0.0,
+          "NetChangeKm2": 0.0,
+          "NetChangePct": 0.0
+        }
+      }
+    }
+  }
+}

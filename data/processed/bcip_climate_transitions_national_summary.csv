@@ -1,0 +1,3 @@
+ComparisonID,ComparisonTitle,TotalNationalAreaKm2,TotalAreaChangedKm2,TotalAreaChangedPct,TotalAreaStableKm2,TotalAreaStablePct,Am_NetChangeKm2,Aw_NetChangeKm2,Cwa_NetChangeKm2,Cwb_NetChangeKm2
+Comparison_A_SSP245_2050,Baseline (1991–2020) vs SSP2-4.5 (2041–2070),148575.2,0.0,0.0,148575.2,100.0,0.0,0.0,0.0,0.0
+Comparison_B_SSP585_2050,Baseline (1991–2020) vs SSP5-8.5 (2041–2070),148575.2,45023.4,30.3,103551.8,69.7,10569.7,23884.0,-34453.7,0.0

@@ -1,0 +1,33 @@
+version: "1.0"
+environment: "production"
+
+server:
+  api_host: "0.0.0.0"
+  api_port: 8000
+  web_host: "0.0.0.0"
+  web_port: 8501
+  workers: 4
+  reload: false
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+cors:
+  allow_origins:
+    - "http://localhost:8501"
+    - "http://localhost:8000"
+    - "http://127.0.0.1:8501"
+    - "http://127.0.0.1:8000"
+  allow_credentials: true
+  allow_methods: ["GET", "POST", "OPTIONS"]
+  allow_headers: ["*"]
+
+cache:
+  ttl_seconds: 3600
+  max_memory_cache_mb: 512
+
+security:
+  rate_limit_per_minute: 120
+  enable_api_docs: true

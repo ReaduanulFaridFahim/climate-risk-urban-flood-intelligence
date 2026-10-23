@@ -1,0 +1,16 @@
+{
+  "blend_keys": [
+    "XGBoost (Monotonic)",
+    "LightGBM Regressor",
+    "Extra Trees Regressor",
+    "Deep MLP Neural Network"
+  ],
+  "optimal_weights": [
+    0.4436856626837992,
+    0.23635092380243516,
+    0.26897793520585755,
+    0.050985478307907874
+  ],
+  "test_r2": 0.8070050011141358,
+  "test_rmse": 5.684063894311829
+}

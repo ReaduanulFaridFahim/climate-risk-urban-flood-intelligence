@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chattogram 41-Ward Flood Intelligence | Bangladesh Climate Intelligence</title>
+  <meta name="description" content="High-resolution urban flood intelligence and hydrodynamic stagnation analysis across 41 wards of Chattogram Metropolitan Area (CMA).">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏙️</text></svg>">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="header-nav">
+    <a href="index.html" class="nav-brand">
+      <div class="brand-icon">🏙️</div>
+      <div>
+        <div class="brand-title">BANGLADESH CLIMATE INTELLIGENCE</div>
+        <div class="brand-subtitle">Chattogram Metropolitan Area 41-Ward Flood Intelligence</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="geospatial.html">Geospatial Atlas</a></li>
+      <li><a href="ai-models.html">AI Models & 2050</a></li>
+      <li><a href="weather-forecast.html">60-Day Forecast</a></li>
+      <li><a href="humanitarian.html">UN HDX Hub</a></li>
+      <li><a href="emergency-alert.html">Alert Broadcast</a></li>
+      <li><a href="chattogram.html" class="active">Chattogram Wards</a></li>
+      <li><a href="data-catalog.html">Data & API</a></li>
+      <li><a href="analytics-lab.html" class="nav-highlight">🔬 Streamlit Lab</a></li>
+    </ul>
+
+    <div class="nav-telemetry">
+      <div class="telemetry-beacon">
+        <span class="pulse-dot"></span>
+        <span>41 WARDS MONITORED</span>
+      </div>
+      <div class="clock-badge" id="liveBstClock">BST --:--:--</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Page Title Header -->
+    <div class="section-header page-header-spacing">
+      <div>
+        <h1 class="hero-title hero-title-sub">
+          🏙️ Chattogram Metropolitan Area (CMA) <br>
+          <span class="gradient-text">High-Resolution 41-Ward Flood Intelligence</span>
+        </h1>
+        <p class="section-subtitle">
+          Hydrodynamic urban flood modeling analyzing the dual impacts of Karnafuli tidal backwater surge and hill-tract flash runoff stagnation across all 41 administrative wards of Chattogram City Corporation.
+        </p>
+      </div>
+      <div class="flex-gap-sm">
+        <span class="hero-pill pill-cyan">41 Wards Mapped</span>
+        <span class="hero-pill pill-emerald">Tidal Inundation Depth</span>
+      </div>
+    </div>
+
+    <!-- CMA National KPI Summary -->
+    <div class="kpi-grid mb-5">
+      <div class="kpi-card rose">
+        <div class="kpi-header"><span class="kpi-label">Highest Ward Inundation</span><span class="kpi-icon">🌊</span></div>
+        <div class="kpi-value">78.4%</div>
+        <div class="kpi-subtitle">Ward 04 (Chandgaon)</div>
+      </div>
+      <div class="kpi-card cyan">
+        <div class="kpi-header"><span class="kpi-label">Mean Inundation Depth</span><span class="kpi-icon">📏</span></div>
+        <div class="kpi-value">1.18 m</div>
+        <div class="kpi-subtitle">Across Submerged Lowlands</div>
+      </div>
+      <div class="kpi-card amber">
+        <div class="kpi-header"><span class="kpi-label">Max Stagnation Duration</span><span class="kpi-icon">⏱️</span></div>
+        <div class="kpi-value">48.0 hrs</div>
+        <div class="kpi-subtitle">Tidal Gate Backwater Stagnation</div>
+      </div>
+      <div class="kpi-card indigo">
+        <div class="kpi-header"><span class="kpi-label">Total CMA Land Footprint</span><span class="kpi-icon">🗺️</span></div>
+        <div class="kpi-value">168.2 km²</div>
+        <div class="kpi-subtitle">Chattogram City Corporation</div>
+      </div>
+    </div>
+
+    <!-- Ward Ranking & Analysis Layout -->
+    <div class="grid-2col-gap-lg mb-5">
+      <div class="glass-panel p-panel-md">
+        <h3 class="section-title-md mb-1">
+          📊 Top 10 Most Flooded Wards in Chattogram (%)
+        </h3>
+        <div class="flex-col-gap-md" id="topWardsBarsContainer">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <div class="glass-panel p-panel-md">
+        <h3 class="section-title-md mb-1">
+          🌊 Dynamic Drainage Congestion Mechanics
+        </h3>
+        <p class="text-slate text-md leading-normal mb-1">
+          Chattogram suffers from a complex compound hazard mechanism:
+        </p>
+        <ul class="ordered-list-tight">
+          <li><strong>Tidal Backwater Lock:</strong> High tides in the Bay of Bengal push sea water up the Karnafuli River and Chaktai canal network, preventing gravitational drainage.</li>
+          <li><strong>Hill Escarpment Runoff:</strong> Heavy monsoon rains over the surrounding hills cascade down steep gradients into low-lying urban wards within minutes.</li>
+          <li><strong>Siltation & Solid Waste:</strong> Chaktai, Mirza, and Shitalakshya khal siltation reduces stormwater carrying capacity by over 60%.</li>
+        </ul>
+        <div class="alert-card-rose">
+          <strong class="text-rose text-xs">Priority Intervention Wards:</strong>
+          <span class="text-white text-sm">Chandgaon, Mohra, Bakalia, Panchlaish, and Halishahar.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complete 41-Ward Master Table -->
+    <section class="glass-panel p-panel">
+      <div class="flex-between-wrap mb-2">
+        <div>
+          <h3 class="section-title">📋 Complete 41-Ward Hydrological Registry</h3>
+          <p class="section-desc">Detailed elevation, inundation footprint, depth, and stagnation hours for all wards.</p>
+        </div>
+        <input type="text" id="wardSearchInput" class="search-input max-w-300" placeholder="🔍 Search ward name or ID...">
+      </div>
+
+      <div class="overflow-x">
+        <table class="table-base">
+          <thead>
+            <tr class="table-header-row">
+              <th class="table-cell">Ward ID</th>
+              <th class="table-cell">Ward Name</th>
+              <th class="table-cell">Area (km²)</th>
+              <th class="table-cell">Elevation (m)</th>
+              <th class="table-cell">Inundated Area (km²)</th>
+              <th class="table-cell">Inundated %</th>
+              <th class="table-cell">Mean Depth (m)</th>
+              <th class="table-cell">Stagnation (hrs)</th>
+            </tr>
+          </thead>
+          <tbody id="wardsTableBody">
+            <!-- Injected dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-section">
+    <div class="footer-content">
+      <div>
+        <div class="footer-title">
+          Bangladesh Climate Risk & Flood Intelligence Platform (BCIP)
+        </div>
+        <p class="footer-credits">
+          Chattogram ward hydrological models calibrated with Chattogram Development Authority (CDA) drainage master plans.<br>
+          Tidal gauges synchronized with Bangladesh Inland Water Transport Authority (BIWTA) Sadarghat tidal station.
+        </p>
+      </div>
+      <div class="footer-badges">
+        <span class="hero-pill pill-cyan">CDA Master Plan</span>
+        <span class="hero-pill pill-indigo">41 Wards Inundation</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const data = await getPlatformData();
+      if (!data) return;
+
+      const wards = data.cma_wards || [];
+      renderTopWardsBars(wards);
+      renderWardsTable(wards);
+
+      document.getElementById("wardSearchInput").addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const filtered = wards.filter(w => 
+          w.WardName.toLowerCase().includes(q) ||
+          w.WardID.toLowerCase().includes(q)
+        );
+        renderWardsTable(filtered);
+      });
+    });
+
+    function renderTopWardsBars(wards) {
+      const container = document.getElementById("topWardsBarsContainer");
+      if (!container) return;
+      container.innerHTML = "";
+
+      const sorted = [...wards].sort((a,b) => (b.InundatedPercentageOfWard || 0) - (a.InundatedPercentageOfWard || 0)).slice(0, 8);
+
+      sorted.forEach(w => {
+        const pct = (w.InundatedPercentageOfWard || 0).toFixed(1);
+        const barItem = document.createElement("div");
+        barItem.innerHTML = `
+          <div class="ward-progress-header">
+            <strong class="text-white">${w.WardID}: ${w.WardName}</strong>
+            <span class="text-cyan font-bold">${pct}%</span>
+          </div>
+          <div class="ward-progress-bar-bg">
+            <div class="ward-progress-fill"></div>
+          </div>
+        `;
+        barItem.querySelector(".ward-progress-fill").style.width = `${pct}%`;
+        container.appendChild(barItem);
+      });
+    }
+
+    function renderWardsTable(wards) {
+      const tbody = document.getElementById("wardsTableBody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      const sorted = [...wards].sort((a,b) => (b.InundatedPercentageOfWard || 0) - (a.InundatedPercentageOfWard || 0));
+
+      sorted.forEach(w => {
+        const tr = document.createElement("tr");
+        tr.className = "table-row-bordered";
+
+        const pct = (w.InundatedPercentageOfWard || 0).toFixed(1);
+        let pctClass = pct > 50 ? "text-rose" : (pct > 30 ? "text-amber" : "text-emerald");
+
+        tr.innerHTML = `
+          <td class="table-cell font-mono text-cyan">${w.WardID}</td>
+          <td class="table-cell font-bold text-white">${w.WardName}</td>
+          <td class="table-cell font-mono text-muted">${(w.AreaSqKm || 0).toFixed(2)}</td>
+          <td class="table-cell font-mono text-slate">${(w.MeanElevationM || 0).toFixed(1)} m</td>
+          <td class="table-cell font-mono text-slate">${(w.InundatedAreaSqKm || 0).toFixed(2)}</td>
+          <td class="table-cell font-mono font-bold ${pctClass}">${pct}%</td>
+          <td class="table-cell font-mono text-cyan">${(w.MeanInundationDepthM || 1.1).toFixed(2)} m</td>
+          <td class="table-cell font-mono text-purple">${(w.StagnantDurationHours || 24).toFixed(0)} hrs</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+</html>

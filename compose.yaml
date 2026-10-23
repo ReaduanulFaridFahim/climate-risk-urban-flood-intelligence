@@ -1,0 +1,60 @@
+# ==============================================================================
+# BANGLADESH CLIMATE INTELLIGENCE PLATFORM (BCIP) - DOCKER COMPOSE CONFIGURATION
+# Production multi-service orchestration: FastAPI Service + Streamlit Dashboard
+# ==============================================================================
+
+version: "3.9"
+
+services:
+  # 1. High-Performance REST API Service
+  bcip-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bcip_production_api
+    restart: unless-stopped
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --workers 4
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./assets:/app/assets
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - bcip-network
+
+  # 2. Interactive National Atlas & Dashboard (Streamlit)
+  bcip-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bcip_production_web
+    restart: unless-stopped
+    command: streamlit run web/app.py --server.port 8501 --server.headless true --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - ENVIRONMENT=production
+      - API_URL=http://bcip-api:8000
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./assets:/app/assets
+    depends_on:
+      bcip-api:
+        condition: service_healthy
+    networks:
+      - bcip-network
+
+networks:
+  bcip-network:
+    driver: bridge

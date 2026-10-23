@@ -1,4 +1,4 @@
-# Assessing the Relationship Between Urban Expansion, Extreme Rainfall, and Flood Exposure in Chattogram, Bangladesh: A Geospatial and Data-Driven Study (2001–2025)
+# Assessing the Relationship Between Urban Expansion, Extreme Rainfall, and Flood Exposure in Chattogram, Bangladesh: A Geospatial and Data-Driven Study (2001â€“2025)
 
 **Author:** Readuanul Farid Fahim  
 *Department of Computer Science & Engineering, North South University, Dhaka, Bangladesh*  
@@ -7,7 +7,7 @@
 ---
 
 ### Abstract
-Urban flood risk in rapidly growing coastal deltaic metropolises is driven by a complex interplay of intensified convective precipitation, geomorphic vulnerability, and aggressive land-cover alteration. This study presents a reproducible, data-driven geospatial framework investigating how two decades (2001–2025) of urban land expansion and extreme rainfall variability have reshaped localized flood exposure across the 41 wards of Chattogram City Corporation (CCC), Bangladesh. Integrating NASA GPM IMERG calibrated satellite precipitation (1998–2025), multi-temporal Landsat 5/7/8/9 and Sentinel-2 multi-spectral classification, Sentinel-1 Synthetic Aperture Radar (SAR) flood inundation change detection, and WorldPop high-resolution gridded population distributions, we quantify the empirical associations between impervious surface expansion and inundation severity. 
+Urban flood risk in rapidly growing coastal deltaic metropolises is driven by a complex interplay of intensified convective precipitation, geomorphic vulnerability, and aggressive land-cover alteration. This study presents a reproducible, data-driven geospatial framework investigating how two decades (2001â€“2025) of urban land expansion and extreme rainfall variability have reshaped localized flood exposure across the 41 wards of Chattogram City Corporation (CCC), Bangladesh. Integrating NASA GPM IMERG calibrated satellite precipitation (1998â€“2025), multi-temporal Landsat 5/7/8/9 and Sentinel-2 multi-spectral classification, Sentinel-1 Synthetic Aperture Radar (SAR) flood inundation change detection, and WorldPop high-resolution gridded population distributions, we quantify the empirical associations between impervious surface expansion and inundation severity. 
 
 Results demonstrate that built-up land cover expanded by +114.6% across the metropolitan footprint between 2001 and 2025, predominantly converting natural drainage corridors, agricultural wetlands, and lowland retention basins. Concurrently, non-parametric Mann-Kendall and Sen's slope tests on ETCCDI extreme precipitation indicators reveal a statistically significant upward trend in maximum 1-day rainfall ($Rx1day = +1.82\text{ mm/year}, p < 0.05$) and heavy precipitation frequency ($R50mm$). Spatial cross-sectional regressions confirm that urban impervious surface growth adds substantial explanatory power ($R^2 = 0.742, p < 0.001$) to observed flood extent and duration after controlling for topographic elevation and distance to the tidal Karnaphuli River. Critical exposure hotspots concentrate in Bakolia, Agrabad, Halishahar, and Chandgaon, where compound tidal-drainage waterlogging exposes over 320,000 residents during 5-year return events. We bridge scientific research with public policy by coupling this spatial framework to a multi-scenario Power BI data warehouse to guide adaptive urban stormwater infrastructure and tidal sluice gate investments.
 
@@ -16,7 +16,7 @@ Results demonstrate that built-up land cover expanded by +114.6% across the metr
 ---
 
 ### 1. Introduction & Research Questions
-Urban waterlogging and flash floods represent persistent, existential disruptions to socio-economic stability in South Asian coastal port cities. Chattogram, the primary commercial gateway and maritime hub of Bangladesh, handles over 90% of the nation’s international maritime trade while housing over 5.4 million inhabitants. The city is topographically unique and hydrologically volatile: flanked by the Bay of Bengal to the west, bisected by the tidal Karnaphuli River to the south and east, and traversed by hilly tertiary piedmont formations to the north.
+Urban waterlogging and flash floods represent persistent, existential disruptions to socio-economic stability in South Asian coastal port cities. Chattogram, the primary commercial gateway and maritime hub of Bangladesh, handles over 90% of the nationâ€™s international maritime trade while housing over 5.4 million inhabitants. The city is topographically unique and hydrologically volatile: flanked by the Bay of Bengal to the west, bisected by the tidal Karnaphuli River to the south and east, and traversed by hilly tertiary piedmont formations to the north.
 
 In recent decades, rapid unplanned urban expansion has triggered extensive hill cutting, canal encroachment, and loss of natural water storage reservoirs. When intense monsoonal downpours coincide with astronomical high tides in the Karnaphuli River, the city's 57 historical canals (*khals*) suffer backwater lock, submerging primary commercial corridors (Agrabad, Khatunganj, Chawkbazar) under 1.0 to 2.5 meters of stagnant water for days.
 
@@ -31,7 +31,7 @@ While conventional engineering reports often focus solely on rainfall volume or 
 ### 2. Study Area Context
 The study area encompasses the 41 administrative wards of Chattogram City Corporation (CMA footprint approximately 168.2 $\text{km}^2$, centered at $22.3475^\circ\text{N}, 91.8123^\circ\text{E}$). Elevation spans from under 1.8 meters above mean sea level (MSL) in estuarine coastal wards (Patenga, Halishahar) to over 55 meters in the northern hills (Bayezid, Jalalabad). 
 
-Hydrologically, the city drains into the Karnaphuli River and the Bay of Bengal through primary tidal channels including the Chaktai, Birja, Mirza, Rajakhali, and Noa Khals. The climate is tropical monsoon (Köppen *Am*), receiving an annual average of 2,800 to 3,400 mm of precipitation, over 80% of which is concentrated between May and October.
+Hydrologically, the city drains into the Karnaphuli River and the Bay of Bengal through primary tidal channels including the Chaktai, Birja, Mirza, Rajakhali, and Noa Khals. The climate is tropical monsoon (KÃ¶ppen *Am*), receiving an annual average of 2,800 to 3,400 mm of precipitation, over 80% of which is concentrated between May and October.
 
 ---
 
@@ -39,10 +39,10 @@ Hydrologically, the city drains into the Karnaphuli River and the Bay of Bengal 
 
 | Data Layer | Primary Platform & Sensor | Spatial / Temporal Resolution | Scientific Application in Study |
 | :--- | :--- | :--- | :--- |
-| **Precipitation & Extremes** | NASA GPM IMERG v07 (Final Run) | $0.1^\circ \times 0.1^\circ$ (~10 km), Daily (1998–2025) | Time-series ETCCDI extreme indices calculation, validated against BMD station gauges. |
+| **Precipitation & Extremes** | NASA GPM IMERG v07 (Final Run) | $0.1Â°^\circ \times 0.1Â°^\circ$ (~10 km), Daily (1998â€“2025) | Time-series ETCCDI extreme indices calculation, validated against BMD station gauges. |
 | **Land Use & Land Cover** | USGS Landsat 5 TM, 7 ETM+, 8 OLI, Copernicus Sentinel-2 | 30m / 10m Multi-Spectral (2001, 2005, 2010, 2015, 2020, 2025) | Random Forest LULC classification, NDBI/NDVI/MNDWI indices, impervious tracking. |
 | **Topography & Wetness** | NASA SRTM 1-Arc Second Global DEM | 30-meter Digital Elevation Model | Slope, aspect, and Topographic Wetness Index ($\text{TWI} = \ln(a / \tan \beta)$) extraction. |
-| **Inundation Extent** | Copernicus Sentinel-1A/B SAR (C-Band) | 10-meter, Dual-Pol (VV/VH) (2014–2025) | Thresholded backscatter change detection isolating flooded pixels during shock events. |
+| **Inundation Extent** | Copernicus Sentinel-1A/B SAR (C-Band) | 10-meter, Dual-Pol (VV/VH) (2014â€“2025) | Thresholded backscatter change detection isolating flooded pixels during shock events. |
 | **Population Grids** | WorldPop Project (Constrained UN-Adjusted) | 100-meter Gridded Census-Disaggregated | Spatial overlay identifying exposed inhabitants and vulnerable demographic cohorts. |
 | **Hydrological Gauges** | Bangladesh Water Development Board (BWDB) | Station River Stage Records | Khal water levels, Karnaphuli tidal cycle calibration, and sluice gate backflow tracking. |
 
@@ -52,32 +52,32 @@ Hydrologically, the city drains into the Karnaphuli River and the Bay of Bengal 
 
 ```
 +------------------------------------------------------------------------+
-¦                        DATA INGESTION & HARMONIZATION                  ¦
-¦  NASA GPM IMERG (1998-2025)  •  Landsat/Sentinel-2  •  SRTM 30m DEM    ¦
+Â¦                        DATA INGESTION & HARMONIZATION                  Â¦
+Â¦  NASA GPM IMERG (1998-2025)  â€¢  Landsat/Sentinel-2  â€¢  SRTM 30m DEM    Â¦
 +------------------------------------------------------------------------+
-                                    ¦
+                                    Â¦
                                     ?
 +------------------------------------------------------------------------+
-¦                        GEOSPATIAL & CLIMATE MODELING                   ¦
-¦  - ETCCDI Climate Extremes (Rx1day, R50mm, CDD, CWD)                   ¦
-¦  - Random Forest LULC Multi-Decadal Change Matrix (2001-2025)          ¦
-¦  - Topographic Wetness Index & Drainage Basin Flow Accumulation        ¦
-¦  - Sentinel-1 SAR Dual-Pol Inundation Backscatter Change Detection    ¦
+Â¦                        GEOSPATIAL & CLIMATE MODELING                   Â¦
+Â¦  - ETCCDI Climate Extremes (Rx1day, R50mm, CDD, CWD)                   Â¦
+Â¦  - Random Forest LULC Multi-Decadal Change Matrix (2001-2025)          Â¦
+Â¦  - Topographic Wetness Index & Drainage Basin Flow Accumulation        Â¦
+Â¦  - Sentinel-1 SAR Dual-Pol Inundation Backscatter Change Detection    Â¦
 +------------------------------------------------------------------------+
-                                    ¦
+                                    Â¦
                                     ?
 +------------------------------------------------------------------------+
-¦                        STATISTICAL & RISK SYNTHESIS                    ¦
-¦  - Non-Parametric Mann-Kendall Trend Tests & Sen's Slope Estimation    ¦
-¦  - Spatial Cross-Sectional OLS & Spatial Lag Regression Models         ¦
-¦  - High-Resolution WorldPop Demographics Intersection Exposure Overlay  ¦
+Â¦                        STATISTICAL & RISK SYNTHESIS                    Â¦
+Â¦  - Non-Parametric Mann-Kendall Trend Tests & Sen's Slope Estimation    Â¦
+Â¦  - Spatial Cross-Sectional OLS & Spatial Lag Regression Models         Â¦
+Â¦  - High-Resolution WorldPop Demographics Intersection Exposure Overlay  Â¦
 +------------------------------------------------------------------------+
-                                    ¦
+                                    Â¦
                                     ?
 +------------------------------------------------------------------------+
-¦                        ANALYTICS PRODUCT LAYER                         ¦
-¦  Enterprise Star-Schema Data Warehouse (DimDate, DimArea, DimEvent...) ¦
-¦  Production Power BI Dashboard with 30+ DAX Measures & What-If Sandbox ¦
+Â¦                        ANALYTICS PRODUCT LAYER                         Â¦
+Â¦  Enterprise Star-Schema Data Warehouse (DimDate, DimArea, DimEvent...) Â¦
+Â¦  Production Power BI Dashboard with 30+ DAX Measures & What-If Sandbox Â¦
 +------------------------------------------------------------------------+
 ```
 
@@ -101,7 +101,7 @@ Where:
 1. **Massive Built-up Expansion & Wetland Elimination:**  
    Between 2001 and 2025, built-up impervious land across the 41 wards expanded from $68.4\text{ km}^2$ to $146.8\text{ km}^2$ (+114.6% increase). Conversely, open water retention ponds, canals, and natural floodplains shrunk by 38.2%, severely crippling the natural runoff damping capacity.
 2. **Accelerating Extreme Precipitation:**  
-   Mann-Kendall trend tests on annual maximum 1-day rainfall ($Rx1day$) over the 1998–2025 NASA GPM record confirmed a statistically significant increasing trend ($Z = +2.48, p = 0.013$), with Sen's slope estimator indicating a rate of $+1.82\text{ mm/year}$. Heavy rainfall days ($R50mm$) increased from an average of 4.2 days/year in 2001–2005 to 6.8 days/year in 2020–2025.
+   Mann-Kendall trend tests on annual maximum 1-day rainfall ($Rx1day$) over the 1998â€“2025 NASA GPM record confirmed a statistically significant increasing trend ($Z = +2.48, p = 0.013$), with Sen's slope estimator indicating a rate of $+1.82\text{ mm/year}$. Heavy rainfall days ($R50mm$) increased from an average of 4.2 days/year in 2001â€“2005 to 6.8 days/year in 2020â€“2025.
 3. **Econometric Attribution:**  
    In the spatial regression model, the coefficient for impervious surface percentage was positive and highly significant ($\beta_1 = 0.412, p < 0.001$), confirming that urban land expansion significantly exacerbates flood inundation extent even after controlling for low topographic elevation ($\beta_2 = -0.385, p < 0.001$).
 4. **Spatial Inequity of Exposure:**  
@@ -117,10 +117,41 @@ Where:
 ---
 
 ### 7. Limitations & Uncertainty Budget
-1. **Satellite Spatial Resolution:** NASA GPM IMERG 0.1° resolution (~10 km) captures mesoscale convective storms but may smooth micro-scale cloudburst events; calibration against BMD station data was used to constrain bias.
+1. **Satellite Spatial Resolution:** NASA GPM IMERG 0.1Â°Â° resolution (~10 km) captures mesoscale convective storms but may smooth micro-scale cloudburst events; calibration against BMD station data was used to constrain bias.
 2. **Modeled Population Grids:** WorldPop data uses statistical dasymetric disaggregation of national census figures, which may slightly underestimate informal transient settlements in industrial lowlands.
 
 ---
 
 ### 8. Conclusion
 This study demonstrates that urban flood risk in Chattogram is not merely an unalterable consequence of monsoonal climate, but is profoundly amplified by the unchecked conversion of hydrological retention spaces into impervious surfaces. By connecting scientific geospatial methods with an interactive Power BI intelligence platform, this repository provides urban authorities and researchers with an open, reproducible foundation to guide climate-resilient infrastructure investments.
+
+
+---
+
+### 9. Nationwide Multi-Hazard AI Scaling & Automated Early Warning System (All 64 Districts)
+
+To address national climate vulnerability beyond municipal boundaries, the analytical engine was expanded to a **nationwide multi-hazard artificial intelligence platform covering all 64 districts across Bangladesh's 8 administrative divisions**.
+
+#### 9.1 Multi-Hazard Predictive Modeling & AI Benchmarks
+The modeling architecture was scaled to simultaneously predict three compounding climate hazards:
+1. **Monsoonal Inundation & Flash Flooding**: Riverine and pluvial inundation dynamics across coastal deltaic, haor wetland, and alluvial floodplain zones.
+2. **Severe Summer Heatwaves & Wet-Bulb Stress**: Extreme heatstroke hazards in western and northwestern border districts (Chuadanga, Rajshahi, Kushtia, Ishwardi).
+3. **Severe Winter Cold Waves**: Hypothermia, frost, and dense fog transport hazards across northern Himalayan foothill corridors (Panchagarh, Kurigram, Nilphamari, Dinajpur).
+
+Evaluating novel machine learning architectures against out-of-time unseen climate shocks (2023â€“2025 events) yielded the following performance metrics:
+- **Deep Multilayer Perceptron (MLP) Neural Network** ( \to 64 \to 32$ with ReLU, L2 regularization $\alpha=0.001$, Adam optimizer): **Test ^2 = 0.8186$**, **RMSE = .51\%$**, **MAE = .70\%$**. Its continuous non-linear representations superiorly model compound soil saturation thresholds.
+- **Physics-Constrained Monotonic XGBoost**: **Test ^2 = 0.8145$**, **RMSE = .57\%$**, enforcing monotonic non-decreasing constraints on extreme rainfall and impervious surface coverage.
+- **Stacking Meta-Ensemble (Ridge Meta-Learner)**: **Test ^2 = 0.8093$**, **RMSE = .65\%$**, synthesizing linear spatial trend lines with deep network feature extraction.
+- **HistGradientBoosting (Histogram-Binned Boosting)**: **Test ^2 = 0.8063$**, **RMSE = .69\%$**.
+
+#### 9.2 National Projections (2030, 2040, 2050)
+Simulating all 64 districts under coupled CMIP6 climate pathways (SSP2-4.5 / SSP5-8.5) and urban expansion models reveals critical national trajectory shifts:
+- **2030 Horizon**: Average national inundation reaches .24\%$, inundating ,771\text{ km}^2$, exposing .17\text{ million}$ residents, and incurring an estimated \.8\text{ billion}$ in compounding damage. Summer peak temperatures average .66^\circ\text{C}$ while winter minimums drop to .59^\circ\text{C}$.
+- **2040 Horizon**: Inundation expands to .44\%$ (,065\text{ km}^2$), exposing .31\text{ million}$ people. Summer heatwaves intensify to .76^\circ\text{C}$ average, with northwestern districts exceeding .5^\circ\text{C}$.
+- **2050 Horizon**: Severe compound inundation reaches .19\%$ (,227\text{ km}^2$), exposing .60\text{ million}$ citizens (\.2\text{ billion}$ risk exposure). Extreme summer heat peaks at .06^\circ\text{C}$ nationally ($>46.5^\circ\text{C}$ in Chuadanga and Rajshahi), while northern winter cold waves plunge to .19^\circ\text{C}$ average ($<2.8^\circ\text{C}$ in Panchagarh).
+
+#### 9.3 Common Alerting Protocol (CAP) & Cell Broadcast Early Notification System
+To bridge the gap between AI predictive intelligence and immediate citizen protection, the system implements an automated **Cell Broadcast System (CBS)** and SMS payload generator compliant with **ITU-T X.1303 / OASIS CAP v1.2** and **3GPP TS 23.041 standards**:
+- **Zero-Latency Citizen Notification**: Operates over telecom cellular towers (BTRC / Grameenphone, Robi, Banglalink, Teletalk) to push loud sirens and priority push alerts directly to citizens' mobile phones without requiring mobile data or application downloads.
+- **Dual-Language Geo-Targeting**: Alerts are automatically formatted in both **English and Bengali (à¦¬à¦¾à¦‚à¦²à¦¾)** with geo-fenced threat categorization (RED Emergency, ORANGE Warning, YELLOW Advisory).
+- **Multi-Hazard Action Guidance**: Delivers immediate actionable directives including shelter evacuation routes, emergency helpline numbers (1090 flood/cyclone, 999 rescue, 16263 health, 333 government relief), and health protective measures for vulnerable demographic groups.

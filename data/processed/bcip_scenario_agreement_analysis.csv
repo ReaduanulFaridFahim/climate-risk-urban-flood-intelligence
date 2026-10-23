@@ -1,0 +1,65 @@
+DistrictID,DistrictName,Division,AreaSqKm,Population,MidCentury_SSP245,MidCentury_SSP585,MidCentury_AgreementStatus
+1,Dhaka,Dhaka,1463.6,12518000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+2,Gazipur,Dhaka,1806.4,3890000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+3,Narayanganj,Dhaka,684.4,3900000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+4,Tangail,Dhaka,3414.4,4030000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+5,Kishoreganj,Dhaka,2688.6,3260000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+6,Manikganj,Dhaka,1383.7,1550000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+7,Munshiganj,Dhaka,1004.4,1620000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+8,Narsingdi,Dhaka,1150.1,2400000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+9,Faridpur,Dhaka,2072.7,2160000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+10,Gopalganj,Dhaka,1490.0,1290000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+11,Madaripur,Dhaka,1144.9,1290000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+12,Rajbari,Dhaka,1118.8,1180000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+13,Shariatpur,Dhaka,1181.5,1250000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+14,Chattogram,Chattogram,5283.0,9169000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+15,Cox's Bazar,Chattogram,2491.9,2820000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+16,Cumilla,Chattogram,3146.3,6210000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+17,Feni,Chattogram,928.3,1640000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+18,Brahmanbaria,Chattogram,1927.1,3300000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+19,Noakhali,Chattogram,4202.7,3620000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+20,Lakshmipur,Chattogram,1455.9,1930000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+21,Chandpur,Chattogram,1704.1,2630000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+22,Khagrachhari,Chattogram,2699.5,714000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+23,Rangamati,Chattogram,6116.1,650000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+24,Bandarban,Chattogram,4479.0,480000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+25,Sylhet,Sylhet,3490.4,3850000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+26,Sunamganj,Sylhet,3670.0,2700000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+27,Moulvibazar,Sylhet,2799.4,2120000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+28,Habiganj,Sylhet,2636.6,2350000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+29,Barishal,Barishal,2790.5,2570000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+30,Bhola,Barishal,3737.2,1930000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+31,Patuakhali,Barishal,3220.2,1720000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+32,Pirojpur,Barishal,1307.6,1200000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+33,Barguna,Barishal,1831.3,1010000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+34,Jhalokati,Barishal,758.1,680000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+35,Khulna,Khulna,4394.5,2610000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+36,Bagerhat,Khulna,3959.1,1610000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+37,Satkhira,Khulna,3858.3,2190000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+38,Jashore,Khulna,2570.4,3070000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+39,Jhenaidah,Khulna,1941.4,2000000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+40,Kushtia,Khulna,1621.2,2140000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+41,Magura,Khulna,1049.0,1030000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+42,Meherpur,Khulna,716.1,705000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+43,Narail,Khulna,990.2,780000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+44,Chuadanga,Khulna,1172.9,1230000.0,Am (Tropical Monsoon),Am (Tropical Monsoon),High Agreement (Stable Class)
+45,Rajshahi,Rajshahi,2407.0,2910000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+46,Bogura,Rajshahi,2919.9,3830000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+47,Pabna,Rajshahi,2371.5,2900000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+48,Sirajganj,Rajshahi,2497.9,3540000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+49,Naogaon,Rajshahi,3435.7,2780000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+50,Natore,Rajshahi,1896.1,1850000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+51,Chapai Nawabganj,Rajshahi,1702.6,1830000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+52,Joypurhat,Rajshahi,965.4,990000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+53,Rangpur,Rangpur,2307.7,3160000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+54,Dinajpur,Rangpur,3438.0,3310000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+55,Gaibandha,Rangpur,2179.3,2560000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+56,Kurigram,Rangpur,2296.1,2320000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+57,Lalmonirhat,Rangpur,1241.5,1420000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+58,Nilphamari,Rangpur,1580.9,2090000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+59,Panchagarh,Rangpur,1404.6,1170000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+60,Thakurgaon,Rangpur,1809.5,1530000.0,"Cwa (Temperate, Dry Winter, Hot Summer)",Aw (Tropical Savannah),"Scenario Divergence (One Transitions, One Stable)"
+61,Mymensingh,Mymensingh,4363.5,5890000.0,Aw (Tropical Savannah),Am (Tropical Monsoon),"Scenario Divergence (One Transitions, One Stable)"
+62,Jamalpur,Mymensingh,2032.0,2490000.0,Aw (Tropical Savannah),Am (Tropical Monsoon),"Scenario Divergence (One Transitions, One Stable)"
+63,Netrokona,Mymensingh,2810.4,2320000.0,Aw (Tropical Savannah),Am (Tropical Monsoon),"Scenario Divergence (One Transitions, One Stable)"
+64,Sherpur,Mymensingh,1363.8,1500000.0,Aw (Tropical Savannah),Am (Tropical Monsoon),"Scenario Divergence (One Transitions, One Stable)"

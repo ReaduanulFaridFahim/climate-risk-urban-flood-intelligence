@@ -1,0 +1,120 @@
+{
+  "status": "ONLINE",
+  "connected_satellites": [
+    "Himawari-9 (JMA)",
+    "INSAT-3D (ISRO)",
+    "Sentinel-3 / MetOp-C"
+  ],
+  "ground_stations": [
+    "BMD Agargaon Radar",
+    "Cox's Bazar Doppler Radar",
+    "Khepupara Coastal Radar",
+    "Moulvibazar Haor Radar"
+  ],
+  "timestamp": "2026-10-23 14:22:32",
+  "divisions": {
+    "Dhaka": {
+      "temperature_c": 33.4,
+      "feels_like_c": 36.3,
+      "humidity_pct": 45,
+      "cloud_cover_pct": 24,
+      "shortwave_radiation_wm2": 537.0,
+      "surface_pressure_hpa": 1006.3,
+      "wind_speed_kmh": 6.2,
+      "wind_dir_deg": 303,
+      "precipitation_mm": 0.0,
+      "weather_code": 1
+    },
+    "Chattogram": {
+      "temperature_c": 32.5,
+      "feels_like_c": 36.3,
+      "humidity_pct": 55,
+      "cloud_cover_pct": 2,
+      "shortwave_radiation_wm2": 564.0,
+      "surface_pressure_hpa": 1007.2,
+      "wind_speed_kmh": 9.8,
+      "wind_dir_deg": 296,
+      "precipitation_mm": 0.0,
+      "weather_code": 0
+    },
+    "Sylhet": {
+      "temperature_c": 31.5,
+      "feels_like_c": 36.1,
+      "humidity_pct": 59,
+      "cloud_cover_pct": 11,
+      "shortwave_radiation_wm2": 534.0,
+      "surface_pressure_hpa": 1005.9,
+      "wind_speed_kmh": 4.3,
+      "wind_dir_deg": 242,
+      "precipitation_mm": 0.0,
+      "weather_code": 0
+    },
+    "Rajshahi": {
+      "temperature_c": 30.7,
+      "feels_like_c": 33.2,
+      "humidity_pct": 50,
+      "cloud_cover_pct": 2,
+      "shortwave_radiation_wm2": 567.0,
+      "surface_pressure_hpa": 1006.9,
+      "wind_speed_kmh": 6.7,
+      "wind_dir_deg": 306,
+      "precipitation_mm": 0.0,
+      "weather_code": 0
+    },
+    "Khulna": {
+      "temperature_c": 31.4,
+      "feels_like_c": 36.2,
+      "humidity_pct": 60,
+      "cloud_cover_pct": 15,
+      "shortwave_radiation_wm2": 524.0,
+      "surface_pressure_hpa": 1008.0,
+      "wind_speed_kmh": 4.0,
+      "wind_dir_deg": 328,
+      "precipitation_mm": 0.0,
+      "weather_code": 0
+    },
+    "Barishal": {
+      "temperature_c": 31.3,
+      "feels_like_c": 36.6,
+      "humidity_pct": 64,
+      "cloud_cover_pct": 3,
+      "shortwave_radiation_wm2": 542.0,
+      "surface_pressure_hpa": 1008.1,
+      "wind_speed_kmh": 3.6,
+      "wind_dir_deg": 311,
+      "precipitation_mm": 0.0,
+      "weather_code": 0
+    },
+    "Rangpur": {
+      "temperature_c": 30.4,
+      "feels_like_c": 34.4,
+      "humidity_pct": 56,
+      "cloud_cover_pct": 20,
+      "shortwave_radiation_wm2": 508.0,
+      "surface_pressure_hpa": 1005.3,
+      "wind_speed_kmh": 0.9,
+      "wind_dir_deg": 101,
+      "precipitation_mm": 0.0,
+      "weather_code": 1
+    },
+    "Mymensingh": {
+      "temperature_c": 31.3,
+      "feels_like_c": 34.6,
+      "humidity_pct": 51,
+      "cloud_cover_pct": 0,
+      "shortwave_radiation_wm2": 541.0,
+      "surface_pressure_hpa": 1006.8,
+      "wind_speed_kmh": 3.6,
+      "wind_dir_deg": 290,
+      "precipitation_mm": 0.0,
+      "weather_code": 0
+    }
+  },
+  "rainviewer_radar": {
+    "host": "https://tilecache.rainviewer.com",
+    "latest_timestamp": 1792743600,
+    "path": "/v2/radar/e25c310693bc",
+    "tile_template": "https://tilecache.rainviewer.com/v2/radar/e25c310693bc/256/{z}/{x}/{y}/2/1_1.png",
+    "total_past_frames": 13
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "Model 1 (Exposure-Only)": {
+    "Model 1 (Exposure-Only)": {
+      "SpearmanRho": 1.0,
+      "PValue": 0.0
+    },
+    "Model 2 (Hazard-Only)": {
+      "SpearmanRho": 0.027,
+      "PValue": 0.8321878972505972
+    },
+    "Model 3 (Climate-Only)": {
+      "SpearmanRho": -0.0401,
+      "PValue": 0.752786688053993
+    },
+    "Model 4 (Integrated BCIP)": {
+      "SpearmanRho": 0.4389,
+      "PValue": 0.00028549513769628534
+    }
+  },
+  "Model 2 (Hazard-Only)": {
+    "Model 1 (Exposure-Only)": {
+      "SpearmanRho": 0.027,
+      "PValue": 0.8321878972505972
+    },
+    "Model 2 (Hazard-Only)": {
+      "SpearmanRho": 1.0,
+      "PValue": 0.0
+    },
+    "Model 3 (Climate-Only)": {
+      "SpearmanRho": -0.6058,
+      "PValue": 1.1301605289738571e-07
+    },
+    "Model 4 (Integrated BCIP)": {
+      "SpearmanRho": -0.5528,
+      "PValue": 2.1748935258420984e-06
+    }
+  },
+  "Model 3 (Climate-Only)": {
+    "Model 1 (Exposure-Only)": {
+      "SpearmanRho": -0.0401,
+      "PValue": 0.752786688053993
+    },
+    "Model 2 (Hazard-Only)": {
+      "SpearmanRho": -0.6058,
+      "PValue": 1.1301605289738633e-07
+    },
+    "Model 3 (Climate-Only)": {
+      "SpearmanRho": 1.0,
+      "PValue": 0.0
+    },
+    "Model 4 (Integrated BCIP)": {
+      "SpearmanRho": 0.8029,
+      "PValue": 1.4606108980537888e-15
+    }
+  },
+  "Model 4 (Integrated BCIP)": {
+    "Model 1 (Exposure-Only)": {
+      "SpearmanRho": 0.4389,
+      "PValue": 0.00028549513769628534
+    },
+    "Model 2 (Hazard-Only)": {
+      "SpearmanRho": -0.5528,
+      "PValue": 2.1748935258420984e-06
+    },
+    "Model 3 (Climate-Only)": {
+      "SpearmanRho": 0.8029,
+      "PValue": 1.4606108980537888e-15
+    },
+    "Model 4 (Integrated BCIP)": {
+      "SpearmanRho": 1.0,
+      "PValue": 0.0
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "features": [
+    "PeakRainfallMm",
+    "DurationDays",
+    "ImperviousSurfacePercentage",
+    "RainfallShockIntensity",
+    "UrbanDrainageCongestionIndex",
+    "TidalExposureFactor",
+    "MeanElevationM",
+    "MaxElevationM",
+    "MeanSlopeDeg",
+    "DistanceToRiverKm",
+    "NaturalRetentionBuffer",
+    "NaturalDrainageLossIndex",
+    "AreaSqKm",
+    "EventYear"
+  ],
+  "monotone_constraints": {
+    "PeakRainfallMm": 1,
+    "DurationDays": 1,
+    "ImperviousSurfacePercentage": 1,
+    "RainfallShockIntensity": 1,
+    "UrbanDrainageCongestionIndex": 1,
+    "TidalExposureFactor": 1,
+    "MeanElevationM": -1,
+    "MaxElevationM": -1,
+    "MeanSlopeDeg": -1,
+    "DistanceToRiverKm": -1,
+    "NaturalRetentionBuffer": -1,
+    "NaturalDrainageLossIndex": 1,
+    "AreaSqKm": 0,
+    "EventYear": 1
+  },
+  "test_r2_blend": 0.8329,
+  "test_rmse_blend": 5.29,
+  "test_mae_blend": 4.61
+}

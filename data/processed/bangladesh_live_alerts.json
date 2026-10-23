@@ -1,0 +1,101 @@
+{
+  "Scenario": "monsoon_surge",
+  "TotalDistricts": 64,
+  "RedAlertCount": 15,
+  "OrangeAlertCount": 49,
+  "TotalNationalFloodedSqKm": 54888.8,
+  "TotalNationalExposedPopulation": 35330537,
+  "TotalEstimatedDamageUSD_M": 186278.8,
+  "TopRedDistricts": [
+    {
+      "DistrictName": "Chattogram",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 49.6,
+      "ProjectedExposedPopulation": 2501303
+    },
+    {
+      "DistrictName": "Cox's Bazar",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 61.6,
+      "ProjectedExposedPopulation": 955416
+    },
+    {
+      "DistrictName": "Cumilla",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 49.8,
+      "ProjectedExposedPopulation": 1700919
+    },
+    {
+      "DistrictName": "Feni",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 60.6,
+      "ProjectedExposedPopulation": 546612
+    },
+    {
+      "DistrictName": "Brahmanbaria",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 67.6,
+      "ProjectedExposedPopulation": 1226940
+    },
+    {
+      "DistrictName": "Noakhali",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 71.0,
+      "ProjectedExposedPopulation": 2184670
+    },
+    {
+      "DistrictName": "Lakshmipur",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 69.3,
+      "ProjectedExposedPopulation": 1136866
+    },
+    {
+      "DistrictName": "Chandpur",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 64.7,
+      "ProjectedExposedPopulation": 1446368
+    },
+    {
+      "DistrictName": "Khagrachhari",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 8.0,
+      "ProjectedExposedPopulation": 11424
+    },
+    {
+      "DistrictName": "Rangamati",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 8.0,
+      "ProjectedExposedPopulation": 10400
+    },
+    {
+      "DistrictName": "Bandarban",
+      "Division": "Chattogram",
+      "PredictedInundatedPercentage": 8.0,
+      "ProjectedExposedPopulation": 7680
+    },
+    {
+      "DistrictName": "Sylhet",
+      "Division": "Sylhet",
+      "PredictedInundatedPercentage": 62.1,
+      "ProjectedExposedPopulation": 478170
+    },
+    {
+      "DistrictName": "Sunamganj",
+      "Division": "Sylhet",
+      "PredictedInundatedPercentage": 70.7,
+      "ProjectedExposedPopulation": 1622565
+    },
+    {
+      "DistrictName": "Moulvibazar",
+      "Division": "Sylhet",
+      "PredictedInundatedPercentage": 45.4,
+      "ProjectedExposedPopulation": 192496
+    },
+    {
+      "DistrictName": "Habiganj",
+      "Division": "Sylhet",
+      "PredictedInundatedPercentage": 64.0,
+      "ProjectedExposedPopulation": 827200
+    }
+  ]
+}
