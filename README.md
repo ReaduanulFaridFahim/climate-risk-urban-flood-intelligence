@@ -8,16 +8,7 @@
 [![XGBoost](https://img.shields.io/badge/XGBoost-2.1+-117CAD.svg?logo=xgboost&logoColor=white)](https://xgboost.ai)
 [![ECMWF IFS](https://img.shields.io/badge/ECMWF-IFS%200.25%C2%B0%20Ensemble-005A9C.svg)](https://www.ecmwf.int)
 [![CAP v1.2](https://img.shields.io/badge/Standard-ITU--T%20CAP%20v1.2%20%2F%20CBS-22c55e.svg)](https://docs.oasis-open.org/emergency/cap/v1.2/)
-[![GitHub Pages](https://img.shields.io/badge/Live%20Portal-GitHub%20Pages-blue.svg?logo=github&logoColor=white)](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
----
-
-> ### 🌐 [Click Here to Access the Live Web Platform (Hosted on GitHub Pages)](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/)
->
-> **Explore 9 interactive dashboards**: *Overview*, *Geospatial Atlas*, *AI Models & 2050*, *60-Day Weather Forecast*, *UN HDX Humanitarian Hub*, *Emergency Alert Broadcaster*, *Chattogram Wards*, *Open Data Catalog*, and *Streamlit Analytics Lab*.
-
----
 
 ## 📌 Executive Overview & Platform Vision
 
