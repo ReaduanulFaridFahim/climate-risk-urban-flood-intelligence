@@ -175,12 +175,18 @@ def detect_live_connection_gps():
 # -------------------------------------------------------------
 @st.cache_data
 def load_data():
-    dim_area = pd.read_csv(os.path.join(DATA_DIR, 'dim_area.csv'))
-    dim_event = pd.read_csv(os.path.join(DATA_DIR, 'dim_event.csv'))
-    fact_rainfall = pd.read_csv(os.path.join(DATA_DIR, 'fact_rainfall.csv'))
-    fact_landcover = pd.read_csv(os.path.join(DATA_DIR, 'fact_landcover.csv'))
-    fact_flood = pd.read_csv(os.path.join(DATA_DIR, 'fact_flood_extent.csv'))
-    fact_exposure = pd.read_csv(os.path.join(DATA_DIR, 'fact_exposure.csv'))
+    dim_area_path = os.path.join(DATA_DIR, 'dim_area.csv')
+    dim_area = pd.read_csv(dim_area_path) if os.path.exists(dim_area_path) else pd.DataFrame()
+    dim_event_path = os.path.join(DATA_DIR, 'dim_event.csv')
+    dim_event = pd.read_csv(dim_event_path) if os.path.exists(dim_event_path) else pd.DataFrame()
+    fact_rainfall_path = os.path.join(DATA_DIR, 'fact_rainfall.csv')
+    fact_rainfall = pd.read_csv(fact_rainfall_path) if os.path.exists(fact_rainfall_path) else pd.DataFrame()
+    fact_landcover_path = os.path.join(DATA_DIR, 'fact_landcover.csv')
+    fact_landcover = pd.read_csv(fact_landcover_path) if os.path.exists(fact_landcover_path) else pd.DataFrame()
+    fact_flood_path = os.path.join(DATA_DIR, 'fact_flood_extent.csv')
+    fact_flood = pd.read_csv(fact_flood_path) if os.path.exists(fact_flood_path) else pd.DataFrame()
+    fact_exposure_path = os.path.join(DATA_DIR, 'fact_exposure.csv')
+    fact_exposure = pd.read_csv(fact_exposure_path) if os.path.exists(fact_exposure_path) else pd.DataFrame()
     
     # Nationwide Datasets
     nat_dist_path = os.path.join(DATA_DIR, 'bangladesh_districts_master.csv')

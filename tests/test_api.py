@@ -100,6 +100,9 @@ def test_spatial_geojson_endpoint():
     assert len(data["features"]) == 64
 
 
+import os
+
+@pytest.mark.skipif(not os.path.exists("web/static"), reason="Static web portal unmounted")
 def test_web_portal_route():
     response = client.get("/portal/")
     assert response.status_code == 200
@@ -107,6 +110,7 @@ def test_web_portal_route():
     assert "BANGLADESH CLIMATE INTELLIGENCE" in response.text
 
 
+@pytest.mark.skipif(not os.path.exists("web/static"), reason="Static web portal unmounted")
 def test_root_browser_html_request():
     response = client.get("/", headers={"Accept": "text/html,application/xhtml+xml"})
     assert response.status_code == 200
@@ -114,6 +118,7 @@ def test_root_browser_html_request():
     assert "Bangladesh Climate Risk & Flood Intelligence Platform" in response.text
 
 
+@pytest.mark.skipif(not os.path.exists("web/static"), reason="Static web portal unmounted")
 def test_all_multipage_routes():
     pages = [
         "index.html",

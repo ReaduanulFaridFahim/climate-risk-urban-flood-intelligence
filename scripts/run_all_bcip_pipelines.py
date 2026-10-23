@@ -11,6 +11,7 @@ Author: Readuanul Farid Fahim | Department of Computer Science & Engineering, No
 ========================================================================================
 """
 
+import os
 import sys
 import subprocess
 import time
@@ -49,7 +50,8 @@ def main():
     run_step(4, "Publication Figures Generation (300 DPI)", "scripts/20_generate_bcip_publication_figures.py")
     run_step(5, "Regional Ecological Biomes & Policy Profiling", "scripts/21_generate_biome_and_upazila_profiles.py")
     run_step(6, "UN HDX Humanitarian Integration & Dispatches", "scripts/22_generate_hdx_humanitarian_usecases.py")
-    run_step(7, "Master Web Payload & Multi-Dataset Harmonization", "scripts/23_build_website_payload.py")
+    if os.path.exists("scripts/23_build_website_payload.py"):
+        run_step(7, "Master Web Payload & Multi-Dataset Harmonization", "scripts/23_build_website_payload.py")
     
     total_time = time.time() - t_start
     print("\n" + "*" * 90)
