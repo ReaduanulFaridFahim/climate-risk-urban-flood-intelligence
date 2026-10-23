@@ -192,14 +192,58 @@ def interactive_menu():
         print("   BANGLADESH CLIMATE RISK INTELLIGENCE")
         print("=" * 50)
         print("1. View Nationwide Risk Summary (Top Districts)")
+def start_live_dashboard(port=8000):
+    import http.server
+    import socketserver
+    import webbrowser
+    
+    dashboard_dir = os.path.join(BASE_DIR, 'dashboard')
+    if not os.path.exists(dashboard_dir):
+        print(f"[!] Dashboard directory not found at {dashboard_dir}")
+        return
+
+    class Handler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=dashboard_dir, **kwargs)
+        def log_message(self, format, *args):
+            pass
+
+    print("\n" + "=" * 70)
+    print("BANGLADESH CLIMATE INTELLIGENCE LIVE DASHBOARD")
+    print("=" * 70)
+    print(f"[+] Live Server running at: http://localhost:{port}")
+    print(f"[+] Direct link: http://127.0.0.1:{port}/")
+    print("[+] Zero Streamlit overhead, pure lightweight web dashboard.")
+    print("[+] Press Ctrl+C in this terminal to stop.")
+    print("=" * 70)
+
+    try:
+        webbrowser.open(f"http://localhost:{port}")
+    except Exception:
+        pass
+
+    with socketserver.TCPServer(("", port), Handler) as httpd:
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\n[+] Server stopped.")
+
+
+def interactive_menu():
+    while True:
+        print("\n" + "=" * 50)
+        print("   BANGLADESH CLIMATE RISK INTELLIGENCE")
+        print("=" * 50)
+        print("1. View Nationwide Risk Summary (Top Districts)")
         print("2. Search Specific District Profile")
         print("3. View AI / ML Model Performances")
         print("4. Generate & Save Risk Chart")
-        print("5. Run All Data Engineering Pipelines")
-        print("6. Exit")
+        print("5. Launch Live Web Dashboard (http://localhost:8000)")
+        print("6. Run All Data Engineering Pipelines")
+        print("7. Exit")
         print("-" * 50)
         
-        choice = input("Enter option [1-6]: ").strip()
+        choice = input("Enter option [1-7]: ").strip()
         if choice == '1':
             show_summary()
         elif choice == '2':
@@ -211,17 +255,20 @@ def interactive_menu():
         elif choice == '4':
             generate_plot()
         elif choice == '5':
+            start_live_dashboard()
+        elif choice == '6':
             import subprocess
             subprocess.run([sys.executable, "scripts/run_all_bcip_pipelines.py"])
-        elif choice in ['6', 'q', 'exit']:
+        elif choice in ['7', 'q', 'exit']:
             print("\nExiting. Goodbye!\n")
             break
         else:
-            print("[!] Invalid option. Please select 1 to 6.")
+            print("[!] Invalid option. Please select 1 to 7.")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Bangladesh Climate Risk & Flood Intelligence Platform (BCIP)")
+    parser.add_argument("--serve", action="store_true", help="Launch live interactive web dashboard in browser (http://localhost:8000)")
     parser.add_argument("--summary", action="store_true", help="Print nationwide risk summary and top vulnerable districts")
     parser.add_argument("--district", type=str, help="Print detailed climate risk profile for a specific district")
     parser.add_argument("--models", action="store_true", help="Print AI/ML model benchmark performance metrics")
@@ -229,7 +276,9 @@ def main():
     
     args = parser.parse_args()
     
-    if args.summary:
+    if args.serve:
+        start_live_dashboard()
+    elif args.summary:
         show_summary()
     elif args.district:
         show_district_detail(args.district)
@@ -238,10 +287,13 @@ def main():
     elif args.plot:
         generate_plot()
     elif len(sys.argv) == 1:
-        # No arguments given -> run summary directly, then ask if interactive
+        # Default: show summary and provide serve tip
         show_summary()
-        print("\n[Tip] You can also run: python main.py --district 'Sylhet' or python main.py --models or python main.py --plot")
+        print("\n[LIVE DASHBOARD] To see it live in your browser, run:")
+        print("    python main.py --serve")
+        print("    Then open: http://localhost:8000\n")
 
 
 if __name__ == '__main__':
     main()
+

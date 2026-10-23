@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangladesh Climate Risk & Flood Intelligence (Live Dashboard)</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #0284c7;
+      --primary-glow: rgba(2, 132, 199, 0.35);
+      --accent: #38bdf8;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    /* Header Bar */
+    header {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      font-size: 1.8rem;
+    }
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+    /* Layout Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* KPI Row */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+    .kpi-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .kpi-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin: 4px 0;
+      color: #ffffff;
+    }
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    /* Main Dashboard Grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 1024px) {
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      position: relative;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Map Box */
+    #map {
+      height: 480px;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Inspector Panel */
+    .inspector-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .inspector-district {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .inspector-division {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .inspector-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .metric-box {
+      background: #1e293b;
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+    .metric-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .metric-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Simulator Sliders */
+    .slider-group {
+      margin-bottom: 0.85rem;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #334155;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    /* Filter Controls */
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    input[type=text], select {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    input[type=text] { flex: 1; min-width: 200px; }
+
+    /* Table */
+    .table-container {
+      max-height: 380px;
+      overflow-y: auto;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    th {
+      background: #1e293b;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    tr:hover {
+      background: rgba(56, 189, 248, 0.06);
+      cursor: pointer;
+    }
+    .rank-pill {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
+    .rank-top3 { background: #dc2626; color: white; }
+    .rank-top10 { background: #d97706; color: white; }
+    .rank-other { background: #334155; color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header>
+    <div class="brand">
+      <span class="brand-icon">🌊</span>
+      <div>
+        <h1 class="brand-title">Bangladesh Climate Risk & Flood Intelligence</h1>
+        <p class="brand-subtitle">Live Nationwide Multi-Hazard Decision Support (64 Districts)</p>
+      </div>
+    </div>
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      <span>Live Local Dashboard</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- KPI Row -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Districts Assessed</div>
+        <div class="kpi-value" id="kpi-districts">64</div>
+        <div class="kpi-sub">All 8 Divisions</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Highest Priority Risk</div>
+        <div class="kpi-value" id="kpi-top-district">Mymensingh</div>
+        <div class="kpi-sub">BCIP Score: 0.497 (Rank 1)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Population at Risk</div>
+        <div class="kpi-value">169.8M</div>
+        <div class="kpi-sub">National Exposure Base</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Top AI Model Performance</div>
+        <div class="kpi-value">R² = 0.819</div>
+        <div class="kpi-sub">Stacking Meta-Ensemble</div>
+      </div>
+    </div>
+
+    <!-- Map & District Inspector Row -->
+    <div class="grid-2col">
+      <!-- Interactive Leaflet Map -->
+      <div class="card">
+        <div class="card-title">
+          <span>🗺️ Interactive Nationwide Risk Map</span>
+          <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Click any circle to inspect</span>
+        </div>
+        <div id="map"></div>
+      </div>
+
+      <!-- District Telemetry Inspector -->
+      <div class="card">
+        <div class="card-title">
+          <span>📍 District Climate Profile</span>
+          <span id="inspector-badge" class="status-badge" style="background:#1e293b; border-color:#334155; color:#38bdf8;">Rank #1</span>
+        </div>
+        <div class="inspector-header">
+          <div class="inspector-district" id="detail-name">Mymensingh</div>
+          <div class="inspector-division" id="detail-division">Division: Mymensingh | Biome: Active Floodplain</div>
+        </div>
+        <div class="inspector-metrics">
+          <div class="metric-box">
+            <div class="metric-name">Composite Risk Score</div>
+            <div class="metric-val" id="detail-score" style="color:#ef4444;">0.497</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-name">Population</div>
+            <div class="metric-val" id="detail-pop">5,310,000</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-name">Elevation AMSL</div>
+            <div class="metric-val" id="detail-elev">14.0 m</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-name">Density per km²</div>
+            <div class="metric-val" id="detail-density">1,217 /km²</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-name">Flood Proneness Tier</div>
+            <div class="metric-val" id="detail-flood" style="font-size:0.9rem;">Severe Flash Flood</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-name">Robustness Tier</div>
+            <div class="metric-val" id="detail-tier" style="font-size:0.9rem; color:#38bdf8;">Tier 1 Priority</div>
+          </div>
+        </div>
+
+        <!-- Prioritization Weight Simulator -->
+        <div style="border-top: 1px solid var(--card-border); padding-top: 1rem; margin-top: 1rem;">
+          <h3 style="font-size:0.9rem; font-weight:700; margin-bottom: 0.75rem;">🎛️ Live Dynamic Weight Simulator</h3>
+          <div class="slider-group">
+            <div class="slider-label"><span>Climate Shift (wC)</span><span id="lbl-wc">25%</span></div>
+            <input type="range" id="slider-wc" min="0" max="100" value="25" oninput="updateWeights()">
+          </div>
+          <div class="slider-group">
+            <div class="slider-label"><span>Population Density (wP)</span><span id="lbl-wp">25%</span></div>
+            <input type="range" id="slider-wp" min="0" max="100" value="25" oninput="updateWeights()">
+          </div>
+          <div class="slider-group">
+            <div class="slider-label"><span>Asset & Cropland (wA)</span><span id="lbl-wa">25%</span></div>
+            <input type="range" id="slider-wa" min="0" max="100" value="25" oninput="updateWeights()">
+          </div>
+          <div class="slider-group">
+            <div class="slider-label"><span>Service Deficit (wH)</span><span id="lbl-wh">25%</span></div>
+            <input type="range" id="slider-wh" min="0" max="100" value="25" oninput="updateWeights()">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 64 District Ranking Table & Filter -->
+    <div class="card">
+      <div class="card-title">
+        <span>📊 All 64 Districts Ranking & Vulnerability Table</span>
+      </div>
+      <div class="controls">
+        <input type="text" id="search-input" placeholder="Search district by name (e.g. Sylhet, Bogura, Dhaka)..." oninput="filterTable()">
+        <select id="division-filter" onchange="filterTable()">
+          <option value="All">All Divisions</option>
+          <option value="Dhaka">Dhaka</option>
+          <option value="Chittagong">Chittagong</option>
+          <option value="Sylhet">Sylhet</option>
+          <option value="Rajshahi">Rajshahi</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Khulna">Khulna</option>
+          <option value="Barisal">Barisal</option>
+          <option value="Mymensingh">Mymensingh</option>
+        </select>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>District</th>
+              <th>Division</th>
+              <th>Ecological Biome</th>
+              <th>Elevation</th>
+              <th>Population</th>
+              <th>Risk Score</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Dynamically populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    let allDistricts = [];
+    let map = null;
+    let markers = [];
+
+    // Initialize Map
+    function initMap() {
+      map = L.map('map').setView([23.8103, 90.3563], 7);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+    }
+
+    // Load data from dashboard/data.json
+    async function loadDashboardData() {
+      try {
+        const res = await fetch('data.json');
+        const data = await res.json();
+        allDistricts = data.districts;
+        renderMapMarkers();
+        renderTable(allDistricts);
+        if (allDistricts.length > 0) {
+          selectDistrict(allDistricts[0]);
+        }
+      } catch (e) {
+        console.error("Failed to load data.json", e);
+      }
+    }
+
+    // Render Markers on Map
+    function renderMapMarkers() {
+      markers.forEach(m => map.removeLayer(m));
+      markers = [];
+
+      allDistricts.forEach(d => {
+        let color = '#10b981';
+        if (d.rank <= 10) color = '#ef4444';
+        else if (d.rank <= 25) color = '#f59e0b';
+
+        const circle = L.circleMarker([d.lat, d.lon], {
+          radius: d.rank <= 10 ? 9 : 6,
+          fillColor: color,
+          color: '#ffffff',
+          weight: 1.5,
+          opacity: 0.9,
+          fillOpacity: 0.8
+        }).addTo(map);
+
+        circle.bindTooltip(`<b>#${d.rank} ${d.name}</b><br>Score: ${d.score.toFixed(3)}<br>Division: ${d.division}`);
+        circle.on('click', () => {
+          selectDistrict(d);
+        });
+        markers.push(circle);
+      });
+    }
+
+    // Select and inspect a district
+    function selectDistrict(d) {
+      document.getElementById('detail-name').innerText = d.name;
+      document.getElementById('detail-division').innerText = `Division: ${d.division} | Biome: ${d.biome || 'Floodplain'}`;
+      document.getElementById('detail-score').innerText = d.score.toFixed(3);
+      document.getElementById('detail-pop').innerText = Number(d.pop).toLocaleString();
+      document.getElementById('detail-elev').innerText = `${d.elevation.toFixed(1)} m`;
+      document.getElementById('detail-density').innerText = `${Math.round(d.density).toLocaleString()} /km²`;
+      document.getElementById('detail-flood').innerText = d.flood_tier || 'Riverine';
+      document.getElementById('detail-tier').innerText = d.tier || 'Priority';
+      document.getElementById('inspector-badge').innerText = `Rank #${d.rank}`;
+      map.panTo([d.lat, d.lon]);
+    }
+
+    // Render Table
+    function renderTable(districts) {
+      const tbody = document.getElementById('table-body');
+      tbody.innerHTML = '';
+      districts.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.onclick = () => selectDistrict(d);
+        
+        let pillClass = 'rank-other';
+        if (d.rank <= 3) pillClass = 'rank-top3';
+        else if (d.rank <= 10) pillClass = 'rank-top10';
+
+        tr.innerHTML = `
+          <td><span class="rank-pill ${pillClass}">${d.rank}</span></td>
+          <td><b>${d.name}</b></td>
+          <td>${d.division}</td>
+          <td>${d.biome || 'Floodplain'}</td>
+          <td>${d.elevation.toFixed(1)}m</td>
+          <td>${Number(d.pop).toLocaleString()}</td>
+          <td><b style="color:${d.rank <= 10 ? '#ef4444' : '#38bdf8'}">${d.score.toFixed(3)}</b></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Search and Division Filter
+    function filterTable() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const division = document.getElementById('division-filter').value;
+
+      const filtered = allDistricts.filter(d => {
+        const matchesQuery = d.name.toLowerCase().includes(query) || d.division.toLowerCase().includes(query);
+        const matchesDiv = (division === 'All') || (d.division === division);
+        return matchesQuery && matchesDiv;
+      });
+      renderTable(filtered);
+    }
+
+    // Live Dynamic Simulator
+    function updateWeights() {
+      const wc = parseInt(document.getElementById('slider-wc').value);
+      const wp = parseInt(document.getElementById('slider-wp').value);
+      const wa = parseInt(document.getElementById('slider-wa').value);
+      const wh = parseInt(document.getElementById('slider-wh').value);
+
+      document.getElementById('lbl-wc').innerText = `${wc}%`;
+      document.getElementById('lbl-wp').innerText = `${wp}%`;
+      document.getElementById('lbl-wa').innerText = `${wa}%`;
+      document.getElementById('lbl-wh').innerText = `${wh}%`;
+
+      const sum = (wc + wp + wa + wh) || 1;
+      const n_wc = wc / sum;
+      const n_wp = wp / sum;
+      const n_wa = wa / sum;
+      const n_wh = wh / sum;
+
+      // Recalculate dynamic scores
+      allDistricts.forEach(d => {
+        d.dynamic_score = (d.cz * n_wc) + (d.pz * n_wp) + (d.az * n_wa) + (d.hz * n_wh);
+      });
+
+      // Sort and assign dynamic rank
+      allDistricts.sort((a, b) => b.dynamic_score - a.dynamic_score);
+      allDistricts.forEach((d, idx) => {
+        d.rank = idx + 1;
+        d.score = d.dynamic_score;
+      });
+
+      renderMapMarkers();
+      filterTable();
+    }
+
+    window.onload = () => {
+      initMap();
+      loadDashboardData();
+    };
+  </script>
+</body>
+</html>
