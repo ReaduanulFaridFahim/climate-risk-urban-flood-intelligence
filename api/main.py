@@ -14,8 +14,7 @@ import time
 from typing import List, Optional, Dict, Any
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse, PlainTextResponse, RedirectResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse, PlainTextResponse
 from starlette.requests import Request
 from starlette.responses import Response
 from pydantic import BaseModel, Field
@@ -29,7 +28,6 @@ logger = logging.getLogger("bcip-api")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data', 'processed')
 SPATIAL_DIR = os.path.join(BASE_DIR, 'data', 'spatial')
-STATIC_WEB_DIR = os.path.join(BASE_DIR, 'web', 'static')
 
 # Initialize FastAPI App
 app = FastAPI(
