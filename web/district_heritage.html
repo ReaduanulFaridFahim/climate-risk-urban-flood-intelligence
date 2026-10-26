@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bangladesh 64 Districts Heritage & Infrastructure Directory: Detailed census of schools, colleges, mosques, madrasas, universities, polytechnics, hospitals, medical colleges, clinics, and historical landmarks.">
+  <title>🏛️ 64 Districts Heritage & Infrastructure Directory | DeltaShield</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common.css">
+  <!-- Leaflet Interactive Maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  
+  <!-- Chart.js 4.4.1 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- 64 Districts Master Dataset -->
+  <script src="districts_heritage_data.js"></script>
+
+  <style>
+    :root {
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.25);
+      --teal: #14b8a6;
+      --emerald: #10b981;
+    }
+    
+    .heritage-hero {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .heritage-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .kpi-summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .infra-kpi-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .infra-kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+    .infra-kpi-card .kpi-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .infra-kpi-card .kpi-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* Filter & Search Bar */
+    .filter-controls-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .filter-row-top {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .search-input-wrap {
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10, 15, 29, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    .search-input-wrap input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 0.92rem;
+      width: 100%;
+      outline: none;
+    }
+    .sort-select {
+      background: rgba(10, 15, 29, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #cbd5e1;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+    .sort-select option {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .division-chips-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .div-chip {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .div-chip:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .div-chip.active {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.4);
+    }
+
+    /* District Card Grid */
+    .district-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+
+    .district-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .district-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.6), 0 0 20px -3px rgba(14, 165, 233, 0.25);
+    }
+
+    .card-photo-header {
+      position: relative;
+      height: 190px;
+      width: 100%;
+      background: #0f172a;
+      overflow: hidden;
+    }
+    .card-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .district-card:hover .card-photo-img {
+      transform: scale(1.05);
+    }
+    .card-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(11, 15, 25, 0.88) 85%, #0e1629 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px 14px;
+    }
+
+    .district-badge-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .division-tag {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+    }
+    .era-pill {
+      background: rgba(30, 27, 75, 0.85);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c084fc;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .photo-bottom-caption {
+      margin-top: auto;
+    }
+    .landmark-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .district-main-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: -0.01em;
+    }
+
+    .card-body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .history-desc {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .famous-for-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .famous-badge {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .infra-stats-grid {
+      background: rgba(10, 15, 29, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .infra-section-title {
+      grid-column: span 2;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .stat-row .stat-label {
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .stat-row .stat-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .card-footer-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .btn-view-map {
+      flex: 1;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-view-map:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+    .btn-expand-info {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-expand-info:hover {
+      background: #334155;
+      color: #fff;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content-card {
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      max-width: 760px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+    .modal-header-img {
+      height: 240px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-header-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.2rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Comparison Analytics Card */
+    .analytics-chart-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+  
+    /* Map & Video UI Styles */
+    .play-video-floating-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(14, 165, 233, 0.9);
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.7);
+      transition: all 0.25s ease;
+      z-index: 2;
+    }
+    .play-video-floating-btn:hover {
+      transform: translate(-50%, -50%) scale(1.15);
+      background: #0284c7;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 1);
+    }
+    .view-map-floating-btn {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .view-map-floating-btn:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+    }
+
+    .btn-action-map {
+      flex: 1;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .btn-action-map:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    .btn-action-video {
+      flex: 1;
+      background: rgba(220, 38, 38, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      color: #f87171;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .btn-action-video:hover {
+      background: #dc2626;
+      color: #fff;
+    }
+
+    /* Video Player Modal */
+    .video-modal-card {
+      background: #0b1120;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 16px;
+      max-width: 900px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+      position: relative;
+    }
+    .video-frame-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      background: #000;
+      overflow: hidden;
+    }
+    .video-frame-container iframe, .video-frame-container canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Map Modal */
+    .map-modal-card {
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 16px;
+      max-width: 940px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+      position: relative;
+    }
+    #landmarkLeafletMap {
+      height: 480px;
+      width: 100%;
+      background: #0a0f1d;
+    }
+
+    .custom-historic-marker {
+      background: #ef4444;
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.9);
+      animation: pulse 1.6s infinite;
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Top Executive Command Bar -->
+  <div class="top-command-bar">
+    <div class="brand-badge">
+      <div class="brand-logo-icon">🛡️</div>
+      <div>
+        <span class="brand-name">DeltaShield™ Intelligence</span>
+        <span class="brand-tag">National Infrastructure & Heritage</span>
+      </div>
+    </div>
+
+    <div class="command-status-pills">
+      <div class="status-pill">
+        <span class="pulse-dot"></span>
+        <span>CENSUS GROUND TRUTH: BBS & BANBEIS</span>
+      </div>
+      <div class="status-pill" style="color:#f59e0b;">
+        <span>🏛️ 64 DISTRICTS REGISTERED</span>
+      </div>
+    </div>
+
+    <div class="top-action-btns">
+      <a href="index.html" class="btn-action-sm">
+        <span>🏠</span> <span>Command Center</span>
+      </a>
+      <button class="btn-action-sm" onclick="exportDirectoryJSON()">
+        <span>📥</span> <span>Export JSON</span>
+      </button>
+      <button class="btn-action-sm" onclick="exportDirectoryCSV()">
+        <span>📊</span> <span>Export CSV</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Modular Standalone Apps Launcher Bar -->
+  <nav class="modular-nav-bar">
+    <div class="nav-links-scroll">
+      <a href="index.html" class="nav-tab-link">🏠 Executive Hub</a>
+      <a href="map_gps.html" class="nav-tab-link">🗺️ Tactical Map & GPS</a>
+      <a href="disaster_alerts.html" class="nav-tab-link">🚨 Disaster Alerts</a>
+      <a href="district_heritage.html" class="nav-tab-link active">🏛️ District Heritage</a>
+      <a href="weather_ai.html" class="nav-tab-link">🌤️ 20-Day Weather</a>
+      <a href="agroclaim.html" class="nav-tab-link">🌾 Crop Insurance</a>
+      <a href="evacroute.html" class="nav-tab-link">🚑 Evacuation Routes</a>
+      <a href="climadeval.html" class="nav-tab-link">🏢 Real Estate Risk</a>
+      <a href="deltasim.html" class="nav-tab-link">🎮 Adaptation Sandbox</a>
+      <a href="health_epidemic.html" class="nav-tab-link">🏥 Epidemic Surveillance</a>
+      <a href="grid_resilience.html" class="nav-tab-link">⚡ Power Grid</a>
+      <a href="riverbank_erosion.html" class="nav-tab-link">🌊 Riverbank Erosion</a>
+      <a href="agri_supply.html" class="nav-tab-link">🍞 Food Supply Chain</a>
+      <a href="ussd_phone.html" class="nav-tab-link">📱 Offline USSD</a>
+      <a href="deltabot.html" class="nav-tab-link">🤖 AI Copilot</a>
+      <a href="dataset_explorer.html" class="nav-tab-link">🧬 49-Layer AI Dataset</a>
+      <a href="executive_sitrep.html" class="nav-tab-link">📋 Situation Report</a>
+    </div>
+  </nav>
+
+  <!-- Hero Banner with National Summary KPIs -->
+  <div class="heritage-hero">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+      <div>
+        <h1 style="font-size:1.85rem; font-weight:800; color:#fff; margin-bottom:6px;">
+          🏛️ Bangladesh 64 Districts Infrastructure & Heritage Directory
+        </h1>
+        <p style="color:var(--text-secondary); max-width:920px; font-size:0.92rem;">
+          Exhaustive national survey across all 64 districts covering <strong>Schools, Colleges, Mosques, Madrasas, Universities, Polytechnic Colleges, Hospitals, Medical Colleges, and Clinics</strong>. Integrated with curated historical monuments, archaeological eras, and signature cultural treasures.
+        </p>
+      </div>
+      <div style="background:rgba(15, 23, 42, 0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; padding:10px 16px; text-align:right;">
+        <span style="font-size:0.75rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Surveillance Level</span>
+        <div style="font-size:1.15rem; font-weight:800; color:#38bdf8;">All 64 Administrative Districts</div>
+      </div>
+    </div>
+
+    <!-- National Aggregate KPIs -->
+    <div class="kpi-summary-strip" id="nationalKpiStrip">
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalSchools">...</span>
+        <span class="kpi-label">🏫 Schools</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalColleges">...</span>
+        <span class="kpi-label">🎓 Colleges</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalMosques" style="color:#10b981;">...</span>
+        <span class="kpi-label">🕌 Mosques</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalMadrasas">...</span>
+        <span class="kpi-label">📖 Madrasas</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalUnis" style="color:#a855f7;">...</span>
+        <span class="kpi-label">🏛️ Universities</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalPoly">...</span>
+        <span class="kpi-label">⚙️ Polytechnics</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalHospitals" style="color:#ef4444;">...</span>
+        <span class="kpi-label">🏥 Hospitals</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalMedColleges" style="color:#f43f5e;">...</span>
+        <span class="kpi-label">🩺 Med Colleges</span>
+      </div>
+      <div class="infra-kpi-card">
+        <span class="kpi-num" id="totalClinics">...</span>
+        <span class="kpi-label">🩹 Clinics</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter & Search Controls Bar -->
+  <div class="filter-controls-card">
+    <div class="filter-row-top">
+      <div class="search-input-wrap">
+        <span>🔍</span>
+        <input type="text" id="dirSearchInput" placeholder="Search any district, landmark, sweet, or product (e.g. Somapura, Tangail, Jamdani, Doi)..." oninput="applyFilters()">
+      </div>
+      <select class="sort-select" id="dirSortSelect" onchange="applyFilters()">
+        <option value="name_asc">Sort: District Name (A to Z)</option>
+        <option value="name_desc">Sort: District Name (Z to A)</option>
+        <option value="schools_desc">Sort: Most Schools</option>
+        <option value="hospitals_desc">Sort: Most Hospitals</option>
+        <option value="mosques_desc">Sort: Most Mosques</option>
+        <option value="unis_desc">Sort: Most Universities</option>
+      </select>
+    </div>
+
+    <div class="division-chips-row">
+      <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase;">Filter Division:</span>
+      <button class="div-chip active" onclick="selectDivision('All', this)">All (64)</button>
+      <button class="div-chip" onclick="selectDivision('Dhaka', this)">Dhaka (13)</button>
+      <button class="div-chip" onclick="selectDivision('Chattogram', this)">Chattogram (11)</button>
+      <button class="div-chip" onclick="selectDivision('Sylhet', this)">Sylhet (4)</button>
+      <button class="div-chip" onclick="selectDivision('Rajshahi', this)">Rajshahi (8)</button>
+      <button class="div-chip" onclick="selectDivision('Rangpur', this)">Rangpur (8)</button>
+      <button class="div-chip" onclick="selectDivision('Khulna', this)">Khulna (10)</button>
+      <button class="div-chip" onclick="selectDivision('Barishal', this)">Barishal (6)</button>
+      <button class="div-chip" onclick="selectDivision('Mymensingh', this)">Mymensingh (4)</button>
+    </div>
+  </div>
+
+  <!-- Interactive Analytics Comparison Chart -->
+  <div class="analytics-chart-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+      <div>
+        <h3 style="font-size:1.1rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:8px;">
+          📊 Top 10 Districts: Infrastructure Capacity Comparison
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.8rem;">
+          Cross-district benchmarking of primary institutions (Schools & Mosques vs Hospitals & Clinics).
+        </p>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="div-pill" onclick="renderChartMetric('education')" style="background:#0284c7; color:#fff; border:none; padding:4px 12px; font-size:0.75rem; border-radius:12px; cursor:pointer;">
+          📚 Education Metric
+        </button>
+        <button class="div-pill" onclick="renderChartMetric('healthcare')" style="background:#1e293b; color:#f43f5e; border:1px solid #e11d48; padding:4px 12px; font-size:0.75rem; border-radius:12px; cursor:pointer;">
+          🏥 Healthcare Metric
+        </button>
+      </div>
+    </div>
+    <div style="height:280px; width:100%; position:relative;">
+      <canvas id="infraComparisonChart"></canvas>
+    </div>
+  </div>
+
+  <!-- District Cards Grid Container -->
+  <div class="district-cards-grid" id="districtGridContainer">
+    <!-- Rendered dynamically via JavaScript -->
+  </div>
+
+  <!-- Single District Detailed Inspector Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div class="modal-header-img" id="modalImgBox">
+        <img id="modalImg" src="" alt="Landmark">
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h2 id="modalDistrictName" style="font-size:1.5rem; font-weight:800; color:#38bdf8;"></h2>
+          <span id="modalDivisionTag" class="division-tag"></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span id="modalLandmarkName" style="font-size:1.1rem; font-weight:700; color:#fff;"></span>
+          <span id="modalEraTag" class="era-pill"></span>
+        </div>
+        <p id="modalHistoryDesc" style="color:#cbd5e1; font-size:0.88rem; line-height:1.55;"></p>
+        
+        <div>
+          <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase;">Famous Heritage & Specialties:</span>
+          <div id="modalFamousBadges" class="famous-for-wrap" style="margin-top:6px;"></div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;">
+          <div class="infra-stats-grid">
+            <div class="infra-section-title">
+              <span>📚 Education & Religion</span>
+            </div>
+            <div class="stat-row"><span class="stat-label">🏫 Schools:</span><span class="stat-val" id="modalSchools">-</span></div>
+            <div class="stat-row"><span class="stat-label">🎓 Colleges:</span><span class="stat-val" id="modalColleges">-</span></div>
+            <div class="stat-row"><span class="stat-label">🕌 Mosques:</span><span class="stat-val" id="modalMosques">-</span></div>
+            <div class="stat-row"><span class="stat-label">📖 Madrasas:</span><span class="stat-val" id="modalMadrasas">-</span></div>
+            <div class="stat-row"><span class="stat-label">🏛️ Universities:</span><span class="stat-val" id="modalUnis">-</span></div>
+            <div class="stat-row"><span class="stat-label">⚙️ Polytechnics:</span><span class="stat-val" id="modalPoly">-</span></div>
+          </div>
+
+          <div class="infra-stats-grid">
+            <div class="infra-section-title">
+              <span>🏥 Healthcare Facilities</span>
+            </div>
+            <div class="stat-row"><span class="stat-label">🏥 Hospitals:</span><span class="stat-val" id="modalHospitals">-</span></div>
+            <div class="stat-row"><span class="stat-label">🩺 Med Colleges:</span><span class="stat-val" id="modalMedColleges">-</span></div>
+            <div class="stat-row"><span class="stat-label">🩹 Clinics & Diagnostic:</span><span class="stat-val" id="modalClinics">-</span></div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <a id="modalMapLink" href="#" class="btn-view-map" style="padding:10px; font-size:0.85rem;">
+            🗺️ Locate On Command Center Tactical Map ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Interactive Landmark Video Tour Modal -->
+  <div class="modal-overlay" id="landmarkVideoModal" onclick="handleModalOverlayClick(event, 'landmarkVideoModal')">
+    <div class="video-modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; background:#111827; padding:14px 20px; border-bottom:1px solid #1e293b;">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">🎬</span>
+            <span id="vidModalTitle" style="font-size:1.05rem; font-weight:800; color:#fff;">Documentary Video Tour</span>
+            <span id="vidModalDuration" class="badge" style="background:#dc2626; color:#fff;">4:45</span>
+          </div>
+          <span id="vidModalSource" style="font-size:0.75rem; color:#94a3b8;">Production: Official Heritage Archives</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="div-pill" id="btnToggle3dFlight" onclick="toggleVirtual3dFlight()" style="background:#1e293b; color:#38bdf8; border:1px solid #0284c7; padding:5px 12px; font-size:0.75rem; border-radius:12px; cursor:pointer;">
+            🛰️ 3D Virtual Drone Tour
+          </button>
+          <button class="modal-close-btn" style="position:static;" onclick="closeLandmarkVideoModal()">✕</button>
+        </div>
+      </div>
+      <div class="video-frame-container" id="videoFrameContainer">
+        <iframe id="landmarkVideoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <canvas id="virtualDroneCanvas" style="display:none;"></canvas>
+      </div>
+      <div style="padding:14px 20px; background:#0f172a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div id="vidModalLandmarkName" style="font-size:0.88rem; color:#cbd5e1; font-weight:600;">
+          🏛️ Landmark Overview
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn-action-map" id="vidModalMapBtn" style="padding:6px 14px;" onclick="closeLandmarkVideoModal(); openLandmarkMapModal(currentDistName);">
+            🗺️ Switch to Interactive GPS Map
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Landmark GPS Map Modal -->
+  <div class="modal-overlay" id="landmarkMapModal" onclick="handleModalOverlayClick(event, 'landmarkMapModal')">
+    <div class="map-modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; background:#111827; padding:14px 20px; border-bottom:1px solid #1e293b;">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">🗺️</span>
+            <span id="mapModalTitle" style="font-size:1.05rem; font-weight:800; color:#38bdf8;">Landmark GPS Map</span>
+            <span id="mapModalCoords" class="badge badge-blue">Lat: 00.00, Lon: 00.00</span>
+          </div>
+          <span id="mapModalDistrict" style="font-size:0.75rem; color:#94a3b8;">High-Precision GIS Telemetry</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="modal-close-btn" style="position:static;" onclick="closeLandmarkMapModal()">✕</button>
+        </div>
+      </div>
+
+      <!-- Basemap Controls Toolbar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; background:#0b132b; padding:8px 16px; border-bottom:1px solid #1e293b; flex-wrap:wrap; gap:8px;">
+        <div style="display:flex; gap:6px;">
+          <button class="map-layer-btn active" id="btnModalMapSatellite" onclick="switchLandmarkBasemap('satellite')">🛰️ Satellite HD (Esri)</button>
+          <button class="map-layer-btn" id="btnModalMapStreets" onclick="switchLandmarkBasemap('streets')">🗺️ Streets & Roads</button>
+          <button class="map-layer-btn" id="btnModalMapDark" onclick="switchLandmarkBasemap('dark')">🌃 Midnight Dark</button>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button class="gps-btn" id="btnModalDistanceCalc" onclick="calculateDistanceToLandmark()" style="padding:4px 10px; font-size:0.75rem;">
+            📍 Distance From My Location
+          </button>
+          <a id="btnModalGoogleDirections" href="#" target="_blank" class="div-pill" style="background:#0284c7; color:#fff; text-decoration:none; padding:4px 12px; font-size:0.75rem; border-radius:14px; font-weight:700;">
+            🚗 Get Directions ↗
+          </a>
+        </div>
+      </div>
+
+      <div id="landmarkLeafletMap"></div>
+
+      <div style="padding:12px 20px; background:#0f172a; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; font-size:0.8rem; color:#94a3b8;">
+        <span id="landmarkDistanceDisplay">📏 Click 'Distance From My Location' to calculate live geodesic distance.</span>
+        <button class="btn-action-video" id="mapModalVideoBtn" style="padding:6px 14px;" onclick="closeLandmarkMapModal(); openLandmarkVideoModal(currentDistName);">
+          🎬 Watch Video Tour
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="alertToastContainer" class="alert-toast-container" aria-live="polite"></div>
+
+  <script>
+    
+    // State variables for Landmark Map & Video
+    let currentDistName = 'Dhaka';
+    let landmarkLeafletInstance = null;
+    let landmarkMarkerInstance = null;
+    let currentLandmarkBasemap = 'satellite';
+    let currentBasemapLayer = null;
+    let virtualDroneAnimId = null;
+
+    function handleModalOverlayClick(e, modalId) {
+      if (e.target.id === modalId) {
+        if (modalId === 'landmarkVideoModal') closeLandmarkVideoModal();
+        if (modalId === 'landmarkMapModal') closeLandmarkMapModal();
+      }
+    }
+
+    // Video Modal Handlers
+    function openLandmarkVideoModal(distName) {
+      currentDistName = distName;
+      const d = DISTRICTS_INFRASTRUCTURE_HERITAGE[distName];
+      if (!d) return;
+
+      document.getElementById('vidModalTitle').textContent = d.video_title || (d.historical_place + ' Documentary Tour');
+      document.getElementById('vidModalDuration').textContent = '⏱️ ' + (d.video_duration || '5:00');
+      document.getElementById('vidModalSource').textContent = 'Production: ' + (d.video_source || 'Official National Heritage Archives');
+      document.getElementById('vidModalLandmarkName').textContent = `🏛️ ${d.historical_place} (${distName}, ${d.division} Division)`;
+
+      // Load YouTube embed with privacy-enhanced mode
+      const iframe = document.getElementById('landmarkVideoIframe');
+      const videoId = d.video_id || '8P2gL3vD7wY';
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.style.display = 'block';
+
+      // Reset virtual drone canvas
+      const canvas = document.getElementById('virtualDroneCanvas');
+      canvas.style.display = 'none';
+      if (virtualDroneAnimId) {
+        cancelAnimationFrame(virtualDroneAnimId);
+        virtualDroneAnimId = null;
+      }
+
+      document.getElementById('landmarkVideoModal').classList.add('active');
+    }
+
+    function closeLandmarkVideoModal() {
+      const iframe = document.getElementById('landmarkVideoIframe');
+      if (iframe) iframe.src = ''; // stop playback immediately
+      if (virtualDroneAnimId) {
+        cancelAnimationFrame(virtualDroneAnimId);
+        virtualDroneAnimId = null;
+      }
+      document.getElementById('landmarkVideoModal').classList.remove('active');
+    }
+
+    // Interactive 3D Virtual Drone Flight Simulation Fallback
+    function toggleVirtual3dFlight() {
+      const iframe = document.getElementById('landmarkVideoIframe');
+      const canvas = document.getElementById('virtualDroneCanvas');
+      const d = DISTRICTS_INFRASTRUCTURE_HERITAGE[currentDistName];
+
+      if (canvas.style.display === 'block') {
+        // Switch back to YouTube
+        canvas.style.display = 'none';
+        iframe.style.display = 'block';
+        if (virtualDroneAnimId) {
+          cancelAnimationFrame(virtualDroneAnimId);
+          virtualDroneAnimId = null;
+        }
+      } else {
+        // Switch to Virtual Drone Simulation
+        iframe.style.display = 'none';
+        canvas.style.display = 'block';
+        startVirtualDroneSimulation(d);
+      }
+    }
+
+    function startVirtualDroneSimulation(d) {
+      const canvas = document.getElementById('virtualDroneCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = d.image_url;
+
+      let panX = 0;
+      let zoom = 1.0;
+      let zoomDir = 0.0005;
+      let altitude = 120;
+      let heading = 45;
+
+      function renderDroneFrame() {
+        ctx.fillStyle = '#0a0f1d';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        if (img.complete && img.naturalWidth > 0) {
+          ctx.save();
+          ctx.translate(canvas.width / 2, canvas.height / 2);
+          ctx.scale(zoom, zoom);
+          ctx.drawImage(img, -canvas.width / 2 + Math.sin(panX) * 30, -canvas.height / 2, canvas.width, canvas.height);
+          ctx.restore();
+        }
+
+        // Drone HUD Overlay
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.6)';
+        ctx.lineWidth = 1.5;
+        // Crosshair
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        ctx.beginPath();
+        ctx.arc(cx, cy, 35, 0, Math.PI * 2);
+        ctx.moveTo(cx - 50, cy); ctx.lineTo(cx - 20, cy);
+        ctx.moveTo(cx + 20, cy); ctx.lineTo(cx + 50, cy);
+        ctx.moveTo(cx, cy - 50); ctx.lineTo(cx, cy - 20);
+        ctx.moveTo(cx, cy + 20); ctx.lineTo(cx, cy + 50);
+        ctx.stroke();
+
+        // Telemetry Text
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = '12px "JetBrains Mono", monospace';
+        ctx.fillText(`ALT: ${altitude.toFixed(0)}m AGL`, 20, 30);
+        ctx.fillText(`HDG: ${heading.toFixed(0)}° NE`, 20, 50);
+        ctx.fillText(`GPS: ${d.coords[0].toFixed(4)}°N, ${d.coords[1].toFixed(4)}°E`, 20, 70);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 15px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(`DRONE FLIGHT: ${d.historical_place}`, 20, canvas.height - 35);
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = '12px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(`ERA: ${d.historical_era}`, 20, canvas.height - 18);
+
+        panX += 0.01;
+        zoom += zoomDir;
+        if (zoom > 1.25 || zoom < 1.0) zoomDir = -zoomDir;
+        heading = (heading + 0.1) % 360;
+
+        virtualDroneAnimId = requestAnimationFrame(renderDroneFrame);
+      }
+
+      virtualDroneAnimId = requestAnimationFrame(renderDroneFrame);
+    }
+
+    // Leaflet Interactive Landmark Map Modal
+    function openLandmarkMapModal(distName) {
+      currentDistName = distName;
+      const d = DISTRICTS_INFRASTRUCTURE_HERITAGE[distName];
+      if (!d) return;
+
+      document.getElementById('mapModalTitle').textContent = `🗺️ ${d.historical_place}`;
+      document.getElementById('mapModalCoords').textContent = `Lat: ${d.coords[0].toFixed(4)}, Lon: ${d.coords[1].toFixed(4)}`;
+      document.getElementById('mapModalDistrict').textContent = `${distName} District · ${d.division} Division · ${d.historical_era}`;
+      document.getElementById('btnModalGoogleDirections').href = `https://www.google.com/maps/search/?api=1&query=${d.coords[0]},${d.coords[1]}`;
+
+      document.getElementById('landmarkMapModal').classList.add('active');
+
+      // Initialize or invalidate Leaflet map
+      setTimeout(() => {
+        initOrUpdateLandmarkMap(d);
+      }, 250);
+    }
+
+    function initOrUpdateLandmarkMap(d) {
+      const container = document.getElementById('landmarkLeafletMap');
+      const lat = d.coords[0];
+      const lon = d.coords[1];
+
+      if (!landmarkLeafletInstance) {
+        landmarkLeafletInstance = L.map('landmarkLeafletMap', {
+          zoomControl: true,
+          attributionControl: true
+        }).setView([lat, lon], 15);
+
+        switchLandmarkBasemap('satellite');
+      } else {
+        landmarkLeafletInstance.invalidateSize();
+        landmarkLeafletInstance.setView([lat, lon], 15);
+      }
+
+      // Remove existing marker
+      if (landmarkMarkerInstance) {
+        landmarkLeafletInstance.removeLayer(landmarkMarkerInstance);
+      }
+
+      // Add Custom Glowing Historical Marker
+      const customIcon = L.divIcon({
+        className: 'custom-historic-marker',
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+      });
+
+      landmarkMarkerInstance = L.marker([lat, lon], { icon: customIcon }).addTo(landmarkLeafletInstance);
+      
+      const popupContent = `
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; min-width:200px;">
+          <h4 style="margin:0 0 4px 0; color:#0284c7; font-size:14px; font-weight:800;">🏛️ ${d.historical_place}</h4>
+          <span style="font-size:11px; color:#475569; font-weight:700;">${d.historical_era}</span>
+          <p style="margin:6px 0; font-size:12px; color:#1e293b; line-height:1.4;">${d.historical_description.slice(0, 110)}...</p>
+          <div style="font-size:11px; font-weight:700; color:#0f172a;">📍 Coordinates: ${lat.toFixed(4)}, ${lon.toFixed(4)}</div>
+        </div>
+      `;
+      landmarkMarkerInstance.bindPopup(popupContent).openPopup();
+    }
+
+    function switchLandmarkBasemap(type) {
+      if (!landmarkLeafletInstance) return;
+      currentLandmarkBasemap = type;
+
+      document.getElementById('btnModalMapSatellite')?.classList.toggle('active', type === 'satellite');
+      document.getElementById('btnModalMapStreets')?.classList.toggle('active', type === 'streets');
+      document.getElementById('btnModalMapDark')?.classList.toggle('active', type === 'dark');
+
+      if (currentBasemapLayer) {
+        landmarkLeafletInstance.removeLayer(currentBasemapLayer);
+      }
+
+      if (type === 'satellite') {
+        currentBasemapLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          maxZoom: 19,
+          attribution: 'Esri, Maxar, Earthstar Geographics'
+        }).addTo(landmarkLeafletInstance);
+      } else if (type === 'streets') {
+        currentBasemapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(landmarkLeafletInstance);
+      } else if (type === 'dark') {
+        currentBasemapLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          maxZoom: 19,
+          attribution: '© CartoDB'
+        }).addTo(landmarkLeafletInstance);
+      }
+    }
+
+    function closeLandmarkMapModal() {
+      document.getElementById('landmarkMapModal').classList.remove('active');
+    }
+
+    // Geodesic distance calculation from device GPS
+    function calculateDistanceToLandmark() {
+      const displayEl = document.getElementById('landmarkDistanceDisplay');
+      const d = DISTRICTS_INFRASTRUCTURE_HERITAGE[currentDistName];
+      if (!navigator.geolocation) {
+        displayEl.textContent = '⚠️ Geolocation not supported by your browser.';
+        return;
+      }
+      displayEl.textContent = '📡 Acquiring GPS lock...';
+
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const uLat = pos.coords.latitude;
+          const uLon = pos.coords.longitude;
+          const distKm = getDistanceFromLatLonInKm(uLat, uLon, d.coords[0], d.coords[1]);
+          displayEl.innerHTML = `📍 Distance from your location: <strong>${distKm.toFixed(1)} km</strong> (Direct Geodesic Line)`;
+        },
+        err => {
+          // If denied, fallback to Dhaka center
+          const distKm = getDistanceFromLatLonInKm(23.8103, 90.4125, d.coords[0], d.coords[1]);
+          displayEl.innerHTML = `📍 Distance from National HQ (Dhaka): <strong>${distKm.toFixed(1)} km</strong>`;
+        },
+        { timeout: 8000 }
+      );
+    }
+
+    function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Radius of the earth in km
+      const dLat = deg2rad(lat2 - lat1);
+      const dLon = deg2rad(lon2 - lon1);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+    function deg2rad(deg) { return deg * (Math.PI / 180); }
+
+    // State management
+    let activeDivision = 'All';
+    let activeSearch = '';
+    let activeSort = 'name_asc';
+    let currentChartMetric = 'education';
+    let comparisonChartInstance = null;
+
+    // Fallback SVG icon generator if image fails to load
+    function getFallbackSvg(landmarkName, districtName) {
+      return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="100%" height="100%" fill="%230f172a"/><path d="M200 40 L260 90 L240 90 L240 160 L160 160 L160 90 L140 90 Z" fill="%2338bdf8" opacity="0.3"/><circle cx="200" cy="95" r="24" fill="%23f59e0b" opacity="0.4"/><text x="50%" y="145" font-family="sans-serif" font-size="14" font-weight="bold" fill="%23ffffff" text-anchor="middle">${districtName} Landmark</text><text x="50%" y="165" font-family="sans-serif" font-size="11" fill="%2394a3b8" text-anchor="middle">${landmarkName.replace(/&/g, 'and')}</text></svg>`;
+    }
+
+    // Initialize application
+    document.addEventListener('DOMContentLoaded', () => {
+      calculateNationalTotals();
+      applyFilters();
+      initComparisonChart();
+
+      // Deep linking check for ?district=...
+      const urlParams = new URLSearchParams(window.location.search);
+      const distParam = urlParams.get('district');
+      if (distParam && DISTRICTS_INFRASTRUCTURE_HERITAGE[distParam]) {
+        setTimeout(() => {
+          openModal(distParam);
+        }, 500);
+      }
+    });
+
+    // Calculate national aggregates
+    function calculateNationalTotals() {
+      let schools = 0, colleges = 0, mosques = 0, madrasas = 0, unis = 0, poly = 0;
+      let hospitals = 0, medColleges = 0, clinics = 0;
+
+      for (const [name, d] of Object.entries(DISTRICTS_INFRASTRUCTURE_HERITAGE)) {
+        schools += d.education.schools;
+        colleges += d.education.colleges;
+        mosques += d.education.mosques;
+        madrasas += d.education.madrasas;
+        unis += d.education.universities;
+        poly += d.education.polytechnic_colleges;
+
+        hospitals += d.healthcare.hospitals;
+        medColleges += d.healthcare.medical_colleges;
+        clinics += d.healthcare.clinics;
+      }
+
+      document.getElementById('totalSchools').textContent = schools.toLocaleString();
+      document.getElementById('totalColleges').textContent = colleges.toLocaleString();
+      document.getElementById('totalMosques').textContent = mosques.toLocaleString();
+      document.getElementById('totalMadrasas').textContent = madrasas.toLocaleString();
+      document.getElementById('totalUnis').textContent = unis.toLocaleString();
+      document.getElementById('totalPoly').textContent = poly.toLocaleString();
+      document.getElementById('totalHospitals').textContent = hospitals.toLocaleString();
+      document.getElementById('totalMedColleges').textContent = medColleges.toLocaleString();
+      document.getElementById('totalClinics').textContent = clinics.toLocaleString();
+    }
+
+    // Filter and sort districts
+    function applyFilters() {
+      activeSearch = document.getElementById('dirSearchInput').value.toLowerCase().trim();
+      activeSort = document.getElementById('dirSortSelect').value;
+
+      let entries = Object.entries(DISTRICTS_INFRASTRUCTURE_HERITAGE);
+
+      // Filter by division
+      if (activeDivision !== 'All') {
+        entries = entries.filter(([name, d]) => d.division.toLowerCase() === activeDivision.toLowerCase());
+      }
+
+      // Filter by search query
+      if (activeSearch) {
+        entries = entries.filter(([name, d]) => {
+          const matchName = name.toLowerCase().includes(activeSearch);
+          const matchLandmark = d.historical_place.toLowerCase().includes(activeSearch);
+          const matchDesc = d.historical_description.toLowerCase().includes(activeSearch);
+          const matchFamous = d.famous_for.some(f => f.toLowerCase().includes(activeSearch));
+          return matchName || matchLandmark || matchDesc || matchFamous;
+        });
+      }
+
+      // Sorting
+      entries.sort((a, b) => {
+        if (activeSort === 'name_asc') return a[0].localeCompare(b[0]);
+        if (activeSort === 'name_desc') return b[0].localeCompare(a[0]);
+        if (activeSort === 'schools_desc') return b[1].education.schools - a[1].education.schools;
+        if (activeSort === 'hospitals_desc') return b[1].healthcare.hospitals - a[1].healthcare.hospitals;
+        if (activeSort === 'mosques_desc') return b[1].education.mosques - a[1].education.mosques;
+        if (activeSort === 'unis_desc') return b[1].education.universities - a[1].education.universities;
+        return 0;
+      });
+
+      renderDistrictCards(entries);
+    }
+
+    // Select division tab
+    function selectDivision(divName, btnEl) {
+      activeDivision = divName;
+      document.querySelectorAll('.div-chip').forEach(c => c.classList.remove('active'));
+      btnEl.classList.add('active');
+      applyFilters();
+    }
+
+    // Render district cards
+    function renderDistrictCards(entries) {
+      const container = document.getElementById('districtGridContainer');
+      if (entries.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column:1/-1; text-align:center; padding:50px 20px; background:var(--bg-card); border-radius:12px;">
+            <span style="font-size:2.5rem;">🔍</span>
+            <h3 style="color:#fff; margin-top:10px;">No Districts Found</h3>
+            <p style="color:#94a3b8; font-size:0.85rem;">Try adjusting your search query or division filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = entries.map(([name, d]) => {
+        const famousTags = d.famous_for.slice(0, 3).map(f => `<span class="famous-badge">${f}</span>`).join('');
+        const fallbackImg = getFallbackSvg(d.historical_place, name);
+
+        return `
+          <div class="district-card" id="card-${name}">
+            <div class="card-photo-header">
+              <img class="card-photo-img" src="${d.image_url}" alt="${d.historical_place}" onerror="this.onerror=null; this.src='${fallbackImg}';">
+              <div class="card-photo-overlay">
+                <div class="district-badge-top">
+                  <span class="division-tag">${d.division}</span>
+                  <button class="view-map-floating-btn" onclick="openLandmarkMapModal('${name}'); event.stopPropagation();">📍 Map</button>
+                  <span class="era-pill" title="${d.historical_era}">⏳ ${d.historical_era}</span>
+                </div>
+                <button class="play-video-floating-btn" onclick="openLandmarkVideoModal('${name}'); event.stopPropagation();" title="Watch Video Tour">▶</button>
+                <div class="photo-bottom-caption">
+                  <div class="district-main-name">${name}</div>
+                  <div class="landmark-title">🏛️ ${d.historical_place}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <p class="history-desc">${d.historical_description}</p>
+              
+              <div class="famous-for-wrap">
+                ${famousTags}
+              </div>
+
+              <!-- Education Infrastructure -->
+              <div class="infra-stats-grid">
+                <div class="infra-section-title">
+                  <span>📚 Education & Religion</span>
+                  <span style="color:#38bdf8;">${(d.education.schools + d.education.colleges).toLocaleString()} Inst.</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">🏫 Schools:</span>
+                  <span class="stat-val">${d.education.schools.toLocaleString()}</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">🎓 Colleges:</span>
+                  <span class="stat-val">${d.education.colleges.toLocaleString()}</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">🕌 Mosques:</span>
+                  <span class="stat-val">${d.education.mosques.toLocaleString()}</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">📖 Madrasas:</span>
+                  <span class="stat-val">${d.education.madrasas.toLocaleString()}</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">🏛️ Universities:</span>
+                  <span class="stat-val">${d.education.universities}</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">⚙️ Polytechnics:</span>
+                  <span class="stat-val">${d.education.polytechnic_colleges}</span>
+                </div>
+              </div>
+
+              <!-- Healthcare Infrastructure -->
+              <div class="infra-stats-grid" style="border-color:rgba(239, 68, 68, 0.15);">
+                <div class="infra-section-title" style="color:#f87171;">
+                  <span>🏥 Healthcare Capacity</span>
+                  <span style="color:#f87171;">${d.healthcare.hospitals + d.healthcare.clinics} Facilities</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">🏥 Hospitals:</span>
+                  <span class="stat-val" style="color:#fca5a5;">${d.healthcare.hospitals}</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">🩺 Med Colleges:</span>
+                  <span class="stat-val">${d.healthcare.medical_colleges}</span>
+                </div>
+                <div class="stat-row" style="grid-column:span 2;">
+                  <span class="stat-label">🩹 Clinics & Diagnostics:</span>
+                  <span class="stat-val">${d.healthcare.clinics.toLocaleString()}</span>
+                </div>
+              </div>
+
+              <div class="card-footer-actions">
+                <button class="btn-action-map" onclick="openLandmarkMapModal('${name}')">
+                  🗺️ GPS Map
+                </button>
+                <button class="btn-action-video" onclick="openLandmarkVideoModal('${name}')">
+                  🎬 Video Tour
+                </button>
+                <button class="btn-expand-info" onclick="openModal('${name}')">
+                  🔍 Details
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Modal Details
+    function openModal(distName) {
+      const d = DISTRICTS_INFRASTRUCTURE_HERITAGE[distName];
+      if (!d) return;
+
+      const fallbackImg = getFallbackSvg(d.historical_place, distName);
+      const imgEl = document.getElementById('modalImg');
+      imgEl.src = d.image_url;
+      imgEl.onerror = () => { imgEl.src = fallbackImg; };
+
+      document.getElementById('modalDistrictName').textContent = distName;
+      document.getElementById('modalDivisionTag').textContent = d.division + ' Division';
+      document.getElementById('modalLandmarkName').textContent = '🏛️ ' + d.historical_place;
+      document.getElementById('modalEraTag').textContent = '⏳ ' + d.historical_era;
+      document.getElementById('modalHistoryDesc').textContent = d.historical_description;
+
+      document.getElementById('modalFamousBadges').innerHTML = d.famous_for.map(f => `<span class="famous-badge">${f}</span>`).join('');
+
+      document.getElementById('modalSchools').textContent = d.education.schools.toLocaleString();
+      document.getElementById('modalColleges').textContent = d.education.colleges.toLocaleString();
+      document.getElementById('modalMosques').textContent = d.education.mosques.toLocaleString();
+      document.getElementById('modalMadrasas').textContent = d.education.madrasas.toLocaleString();
+      document.getElementById('modalUnis').textContent = d.education.universities.toLocaleString();
+      document.getElementById('modalPoly').textContent = d.education.polytechnic_colleges.toLocaleString();
+
+      document.getElementById('modalHospitals').textContent = d.healthcare.hospitals.toLocaleString();
+      document.getElementById('modalMedColleges').textContent = d.healthcare.medical_colleges.toLocaleString();
+      document.getElementById('modalClinics').textContent = d.healthcare.clinics.toLocaleString();
+
+      document.getElementById('modalMapLink').href = `index.html?tab=tabMap&district=${encodeURIComponent(distName)}`;
+
+      document.getElementById('detailModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('detailModal').classList.remove('active');
+    }
+
+    // Initialize Chart
+    function initComparisonChart() {
+      const ctx = document.getElementById('infraComparisonChart').getContext('2d');
+      updateChartData();
+    }
+
+    function renderChartMetric(metricType) {
+      currentChartMetric = metricType;
+      updateChartData();
+    }
+
+    function updateChartData() {
+      const top10 = Object.entries(DISTRICTS_INFRASTRUCTURE_HERITAGE)
+        .sort((a, b) => {
+          if (currentChartMetric === 'education') {
+            return b[1].education.schools - a[1].education.schools;
+          } else {
+            return b[1].healthcare.hospitals - a[1].healthcare.hospitals;
+          }
+        })
+        .slice(0, 10);
+
+      const labels = top10.map(t => t[0]);
+      let datasets = [];
+
+      if (currentChartMetric === 'education') {
+        datasets = [
+          {
+            label: 'Schools',
+            data: top10.map(t => t[1].education.schools),
+            backgroundColor: '#0284c7'
+          },
+          {
+            label: 'Mosques',
+            data: top10.map(t => t[1].education.mosques),
+            backgroundColor: '#10b981'
+          },
+          {
+            label: 'Madrasas',
+            data: top10.map(t => t[1].education.madrasas),
+            backgroundColor: '#f59e0b'
+          }
+        ];
+      } else {
+        datasets = [
+          {
+            label: 'Clinics & Diagnostic',
+            data: top10.map(t => t[1].healthcare.clinics),
+            backgroundColor: '#38bdf8'
+          },
+          {
+            label: 'Hospitals',
+            data: top10.map(t => t[1].healthcare.hospitals),
+            backgroundColor: '#ef4444'
+          },
+          {
+            label: 'Medical Colleges',
+            data: top10.map(t => t[1].healthcare.medical_colleges * 50), // scaled for visualization
+            backgroundColor: '#a855f7'
+          }
+        ];
+      }
+
+      if (comparisonChartInstance) {
+        comparisonChartInstance.destroy();
+      }
+
+      const ctx = document.getElementById('infraComparisonChart').getContext('2d');
+      comparisonChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              stacked: false,
+              grid: { color: 'rgba(255,255,255,0.06)' },
+              ticks: { color: '#94a3b8' }
+            },
+            y: {
+              stacked: false,
+              grid: { color: 'rgba(255,255,255,0.06)' },
+              ticks: { color: '#94a3b8' }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: { color: '#cbd5e1' }
+            }
+          }
+        }
+      });
+    }
+
+    // Export helpers
+    function exportDirectoryJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(DISTRICTS_INFRASTRUCTURE_HERITAGE, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "bangladesh_64_districts_infrastructure_heritage.json");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function exportDirectoryCSV() {
+      let csv = "District,Division,Historical_Place,Historical_Era,Famous_For,Schools,Colleges,Mosques,Madrasas,Universities,Polytechnics,Hospitals,Medical_Colleges,Clinics\n";
+      for (const [name, d] of Object.entries(DISTRICTS_INFRASTRUCTURE_HERITAGE)) {
+        csv += `"${name}","${d.division}","${d.historical_place}","${d.historical_era}","${d.famous_for.join('; ')}",${d.education.schools},${d.education.colleges},${d.education.mosques},${d.education.madrasas},${d.education.universities},${d.education.polytechnic_colleges},${d.healthcare.hospitals},${d.healthcare.medical_colleges},${d.healthcare.clinics}\n`;
+      }
+      const dataStr = "data:text/csv;charset=utf-8," + encodeURIComponent(csv);
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "bangladesh_64_districts_infrastructure_heritage.csv");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+  </script>
+</body>
+</html>

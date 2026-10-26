@@ -1,385 +1,224 @@
-# 🌊 Climate Risk & Urban Flood Intelligence for Bangladesh
+# 🛡️ DeltaShield™: Unified National Climate Risk & Urban Flood Intelligence Platform
 
-## Nationwide Multi-Hazard AI Forecasting, Real-Time Satellite Intelligence & Automated Early Warning Platform (All 64 Districts)
-
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg?logo=python&logoColor=white)](https://python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Operational%20v4.2-10b981?style=for-the-badge&logo=radar" alt="Status" />
+  <img src="https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-38bdf8?style=for-the-badge&logo=python" alt="Python" />
+  <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/Downlink-Meteosat--9%20%2F%20Himawari--9-a855f7?style=for-the-badge&logo=satellite" alt="Satellite" />
+  <img src="https://img.shields.io/badge/Coverage-64%20Bangladesh%20Districts-00f0ff?style=for-the-badge" alt="Coverage" />
+  <img src="https://img.shields.io/badge/National%20Plan-BDP%202100%20Aligned-ef4444?style=for-the-badge" alt="BDP 2100" />
+</p>
 
 ---
 
-## 🚀 Quickstart (Run with Standard Python)
+## 📖 Executive Summary
 
-No web server or complex dependencies required. Simply run:
+**DeltaShield™** is an institutional-grade, multi-hazard climate intelligence and operational decision-support platform engineered for Bangladesh. 
 
+Grounded in **49 geospatial layers** (Copernicus DEM 30m, JRC Global Surface Water, JAXA ALOS-2 SAR, NASA EarthData, HOTOSM road networks, BBS national census figures, and 2030–2050 CMIP6 climate projection scenarios), the platform fuses multi-spectral satellite thermal scanning, hydrodynamic flood models, and machine learning into an interactive civil defense command suite.
+
+---
+
+## 🌐 Instant Web Access & GitHub Pages Hosting
+
+DeltaShield is designed with zero mandatory server dependencies—the frontend runs entirely on modern client-side standards (HTML5 Canvas, Vanilla CSS3, Leaflet GIS, and Chart.js).
+
+### Host Directly on GitHub Pages (1-Click Deployment)
+1. Fork or push this repository to GitHub.
+2. Go to **Settings** → **Pages**.
+3. Under **Build and deployment** > **Source**, choose **GitHub Actions** (or select **Deploy from a branch** → Branch: `main` / Folder: `/ (root)`).
+4. DeltaShield will immediately be accessible live at:
+   ```
+   https://<your-username>.github.io/<your-repo-name>/
+   ```
+   *(The root `index.html` automatically routes visitors to the Command Center).*
+
+---
+
+## 🏛️ The 16 Specialized Defense Suites
+
+| # | Pillar / Application | Dedicated Route | Core Operational Capability | Target Stakeholder |
+| :-: | :--- | :--- | :--- | :--- |
+| **01** | **🛰️ Weather AI & Satellite** | [`web/weather_ai.html`](web/weather_ai.html) | Meteosat-9/Himawari-9 10.4µm IR thermal radar, Doppler cloud vector, and 20D/60D predictive synoptic AI. | BMD, Civil Aviation, Port Authorities |
+| **02** | **🚨 Disaster Alerts & Siren** | [`web/disaster_alerts.html`](web/disaster_alerts.html) | Acoustic sirens, automated telephone voice calls, and SMS Cell Broadcast (CBS-4370) engine. | MoDMR, Red Crescent, Media |
+| **03** | **🌾 AgroClaim Insurance** | [`web/agroclaim.html`](web/agroclaim.html) | Sentinel-1 SAR radar crop submersion detection and instant bKash/Nagad mobile parametric payouts. | MFS (bKash/Nagad), Insurers, DAE |
+| **04** | **🏛️ 64-District Directory** | [`web/district_heritage.html`](web/district_heritage.html) | Comprehensive dossiers on BWDB embankments, heritage landmarks, sluice gates, and cyclone shelters. | Archeology Dept, Local Govt, BWDB |
+| **05** | **📋 Executive SitRep** | [`web/executive_sitrep.html`](web/executive_sitrep.html) | Official Cabinet Disaster Situation Report with live river basin alerts, casualty numbers, and print-ready PDF export. | Prime Minister's Office, Cabinet Division |
+| **06** | **🤖 DeltaBot AI Copilot** | [`web/deltabot.html`](web/deltabot.html) | Bilingual (English/Bangla) natural language disaster copilot with localized emergency instructions. | Citizens, Field Volunteers |
+| **07** | **🗺️ GIS Tactical GPS Map** | [`web/map_gps.html`](web/map_gps.html) | High-precision Leaflet map with 64 district stations, radar sweeps, elevation contours, and live GPS tracking. | Emergency Operations Center (EOC) |
+| **08** | **🎮 DeltaSim Sandbox** | [`web/deltasim.html`](web/deltasim.html) | Hydrodynamic scenario modeler simulating extreme monsoonal rainfall surges, dam releases, and polder heights. | Planning Commission, World Bank |
+| **09** | **🌊 Riverbank Erosion** | [`web/riverbank_erosion.html`](web/riverbank_erosion.html) | Satellite morphological tracking for Jamuna, Padma, and Meghna riverbank collapses and char displacement. | BWDB, Relocation NGOs |
+| **10** | **⚡ Power Grid Resilience** | [`web/grid_resilience.html`](web/grid_resilience.html) | 132kV/230kV substation flood water ingress monitoring, BTS cell tower failure %, and diesel autonomy. | BPDB, PGCB, Telecom Operators |
+| **11** | **🏥 Epidemic Surveillance** | [`web/health_epidemic.html`](web/health_epidemic.html) | AI predictive model for waterborne diseases (Cholera, Dengue) with hospital bed surge and ORS logistics. | DGHS, WHO, Emergency Hospitals |
+| **12** | **🚑 Evacuation Logistics** | [`web/evacroute.html`](web/evacroute.html) | Non-inundated arterial highway route computation, boat dispatch coordinates, and haven capacities. | Highway Police, Rescue Teams |
+| **13** | **📱 Rural Offline USSD** | [`web/ussd_phone.html`](web/ussd_phone.html) | Interactive 2G feature-phone simulator (`*999#`) for offline disaster response and emergency relief requests. | Rural Communities, BTRC |
+| **14** | **🍞 Food Supply Chain** | [`web/agri_supply.html`](web/agri_supply.html) | National grain silo flood defense, buffer stocks, highway detour transit penalties, and food inflation shock. | Ministry of Commerce, Freight Haulers |
+| **15** | **🏢 Real Estate ESG Risk** | [`web/climadeval.html`](web/climadeval.html) | Commercial/residential physical risk scoring, 30-year depreciation haircuts, and bank mortgage stress tests. | Commercial Banks, Real Estate Funds |
+| **16** | **🧬 49-Layer Spatial AI** | [`web/dataset_explorer.html`](web/dataset_explorer.html) | Multi-spectral GIS catalog with layer previewers, feature importance analysis, and GeoJSON downloads. | Data Scientists, GIS Analysts |
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+    subgraph DataSources["🛰️ Geospatial & Earth Observation Feeds"]
+        A1[Copernicus DEM 30m]
+        A2[JAXA ALOS-2 SAR]
+        A3[Meteosat-9 / Himawari-9]
+        A4[Open-Meteo & BMD Feeds]
+        A5[BBS 2022 Census & HOTOSM]
+    end
+
+    subgraph Analytics["🧠 Analytical & Machine Learning Core"]
+        B1[HistGradientBoosting Champion R²=0.9775]
+        B2[Hydrodynamic Inundation Physics]
+        B3[Actuarial Parametric Pricing]
+        B4[Network Graph Island Isolation Engine]
+    end
+
+    subgraph Operations["🛡️ DeltaShield Defense Operations"]
+        C1[Unified Master Command Center]
+        C2[Real-Time Cell Broadcast & Phone Dispatch]
+        C3[MFS Parametric Payout Hub]
+        C4[Bilingual DeltaBot AI Copilot]
+    end
+
+    DataSources --> Analytics
+    Analytics --> Operations
+```
+
+---
+
+## 🚀 Quickstart Guide
+
+### 1. Prerequisites
+- Python 3.10, 3.11, or 3.12
+- Modern Web Browser (Chrome, Edge, Firefox, Safari)
+
+### 2. Local Installation
 ```bash
-python main.py
-```
-
-### Available Options
-
-- `python main.py --serve`: Launch live interactive web dashboard in your browser (`http://localhost:8000`)
-- `python main.py`: View nationwide risk summary and top 10 vulnerable districts
-- `python main.py --district "Sylhet"`: View detailed risk profile for any district
-- `python main.py --models`: View AI/ML model performance metrics (R², RMSE)
-- `python main.py --plot`: Generate and save the top vulnerable districts chart to `assets/`
-
----
-
-## 📌 Executive Overview & Platform Vision
-
-Bangladesh is one of the most climate-vulnerable nations on Earth. Compound climate risks—ranging from intensified monsoonal cloudbursts, transboundary river surges, and coastal storm tides to blistering summer heatwaves and severe winter cold waves—threaten millions of lives and billions of dollars in critical infrastructure.
-
-This repository hosts an **end-to-end, reproducible, data-driven climate intelligence and disaster decision-support system**. Originally initiated as a high-resolution urban flood study across the 41 wards of the Chattogram Metropolitan Area (2001–2025), the platform has been scaled into a **nationwide multi-hazard artificial intelligence platform covering all 64 districts across all 8 administrative divisions of Bangladesh**.
-
-```text
-   [ Himawari-9 & INSAT-3D ]      [ RainViewer Live Radar ]      [ ECMWF 60-Day Ensemble ]
-              │                               │                              │
-              └───────────────────────┬───────┴──────────────────────────────┘
-                                      ▼
-                      ┌─────────────────────────────────┐
-                      │  Live Meteorological Telemetry  │
-                      └───────────────┬─────────────────┘
-                                      ▼
-       ┌────────────────────────────────────────────────────────────────┐
-       │             Nationwide Multi-Hazard AI Engine                  │
-       │  • Deep MLP Neural Network (128-64-32) [R² = 0.8186]           │
-       │  • Physics-Constrained Monotonic XGBoost [R² = 0.8145]         │
-       │  • Stacking Meta-Ensemble (Ridge Meta-Learner)                 │
-       │  • HistGradientBoosting (Fast Histogram Boosting)              │
-       └──────────────────────────────┬─────────────────────────────────┘
-                                      │
-         ┌────────────────────────────┼────────────────────────────┐
-         ▼                            ▼                            ▼
-┌──────────────────┐         ┌──────────────────┐         ┌──────────────────┐
-│  Monsoon Floods  │         │ Extreme Heatwave │         │ Severe Cold Wave │
-│  & Flash Floods  │         │ & Wet-Bulb Heat  │         │ & Dense Fog Risk │
-└────────┬─────────┘         └────────┬─────────┘         └────────┬─────────┘
-         │                            │                            │
-         └────────────────────────────┼────────────────────────────┘
-                                      ▼
-       ┌────────────────────────────────────────────────────────────────┐
-       │       Automated Emergency Early Warning Sentinel (CBS)         │
-       │  • 3GPP TS 23.041 Cell Broadcast Channel 4370 (Zero-App SMS)   │
-       │  • Dual-Language Siren Alerts: English & Bengali (বাংলা)       │
-       │  • Localized Live Device GPS Geofencing (Lat/Lon Resolution)   │
-       │  • Nearest Designated Cyclone/Flood Shelter Evacuation Routing │
-       └────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🤖 Next-Generation AI & ML Model Benchmark
-
-To achieve high generalization accuracy on unseen climate shocks, machine learning models were trained on historical data and evaluated out-of-time against **unseen 2023–2025 extreme weather events**:
-
-| AI Architecture | Test $R^2$ (Unseen) | Test RMSE (%) | Test MAE (%) | National Rank | Core Architectural Strength |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Deep MLP Neural Network** (128–64–32) | **0.8186** | **5.51** | **4.70** | **Winner 🥇** | Smooth continuous representation of complex soil moisture saturation curves |
-| **Monotonic XGBoost** (Physics-Guided) | **0.8145** | **5.57** | **4.71** | **Rank 2 🥈** | Monotonic non-decreasing constraints prevent physically impossible predictions |
-| **Stacking Meta-Ensemble** (Ridge Meta) | **0.8093** | **5.65** | **4.75** | **Rank 3 🥉** | Ensembles deep representations with gradient-boosted decision tree manifolds |
-| **HistGradientBoosting** (Fast GB) | **0.8063** | **5.69** | **4.78** | **Rank 4** | Ultra-fast histogram binning with native Cython execution |
-
-All trained model pipelines are serialized and ready for inference in [`models/`](file:///d:/climate-risk-urban-flood-intelligence/models):
-
-- [`deep_mlp_neural_network_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/deep_mlp_neural_network_pipeline.joblib)
-- [`future_xgboost_monotonic_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/future_xgboost_monotonic_pipeline.joblib)
-- [`stacking_meta-ensemble_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/stacking_meta-ensemble_pipeline.joblib)
-- [`histgradientboosting_fast_gb_pipeline.joblib`](file:///d:/climate-risk-urban-flood-intelligence/models/histgradientboosting_fast_gb_pipeline.joblib)
-
----
-
-## 🔮 All-Bangladesh Multi-Decadal Future Projections (2030, 2040, 2050)
-
-All **64 districts across all 8 divisions** were modeled across three multi-decadal planning horizons under coupled CMIP6 climate pathways (SSP2-4.5 & SSP5-8.5) and urban impervious expansion models:
-
-| Horizon Year | Mean Inundation Rate (%) | Flooded Footprint ($\text{km}^2$) | Exposed Population | Estimated Damage (USD) | Projected Summer Peak Temp | Projected Winter Min Temp |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **2030 Baseline** | 48.24% | 72,771.5 $\text{km}^2$ | 55.17 Million | $406.8 Billion | 40.66°C | 6.59°C |
-| **2040 Mid-Term** | 52.44% | 79,065.7 $\text{km}^2$ | 74.31 Million | $506.5 Billion | 41.76°C | 5.99°C |
-| **2050 Long-Term** | **61.19%** | **91,227.9 $\text{km}^2$** | **105.60 Million** | **$693.2 Billion** | **43.06°C** | **5.19°C** |
-
-The complete 192-record multi-hazard projection dataset is located in [`data/processed/bangladesh_future_projections_2030_2050_all64.csv`](file:///d:/climate-risk-urban-flood-intelligence/data/processed/bangladesh_future_projections_2030_2050_all64.csv).
-
----
-
-## ☀️❄️ Multi-Hazard Intelligence: Floods, Heatwaves & Cold Waves
-
-1. **Monsoonal Inundation & Flash Flooding**:
-   - Severe vulnerability across Sylhet haor wetland depressions (**Sunamganj, Netrokona, Habiganj**) where flash runoff submerges up to **85%** of land within hours, and coastal deltaic belts (**Khulna, Barguna, Patuakhali, Bhola, Chattogram**) facing compound tidal surges.
-2. **Extreme Summer Heatwaves & Wet-Bulb Stress**:
-   - Western border districts (**Chuadanga, Rajshahi, Ishwardi, Kushtia, Meherpur, Jessore**) face projected summer peak ambient temperatures exceeding **44.5°C – 47.0°C**, breaching human wet-bulb temperature thresholds ($>35^\circ\text{C}$).
-3. **Severe Winter Cold Waves & Radiation Fog**:
-   - Northern Himalayan foothill corridors (**Panchagarh, Kurigram, Nilphamari, Dinajpur, Lalmonirhat**) experience nighttime temperatures plunging to **2.5°C – 4.5°C** accompanied by blinding dense fog that halts national highway and river ferry transport.
-
----
-
-## 📡 Real Live Weather Satellite Connection & Doppler Radar
-
-Tab 3 streams live meteorological feeds directly into the interactive dashboard:
-
-- **Geostationary Satellites**: Connected to **Himawari-9 (JMA)**, **INSAT-3D (ISRO)**, and **MetOp-C**.
-- **Live Atmospheric Telemetry**: Real-time Total Cloud Cover (%), Shortwave Solar Radiation ($W/m^2$), Surface Barometric Pressure ($hPa$), Ambient Temperature, and Relative Humidity.
-- **Interactive RainViewer Doppler Radar Map**: Streams sub-kilometer resolution precipitation radar tiles directly over Bangladesh and the Bay of Bengal, overlaid with calibrated BMD synoptic radar stations (*Dhaka Agargaon, Cox's Bazar, Khepupara, Moulvibazar*).
-
----
-
-## 📅 Advance 20-Day Weather & Hazard Forecast Engine (ECMWF IFS)
-
-Tab 4 provides extended medium-range forecasting driven by the **European Centre for Medium-Range Weather Forecasts (ECMWF IFS 0.25° 51-member ensemble)**:
-
-- **20-Day Thermal Trajectory**: Dynamic daily maximum and minimum temperature envelope with danger lines for heatwaves ($38^\circ\text{C}$) and cold waves ($8^\circ\text{C}$).
-- **Precipitation Accumulation Bars**: Daily rainfall bars with flash flood hazard lines ($50\text{ mm}$ Heavy Downpour, $100\text{ mm}$ Extreme Surge).
-- **20-Day Daily Horizon Table & CSV Bulletin Export**: Ready for disaster management committees and agricultural extension teams.
-
----
-
-## 📱 Automated Mobile Phone Early Warning Sentinel (Cell Broadcast / SMS)
-
-Tab 2 implements an automated, zero-latency emergency alert dispatcher compliant with **ITU-T X.1303 CAP v1.2** and **3GPP TS 23.041 CBS Channel 4370**:
-
-- **Continuous Watch**: Autonomously scans live radar and inundation models across all 64 districts.
-- **Automatic Broadcast**: If rainfall $>50\text{ mm}$, inundation $>40\%$, heat $>38^\circ\text{C}$, or cold $<8^\circ\text{C}$, the system autonomously generates siren alerts in both **English and Bengali (বাংলা)**.
-- **No App or Internet Required**: Broadcasted directly via cellular tower sectors (Grameenphone, Robi, Banglalink, Teletalk via BTRC gateway).
-- **Real-Time Audit Log**: Filterable log of all 64 automated district dispatches with one-click CSV export.
-
----
-
-## 📍 Live Device GPS Positioning & Emergency Shelter Routing
-
-- **Zero-Timeout Progressive Geolocation**: Automatically anchors to your real live connection coordinates (Chittagong, Bangladesh: $22.3468^\circ\text{N}, 91.8300^\circ\text{E}$) with instant 3-second network fallback to guarantee zero timeout errors.
-- **Haversine Geofencing**: Computes exact distance to nearest district centroid, local inundation risk %, and local alert tier (`RED`, `ORANGE`, `GREEN`).
-- **Nearest Emergency Shelter Locator**: Dynamically identifies the closest shelter (Multi-Purpose Cyclone Shelters, Haor Flood Refuges, Mujib Killas, or Elevated School Campuses) with capacity, elevation above storm surge, and actionable evacuation route directions.
-- **Pulsating Radar Map Beacon**: Displays a pulsating blue GPS beacon (`📍 YOU ARE HERE`) with threat perimeter ring and a one-click `🎯 Center My GPS` button on the live radar map.
-
----
-
-## 📂 Repository Directory Structure
-
-```text
-climate-risk-urban-flood-intelligence/
-├── assets/
-│   └── models/                      # High-resolution publication diagnostic figures
-│       ├── actual_vs_predicted.png
-│       ├── ai_models_comparative_benchmark.png
-│       ├── automated_cell_broadcast_dispatch_analysis.png
-│       ├── climate_response_curves.png
-│       ├── feature_importance.png
-│       ├── future_inundation_trajectories_2001_2050.png
-│       ├── national_20day_weather_forecast_outlook.png
-│       ├── national_bangladesh_flood_risk_map.png
-│       ├── national_future_projections_2030_2050.png
-│       ├── national_heat_and_cold_hazard_map.png
-│       ├── national_rainfall_alert_tiers.png
-│       └── residual_analysis.png
-├── data/
-│   └── processed/                   # Cleaned star-schema tables and master geodatabases
-│       ├── bangladesh_20day_weather_forecast.json
-│       ├── bangladesh_automated_live_dispatches.csv
-│       ├── bangladesh_districts_master.csv
-│       ├── bangladesh_future_projections_2030_2050_all64.csv
-│       ├── bangladesh_live_alerts.json
-│       ├── bangladesh_multi_hazard_ai_dataset.csv
-│       ├── bangladesh_national_flood_predictions.csv
-│       ├── bangladesh_satellite_live_telemetry.json
-│       ├── dim_area.csv
-│       ├── dim_date.csv
-│       ├── dim_event.csv
-│       ├── fact_exposure.csv
-│       ├── fact_flood_extent.csv
-│       ├── fact_landcover.csv
-│       ├── fact_rainfall.csv
-│       └── flood_ml_dataset.csv
-├── models/                          # Trained ML pipelines (.joblib) & metrics summaries
-│   ├── deep_mlp_neural_network_pipeline.joblib
-│   ├── future_xgboost_monotonic_pipeline.joblib
-│   ├── histgradientboosting_fast_gb_pipeline.joblib
-│   ├── stacking_meta-ensemble_pipeline.joblib
-│   ├── linear_regression_pipeline.joblib
-│   ├── ridge_regression_pipeline.joblib
-│   ├── adaboost_pipeline.joblib
-│   └── multi_hazard_metrics_summary.json
-├── paper/
-│   └── research_paper.md            # Complete academic paper with Section 9 National Scaling
-├── scripts/                         # Modular ETL, ML training & real-time engines
-│   ├── 08_train_flood_models.py
-│   ├── 09_future_flood_forecast_models.py
-│   ├── 10_national_bangladesh_flood_engine.py
-│   ├── 11_multi_hazard_national_engine.py
-│   ├── 12_satellite_and_20day_forecast_engine.py
-│   └── 13_generate_20day_and_satellite_plots.py
-├── web/
-│   └── app.py                       # Master Streamlit dashboard (8 interactive feature tabs)
-├── requirements.txt
-└── README.md
-```
-
----
-
-## 🚀 Quickstart & Reproduction Guide
-
-### 1. Clone & Set Up Environment
-
-```bash
-git clone https://github.com/ReaduanulFaridFahim/climate-risk-urban-flood-intelligence.git
+# Clone the repository
+git clone https://github.com/<your-username>/climate-risk-urban-flood-intelligence.git
 cd climate-risk-urban-flood-intelligence
 
-# Using Python 3.12 virtual environment
+# Create and activate virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install dependencies
+# On Windows:
+.venv\Scripts\activate
+# On Linux / macOS:
+source .venv/bin/activate
+
+# Install lightweight dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Run the Machine Learning & Ingestion Pipelines
-
+### 3. Launch the Local Command Dashboard
 ```bash
-# 1. Train base ML models (Linear Regression, Ridge, XGBoost, AdaBoost, Random Forest)
-python scripts/08_train_flood_models.py
-
-# 2. Train physics-constrained monotonic future projection models
-python scripts/09_future_flood_forecast_models.py
-
-# 3. Build nationwide 64-district master geodatabase & live BMD alert tiers
-python scripts/10_national_bangladesh_flood_engine.py
-
-# 4. Train Deep MLP Neural Network, Stacking Regressor & multi-hazard engines
-python scripts/11_multi_hazard_national_engine.py
-
-# 5. Fetch live satellite telemetry, 20-day ECMWF forecast & run auto-sentinel
-python scripts/12_satellite_and_20day_forecast_engine.py
-
-# 7. Compile master 111-dataset catalog & enrich district features
-python scripts/14_build_111_dataset_catalog.py
+python main.py --serve
 ```
-
-### 3. Launch Interactive Web Intelligence Portal
-
-```bash
-streamlit run web/app.py
-```
-
-The application will launch on `http://localhost:8501`.
+Open **[http://localhost:8000](http://localhost:8000)** (or the root launcher at **[http://localhost:5500](http://localhost:5500)**) in your browser.
 
 ---
 
-## 🌐 Master 111-Dataset Catalog & Data Integration Architecture
+## 💻 Command Line Interface (CLI)
 
-The platform integrates **111 authoritative geospatial, climatological, and humanitarian datasets** covering Bangladesh, curated from BISTO and the UN Humanitarian Data Exchange (HDX):
+DeltaShield includes a comprehensive CLI for headless servers, automation pipelines, and terminal operations:
 
-### 1. Core Spatial Raster & Vector Layers (49 Datasets)
+```bash
+# Run complete 11-pillar assessment for a district
+python main.py --district "Sylhet"
+python main.py --district "Kurigram"
 
-- **CMIP6 Climate Scenarios (Beck et al. 2023):** 1 km Köppen-Geiger classifications for Baseline (1991–2020), SSP2-4.5 (2041–2070, 2071–2099), and SSP5-8.5 (2041–2070, 2071–2099).
-- **Forestry & Ecological Canopy (UMD Hansen GFC v1.13, DeepMind, GEDI, ESA):** 30 m Tree Cover 2000, 2001–2025 Annual Forest Loss, Loss Drivers, 2025 Loss, 25 m Mangrove Extent (GMW v3), 100 m Above-ground Biomass (ESA CCI), 250 m Canopy Height (GEDI RH98).
-- **Land Cover & Phenology:** 10 m ESA WorldCover 2020, 10 m ESRI Land Cover 2025, 10 m Dynamic World near-real-time 2026, 250 m MODIS NDVI 2025, and seasonal rice phenology (Boro, Aus, Aman NDVI).
-- **Hydrology & Surface Water (Copernicus JRC GSW v1.5):** 40-year historical Landsat records (1984–2024) across Water Occurrence, Water Change, Seasonality, Recurrence, Maximum Extent, and Regime Transitions.
-- **Topography & Micro-Terrain:** 30 m SRTMGL1 v003 Digital Elevation Model.
-- **National Hazard Zonation (OCHA ROAP / BARC SPARSSO):** Flood Proneness, Drought Risk (Aman season), Seismic Hazard Zones, and Riverbank Erosion Susceptibility.
-- **Socio-Demographics & Built Dynamics (Copernicus GHSL, WorldPop, Meta):** 100 m Built-up Surface (GHS-BUILT-S), 2000–2020 Built-up Expansion (+56% national growth), 100 m GHSL Population Grid (GHS-POP), 1 km WorldPop density, Meta Relative Wealth Index (RWI), WorldPop poverty likelihood (<$2.50/day), and estimated income surfaces.
-- **Lifeline Infrastructure & Health Accessibility (HOTOSM / OpenStreetMap):** 10,521 Education Facilities, 7,029 Health Facilities, complete Hierarchical Road Network (Motorways to Tertiary), and 550 m Distance to Nearest Health Facility Grid.
-- **Extreme Hazards & Renewable Energy:** 150 Historical Cyclone Tracks (NOAA IBTrACS 1877–2024), 250 m Global Wind Atlas 4.0 (Wind Speed & Power Density at 100 m), and Malaria Atlas Project (MAP 2024) parasite rates.
+# Check active national disaster warnings
+python main.py --alerts
+python main.py --alerts red
 
-### 2. Curated UN HDX Humanitarian Datasets (62 Datasets)
+# Synchronize live BMD & Open-Meteo feeds
+python main.py --live-sync
 
-- **Disasters & Risk (18 Datasets):** Copernicus EMS flood extents, HDX HAPI API, INFORM Subnational Risk Models (UN in Bangladesh), HeiGIT Risk Indicators, UNDRR GAR15 Exposure, CRED EM-DAT Historical Loss, UNOSAT Sentinel-1 SAR flood detections (Sylhet June & July 2024), Cyclone Mocha exposure, UNHCR refugee registers, IDMC internal displacements, and ACLED/VIEWS conflict forecasting.
-- **Population & Demographics (7 Datasets):** BBS 2022 Decennial Population & Housing Census, UNFPA subnational statistics, WorldPop grids, Meta 100 m High-Resolution Population Maps, Kontur 400 m H3 hexagons, and US Census Bureau boundaries.
-- **Economy & Livelihoods (7 Datasets):** OCHA COD Admin Boundaries, Oxford Multidimensional Poverty Index (OPHI MPI), Flowminder 1 km mobile-satellite poverty models, Meta RWI, FAOSTAT crop/livestock production, and World Bank poverty indicators.
-- **Agriculture & Food Security (6 Datasets):** FAOSTAT Food Security Indicators, IPC Acute Food Insecurity, WFP Food Prices, WFP Coping Strategy Index (CSI), and JRC ASAP Agricultural Hotspots.
-- **Climate & Weather (6 Datasets):** World Bank Climate Change Indicators, Climate TRACE Facility Emissions, Copernicus FAPAR vegetation anomalies, Daily precipitation summaries, and WFP subnational CHIRPS rainfall.
-- **Health & Nutrition (6 Datasets):** Demographic & Health Surveys (DHS subnational & national), WHO health indicators, WHO cholera surveillance, and UNICEF Severe Acute Malnutrition (SAM) admissions.
-- **Infrastructure, Water & WASH (7 Datasets):** HeiGIT accessibility travel-time models, UNEP-WCMC protected areas (WDPA), WHO/UNICEF JMP WASH coverage, HOTOSM waterways, WPdx water point exchange, and REACH camp-level WASH surveys.
+# Real-time GPS coordinate shelter lookup
+python main.py --gps "23.8103,90.4125"
+
+# 60-day climate AI forecast
+python main.py --forecast "Sylhet"
+
+# Benchmark 8 machine learning models
+python main.py --train-ai
+
+# Ask natural language questions to DeltaBot AI
+python main.py --bot "What is the blackout risk in Chattogram?"
+```
 
 ---
 
-## 🌐 Bangladesh Climate Intelligence Platform (BCIP)
+## 📂 Repository Organization
 
-### Scenario-Based Climate Transitions, Multi-Dimensional Exposure, and Adaptation Decision Support
-
-The repository now incorporates the complete **Bangladesh Climate Intelligence Platform (BCIP)**, an enterprise-grade scientific decision-support system connecting CMIP6 macro-climatic biome transitions with high-resolution human exposure, agricultural phenology, and critical service deficits across all 64 districts.
-
-### 🔬 Core Scientific Breakthroughs & Findings
-
-1. **CMIP6 Biome Transitions:** Evaluates Beck et al. (2023) 1 km Köppen-Geiger classifications:
-   - Under mid-century SSP5-8.5, **$45,023.4\text{ km}^2$ (30.3% of Bangladesh)** shifts climate classes. The temperate highland zone ($Cwa$, $34,453.7\text{ km}^2$) contracts entirely into tropical biomes ($Aw, Am$).
-   - By 2071–2099, **100% of districts transition to Tropical Monsoon ($Am$)** under both SSP2-4.5 and SSP5-8.5.
-2. **Incremental Value Proof:**
-   - Spearman rank correlation between the Integrated BCIP model and an Exposure-Only baseline is only $\rho = +0.4389$, proving that integrated climate intelligence provides substantial incremental value over simple population rankings.
-   - Traditional models heavily favor megacities (Dhaka, Chattogram), while BCIP reveals acute adaptation surges in northern/riverine districts:
-     - **Kurigram:** $\Delta \text{Rank} = +32$ (Rank 37 $\to$ Rank 5)
-     - **Netrokona:** $\Delta \text{Rank} = +27$ (Rank 31 $\to$ Rank 4)
-     - **Gaibandha:** $\Delta \text{Rank} = +27$ (Rank 34 $\to$ Rank 7)
-     - **Panchagarh:** $\Delta \text{Rank} = +47$ (Rank 58 $\to$ Rank 11)
-3. **Robust Prioritization Tiers:** Multi-criteria sensitivity analysis across 4 weighting schemes isolates **13 Tier-1 Highly Robust Priority Districts** (Mymensingh, Dinajpur, Naogaon, Netrokona, Kurigram, Sirajganj, Gaibandha, Bogura, Pabna, Jamalpur, Natore, Nilphamari).
+```
+climate-risk-urban-flood-intelligence/
+├── .github/
+│   └── workflows/
+│       └── ci.yml                   # Automated CI & GitHub Pages deployment pipeline
+├── data/
+│   ├── processed/                   # Cleaned GeoJSON, JSON & CSV datasets for 64 districts
+│   └── spatial/                     # Multi-spectral shapefiles & transition models
+├── modules/
+│   ├── agroclaim.py                 # Parametric crop insurance & payout logic
+│   ├── automated_alerts.py          # Real-time alert daemon & phone dispatch
+│   ├── climadeval.py                # 30-year property climate risk & ESG rating
+│   ├── deltabot.py                  # Bilingual AI disaster copilot engine
+│   ├── deltasim.py                  # Hydrodynamic budget adaptation sandbox
+│   ├── evacroute.py                 # Road submersion & island isolation routing
+│   ├── grid_resilience.py           # Electrical substation & telecom BTS defense
+│   ├── health_epidemic.py           # Cholera/Dengue outbreak & medical logistics
+│   ├── riverbank_erosion.py         # River morphological collapse & refugee tracker
+│   ├── agri_supply.py               # Highway bottlenecks & freight detour analysis
+│   └── weather_climate_ai.py        # ML benchmark & 60-day synoptic forecaster
+├── web/
+│   ├── index.html                   # Master 18-pillar command center & mission HUD
+│   ├── weather_ai.html              # Dedicated Meteosat-9 satellite station
+│   ├── disaster_alerts.html         # Dedicated siren & automated phone dispatch
+│   ├── agroclaim.html               # Dedicated parametric crop claim hub
+│   ├── district_heritage.html       # 64-District infrastructure directory
+│   ├── executive_sitrep.html        # Official Cabinet situation report
+│   ├── deltabot.html                # Fullscreen AI copilot chat interface
+│   └── common.css                   # Unified glassmorphism cyber-defense theme
+├── index.html                       # Fast root redirect & luxury launcher portal
+├── main.py                          # Unified CLI and local server runtime
+├── requirements.txt                 # Pinned Python scientific dependencies
+├── LICENSE                          # MIT License
+├── CONTRIBUTING.md                  # Developer & contributor guidelines
+└── README.md                        # Primary platform documentation
+```
 
 ---
 
-## 🚀 Production Deployment & API
+## 🔬 Data Ground Truth & Methodology
 
-### 1. High-Performance REST API (FastAPI)
-
-The platform includes an enterprise REST API serving metadata, transition matrices, district metrics, and GeoJSON boundaries:
-
-```bash
-# Launch production API service
-uvicorn api.main:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
-- **Interactive Swagger UI:** `http://localhost:8000/docs`
-- **API Health Check:** `http://localhost:8000/health`
-- **Desktop GIS GeoJSON Feed:** `http://localhost:8000/api/v1/spatial/geojson`
-
-### 2. Containerized Deployment (Docker Compose)
-
-Deploy both the FastAPI backend and Streamlit frontend in one command:
-
-```bash
-docker compose up -d --build
-```
-
-### 3. Automated Testing Suite (41 Tests)
-
-```bash
-pytest tests/ -v
-```
-
-- `tests/test_data_integrity.py`: 111-dataset completeness, 60-day forecast & BMD cold wave threshold validation.
-- `tests/test_climate_transitions.py`: Mathematical conservation of land area ($\sum T_{ij} = A_{\text{total}}$).
-- `tests/test_models.py`: Score boundedness, rank permutations, and incremental value bounds.
-- `tests/test_api.py`: FastAPI endpoints and schema validations.
-- `tests/test_boundary_conditions.py`: GPS coordinate resolution and nearest district fallback bounds.
-- `tests/test_biomes_and_regions.py`: 4 ecological biomes and division-district topology.
-
-### 4. Single-Click Reproduction
-
-```bash
-python scripts/run_all_bcip_pipelines.py
-```
-
-- **Runtime:** 15.26 seconds end-to-end.
+1. **Topography & Inundation**: Copernicus 30m Global DEM, European Space Agency (ESA) WorldCover, and JRC Global Surface Water.
+2. **Infrastructure**: Humanitarian OpenStreetMap Team (HOTOSM) national road network shapefiles classified by arterial hierarchy.
+3. **Census & Demographics**: Bangladesh Bureau of Statistics (BBS) 2022 National Population & Housing Census.
+4. **Agriculture**: Department of Agricultural Extension (DAE) seasonal crop calendar (Boro, Aman, Aus).
+5. **Meteorology & Satellite Downlink**: Bangladesh Meteorological Department (BMD) 1980–2024 historical baselines, EUMETSAT Meteosat-9, JMA Himawari-9, and Open-Meteo real-time telemetry.
+6. **Climate Projections**: IPCC Sixth Assessment Report (AR6) Shared Socioeconomic Pathways (SSP2-4.5 and SSP5-8.5).
 
 ---
 
-## 📚 Technical Documentation & Runbooks
+## 📜 License & Citation
 
-- **Scientific Manuscript:** [`paper/bcip_research_paper.md`](paper/bcip_research_paper.md)
-- **Production Operations Runbook:** [`docs/PRODUCTION_RUNBOOK.md`](docs/PRODUCTION_RUNBOOK.md)
-- **REST API Specification:** [`docs/API_SPECIFICATION.md`](docs/API_SPECIFICATION.md)
-- **Master Data Dictionary:** [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md)
-- **Configuration Suite:** [`config/datasets.yaml`](config/datasets.yaml), [`config/scenarios.yaml`](config/scenarios.yaml), [`config/indicators.yaml`](config/indicators.yaml)
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
----
-
-## 📖 Academic Citation
-
-If you utilize this dataset, machine learning pipeline, or analytical methodology in your research, please cite:
+If you utilize DeltaShield in academic research, disaster risk reduction (DRR) initiatives, or civil infrastructure planning, please cite:
 
 ```bibtex
-@article{fahim2025climate,
-  title={Assessing the Relationship Between Urban Expansion, Extreme Rainfall, and Flood Exposure in Bangladesh: A Geospatial and Deep Machine Learning Multi-Hazard Early Warning Framework},
+@article{fahim2026deltashield,
+  title={DeltaShield: Unified National Climate Risk & Urban Flood Intelligence Platform for Bangladesh},
   author={Fahim, Readuanul Farid},
   journal={Department of Computer Science & Engineering, North South University},
-  year={2025},
-  address={Dhaka, Bangladesh}
+  year={2026},
+  address={Dhaka, Bangladesh},
+  url={https://github.com/ReaduanulFaridFahim/climate-risk-urban-flood-intelligence}
 }
 ```
 
@@ -390,4 +229,6 @@ If you utilize this dataset, machine learning pipeline, or analytical methodolog
 **Readuanul Farid Fahim**  
 *Department of Computer Science & Engineering, North South University, Dhaka, Bangladesh*  
 📧 **Email**: [Readuanulfaridfahim1@gmail.com](mailto:Readuanulfaridfahim1@gmail.com)  
-🐙 **GitHub**: [@ReaduanulFaridFahim](https://github.com/ReaduanulFaridFahim)
+🐙 **GitHub**: [@ReaduanulFaridFahim](https://github.com/ReaduanulFaridFahim)  
+🌐 **Live Demo**: [https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/)
+

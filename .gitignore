@@ -1,4 +1,4 @@
-# Python
+# Python Bytecode & Cache
 __pycache__/
 *.py[cod]
 *$py.class
@@ -22,14 +22,42 @@ wheels/
 
 # Virtual Environments
 .venv/
-env/
 venv/
 ENV/
+env/
+env.bak/
+venv.bak/
 
-# IDEs
+# Scratch & Temporary Testing Scripts
+scratch/
+tmp/
+temp/
+*.log
+
+# IDE & Editor Settings
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+.gemini/
 
-# OS
+# Operating System Files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+[Dd]esktop.ini
+
+# Testing & Coverage
+.coverage
+.coverage.*
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
