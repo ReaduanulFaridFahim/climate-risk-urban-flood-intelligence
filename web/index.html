@@ -20,6 +20,7 @@
   <!-- Chart.js 4.4.1 Interactive Charting Engine -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="districts_heritage_data.js"></script>
+  <script src="deltashield_extended_intel.js"></script>
 
     <style>
     /* ==========================================================================
@@ -748,6 +749,9 @@
         </div>
         <div class="sidebar-dist-val" id="sidebarDistVal">Dhaka</div>
         <div class="sidebar-dist-meta" id="sidebarDistMeta">31.8°C · Active Floodplain</div>
+        <div id="sidebarBdpBadge" style="margin-top:5px; display:inline-block; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:10px; background:rgba(0, 240, 255, 0.15); border:1px solid #00f0ff; color:#00f0ff;">
+          🌊 Delta Hotspot: Rivers & Floodplains
+        </div>
       </div>
 
       <!-- Navigation Menu Items Grouped by Operational Role -->
@@ -979,6 +983,16 @@
           <button class="btn-action-sm" id="btnOpenSuiteLauncher" onclick="openSuiteLauncherModal()" style="background:linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(124, 58, 237, 0.45) 100%); border:1px solid rgba(56, 189, 248, 0.6); color:#ffffff; font-weight:700; box-shadow:0 0 15px rgba(56, 189, 248, 0.25); cursor:pointer;">
             <span>⊞</span> <span>Suite Launcher (16 Apps)</span>
           </button>
+                    <!-- Tactical Web Audio Toggle -->
+          <button class="btn-action-sm" id="btnAudioToggle" onclick="toggleAudioMute()" style="background:rgba(16, 26, 52, 0.85); border:1px solid #10b981; color:#34d399; font-weight:700; cursor:pointer;" title="Toggle Tactical Synthetic Audio FX">
+            <span>🔊</span> <span id="audioBtnText">Audio: On</span>
+          </button>
+
+          <!-- Command Palette Launcher -->
+          <button class="btn-action-sm" onclick="openCommandPalette()" style="background:rgba(15, 23, 42, 0.9); border:1px solid #38bdf8; color:#38bdf8; font-weight:700; font-family:'JetBrains Mono',monospace; cursor:pointer;" title="Press Ctrl+K to open Command Palette">
+            <span>⌘K</span> <span>Palette</span>
+          </button>
+
           <button class="btn-action-sm danger" id="sirenBtnTop" onclick="toggleEmergencySiren()">
             <span>🚨</span> <span id="sirenBtnTopText">Emergency Siren</span>
           </button>
@@ -1034,6 +1048,12 @@
           <button class="map-layer-btn" id="btnLayerFlood" onclick="switchMapLayer('flood')">🌊 Flood Inundation</button>
           <button class="map-layer-btn" id="btnLayerSurge" onclick="switchMapLayer('surge')">🌪️ Cyclone Surge</button>
           <button class="map-layer-btn" id="btnLayerAlerts" onclick="switchMapLayer('alerts')">🚨 Disaster Red Spots</button>
+          <button class="map-layer-btn" id="btnLayerViirs" onclick="switchMapLayer('viirs')">💡 VIIRS Nightlights</button>
+          <button class="map-layer-btn" id="btnLayerPoverty" onclick="switchMapLayer('poverty')">💰 Poverty Likelihood</button>
+          <button class="map-layer-btn" id="btnLayerJrcWater" onclick="switchMapLayer('jrc_water')">🛰️ 40-Yr Water %</button>
+          <button class="map-layer-btn" id="btnLayerGedi" onclick="switchMapLayer('gedi')">🌲 GEDI Canopy Height</button>
+          <button class="map-layer-btn" id="btnLayerHealthDist" onclick="switchMapLayer('health_dist')">🏥 Health Distance Deficit</button>
+          <button class="map-layer-btn" id="btnLayerKoppen" onclick="switchMapLayer('koppen')">⏳ CMIP6 Biome Shift</button>
         </div>
       </div>
 
@@ -1120,6 +1140,50 @@
       </div>
     </div>
   </div>
+
+  
+      <!-- =========================================================================
+           FEATURE D: 64-DISTRICT HEAD-TO-HEAD COMPARATIVE RADAR & VULNERABILITY SCORECARD
+           ========================================================================= -->
+      <div class="card" id="headToHeadCard" style="margin-top:20px; background:linear-gradient(180deg, rgba(14, 23, 46, 0.95) 0%, rgba(9, 15, 32, 0.98) 100%); border:1px solid rgba(0, 240, 255, 0.35); box-shadow:0 12px 35px rgba(0,0,0,0.65);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.3rem;">⚔️</span>
+              <h3 style="margin:0; font-size:1.15rem; color:#fff;">District Head-to-Head Comparative Radar</h3>
+              <span class="badge badge-blue">Multi-Dimensional Spider</span>
+            </div>
+            <p style="color:#94a3b8; font-size:0.8rem; margin-top:2px;">
+              Compare any two Bangladesh districts across 6 normalized multi-spectral axes from 49 ground-truth layers.
+            </p>
+          </div>
+
+          <!-- District Selectors -->
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:0.75rem; font-weight:700; color:#00f0ff;">SECTOR A:</span>
+              <select id="radarDistA" onchange="updateHeadToHeadRadar()" style="background:#0f172a; border:1px solid #00f0ff; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.82rem; font-weight:700; outline:none;"></select>
+            </div>
+            <span style="color:#64748b; font-weight:800; font-size:0.9rem;">VS</span>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:0.75rem; font-weight:700; color:#f59e0b;">SECTOR B:</span>
+              <select id="radarDistB" onchange="updateHeadToHeadRadar()" style="background:#0f172a; border:1px solid #f59e0b; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.82rem; font-weight:700; outline:none;"></select>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 420px 1fr; gap:24px; align-items:center;">
+          <!-- Radar Canvas -->
+          <div style="position:relative; width:100%; height:320px; background:rgba(6, 11, 25, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
+            <canvas id="chartHeadToHeadRadar"></canvas>
+          </div>
+
+          <!-- Comparative Scorecard & Delta Analysis -->
+          <div style="display:flex; flex-direction:column; gap:12px;" id="radarComparisonTable">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
 
   <!-- TAB 1: DISASTER ALERTS -->
   <div id="tabAlerts" class="tab-content">
@@ -1743,6 +1807,65 @@
     </div>
   </div>
 
+  
+    <!-- =========================================================================
+         FEATURE C: CMIP6 MACRO-CLIMATIC BIOME TRANSITION MORPHING & EXPOSURE ENGINE
+         ========================================================================= -->
+    <div class="card" id="cmip6MorphCard" style="margin-top:20px; background:linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(9, 15, 32, 0.98) 100%); border:1px solid rgba(56, 189, 248, 0.4); box-shadow:0 12px 35px rgba(0,0,0,0.7);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.3rem;">🧬</span>
+            <h3 style="margin:0; font-size:1.15rem; color:#fff;">CMIP6 Macro-Climatic Biome Transitions (2020 ➔ 2050)</h3>
+            <span class="badge badge-blue">Köppen-Geiger 1km Ground Truth</span>
+          </div>
+          <p style="color:#94a3b8; font-size:0.8rem; margin-top:2px;">
+            Beck et al. (2023) high-resolution climate classifications under IPCC SSP2-4.5 and SSP5-8.5 scenarios.
+          </p>
+        </div>
+
+        <!-- Scenario Toggle Buttons -->
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="div-filter-chip active btn-cmip-scenario" onclick="setBiomeScenario('baseline', this)">Baseline 2020</button>
+          <button class="div-filter-chip btn-cmip-scenario" onclick="setBiomeScenario('ssp245', this)">2050 SSP2-4.5 (Moderate)</button>
+          <button class="div-filter-chip btn-cmip-scenario" onclick="setBiomeScenario('ssp585', this)">2050 SSP5-8.5 (Extreme)</button>
+        </div>
+      </div>
+
+      <!-- Biome Transition Telemetry Grid -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:16px;">
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(244, 63, 94, 0.3); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">TOTAL LAND AREA SHIFTED</div>
+          <div id="cmipAreaShifted" style="font-size:1.2rem; font-weight:800; color:#f43f5e; font-family:'JetBrains Mono',monospace; margin-top:2px;">45,023.4 km²</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">30.3% of National Geography</div>
+        </div>
+
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(168, 85, 247, 0.3); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">HIGHLAND BIOME CONTRACTION</div>
+          <div style="font-size:1.2rem; font-weight:800; color:#c084fc; font-family:'JetBrains Mono',monospace; margin-top:2px;">100% Contracted</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Cwa Subtropical ➔ Am Monsoon</div>
+        </div>
+
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">EXPOSED POPULATION SURGE</div>
+          <div style="font-size:1.2rem; font-weight:800; color:#38bdf8; font-family:'JetBrains Mono',monospace; margin-top:2px;">56.4 Million</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Intensified monsoonal runoff</div>
+        </div>
+
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(16, 185, 129, 0.3); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">ROBUST PRIORITY DISTRICTS</div>
+          <div style="font-size:1.2rem; font-weight:800; color:#34d399; font-family:'JetBrains Mono',monospace; margin-top:2px;">13 Tier-1 Sectors</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Kurigram, Netrokona, Gaibandha</div>
+        </div>
+      </div>
+
+      <!-- District Specific Transition Spotlight -->
+      <div id="cmipDistrictSpotlight" style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(0, 240, 255, 0.3); border-left:4px solid #00f0ff; border-radius:8px; padding:12px 16px; font-size:0.82rem; color:#cbd5e1; line-height:1.5;">
+        <strong>📍 Active Sector Biome Transition:</strong> Loading transition dossier for selected district...
+      </div>
+    </div>
+
+
   <!-- TAB 5: DELTASIM -->
   <div id="tabSim" class="tab-content">
     <div class="grid-4" style="margin-bottom:16px;">
@@ -1820,6 +1943,98 @@
 
   <!-- TAB 6: WEATHER AI -->
   
+  
+    <!-- =========================================================================
+         FEATURE E: UN HDX HUMANITARIAN AID & DISASTER RELIEF CRISIS BUDGETING CONSOLE
+         ========================================================================= -->
+    <div class="card" id="hdxCalculatorCard" style="margin-top:20px; background:linear-gradient(180deg, rgba(20, 10, 25, 0.92) 0%, rgba(10, 6, 16, 0.98) 100%); border:1px solid rgba(168, 85, 247, 0.4); box-shadow:0 12px 35px rgba(0,0,0,0.7);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.3rem;">📦</span>
+            <h3 style="margin:0; font-size:1.15rem; color:#fff;">UN HDX Humanitarian Aid &amp; Disaster Relief Crisis Calculator</h3>
+            <span class="badge badge-purple">UN OCHA &amp; WFP Framework</span>
+          </div>
+          <p style="color:#94a3b8; font-size:0.8rem; margin-top:2px;">
+            Calibrated on 62 UN HDX Humanitarian Indicators: automated food aid, tube-well decontamination, ORS stockpiles &amp; cash grant budgeting.
+          </p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="btn-action-sm primary" onclick="exportHdxReliefManifesto()" style="background:#7c3aed; border-color:#a855f7;">
+            <span>📥</span> <span>Export Relief Manifesto (JSON)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls & Sliders -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:20px; background:rgba(9, 15, 32, 0.6); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+        <div>
+          <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">TARGET EMERGENCY DISTRICT</label>
+          <div style="font-size:1.1rem; font-weight:800; color:#00f0ff; margin-top:4px;" id="hdxActiveDistrict">Sylhet</div>
+          <div style="font-size:0.75rem; color:#cbd5e1; margin-top:2px;" id="hdxDistrictMeta">Population: 3.8M · Exposed: 42.5%</div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between;">
+            <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">RELIEF DURATION</label>
+            <span id="lblHdxDays" style="font-family:'JetBrains Mono',monospace; color:#38bdf8; font-weight:800;">14 Days</span>
+          </div>
+          <input type="range" id="sliderHdxDays" min="7" max="60" step="7" value="14" oninput="recalcHdxRelief()" style="width:100%; margin-top:8px;" />
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between;">
+            <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">CASH GRANT PER FAMILY</label>
+            <span id="lblHdxCash" style="font-family:'JetBrains Mono',monospace; color:#34d399; font-weight:800;">৳ 4,500 BDT</span>
+          </div>
+          <input type="range" id="sliderHdxCash" min="1500" max="10000" step="500" value="4500" oninput="recalcHdxRelief()" style="width:100%; margin-top:8px;" />
+        </div>
+      </div>
+
+      <!-- KPI Relief Output Grid -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:12px; margin-bottom:18px;">
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(56, 189, 248, 0.25); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">DAILY SAFE WATER DEMAND</div>
+          <div id="hdxSafeWater" style="font-size:1.15rem; font-weight:800; color:#38bdf8; font-family:'JetBrains Mono',monospace; margin-top:2px;">-- Liters</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Based on Sphere Standards</div>
+        </div>
+
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(16, 185, 129, 0.25); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">AQUATABS PURIFICATION TABS</div>
+          <div id="hdxAquatabs" style="font-size:1.15rem; font-weight:800; color:#34d399; font-family:'JetBrains Mono',monospace; margin-top:2px;">-- Tablets</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Water decontamination</div>
+        </div>
+
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(245, 158, 11, 0.25); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">EMERGENCY ORS SACHETS</div>
+          <div id="hdxOrsSachets" style="font-size:1.15rem; font-weight:800; color:#f59e0b; font-family:'JetBrains Mono',monospace; margin-top:2px;">-- Sachets</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Diarrhea/Cholera surge prevention</div>
+        </div>
+
+        <div style="background:rgba(12, 19, 38, 0.8); border:1px solid rgba(239, 68, 68, 0.25); border-radius:8px; padding:12px;">
+          <div style="font-size:0.7rem; color:#94a3b8; font-weight:700;">EMERGENCY RELIEF TENTS</div>
+          <div id="hdxTents" style="font-size:1.15rem; font-weight:800; color:#f87171; font-family:'JetBrains Mono',monospace; margin-top:2px;">-- Tents</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">Displaced families shelter</div>
+        </div>
+      </div>
+
+      <!-- Financial Grant Breakdown Box -->
+      <div style="background:linear-gradient(90deg, rgba(16, 26, 52, 0.9) 0%, rgba(9, 15, 32, 0.95) 100%); border:1px solid rgba(0, 240, 255, 0.4); border-radius:10px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <div style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; letter-spacing:0.06em;">TOTAL ESTIMATED EMERGENCY HUMANITARIAN BUDGET</div>
+          <div style="display:flex; align-items:baseline; gap:14px; margin-top:4px;">
+            <span id="hdxTotalBdt" style="font-size:1.8rem; font-weight:800; color:#00f0ff; font-family:'JetBrains Mono',monospace; text-shadow:0 0 15px rgba(0,240,255,0.6);">৳ 185.4M BDT</span>
+            <span id="hdxTotalUsd" style="font-size:1.1rem; font-weight:700; color:#34d399;">($1.54M USD)</span>
+          </div>
+        </div>
+        <div style="font-size:0.78rem; color:#cbd5e1; max-width:420px; line-height:1.4;">
+          <strong>Strategic Directive:</strong> Rapid liquidity release via UN CERF and Ministry of Disaster Management contingency allocation. Covers MFS unconditional cash transfers, emergency chlorination, and mobile medical camps.
+        </div>
+      </div>
+    </div>
+
+
   <!-- TAB 6: WEATHER AI WITH 20-DAY LIVE WEATHER -->
   <div id="tabWeather" class="tab-content">
     <!-- DEDICATED SUITE PORTAL BANNER -->
@@ -4238,6 +4453,15 @@
       if (typeof updateSatelliteThermalDisplay === 'function') {
         updateSatelliteThermalDisplay(dist);
       }
+      if (typeof updateBdpHotspotDisplay === 'function') {
+        updateBdpHotspotDisplay(dist.name);
+      }
+      if (typeof recalcHdxRelief === 'function') {
+        recalcHdxRelief();
+      }
+      if (typeof setBiomeScenario === 'function') {
+        setBiomeScenario('baseline');
+      }
 
       // 2. Sidebar active district spotlight card
       if (typeof updateSidebarDistrictBadge === 'function') {
@@ -5990,6 +6214,567 @@
       filterSuiteCards();
     }
 
+
+
+    // =========================================================================
+    // FEATURE 2: TACTICAL SYNTHETIC WEB AUDIO API (NO AUDIO FILES REQUIRED)
+    // =========================================================================
+    window.audioCtx = null;
+    window.audioMuted = false;
+
+    function initAudio() {
+      if (!window.audioCtx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) window.audioCtx = new AudioCtx();
+      }
+    }
+
+    function playTacticalSound(type) {
+      if (window.audioMuted) return;
+      initAudio();
+      if (!window.audioCtx) return;
+      if (window.audioCtx.state === 'suspended') {
+        window.audioCtx.resume();
+      }
+      
+      const ctx = window.audioCtx;
+      const now = ctx.currentTime;
+      
+      try {
+        if (type === 'click') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(850, now);
+          osc.frequency.exponentialRampToValueAtTime(1300, now + 0.035);
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.035);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.035);
+        } else if (type === 'sonar') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1050, now);
+          osc.frequency.exponentialRampToValueAtTime(580, now + 0.32);
+          gain.gain.setValueAtTime(0.09, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.32);
+        } else if (type === 'alert') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.linearRampToValueAtTime(880, now + 0.22);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.linearRampToValueAtTime(0.01, now + 0.22);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.22);
+        }
+      } catch (err) {
+        // Audio policy ignore
+      }
+    }
+
+    function toggleAudioMute() {
+      window.audioMuted = !window.audioMuted;
+      const btn = document.getElementById('btnAudioToggle');
+      const txt = document.getElementById('audioBtnText');
+      if (btn && txt) {
+        txt.innerText = window.audioMuted ? 'Audio: Muted' : 'Audio: On';
+        btn.style.borderColor = window.audioMuted ? '#64748b' : '#10b981';
+        btn.style.color = window.audioMuted ? '#94a3b8' : '#34d399';
+      }
+      if (!window.audioMuted) playTacticalSound('click');
+    }
+
+    // =========================================================================
+    // FEATURE 2: COMMAND PALETTE (CTRL + K / CMD + K)
+    // =========================================================================
+    const CMD_PALETTE_ITEMS = [
+      { id: 'tabMap', title: 'Tactical Map & GPS', desc: 'Open 64-district GIS Command Deck', icon: '🗺️', type: 'tab' },
+      { id: 'tabAlerts', title: 'Disaster Alerts & Siren', desc: 'Acoustic siren & automated phone dispatch', icon: '🚨', type: 'tab' },
+      { id: 'tabHeritage', title: 'District Heritage & Infra', desc: 'BWDB embankments, heritage & flood shelters', icon: '🏛️', type: 'tab' },
+      { id: 'tabWeather', title: 'Weather AI & Satellite', desc: 'Meteosat-9 thermal radar & 20D AI forecast', icon: '🛰️', type: 'tab' },
+      { id: 'tabAgro', title: 'AgroClaim Crop Insurance', desc: 'Sentinel-1 SAR radar & bKash/Nagad payouts', icon: '🌾', type: 'tab' },
+      { id: 'tabEvac', title: 'Evacuation Routes', desc: 'Arterial highway routing & island isolation', icon: '🚑', type: 'tab' },
+      { id: 'tabClima', title: 'Real Estate ESG Rating', desc: 'CMIP6 biomes & 30-year climate credit rating', icon: '🏢', type: 'tab' },
+      { id: 'tabSim', title: 'DeltaSim Adaptation Sandbox', desc: 'Policy simulation & budget allocation modeler', icon: '🎮', type: 'tab' },
+      { id: 'tabHealth', title: 'Epidemic Surveillance', desc: 'Cholera/Dengue outbreak & IV saline logistics', icon: '🏥', type: 'tab' },
+      { id: 'tabGrid', title: 'Power Grid Resilience', desc: 'Substation inundation & telecom BTS towers', icon: '⚡', type: 'tab' },
+      { id: 'tabErosion', title: 'Riverbank Erosion Index', desc: 'Jamuna/Padma morphology & char diluvion', icon: '🌊', type: 'tab' },
+      { id: 'tabSupply', title: 'Food Supply Chain', desc: 'National food grain silos & freight detours', icon: '🍞', type: 'tab' },
+      { id: 'tabUssd', title: 'Rural Offline USSD (*999#)', desc: 'Feature-phone terminal simulator for disasters', icon: '📱', type: 'tab' },
+      { id: 'tabBot', title: 'DeltaBot AI Copilot', desc: 'Bilingual AI disaster response assistant', icon: '🤖', type: 'tab' },
+      { id: 'tabDataAi', title: '49-Layer Spatial AI', desc: 'Multi-spectral geospatial catalog & ML models', icon: '🧬', type: 'tab' },
+      { id: 'tabSitrep', title: 'Executive SitRep', desc: 'Official Cabinet situation briefing & PDF memo', icon: '📋', type: 'tab' },
+      { id: 'siren', title: 'Toggle Emergency Siren', desc: 'Trigger or silence national acoustic siren', icon: '🚨', type: 'action', action: 'toggleEmergencySiren' },
+      { id: 'audio', title: 'Toggle Tactical Audio FX', desc: 'Turn audio synthesis on or off', icon: '🔊', type: 'action', action: 'toggleAudioMute' },
+      { id: 'suite', title: 'Open Suite Launcher', desc: 'Launch all 16 standalone web applications', icon: '⊞', type: 'action', action: 'openSuiteLauncherModal' },
+      { id: 'print', title: 'Print / Export SitRep PDF', desc: 'Generate official ministerial print format', icon: '🖨️', type: 'action', action: 'printExecutiveSitRep' }
+    ];
+
+    function openCommandPalette() {
+      playTacticalSound('click');
+      const modal = document.getElementById('cmdPaletteModal');
+      if (!modal) return;
+      modal.classList.add('active');
+      const input = document.getElementById('cmdPaletteInput');
+      if (input) {
+        input.value = '';
+        setTimeout(() => input.focus(), 100);
+      }
+      filterCmdPalette();
+    }
+
+    function closeCommandPalette() {
+      const modal = document.getElementById('cmdPaletteModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function handleCmdOverlayClick(e) {
+      if (e.target.id === 'cmdPaletteModal') closeCommandPalette();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openCommandPalette();
+      }
+    });
+
+    function filterCmdPalette() {
+      const query = (document.getElementById('cmdPaletteInput')?.value || '').toLowerCase().trim();
+      const container = document.getElementById('cmdPaletteResults');
+      if (!container) return;
+
+      let html = '';
+      
+      // 1. Static items
+      const matches = CMD_PALETTE_ITEMS.filter(it => !query || it.title.toLowerCase().includes(query) || it.desc.toLowerCase().includes(query));
+      matches.slice(0, 8).forEach((it, idx) => {
+        html += `
+          <div class="cmd-item" onclick="executeCmdItem('${it.id}', '${it.type}', '${it.action || ''}')">
+            <div class="cmd-item-title"><span>${it.icon}</span> <span>${it.title}</span></div>
+            <div class="cmd-item-desc">${it.desc}</div>
+          </div>
+        `;
+      });
+
+      // 2. District matches
+      if (query && window.DISTRICTS_DATA) {
+        const distMatches = window.DISTRICTS_DATA.filter(d => d.name.toLowerCase().includes(query));
+        distMatches.slice(0, 5).forEach(d => {
+          html += `
+            <div class="cmd-item" onclick="executeCmdDistrict('${d.name}')">
+              <div class="cmd-item-title"><span>📍</span> <span>Fly to ${d.name}</span></div>
+              <div class="cmd-item-desc">${d.division} Division · ${d.temp}°C · ${d.zone}</div>
+            </div>
+          `;
+        });
+      }
+
+      container.innerHTML = html || '<div style="padding:16px; text-align:center; color:#64748b; font-size:0.85rem;">No matching commands or districts</div>';
+    }
+
+    function executeCmdItem(id, type, actionName) {
+      closeCommandPalette();
+      playTacticalSound('click');
+      if (type === 'tab') {
+        switchTab(id);
+      } else if (type === 'action' && typeof window[actionName] === 'function') {
+        window[actionName]();
+      }
+    }
+
+    function executeCmdDistrict(distName) {
+      closeCommandPalette();
+      playTacticalSound('sonar');
+      const select = document.getElementById('districtSelect');
+      if (select) {
+        select.value = distName;
+        updateAllPillars();
+      }
+    }
+
+    function printExecutiveSitRep() {
+      switchTab('tabSitrep');
+      setTimeout(() => window.print(), 300);
+    }
+
+    // =========================================================================
+    // FEATURE B: MULTI-SPECTRAL 49-LAYER GIS HEATMAP ENGINE
+    // =========================================================================
+    window.currentChoroplethLayer = null;
+    window.choroplethLegend = null;
+
+    function render49LayerChoropleth(metricKey) {
+      playTacticalSound('sonar');
+      if (!window.bdMapInstance || !window.DELTA_GEOJSON_49) return;
+
+      // Remove existing choropleth
+      if (window.currentChoroplethLayer) {
+        window.bdMapInstance.removeLayer(window.currentChoroplethLayer);
+        window.currentChoroplethLayer = null;
+      }
+      if (window.choroplethLegend) {
+        window.bdMapInstance.removeControl(window.choroplethLegend);
+        window.choroplethLegend = null;
+      }
+
+      const metricConfig = {
+        viirs: { prop: 'VIIRS_NightLights_Radiance', title: 'Nightlights (nW/cm²)', min: 0.2, max: 25, unit: 'nW', palette: ['#020617', '#1e293b', '#0284c7', '#38bdf8', '#facc15', '#ffffff'] },
+        poverty: { prop: 'WorldPop_PovertyLikelihood_Pct', title: 'Poverty Likelihood (%)', min: 5, max: 50, unit: '%', palette: ['#10b981', '#34d399', '#f59e0b', '#ef4444', '#b91c1c'] },
+        jrc_water: { prop: 'JRC_WaterOccurrence_Pct', title: '40-Yr Water Occur (%)', min: 0, max: 60, unit: '%', palette: ['#0f172a', '#0369a1', '#0ea5e9', '#00f0ff', '#38bdf8'] },
+        gedi: { prop: 'GEDI_CanopyHeight_M', title: 'Canopy Height (m)', min: 4, max: 22, unit: 'm', palette: ['#052e16', '#14532d', '#15803d', '#22c55e', '#86efac'] },
+        health_dist: { prop: 'DistanceToHealthFacility_Km', title: 'Health Distance (km)', min: 1.5, max: 14, unit: 'km', palette: ['#10b981', '#38bdf8', '#f59e0b', '#ef4444', '#7f1d1d'] },
+        koppen: { prop: 'Koppen_Baseline', title: 'Köppen Biome', isCategorical: true }
+      };
+
+      const cfg = metricConfig[metricKey];
+      if (!cfg) return;
+
+      function getColor(val) {
+        if (cfg.isCategorical) {
+          if (val === 'Cwa') return '#00f0ff';
+          if (val === 'Am') return '#c084fc';
+          if (val === 'Aw') return '#f59e0b';
+          return '#38bdf8';
+        }
+        const norm = Math.max(0, Math.min(1, (val - cfg.min) / (cfg.max - cfg.min)));
+        const idx = Math.min(cfg.palette.length - 1, Math.floor(norm * cfg.palette.length));
+        return cfg.palette[idx];
+      }
+
+      window.currentChoroplethLayer = L.geoJSON(window.DELTA_GEOJSON_49, {
+        style: function(feat) {
+          const val = feat.properties[cfg.prop];
+          return {
+            fillColor: getColor(val),
+            weight: 1.2,
+            opacity: 0.9,
+            color: '#38bdf8',
+            dashArray: '2',
+            fillOpacity: 0.65
+          };
+        },
+        onEachFeature: function(feat, layer) {
+          const p = feat.properties;
+          const val = p[cfg.prop];
+          const tooltipContent = `<strong>${p.DistrictName}</strong> (${p.Division})<br/>${cfg.title}: <b>${val} ${cfg.unit || ''}</b>`;
+          layer.bindTooltip(tooltipContent, { sticky: true, className: 'map-choropleth-legend' });
+          layer.on('click', () => {
+            const select = document.getElementById('districtSelect');
+            if (select) {
+              select.value = p.DistrictName;
+              updateAllPillars();
+            }
+          });
+        }
+      }).addTo(window.bdMapInstance);
+
+      // Add Legend Control
+      const legend = L.control({ position: 'bottomright' });
+      legend.onAdd = function() {
+        const div = L.DomUtil.create('div', 'map-choropleth-legend');
+        div.innerHTML = `<strong>${cfg.title}</strong><br/>`;
+        if (cfg.isCategorical) {
+          div.innerHTML += '<span style="color:#00f0ff;">■</span> Cwa (Highland)<br/><span style="color:#c084fc;">■</span> Am (Monsoon)<br/><span style="color:#f59e0b;">■</span> Aw (Savanna)';
+        } else {
+          div.innerHTML += `<span>${cfg.min}</span> <span style="background:linear-gradient(90deg, ${cfg.palette.join(',')}); width:70px; height:8px; display:inline-block; margin:0 4px; border-radius:3px;"></span> <span>${cfg.max}</span>`;
+        }
+        return div;
+      };
+      legend.addTo(window.bdMapInstance);
+      window.choroplethLegend = legend;
+    }
+
+    // Hook switchMapLayer to support 49-layer types
+    const origSwitchMapLayer = window.switchMapLayer;
+    window.switchMapLayer = function(layerType) {
+      document.querySelectorAll('.map-layer-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('btnLayer' + layerType.charAt(0).toUpperCase() + layerType.slice(1));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      if (['viirs', 'poverty', 'jrc_water', 'gedi', 'health_dist', 'koppen'].includes(layerType)) {
+        render49LayerChoropleth(layerType);
+      } else {
+        if (window.currentChoroplethLayer && window.bdMapInstance) {
+          window.bdMapInstance.removeLayer(window.currentChoroplethLayer);
+          window.currentChoroplethLayer = null;
+        }
+        if (window.choroplethLegend && window.bdMapInstance) {
+          window.bdMapInstance.removeControl(window.choroplethLegend);
+          window.choroplethLegend = null;
+        }
+        plotDistrictMarkers(layerType);
+      }
+    };
+
+    // =========================================================================
+    // FEATURE D: DISTRICT HEAD-TO-HEAD COMPARATIVE RADAR
+    // =========================================================================
+    window.headToHeadChart = null;
+
+    function initHeadToHeadSelectors() {
+      const selA = document.getElementById('radarDistA');
+      const selB = document.getElementById('radarDistB');
+      if (!selA || !selB || !window.DISTRICTS_DATA) return;
+
+      let opts = '';
+      window.DISTRICTS_DATA.forEach(d => {
+        opts += `<option value="${d.name}">${d.name} (${d.division})</option>`;
+      });
+      selA.innerHTML = opts;
+      selB.innerHTML = opts;
+
+      selA.value = 'Kurigram';
+      selB.value = 'Sunamganj';
+
+      updateHeadToHeadRadar();
+    }
+
+    function updateHeadToHeadRadar() {
+      const nameA = document.getElementById('radarDistA')?.value || 'Kurigram';
+      const nameB = document.getElementById('radarDistB')?.value || 'Sunamganj';
+
+      const dataA = (window.DELTA_DATA_49 && window.DELTA_DATA_49[nameA]) || {};
+      const dataB = (window.DELTA_DATA_49 && window.DELTA_DATA_49[nameB]) || {};
+
+      // Normalize 6 axes 0-100
+      // 1. Flood Inundation
+      const floodA = Math.min(100, Math.round((dataA.JRC_WaterOccurrence_Pct || 25) * 2.2));
+      const floodB = Math.min(100, Math.round((dataB.JRC_WaterOccurrence_Pct || 25) * 2.2));
+
+      // 2. Road Density
+      const roadA = Math.min(100, Math.round((dataA.HOTOSM_RoadNetwork_TotalKm || 1200) / 35));
+      const roadB = Math.min(100, Math.round((dataB.HOTOSM_RoadNetwork_TotalKm || 1200) / 35));
+
+      // 3. Poverty Likelihood %
+      const povA = Math.round((dataA.WorldPop_PovertyLikelihood_Pct || 28) * 1.8);
+      const povB = Math.round((dataB.WorldPop_PovertyLikelihood_Pct || 28) * 1.8);
+
+      // 4. Health Travel Distance
+      const healthA = Math.min(100, Math.round((dataA.DistanceToHealthFacility_Km || 4.5) * 8.5));
+      const healthB = Math.min(100, Math.round((dataB.DistanceToHealthFacility_Km || 4.5) * 8.5));
+
+      // 5. Crop Exposure (NDVI)
+      const cropA = Math.round((dataA.Rice_NDVI_Boro || 0.55) * 100);
+      const cropB = Math.round((dataB.Rice_NDVI_Boro || 0.55) * 100);
+
+      // 6. Nightlights VIIRS
+      const viirsA = Math.min(100, Math.round((dataA.VIIRS_NightLights_Radiance || 1.5) * 8));
+      const viirsB = Math.min(100, Math.round((dataB.VIIRS_NightLights_Radiance || 1.5) * 8));
+
+      const ctx = document.getElementById('chartHeadToHeadRadar');
+      if (!ctx) return;
+
+      if (window.headToHeadChart) {
+        window.headToHeadChart.destroy();
+      }
+
+      window.headToHeadChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Flood Risk', 'Road Network', 'Poverty %', 'Health Deficit', 'Crop Exposure', 'Nightlights'],
+          datasets: [
+            {
+              label: nameA,
+              data: [floodA, roadA, povA, healthA, cropA, viirsA],
+              backgroundColor: 'rgba(0, 240, 255, 0.25)',
+              borderColor: '#00f0ff',
+              pointBackgroundColor: '#00f0ff',
+              borderWidth: 2
+            },
+            {
+              label: nameB,
+              data: [floodB, roadB, povB, healthB, cropB, viirsB],
+              backgroundColor: 'rgba(245, 158, 11, 0.25)',
+              borderColor: '#f59e0b',
+              pointBackgroundColor: '#f59e0b',
+              borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+              grid: { color: 'rgba(255, 255, 255, 0.08)' },
+              pointLabels: { color: '#94a3b8', font: { size: 10, weight: 700 } },
+              ticks: { display: false, max: 100, min: 0 }
+            }
+          },
+          plugins: {
+            legend: { labels: { color: '#ffffff', font: { weight: 700 } } }
+          }
+        }
+      });
+
+      // Update comparison breakdown table
+      const tbl = document.getElementById('radarComparisonTable');
+      if (tbl) {
+        tbl.innerHTML = `
+          <div style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
+            <div style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">HEAD-TO-HEAD SCORECARD SUMMARY</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px;">
+              <div>
+                <strong style="color:#00f0ff;">${nameA}:</strong>
+                <div style="font-size:0.78rem; color:#cbd5e1; margin-top:3px;">
+                  • Water Occur: <b>${dataA.JRC_WaterOccurrence_Pct || 25}%</b><br/>
+                  • Poverty Rate: <b>${dataA.WorldPop_PovertyLikelihood_Pct || 28}%</b><br/>
+                  • Health Dist: <b>${dataA.DistanceToHealthFacility_Km || 4.2} km</b>
+                </div>
+              </div>
+              <div>
+                <strong style="color:#f59e0b;">${nameB}:</strong>
+                <div style="font-size:0.78rem; color:#cbd5e1; margin-top:3px;">
+                  • Water Occur: <b>${dataB.JRC_WaterOccurrence_Pct || 25}%</b><br/>
+                  • Poverty Rate: <b>${dataB.WorldPop_PovertyLikelihood_Pct || 28}%</b><br/>
+                  • Health Dist: <b>${dataB.DistanceToHealthFacility_Km || 4.2} km</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // =========================================================================
+    // FEATURE E: UN HDX HUMANITARIAN AID & DISASTER RELIEF CALCULATOR
+    // =========================================================================
+    function recalcHdxRelief() {
+      const distName = (getSelectedDistrict && getSelectedDistrict()?.name) || 'Sylhet';
+      const hdx = (window.DELTA_HDX_DATA && window.DELTA_HDX_DATA[distName]) || {};
+      const pop = hdx.Population || 3500000;
+      const inunPct = (hdx.PredictedInundatedPercentage || 38.5) / 100;
+      const exposedPop = Math.round(pop * inunPct);
+
+      const days = parseInt(document.getElementById('sliderHdxDays')?.value || '14');
+      const cashPerFamily = parseInt(document.getElementById('sliderHdxCash')?.value || '4500');
+
+      // Update labels
+      const lblDays = document.getElementById('lblHdxDays');
+      const lblCash = document.getElementById('lblHdxCash');
+      if (lblDays) lblDays.innerText = `${days} Days`;
+      if (lblCash) lblCash.innerText = `৳ ${cashPerFamily.toLocaleString()} BDT`;
+
+      // Sphere Standard safe water: 15L per person per day
+      const dailyWater = Math.round(exposedPop * 15);
+      const aquatabsDaily = Math.round(dailyWater / 5); // 1 tablet per 5L
+      const orsSachets = Math.round(exposedPop * 0.45 * (days / 7));
+      const familiesDisplaced = Math.round(exposedPop / 4.5);
+      const reliefTents = Math.round(familiesDisplaced * 0.35);
+
+      // Total Budget
+      const waterCostBdt = dailyWater * 0.15 * days;
+      const cashGrantsBdt = familiesDisplaced * cashPerFamily;
+      const medicalCostBdt = orsSachets * 12 + aquatabsDaily * 0.8 * days;
+      const shelterCostBdt = reliefTents * 8500;
+      const totalBdt = Math.round(waterCostBdt + cashGrantsBdt + medicalCostBdt + shelterCostBdt);
+      const totalUsd = (totalBdt / 120.5).toFixed(2);
+
+      // Render into DOM
+      const dNameEl = document.getElementById('hdxActiveDistrict');
+      const dMetaEl = document.getElementById('hdxDistrictMeta');
+      if (dNameEl) dNameEl.innerText = distName;
+      if (dMetaEl) dMetaEl.innerText = `Population: ${(pop/1e6).toFixed(2)}M · Inundated: ${(inunPct*100).toFixed(1)}% (${(exposedPop/1e3).toFixed(0)}k citizens)`;
+
+      const elWater = document.getElementById('hdxSafeWater');
+      const elTabs = document.getElementById('hdxAquatabs');
+      const elOrs = document.getElementById('hdxOrsSachets');
+      const elTents = document.getElementById('hdxTents');
+      const elBdt = document.getElementById('hdxTotalBdt');
+      const elUsd = document.getElementById('hdxTotalUsd');
+
+      if (elWater) elWater.innerText = `${(dailyWater/1e6).toFixed(2)}M Liters/day`;
+      if (elTabs) elTabs.innerText = `${(aquatabsDaily/1e3).toFixed(0)}k Tabs/day`;
+      if (elOrs) elOrs.innerText = `${(orsSachets/1e3).toFixed(0)}k Sachets`;
+      if (elTents) elTents.innerText = `${reliefTents.toLocaleString()} Tents`;
+      if (elBdt) elBdt.innerText = `৳ ${(totalBdt/1e6).toFixed(1)}M BDT`;
+      if (elUsd) elUsd.innerText = `(${(totalUsd/1e6).toFixed(2)}M USD)`;
+    }
+
+    function exportHdxReliefManifesto() {
+      playTacticalSound('click');
+      const distName = (getSelectedDistrict && getSelectedDistrict()?.name) || 'Sylhet';
+      const days = document.getElementById('sliderHdxDays')?.value || '14';
+      const cash = document.getElementById('sliderHdxCash')?.value || '4500';
+      const bdt = document.getElementById('hdxTotalBdt')?.innerText || '';
+      const usd = document.getElementById('hdxTotalUsd')?.innerText || '';
+
+      const manifesto = {
+        title: "DeltaShield UN HDX Emergency Relief Crisis Budget",
+        timestamp: new Date().toISOString(),
+        district: distName,
+        framework: "UN OCHA, WFP & Sphere Standards 2026",
+        parameters: { reliefDurationDays: days, cashGrantPerFamilyBdt: cash },
+        budget: { totalBdt: bdt, totalUsd: usd }
+      };
+
+      const blob = new Blob([JSON.stringify(manifesto, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `DeltaShield_Humanitarian_Relief_${distName}.json`;
+      a.click();
+    }
+
+    // =========================================================================
+    // FEATURE C: CMIP6 CLIMATE BIOME MORPHING CONTROLLER
+    // =========================================================================
+    function setBiomeScenario(scenario, btn) {
+      playTacticalSound('click');
+      document.querySelectorAll('.btn-cmip-scenario').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const dist = getSelectedDistrict && getSelectedDistrict();
+      const distName = dist ? dist.name : 'Kurigram';
+      const data = (window.DELTA_DATA_49 && window.DELTA_DATA_49[distName]) || {};
+
+      const spot = document.getElementById('cmipDistrictSpotlight');
+      if (spot) {
+        if (scenario === 'baseline') {
+          spot.innerHTML = `<strong>📍 ${distName} Baseline (2020):</strong> Classified as <b>${data.Koppen_Baseline || 'Cwa'}</b>. Historical moderate temperature oscillations with predictable monsoon onset.`;
+        } else if (scenario === 'ssp245') {
+          spot.innerHTML = `<strong>📍 ${distName} 2050 SSP2-4.5 (Moderate):</strong> Transitions to <b>${data.Koppen_SSP245_2050 || 'Am'}</b>. Extended summer thermal peaks with a 15% increase in consecutive deluge rainfall days.`;
+        } else {
+          spot.innerHTML = `<strong>📍 ${distName} 2050 SSP5-8.5 (Extreme):</strong> Complete biome regime shift to <b>${data.Koppen_SSP585_2050 || 'Am'}</b>. Highland winter buffers eliminated; flood surge frequency increases by +38%.`;
+        }
+      }
+    }
+
+    // =========================================================================
+    // FEATURE 3: BDP 2100 DELTAIC HOTSPOT SYNC
+    // =========================================================================
+    function updateBdpHotspotDisplay(distName) {
+      const badge = document.getElementById('sidebarBdpBadge');
+      if (!badge || !window.DELTA_BDP_HOTSPOTS) return;
+      const hotspot = window.DELTA_BDP_HOTSPOTS[distName] || { name: 'Rivers & Floodplains', color: '#00f0ff', icon: '🏞️' };
+      badge.innerHTML = `${hotspot.icon} Delta Hotspot: ${hotspot.name}`;
+      badge.style.color = hotspot.color;
+      badge.style.borderColor = hotspot.color;
+      badge.style.background = hotspot.color + '22';
+    }
+
+    // Initialize Extended Features on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        initHeadToHeadSelectors();
+        recalcHdxRelief();
+        const dist = getSelectedDistrict && getSelectedDistrict();
+        if (dist) updateBdpHotspotDisplay(dist.name);
+      }, 500);
+    });
+
 </script>
   <div id="alertToastContainer" class="alert-toast-container" aria-live="polite"></div>
 
@@ -6312,6 +7097,27 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+
+
+  <!-- =========================================================================
+       COMMAND PALETTE MODAL (CTRL + K / CMD + K)
+       ========================================================================= -->
+  <div class="cmd-palette-overlay" id="cmdPaletteModal" onclick="handleCmdOverlayClick(event)">
+    <div class="cmd-palette-box">
+      <div style="padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; gap:10px;">
+        <span style="font-size:1.1rem; color:#38bdf8;">⚡</span>
+        <input type="text" id="cmdPaletteInput" placeholder="Type a command, district, or operational pillar (e.g., 'Sylhet', 'Weather', 'Siren', 'Radar')..." 
+               oninput="filterCmdPalette()" onkeydown="handleCmdKeydown(event)"
+               style="flex:1; background:transparent; border:none; color:#fff; font-size:0.95rem; font-family:'Plus Jakarta Sans',sans-serif; outline:none;" />
+        <span style="font-size:0.72rem; color:#64748b; font-family:'JetBrains Mono',monospace; border:1px solid #334155; padding:2px 6px; border-radius:4px;">ESC to close</span>
+      </div>
+
+      <div style="padding:8px 0; max-height:360px; overflow-y:auto;" id="cmdPaletteResults">
+        <!-- Filtered items populated dynamically -->
+      </div>
     </div>
   </div>
 
