@@ -717,6 +717,129 @@
     box-shadow: 0 10px 25px rgba(0, 240, 255, 0.18);
   }
 
+
+  /* -------------------------------------------------------------------------- */
+  /* FRONTEND QA & RESPONSIVE POLISH (CYBER-AURORA PRO V5)                      */
+  /* -------------------------------------------------------------------------- */
+  
+  /* Smooth Tab Entrance Animations */
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+    animation: tabContentEntrance 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes tabContentEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Enhanced Micro-Interactions on Interactive Elements */
+  .btn-action-sm, .map-layer-btn, .basemap-btn, .gps-btn, .sidebar-tab-btn, .tab-btn {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .btn-action-sm:active, .map-layer-btn:active, .basemap-btn:active, .gps-btn:active, .sidebar-tab-btn:active {
+    transform: scale(0.97) translateY(1px) !important;
+  }
+
+  /* Command Palette Highlight & Keyboard Navigation */
+  .cmd-item {
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .cmd-item.selected {
+    background: rgba(0, 240, 255, 0.16) !important;
+    border-color: rgba(0, 240, 255, 0.6) !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  }
+
+  /* Mobile Backdrop for Floating Sidebar Drawer */
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(4, 7, 17, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .sidebar-backdrop.active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Tablet Responsive (<= 1024px) */
+  @media (max-width: 1024px) {
+    .command-sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1002;
+      box-shadow: 10px 0 35px rgba(0, 0, 0, 0.85);
+    }
+    .command-sidebar.collapsed {
+      width: 0 !important;
+      min-width: 0 !important;
+      overflow: hidden;
+      border-right: none;
+    }
+    .command-main-stage {
+      width: 100vw;
+      margin-left: 0;
+    }
+  }
+
+  /* Mobile Responsive (<= 768px) */
+  @media (max-width: 768px) {
+    .top-mission-hud {
+      padding: 8px 12px;
+      gap: 8px;
+    }
+    .hud-left-controls, .hud-center-telemetry, .hud-right-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .hud-district-select-wrap {
+      flex: 1;
+      justify-content: space-between;
+    }
+    .hud-district-select-wrap select {
+      max-width: 180px;
+    }
+    #bdMap {
+      height: 380px !important;
+    }
+    .stage-content-body {
+      padding: 12px 10px !important;
+    }
+    .mission-alert-ribbon {
+      padding: 6px 12px;
+      font-size: 0.78rem;
+    }
+    .cmd-palette-box {
+      width: 94% !important;
+      margin: 10px auto;
+    }
+    .suite-modal-box {
+      width: 96% !important;
+      max-height: 94vh;
+    }
+  }
+
 </style>
 
 </head>
@@ -725,6 +848,7 @@
   <div class="command-hub-wrapper" id="commandHubWrapper">
 
     <!-- COLLAPSIBLE LEFT SIDEBAR NAVIGATION -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleCommandSidebar()"></div>
     <aside class="command-sidebar" id="commandSidebar">
       
       <!-- Brand & Sidebar Toggle -->
@@ -3003,15 +3127,27 @@
     function toggleCommandSidebar() {
       const sidebar = document.getElementById('commandSidebar');
       const btn = document.getElementById('sidebarCollapseBtn');
+      const backdrop = document.getElementById('sidebarBackdrop');
       if (!sidebar) return;
 
       sidebar.classList.toggle('collapsed');
       const isCollapsed = sidebar.classList.contains('collapsed');
       if (btn) btn.textContent = isCollapsed ? '▶' : '◀';
 
+      // On mobile / tablet, sync backdrop
+      if (backdrop) {
+        if (!isCollapsed && window.innerWidth <= 1024) {
+          backdrop.classList.add('active');
+        } else {
+          backdrop.classList.remove('active');
+        }
+      }
+
       // Smoothly invalidate Leaflet map size on expand/collapse
       setTimeout(() => {
-        if (window.bdMap) {
+        if (window.bdMapInstance) {
+          window.bdMapInstance.invalidateSize();
+        } else if (window.bdMap && typeof window.bdMap.invalidateSize === 'function') {
           window.bdMap.invalidateSize();
         }
       }, 320);
@@ -3025,35 +3161,96 @@
       }
     });
 
-    // Enhanced switchTab to sync with Sidebar buttons and invalidate Leaflet
-    const originalSwitchTab = window.switchTab;
-    window.switchTab = function(tabId) {
-      // 1. Hide all tab contents
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      // 2. Remove active state from all sidebar buttons
-      document.querySelectorAll('.sidebar-tab-btn').forEach(btn => btn.classList.remove('active'));
 
-      // 3. Show selected tab
+    // =========================================================================
+    // QA-AUDITED UNIFIED TAB & WORKSPACE SWITCHER CONTROLLER
+    // =========================================================================
+    function switchTab(tabId) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+
+      // 1. Hide all tab contents and remove active states
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+
+      // 2. Show target tab content
       const target = document.getElementById(tabId);
       if (target) {
         target.classList.add('active');
       }
 
+      // 3. Highlight top tab button (if present)
+      const topBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+      if (topBtn) topBtn.classList.add('active');
+
       // 4. Highlight sidebar button
       const sbtn = document.getElementById('sbtn-' + tabId);
-      if (sbtn) {
-        sbtn.classList.add('active');
+      if (sbtn) sbtn.classList.add('active');
+
+      // 5. Invalidate Leaflet maps
+      if (tabId === 'tabMap' && window.bdMapInstance) {
+        setTimeout(() => {
+          window.bdMapInstance.invalidateSize();
+          if (typeof updateHeadToHeadRadar === 'function') updateHeadToHeadRadar();
+        }, 180);
+      }
+      if (tabId === 'tabAgro') {
+        setTimeout(() => {
+          if (typeof initAgroPercatMap === 'function') initAgroPercatMap();
+          if (typeof initAgroPercatDashboard === 'function') initAgroPercatDashboard();
+          if (window.agroPercatMap) window.agroPercatMap.invalidateSize();
+        }, 150);
+      }
+      if (tabId === 'tabWeather') {
+        setTimeout(() => {
+          if (typeof initSatelliteThermalRadar === 'function') initSatelliteThermalRadar();
+        }, 150);
+      }
+      if (tabId === 'tabAlerts') {
+        setTimeout(() => {
+          if (typeof recalcHdxRelief === 'function') recalcHdxRelief();
+        }, 100);
+      }
+      if (tabId === 'tabClima') {
+        setTimeout(() => {
+          if (typeof setBiomeScenario === 'function') setBiomeScenario('baseline');
+        }, 100);
       }
 
-      // 5. Invalidate map if switching to tactical map
-      if (tabId === 'tabMap') {
-        setTimeout(() => {
-          if (window.bdMap) {
-            window.bdMap.invalidateSize();
-          }
-        }, 200);
+      // 6. Re-render active tab charts
+      setTimeout(() => {
+        if (typeof renderActiveTabCharts === 'function') renderActiveTabCharts(tabId);
+      }, 60);
+    }
+    window.switchTab = switchTab;
+
+    // =========================================================================
+    // LOCATE DISTRICT ON COMMAND MAP (QA RESOLUTION)
+    // =========================================================================
+    function locateDistrictOnCommandMap(distName) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('sonar');
+      switchTab('tabMap');
+
+      const select = document.getElementById('districtSelect');
+      if (select && distName) {
+        select.value = distName;
+        if (typeof updateAllPillars === 'function') updateAllPillars();
       }
-    };
+
+      const dist = (window.DISTRICTS_DATA && window.DISTRICTS_DATA.find(d => d.name.toLowerCase() === distName.toLowerCase())) || 
+                   (typeof getSelectedDistrict === 'function' && getSelectedDistrict());
+
+      if (dist && window.bdMapInstance && dist.lat && dist.lon) {
+        window.bdMapInstance.flyTo([dist.lat, dist.lon], 10, { duration: 1.1 });
+        setTimeout(() => {
+          if (window.districtMarkerMap && window.districtMarkerMap[dist.name]) {
+            window.districtMarkerMap[dist.name].openPopup();
+          }
+        }, 1200);
+      }
+    }
+    window.locateDistrictOnCommandMap = locateDistrictOnCommandMap;
+
 
     // Update active district in sidebar badge
     function updateSidebarDistrictBadge(distName, temp, zone) {
@@ -3163,38 +3360,7 @@
     }
 
     // Tab Switcher
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      
-      const targetContent = document.getElementById(tabId);
-      if (targetContent) targetContent.classList.add('active');
-
-      const btn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
-      if (btn) btn.classList.add('active');
-
-      // Trigger Map Invalidate Size if Map Tab
-      if (tabId === 'tabMap' && window.bdMapInstance) {
-        setTimeout(() => { window.bdMapInstance.invalidateSize(); }, 200);
-      }
-      if (tabId === 'tabAgro') {
-        setTimeout(() => {
-          if (typeof initAgroPercatMap === 'function') initAgroPercatMap();
-          if (typeof initAgroPercatDashboard === 'function') initAgroPercatDashboard();
-          if (window.agroPercatMap) window.agroPercatMap.invalidateSize();
-        }, 150);
-      }
-
-      // Re-render active tab charts to ensure responsive canvas sizing
-      setTimeout(() => {
-        renderActiveTabCharts(tabId);
-      if (tabId === 'tabWeather') {
-        setTimeout(() => {
-          if (typeof initSatelliteThermalRadar === 'function') initSatelliteThermalRadar();
-        }, 150);
-      }
-      }, 50);
-    }
+// (Redundant switchTab declaration removed by QA audit)
 
     // Chart.js Theme Defaults
     Chart.defaults.color = '#94a3b8';
@@ -4911,6 +5077,8 @@
         zoom: 7,
         zoomControl: true
       });
+      window.bdMapInstance = bdMapInstance;
+      window.bdMap = bdMapInstance;
 
       // Default Basemap: Esri Satellite HD
       switchBasemap('satellite');
@@ -6350,43 +6518,117 @@
       }
     });
 
+    let cmdPaletteSelectedIndex = 0;
+    let currentCmdResults = [];
+
+    function handleCmdKeydown(e) {
+      if (e.key === 'Escape') {
+        closeCommandPalette();
+        return;
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (currentCmdResults.length > 0) {
+          cmdPaletteSelectedIndex = (cmdPaletteSelectedIndex + 1) % currentCmdResults.length;
+          highlightCmdItem();
+        }
+        return;
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentCmdResults.length > 0) {
+          cmdPaletteSelectedIndex = (cmdPaletteSelectedIndex - 1 + currentCmdResults.length) % currentCmdResults.length;
+          highlightCmdItem();
+        }
+        return;
+      }
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (currentCmdResults.length > 0 && currentCmdResults[cmdPaletteSelectedIndex]) {
+          const item = currentCmdResults[cmdPaletteSelectedIndex];
+          if (item.isDistrict) {
+            executeCmdDistrict(item.name);
+          } else {
+            executeCmdItem(item.id, item.type, item.action || '');
+          }
+        }
+        return;
+      }
+    }
+    window.handleCmdKeydown = handleCmdKeydown;
+
+    function highlightCmdItem() {
+      const items = document.querySelectorAll('#cmdPaletteResults .cmd-item');
+      items.forEach((el, idx) => {
+        if (idx === cmdPaletteSelectedIndex) {
+          el.classList.add('selected');
+          el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+          el.classList.remove('selected');
+        }
+      });
+    }
+
     function filterCmdPalette() {
       const query = (document.getElementById('cmdPaletteInput')?.value || '').toLowerCase().trim();
       const container = document.getElementById('cmdPaletteResults');
       if (!container) return;
 
+      currentCmdResults = [];
       let html = '';
       
       // 1. Static items
       const matches = CMD_PALETTE_ITEMS.filter(it => !query || it.title.toLowerCase().includes(query) || it.desc.toLowerCase().includes(query));
-      matches.slice(0, 8).forEach((it, idx) => {
-        html += `
-          <div class="cmd-item" onclick="executeCmdItem('${it.id}', '${it.type}', '${it.action || ''}')">
-            <div class="cmd-item-title"><span>${it.icon}</span> <span>${it.title}</span></div>
-            <div class="cmd-item-desc">${it.desc}</div>
-          </div>
-        `;
+      matches.slice(0, 8).forEach((it) => {
+        currentCmdResults.push({ ...it, isDistrict: false });
       });
 
       // 2. District matches
       if (query && window.DISTRICTS_DATA) {
         const distMatches = window.DISTRICTS_DATA.filter(d => d.name.toLowerCase().includes(query));
-        distMatches.slice(0, 5).forEach(d => {
-          html += `
-            <div class="cmd-item" onclick="executeCmdDistrict('${d.name}')">
-              <div class="cmd-item-title"><span>📍</span> <span>Fly to ${d.name}</span></div>
-              <div class="cmd-item-desc">${d.division} Division · ${d.temp}°C · ${d.zone}</div>
-            </div>
-          `;
+        distMatches.slice(0, 6).forEach(d => {
+          currentCmdResults.push({ isDistrict: true, name: d.name, division: d.division, temp: d.temp, zone: d.zone });
         });
       }
 
-      container.innerHTML = html || '<div style="padding:16px; text-align:center; color:#64748b; font-size:0.85rem;">No matching commands or districts</div>';
+      cmdPaletteSelectedIndex = 0;
+
+      if (currentCmdResults.length === 0) {
+        container.innerHTML = '<div style="padding:16px; text-align:center; color:#64748b; font-size:0.85rem;">No matching commands or districts</div>';
+        return;
+      }
+
+      currentCmdResults.forEach((it, idx) => {
+        const isSel = idx === 0 ? 'selected' : '';
+        if (it.isDistrict) {
+          html += `
+            <div class="cmd-item ${isSel}" onclick="executeCmdDistrict('${it.name}')" onmouseenter="setCmdHover(${idx})">
+              <div class="cmd-item-title"><span>📍</span> <span>Fly to ${it.name}</span></div>
+              <div class="cmd-item-desc">${it.division} Division · ${it.temp}°C · ${it.zone}</div>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="cmd-item ${isSel}" onclick="executeCmdItem('${it.id}', '${it.type}', '${it.action || ''}')" onmouseenter="setCmdHover(${idx})">
+              <div class="cmd-item-title"><span>${it.icon}</span> <span>${it.title}</span></div>
+              <div class="cmd-item-desc">${it.desc}</div>
+            </div>
+          `;
+        }
+      });
+
+      container.innerHTML = html;
     }
+
+    function setCmdHover(idx) {
+      cmdPaletteSelectedIndex = idx;
+      highlightCmdItem();
+    }
+    window.setCmdHover = setCmdHover;
 
     function executeCmdItem(id, type, actionName) {
       closeCommandPalette();
-      playTacticalSound('click');
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
       if (type === 'tab') {
         switchTab(id);
       } else if (type === 'action' && typeof window[actionName] === 'function') {
@@ -6396,11 +6638,15 @@
 
     function executeCmdDistrict(distName) {
       closeCommandPalette();
-      playTacticalSound('sonar');
-      const select = document.getElementById('districtSelect');
-      if (select) {
-        select.value = distName;
-        updateAllPillars();
+      if (typeof locateDistrictOnCommandMap === 'function') {
+        locateDistrictOnCommandMap(distName);
+      } else {
+        if (typeof playTacticalSound === 'function') playTacticalSound('sonar');
+        const select = document.getElementById('districtSelect');
+        if (select) {
+          select.value = distName;
+          if (typeof updateAllPillars === 'function') updateAllPillars();
+        }
       }
     }
 
@@ -6776,7 +7022,6 @@
     });
 
 </script>
-  <div id="alertToastContainer" class="alert-toast-container" aria-live="polite"></div>
 
 
   <!-- =========================================================================
