@@ -840,6 +840,220 @@
     }
   }
 
+
+  /* =========================================================================
+     COMPREHENSIVE RESPONSIVE DESIGN ENGINE (TABLET, MOBILE & DESKTOP)
+     ========================================================================= */
+
+  /* Safe Area & Mobile Box Sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Touch target sizes & smooth scrolling */
+  button, select, input, .sidebar-tab-btn, .mobile-nav-btn {
+    touch-action: manipulation;
+  }
+
+  /* Responsive Grid Overrides */
+  @media (max-width: 1024px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 14px !important;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 14px !important;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+    .head-to-head-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .satellite-station-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .heritage-spotlight-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Main Layout & Stage */
+    .command-hub-wrapper {
+      flex-direction: column;
+      overflow-x: hidden;
+      width: 100vw !important;
+      max-width: 100vw !important;
+    }
+    .command-main-stage {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: 0 !important;
+    }
+    .top-mission-hud {
+      padding: 10px 14px !important;
+      gap: 10px !important;
+    }
+    .hud-left-controls, 
+    .hud-center-telemetry, 
+    .hud-right-actions {
+      width: 100% !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .hud-district-select-wrap {
+      flex: 1 1 auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .hud-district-select-wrap select {
+      flex: 1;
+      max-width: none !important;
+      width: 100%;
+    }
+    .hud-center-telemetry {
+      justify-content: flex-start !important;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .hud-right-actions {
+      justify-content: flex-start !important;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .hud-right-actions .btn-action-sm {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Map UI adjustments */
+    #bdMap {
+      height: 380px !important;
+      min-height: 340px !important;
+    }
+    .map-controls-bar {
+      flex-direction: column;
+      align-items: stretch !important;
+      gap: 8px !important;
+      padding: 8px 10px !important;
+    }
+    .map-controls-bar > div {
+      overflow-x: auto;
+      display: flex;
+      flex-wrap: nowrap !important;
+      white-space: nowrap;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      gap: 6px !important;
+    }
+
+    /* Grids & Cards */
+    .grid-4, .grid-3, .grid-2 {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+    .mfs-gateways-grid,
+    .satellite-metrics-grid,
+    .heritage-kpi-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .sitrep-two-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .actuarial-donut-grid {
+      grid-template-columns: 1fr !important;
+      justify-items: center;
+      text-align: center;
+    }
+    .card {
+      padding: 14px 14px !important;
+      margin-bottom: 16px !important;
+    }
+    .stage-content-body {
+      padding: 12px 10px 78px 10px !important;
+    }
+
+    /* Mobile Bottom Navigation Bar */
+    .mobile-bottom-nav {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(8, 13, 26, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(0, 240, 255, 0.35);
+      z-index: 1001;
+      justify-content: space-around;
+      align-items: center;
+      padding: 4px 6px env(safe-area-inset-bottom, 4px) 6px;
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 240, 255, 0.15);
+    }
+    .mobile-nav-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      cursor: pointer;
+      padding: 6px 4px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      flex: 1;
+    }
+    .mobile-nav-btn .mob-icon {
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    .mobile-nav-btn .mob-text {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .mobile-nav-btn.active {
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.12);
+    }
+    .mobile-nav-btn.active .mob-icon {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 6px #00f0ff);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mfs-gateways-grid,
+    .satellite-metrics-grid,
+    .heritage-kpi-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .kpi-box {
+      padding: 10px 12px !important;
+    }
+    .brand-title-main {
+      font-size: 0.95rem !important;
+    }
+    .div-filter-chip {
+      padding: 3px 8px !important;
+      font-size: 0.70rem !important;
+    }
+  }
+
 </style>
 
 </head>
@@ -1296,7 +1510,7 @@
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: 420px 1fr; gap:24px; align-items:center;">
+        <div class="head-to-head-grid" style="display:grid; grid-template-columns: 420px 1fr; gap:24px; align-items:center;">
           <!-- Radar Canvas -->
           <div style="position:relative; width:100%; height:320px; background:rgba(6, 11, 25, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
             <canvas id="chartHeadToHeadRadar"></canvas>
@@ -1689,7 +1903,7 @@
           </div>
 
           <!-- Top Row: Donut Chart & Gateway Metrics -->
-          <div style="display:grid; grid-template-columns: 210px 1fr; gap:14px; align-items:center; margin-bottom:14px;">
+          <div class="actuarial-donut-grid" style="display:grid; grid-template-columns: 210px 1fr; gap:14px; align-items:center; margin-bottom:14px;">
             <div style="position:relative; height:200px; width:210px;">
               <canvas id="chartAgroPayoutPercent"></canvas>
             </div>
@@ -1719,7 +1933,7 @@
           </div>
 
           <!-- MFS Gateway Breakdown Strip -->
-          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-bottom:12px;">
+          <div class="mfs-gateways-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-bottom:12px;">
             <div style="background:rgba(224, 19, 107, 0.12); border:1px solid rgba(224, 19, 107, 0.35); padding:8px 10px; border-radius:6px;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
                 <span style="font-weight:800; color:#f43f5e; font-size:0.78rem;">bKash Wallet</span>
@@ -2226,7 +2440,7 @@
       </div>
 
       <!-- Two-Column Satellite Station Layout: Canvas Radar + Live Telemetry -->
-      <div style="display:grid; grid-template-columns: 460px 1fr; gap:20px; align-items:center;">
+      <div class="satellite-station-grid" style="display:grid; grid-template-columns: 460px 1fr; gap:20px; align-items:center;">
         
         <!-- Column 1: Live Animated Satellite Radar Scan Canvas -->
         <div style="position:relative; width:100%; border-radius:10px; overflow:hidden; border:1px solid rgba(0, 240, 255, 0.4); box-shadow:0 8px 24px rgba(0,0,0,0.7), inset 0 0 20px rgba(0,240,255,0.15);">
@@ -2257,7 +2471,7 @@
           </div>
 
           <!-- Secondary Atmospheric Readouts -->
-          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;">
+          <div class="satellite-metrics-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;">
             <div style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px;">
               <div style="font-size:0.68rem; color:#94a3b8; font-weight:800;">CLOUD-TOP THERMAL</div>
               <div id="satStationCloudTop" style="font-size:0.9rem; font-weight:800; color:#c084fc; font-family:'JetBrains Mono',monospace; margin-top:2px;">
@@ -2906,7 +3120,7 @@
 
         <h3 style="color:#b91c1c; font-size:1.15rem; margin-bottom:12px;" id="sitrepHeaderDistrict">DISTRICT DOSSIER: --</h3>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; font-size:0.9rem;">
+        <div class="sitrep-two-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; font-size:0.9rem;">
           <div style="border:1px solid #cbd5e1; padding:12px; border-radius:6px;">
             <h4 style="color:#0369a1; margin-bottom:6px;">1. METEOROLOGY & ACTIVE ALERT</h4>
             <p id="sitrepWeather">--</p>
@@ -2972,7 +3186,7 @@
       </div>
 
       <!-- Spotlight Main Card: Photo + Details + Infrastructure -->
-      <div style="display:grid; grid-template-columns: 1.1fr 1.3fr; gap:20px; margin-bottom:24px;">
+      <div class="heritage-spotlight-grid" style="display:grid; grid-template-columns: 1.1fr 1.3fr; gap:20px; margin-bottom:24px;">
         
         <!-- Left Column: Photo & Cultural Narrative -->
         <div style="background:#0c121e; border:1px solid #1e293b; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;">
@@ -3026,7 +3240,7 @@
                 BANBEIS Survey
               </span>
             </div>
-            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+            <div class="heritage-kpi-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
               <div class="kpi-box" style="padding:10px 12px;">
                 <span class="kpi-label">🏫 Schools</span>
                 <span class="kpi-value" id="spotlightSchools" style="font-size:1.25rem; color:#38bdf8;">2,450</span>
@@ -3070,7 +3284,7 @@
                 DGHS Registered
               </span>
             </div>
-            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+            <div class="heritage-kpi-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
               <div class="kpi-box" style="padding:10px 12px; border-color:rgba(239, 68, 68, 0.2);">
                 <span class="kpi-label">🏥 Hospitals</span>
                 <span class="kpi-value" id="spotlightHospitals" style="font-size:1.25rem; color:#ef4444;">285</span>
@@ -3116,6 +3330,35 @@
   
       </div>
     </main>
+
+    <!-- MOBILE BOTTOM COMMAND NAVIGATION BAR (<= 768px) -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+      <button class="mobile-nav-btn active" id="mobTab-tabMap" onclick="switchTab('tabMap')">
+        <span class="mob-icon">🗺️</span>
+        <span class="mob-text">Map</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobTab-tabAlerts" onclick="switchTab('tabAlerts')">
+        <span class="mob-icon">🚨</span>
+        <span class="mob-text">Alerts</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobTab-tabWeather" onclick="switchTab('tabWeather')">
+        <span class="mob-icon">🌤️</span>
+        <span class="mob-text">Weather</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobTab-tabAgro" onclick="switchTab('tabAgro')">
+        <span class="mob-icon">🌾</span>
+        <span class="mob-text">Agro</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobTab-tabHeritage" onclick="switchTab('tabHeritage')">
+        <span class="mob-icon">🏛️</span>
+        <span class="mob-text">Heritage</span>
+      </button>
+      <button class="mobile-nav-btn" onclick="toggleCommandSidebar()">
+        <span class="mob-icon">☰</span>
+        <span class="mob-text">Menu</span>
+      </button>
+    </nav>
+
 
   </div>
 
@@ -3167,6 +3410,23 @@
     // =========================================================================
     function switchTab(tabId) {
       if (typeof playTacticalSound === 'function') playTacticalSound('click');
+
+      // Automatically collapse sidebar drawer on mobile/tablet viewports
+      if (window.innerWidth <= 1024) {
+        const sidebar = document.getElementById('commandSidebar');
+        const backdrop = document.getElementById('sidebarBackdrop');
+        if (sidebar && !sidebar.classList.contains('collapsed')) {
+          sidebar.classList.add('collapsed');
+          if (backdrop) backdrop.classList.remove('active');
+          const btn = document.getElementById('sidebarCollapseBtn');
+          if (btn) btn.textContent = '▶';
+        }
+      }
+
+      // Sync mobile bottom navigation active state
+      document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+      const mobBtn = document.getElementById('mobTab-' + tabId);
+      if (mobBtn) mobBtn.classList.add('active');
 
       // 1. Hide all tab contents and remove active states
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -3223,6 +3483,19 @@
       }, 60);
     }
     window.switchTab = switchTab;
+
+    // Automatically collapse sidebar on initial page load for mobile and tablet viewports
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth <= 1024) {
+        const sidebar = document.getElementById('commandSidebar');
+        if (sidebar && !sidebar.classList.contains('collapsed')) {
+          sidebar.classList.add('collapsed');
+          const btn = document.getElementById('sidebarCollapseBtn');
+          if (btn) btn.textContent = '▶';
+        }
+      }
+    });
+
 
     // =========================================================================
     // LOCATE DISTRICT ON COMMAND MAP (QA RESOLUTION)
