@@ -781,105 +781,94 @@
     pointer-events: auto;
   }
 
-  /* Tablet Responsive (<= 1024px) */
-  @media (max-width: 1024px) {
+  /* =========================================================================
+     LAPTOP FULL-SCREEN & MULTI-DEVICE RESPONSIVE ENGINE
+     ========================================================================= */
+  
+  /* Ensure Edge-to-Edge Fluidity on Laptop Screens */
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .command-hub-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Permanent Side-by-Side Sidebar on Laptops & Desktops (>= 769px) */
+  @media (min-width: 769px) {
     .command-sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      z-index: 1002;
-      box-shadow: 10px 0 35px rgba(0, 0, 0, 0.85);
+      position: sticky !important;
+      top: 0 !important;
+      width: 260px !important;
+      min-width: 260px !important;
+      height: 100vh !important;
+      flex-shrink: 0 !important;
+      display: flex !important;
+      transform: none !important;
+      box-shadow: 4px 0 25px rgba(0, 0, 0, 0.6) !important;
+      z-index: 1001 !important;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), min-width 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .command-sidebar.collapsed {
-      width: 0 !important;
-      min-width: 0 !important;
-      overflow: hidden;
-      border-right: none;
+      width: 72px !important;
+      min-width: 72px !important;
+      display: flex !important;
+    }
+    .command-sidebar.collapsed .brand-title-text,
+    .command-sidebar.collapsed .sidebar-district-card,
+    .command-sidebar.collapsed .nav-category-header,
+    .command-sidebar.collapsed .sidebar-tab-label,
+    .command-sidebar.collapsed .sidebar-pill-badge,
+    .command-sidebar.collapsed .sidebar-bottom-link span {
+      display: none !important;
     }
     .command-main-stage {
-      width: 100vw;
-      margin-left: 0;
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      width: auto !important;
+      max-width: none !important;
+      display: flex !important;
+      flex-direction: column !important;
     }
-  }
-
-  /* Mobile Responsive (<= 768px) */
-  @media (max-width: 768px) {
-    .top-mission-hud {
-      padding: 8px 12px;
-      gap: 8px;
+    .sidebar-backdrop {
+      display: none !important;
     }
-    .hud-left-controls, .hud-center-telemetry, .hud-right-actions {
-      width: 100%;
-      justify-content: space-between;
+    .mobile-bottom-nav {
+      display: none !important;
     }
-    .hud-district-select-wrap {
-      flex: 1;
-      justify-content: space-between;
-    }
-    .hud-district-select-wrap select {
-      max-width: 180px;
-    }
-    #bdMap {
-      height: 380px !important;
-    }
-    .stage-content-body {
-      padding: 12px 10px !important;
-    }
-    .mission-alert-ribbon {
-      padding: 6px 12px;
-      font-size: 0.78rem;
-    }
-    .cmd-palette-box {
-      width: 94% !important;
-      margin: 10px auto;
-    }
-    .suite-modal-box {
-      width: 96% !important;
-      max-height: 94vh;
-    }
-  }
-
-
-  /* =========================================================================
-     COMPREHENSIVE RESPONSIVE DESIGN ENGINE (TABLET, MOBILE & DESKTOP)
-     ========================================================================= */
-
-  /* Safe Area & Mobile Box Sizing */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  
-  /* Touch target sizes & smooth scrolling */
-  button, select, input, .sidebar-tab-btn, .mobile-nav-btn {
-    touch-action: manipulation;
-  }
-
-  /* Responsive Grid Overrides */
-  @media (max-width: 1024px) {
-    .grid-4 {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 14px !important;
-    }
-    .grid-3 {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 14px !important;
-    }
+    /* Laptop Two-Column & Multi-Column Grids */
     .grid-2 {
-      grid-template-columns: 1fr !important;
-      gap: 14px !important;
+      grid-template-columns: 1fr 1fr !important;
     }
     .head-to-head-grid {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
+      grid-template-columns: 420px 1fr !important;
     }
     .satellite-station-grid {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
+      grid-template-columns: 460px 1fr !important;
     }
     .heritage-spotlight-grid {
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
+      grid-template-columns: 1.1fr 1.3fr !important;
+    }
+    .sitrep-two-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+
+  /* Medium Laptops (1024px - 1280px) */
+  @media (min-width: 769px) and (max-width: 1280px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .head-to-head-grid {
+      grid-template-columns: 360px 1fr !important;
+    }
+    .satellite-station-grid {
+      grid-template-columns: 380px 1fr !important;
     }
   }
 
@@ -1318,6 +1307,10 @@
         </div>
 
         <div class="hud-right-actions">
+                    <!-- Laptop Fullscreen Toggle Button -->
+          <button class="btn-action-sm" id="btnToggleFullscreen" onclick="toggleDashboardFullscreen()" style="background:rgba(14, 22, 42, 0.9); border:1px solid #00f0ff; color:#00f0ff; font-weight:700; cursor:pointer;" title="Toggle Laptop Fullscreen View (F11)">
+            <span id="fullscreenBtnIcon">⛶</span> <span id="fullscreenBtnText">Fullscreen</span>
+          </button>
           <button class="btn-action-sm" id="btnOpenSuiteLauncher" onclick="openSuiteLauncherModal()" style="background:linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(124, 58, 237, 0.45) 100%); border:1px solid rgba(56, 189, 248, 0.6); color:#ffffff; font-weight:700; box-shadow:0 0 15px rgba(56, 189, 248, 0.25); cursor:pointer;">
             <span>⊞</span> <span>Suite Launcher (16 Apps)</span>
           </button>
@@ -3377,9 +3370,9 @@
       const isCollapsed = sidebar.classList.contains('collapsed');
       if (btn) btn.textContent = isCollapsed ? '▶' : '◀';
 
-      // On mobile / tablet, sync backdrop
+      // On mobile devices (<= 768px), sync backdrop overlay
       if (backdrop) {
-        if (!isCollapsed && window.innerWidth <= 1024) {
+        if (!isCollapsed && window.innerWidth <= 768) {
           backdrop.classList.add('active');
         } else {
           backdrop.classList.remove('active');
@@ -3411,8 +3404,8 @@
     function switchTab(tabId) {
       if (typeof playTacticalSound === 'function') playTacticalSound('click');
 
-      // Automatically collapse sidebar drawer on mobile/tablet viewports
-      if (window.innerWidth <= 1024) {
+      // Automatically collapse sidebar drawer ONLY on mobile viewports (<= 768px)
+      if (window.innerWidth <= 768) {
         const sidebar = document.getElementById('commandSidebar');
         const backdrop = document.getElementById('sidebarBackdrop');
         if (sidebar && !sidebar.classList.contains('collapsed')) {
@@ -3484,9 +3477,53 @@
     }
     window.switchTab = switchTab;
 
-    // Automatically collapse sidebar on initial page load for mobile and tablet viewports
+    // =========================================================================
+    // LAPTOP FULLSCREEN CONTROLLER ENGINE
+    // =========================================================================
+    function toggleDashboardFullscreen() {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        const root = document.documentElement;
+        if (root.requestFullscreen) {
+          root.requestFullscreen();
+        } else if (root.webkitRequestFullscreen) {
+          root.webkitRequestFullscreen();
+        } else if (root.msRequestFullscreen) {
+          root.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    }
+    window.toggleDashboardFullscreen = toggleDashboardFullscreen;
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+    function handleFullscreenChange() {
+      const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+      const icon = document.getElementById('fullscreenBtnIcon');
+      const text = document.getElementById('fullscreenBtnText');
+      if (icon) icon.textContent = isFs ? '✕' : '⛶';
+      if (text) text.textContent = isFs ? 'Exit Fullscreen' : 'Fullscreen';
+
+      // Automatically trigger Leaflet map resize
+      setTimeout(() => {
+        if (window.bdMapInstance) window.bdMapInstance.invalidateSize();
+        if (window.agroPercatMap) window.agroPercatMap.invalidateSize();
+      }, 250);
+    }
+
+
+    // Automatically collapse sidebar on initial page load ONLY for small mobile viewports (<= 768px)
     document.addEventListener('DOMContentLoaded', () => {
-      if (window.innerWidth <= 1024) {
+      if (window.innerWidth <= 768) {
         const sidebar = document.getElementById('commandSidebar');
         if (sidebar && !sidebar.classList.contains('collapsed')) {
           sidebar.classList.add('collapsed');
