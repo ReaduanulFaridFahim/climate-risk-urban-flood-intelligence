@@ -873,6 +873,9 @@
   }
 
   @media (max-width: 768px) {
+    .head-to-head-grid {
+      grid-template-columns: 1fr !important;
+    }
     /* Main Layout & Stage */
     .command-hub-wrapper {
       flex-direction: column;
@@ -1092,6 +1095,9 @@
         <div id="sidebarBdpBadge" style="margin-top:5px; display:inline-block; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:10px; background:rgba(0, 240, 255, 0.15); border:1px solid #00f0ff; color:#00f0ff;">
           🌊 Delta Hotspot: Rivers & Floodplains
         </div>
+        <button onclick="launchHeadToHeadWith(document.getElementById('sidebarDistVal')?.textContent || 'Dhaka')" style="margin-top:7px; width:100%; display:flex; align-items:center; justify-content:center; gap:6px; background:rgba(0, 240, 255, 0.08); border:1px solid rgba(0, 240, 255, 0.3); color:#38bdf8; border-radius:6px; padding:4px 8px; font-size:0.72rem; font-weight:700; cursor:pointer;" title="Stake this district head-to-head">
+          <span>⚔️</span> <span>Stake Head-to-Head</span>
+        </button>
       </div>
 
       <!-- Navigation Menu Items Grouped by Operational Role -->
@@ -1106,6 +1112,11 @@
           <span class="sidebar-tab-icon">🚨</span>
           <span class="sidebar-tab-label">Disaster Alerts</span>
           <span class="sidebar-pill-badge" style="background:#ef4444; color:#fff;" id="sbadgeAlerts">9 RED</span>
+        </button>
+        <button class="sidebar-tab-btn" id="sbtn-tabCompare" onclick="switchTab('tabCompare')">
+          <span class="sidebar-tab-icon">⚔️</span>
+          <span class="sidebar-tab-label">District Head-to-Head</span>
+          <span class="sidebar-pill-badge" style="background:#0284c7; color:#fff;">VS</span>
         </button>
         <button class="sidebar-tab-btn" id="sbtn-tabHeritage" onclick="switchTab('tabHeritage')">
           <span class="sidebar-tab-icon">🏛️</span>
@@ -1568,51 +1579,152 @@
         </div>
       </div>
     </div>
-  </div>
 
-  
-      <!-- =========================================================================
-           FEATURE D: 64-DISTRICT HEAD-TO-HEAD COMPARATIVE RADAR & VULNERABILITY SCORECARD
-           ========================================================================= -->
-      <div class="card" id="headToHeadCard" style="margin-top:20px; background:linear-gradient(180deg, rgba(14, 23, 46, 0.95) 0%, rgba(9, 15, 32, 0.98) 100%); border:1px solid rgba(0, 240, 255, 0.35); box-shadow:0 12px 35px rgba(0,0,0,0.65);">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
+    <!-- QUICK ACCESS LAUNCHER: 64-DISTRICT HEAD-TO-HEAD ARENA -->
+    <div class="card" style="margin-top:20px; background:linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(14, 23, 46, 0.95) 100%); border:1px solid rgba(0, 240, 255, 0.35); box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:rgba(0, 240, 255, 0.15); border:1px solid #00f0ff; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            ⚔️
+          </div>
           <div>
             <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.3rem;">⚔️</span>
-              <h3 style="margin:0; font-size:1.15rem; color:#fff;">District Head-to-Head Comparative Radar</h3>
-              <span class="badge badge-blue">Multi-Dimensional Spider</span>
+              <h4 style="margin:0; font-size:1.05rem; color:#fff;">64-District Head-to-Head Comparative Arena</h4>
+              <span class="badge badge-blue">DEDICATED TAB</span>
             </div>
-            <p style="color:#94a3b8; font-size:0.8rem; margin-top:2px;">
-              Compare any two Bangladesh districts across 6 normalized multi-spectral axes from 49 ground-truth layers.
+            <p style="margin:2px 0 0 0; color:#94a3b8; font-size:0.8rem;">
+              Stake any two Bangladesh districts side-by-side with 6-axis multi-spectral radar, delta vulnerability scorecards, and hydrologic benchmarks.
             </p>
           </div>
-
-          <!-- District Selectors -->
-          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-            <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-size:0.75rem; font-weight:700; color:#00f0ff;">SECTOR A:</span>
-              <select id="radarDistA" onchange="updateHeadToHeadRadar()" style="background:#0f172a; border:1px solid #00f0ff; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.82rem; font-weight:700; outline:none;"></select>
-            </div>
-            <span style="color:#64748b; font-weight:800; font-size:0.9rem;">VS</span>
-            <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-size:0.75rem; font-weight:700; color:#f59e0b;">SECTOR B:</span>
-              <select id="radarDistB" onchange="updateHeadToHeadRadar()" style="background:#0f172a; border:1px solid #f59e0b; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.82rem; font-weight:700; outline:none;"></select>
-            </div>
-          </div>
         </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <button onclick="launchHeadToHeadWith(getSelectedDistrict()?.name || 'Dhaka')" class="btn-action-sm" style="background:#0284c7; color:#fff; border:none; padding:7px 14px; font-weight:700;">
+            <span>⚔️</span> <span>Stake Active District ↗</span>
+          </button>
+          <button onclick="switchTab('tabCompare')" class="btn-action-sm" style="background:rgba(255,255,255,0.08); color:#e2e8f0; border:1px solid rgba(255,255,255,0.2); padding:7px 12px; font-weight:700;">
+            <span>Open Head-to-Head Tab</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="head-to-head-grid" style="display:grid; grid-template-columns: 420px 1fr; gap:24px; align-items:center;">
-          <!-- Radar Canvas -->
-          <div style="position:relative; width:100%; height:320px; background:rgba(6, 11, 25, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
-            <canvas id="chartHeadToHeadRadar"></canvas>
+  <!-- =========================================================================
+       TAB: 64-DISTRICT HEAD-TO-HEAD COMPARATIVE ARENA
+       ========================================================================= -->
+  <div id="tabCompare" class="tab-content">
+    <!-- SUITE PORTAL BANNER -->
+    <div style="display:flex; justify-content:space-between; align-items:center; background:linear-gradient(90deg, rgba(8, 20, 42, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%); border:1px solid rgba(0, 240, 255, 0.35); border-radius:10px; padding:12px 18px; margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size:1.5rem;">⚔️</span>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-weight:800; color:#ffffff; font-size:1.05rem;">64-District Head-to-Head Vulnerability Arena &amp; Multi-Spectral Radar</span>
+            <span class="badge badge-blue">PAIRWISE BENCHMARK</span>
           </div>
-
-          <!-- Comparative Scorecard & Delta Analysis -->
-          <div style="display:flex; flex-direction:column; gap:12px;" id="radarComparisonTable">
-            <!-- Populated dynamically via JS -->
+          <div style="font-size:0.8rem; color:#94a3b8; margin-top:2px;">
+            Direct comparative confrontation across BWDB Hydrology, Sentinel-1 Inundation, HOTOSM Lifelines, and WorldPop Poverty
           </div>
         </div>
       </div>
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <button onclick="playHeadToHeadAudioBriefing()" class="btn-action-sm" style="background:rgba(0, 240, 255, 0.15); border:1px solid #00f0ff; color:#00f0ff; font-weight:700;">
+          <span>🎙️</span> <span>AI Acoustic Briefing</span>
+        </button>
+        <button onclick="window.print()" class="btn-action-sm" style="background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.2); color:#fff; font-weight:700;">
+          <span>🖨️</span> <span>Export SitRep</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MATCHUP SELECTOR & PRESETS CONTROL CARD -->
+    <div class="card" style="margin-bottom:16px; background:linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 15, 30, 0.98) 100%); border:1px solid rgba(255, 255, 255, 0.1);">
+      <!-- Presets Toolbar -->
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:12px;">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;">⚡ SIGNATURE MATCHUPS:</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+          <button onclick="setMatchupPreset('Dhaka', 'Chattogram')" class="btn-action-sm" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; font-size:0.72rem; padding:4px 8px; cursor:pointer;">
+            🏢 Dhaka vs Chattogram
+          </button>
+          <button onclick="setMatchupPreset('Kurigram', 'Sunamganj')" class="btn-action-sm" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; font-size:0.72rem; padding:4px 8px; cursor:pointer;">
+            🌊 Kurigram vs Sunamganj
+          </button>
+          <button onclick="setMatchupPreset('Cox\'s Bazar', 'Bhola')" class="btn-action-sm" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; font-size:0.72rem; padding:4px 8px; cursor:pointer;">
+            🌀 Cox's Bazar vs Bhola
+          </button>
+          <button onclick="setMatchupPreset('Rajshahi', 'Bogura')" class="btn-action-sm" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; font-size:0.72rem; padding:4px 8px; cursor:pointer;">
+            🌾 Rajshahi vs Bogura
+          </button>
+          <button onclick="setMatchupPreset('Satkhira', 'Khulna')" class="btn-action-sm" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; font-size:0.72rem; padding:4px 8px; cursor:pointer;">
+            ⚡ Satkhira vs Khulna
+          </button>
+          <button onclick="setMatchupPreset('Sylhet', 'Netrokona')" class="btn-action-sm" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#cbd5e1; font-size:0.72rem; padding:4px 8px; cursor:pointer;">
+            🏔️ Sylhet vs Netrokona
+          </button>
+        </div>
+      </div>
+
+      <!-- District Dropdown Selectors & Actions -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <!-- Sector A -->
+        <div style="flex:1; min-width:260px; display:flex; align-items:center; gap:8px; background:rgba(0, 240, 255, 0.06); border:1px solid rgba(0, 240, 255, 0.3); border-radius:8px; padding:8px 12px;">
+          <span style="font-size:0.8rem; font-weight:800; color:#00f0ff;">SECTOR A:</span>
+          <select id="radarDistA" onchange="updateHeadToHeadRadar()" style="flex:1; background:#0f172a; border:1px solid #00f0ff; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.85rem; font-weight:700; outline:none;"></select>
+          <button onclick="locateDistrictOnCommandMap(document.getElementById('radarDistA').value)" class="btn-action-sm" style="background:rgba(0,240,255,0.15); color:#00f0ff; border:1px solid #00f0ff; padding:5px 8px; font-size:0.72rem;" title="View Sector A on Tactical Map">
+            🗺️ Map
+          </button>
+        </div>
+
+        <!-- Swap Button -->
+        <div style="display:flex; align-items:center; justify-content:center;">
+          <button onclick="swapHeadToHeadDistricts()" class="btn-action-sm" style="background:rgba(255, 255, 255, 0.1); border:1px solid rgba(255, 255, 255, 0.25); color:#fff; border-radius:50%; width:38px; height:38px; padding:0; display:flex; align-items:center; justify-content:center; font-size:1.1rem; cursor:pointer;" title="Swap Sector A and Sector B">
+            ⇄
+          </button>
+        </div>
+
+        <!-- Sector B -->
+        <div style="flex:1; min-width:260px; display:flex; align-items:center; gap:8px; background:rgba(245, 158, 11, 0.06); border:1px solid rgba(245, 158, 11, 0.3); border-radius:8px; padding:8px 12px;">
+          <span style="font-size:0.8rem; font-weight:800; color:#f59e0b;">SECTOR B:</span>
+          <select id="radarDistB" onchange="updateHeadToHeadRadar()" style="flex:1; background:#0f172a; border:1px solid #f59e0b; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.85rem; font-weight:700; outline:none;"></select>
+          <button onclick="locateDistrictOnCommandMap(document.getElementById('radarDistB').value)" class="btn-action-sm" style="background:rgba(245,158,11,0.15); color:#f59e0b; border:1px solid #f59e0b; padding:5px 8px; font-size:0.72rem;" title="View Sector B on Tactical Map">
+            🗺️ Map
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN COMPARISON GRID (Radar Spider + Metric Scorecard) -->
+    <div class="head-to-head-grid" style="display:grid; grid-template-columns: 420px 1fr; gap:20px; align-items:start;">
+      <!-- LEFT: Spider/Radar Chart Container -->
+      <div class="card" style="background:linear-gradient(180deg, rgba(14, 23, 46, 0.95) 0%, rgba(9, 15, 32, 0.98) 100%); border:1px solid rgba(0, 240, 255, 0.35); box-shadow:0 12px 35px rgba(0,0,0,0.65);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
+          <div style="font-size:0.85rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
+            <span>🕸️</span> <span>Multi-Spectral Vulnerability Radar (6 Axes)</span>
+          </div>
+          <span class="badge badge-blue">NORMALIZED 0–100</span>
+        </div>
+        <div style="position:relative; width:100%; height:380px; background:rgba(6, 11, 25, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
+          <canvas id="chartHeadToHeadRadar"></canvas>
+        </div>
+        <!-- Axis explanation -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; font-size:0.72rem; color:#94a3b8;">
+          <div>• <b>Flood Risk:</b> JRC Inundation Rate</div>
+          <div>• <b>Road Network:</b> HOTOSM Lifeline Km</div>
+          <div>• <b>Poverty %:</b> WorldPop Vulnerability</div>
+          <div>• <b>Health Deficit:</b> Km to Emergency Clinic</div>
+          <div>• <b>Crop Exposure:</b> Boro Rice NDVI</div>
+          <div>• <b>Nightlights:</b> VIIRS Economic Energy</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Detailed Scorecard & Delta Analysis Container -->
+      <div id="radarComparisonTable" style="display:flex; flex-direction:column; gap:16px;">
+        <!-- Dynamically injected via updateHeadToHeadRadar() -->
+      </div>
+    </div>
+  </div>
 
   <!-- TAB 1: DISASTER ALERTS -->
   <div id="tabAlerts" class="tab-content">
@@ -3728,6 +3840,15 @@
           if (typeof initCycloneSimulator === 'function' && !window.cycloneLayerGroup) initCycloneSimulator();
         }, 180);
       }
+      if (tabId === 'tabCompare') {
+        setTimeout(() => {
+          if (typeof initHeadToHeadSelectors === 'function' && (!document.getElementById('radarDistA') || !document.getElementById('radarDistA').options.length)) {
+            initHeadToHeadSelectors();
+          } else if (typeof updateHeadToHeadRadar === 'function') {
+            updateHeadToHeadRadar();
+          }
+        }, 120);
+      }
       if (tabId === 'tabAgro') {
         setTimeout(() => {
           if (typeof initAgroPercatMap === 'function') initAgroPercatMap();
@@ -4367,6 +4488,7 @@
       const sidebarMapping = {
         'sbtn-tabMap': t.tab_map,
         'sbtn-tabAlerts': t.tab_alerts,
+        'sbtn-tabCompare': t.tab_compare,
         'sbtn-tabHeritage': t.tab_heritage,
         'sbtn-tabWeather': t.tab_weather,
         'sbtn-tabAgro': t.tab_agro,
@@ -7879,6 +8001,7 @@
     const CMD_PALETTE_ITEMS = [
       { id: 'tabMap', title: 'Tactical Map & GPS', desc: 'Open 64-district GIS Command Deck', icon: '🗺️', type: 'tab' },
       { id: 'tabAlerts', title: 'Disaster Alerts & Siren', desc: 'Acoustic siren & automated phone dispatch', icon: '🚨', type: 'tab' },
+      { id: 'tabCompare', title: 'District Head-to-Head Comparison', desc: '64-district multi-spectral radar & pairwise vulnerability matchup', icon: '⚔️', type: 'tab' },
       { id: 'tabHeritage', title: 'District Heritage & Infra', desc: 'BWDB embankments, heritage & flood shelters', icon: '🏛️', type: 'tab' },
       { id: 'tabWeather', title: 'Weather AI & Satellite', desc: 'Meteosat-9 thermal radar & 20D AI forecast', icon: '🛰️', type: 'tab' },
       { id: 'tabAgro', title: 'AgroClaim Crop Insurance', desc: 'Sentinel-1 SAR radar & bKash/Nagad payouts', icon: '🌾', type: 'tab' },
@@ -8175,7 +8298,7 @@
     };
 
     // =========================================================================
-    // FEATURE D: DISTRICT HEAD-TO-HEAD COMPARATIVE RADAR
+    // FEATURE D: 64-DISTRICT HEAD-TO-HEAD ARENA ENGINE
     // =========================================================================
     window.headToHeadChart = null;
 
@@ -8191,11 +8314,72 @@
       selA.innerHTML = opts;
       selB.innerHTML = opts;
 
+      // Default signature matchup
       selA.value = 'Kurigram';
       selB.value = 'Sunamganj';
 
       updateHeadToHeadRadar();
     }
+    window.initHeadToHeadSelectors = initHeadToHeadSelectors;
+
+    function setMatchupPreset(distA, distB) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      const selA = document.getElementById('radarDistA');
+      const selB = document.getElementById('radarDistB');
+      if (selA && selB) {
+        selA.value = distA;
+        selB.value = distB;
+        updateHeadToHeadRadar();
+      }
+    }
+    window.setMatchupPreset = setMatchupPreset;
+
+    function swapHeadToHeadDistricts() {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      const selA = document.getElementById('radarDistA');
+      const selB = document.getElementById('radarDistB');
+      if (selA && selB) {
+        const tmp = selA.value;
+        selA.value = selB.value;
+        selB.value = tmp;
+        updateHeadToHeadRadar();
+      }
+    }
+    window.swapHeadToHeadDistricts = swapHeadToHeadDistricts;
+
+    function launchHeadToHeadWith(distName) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      if (typeof switchTab === 'function') switchTab('tabCompare');
+      setTimeout(() => {
+        const selA = document.getElementById('radarDistA');
+        if (selA && distName) {
+          selA.value = distName;
+          updateHeadToHeadRadar();
+        }
+      }, 100);
+    }
+    window.launchHeadToHeadWith = launchHeadToHeadWith;
+
+    function playHeadToHeadAudioBriefing() {
+      const nameA = document.getElementById('radarDistA')?.value || 'Sector A';
+      const nameB = document.getElementById('radarDistB')?.value || 'Sector B';
+      const dataA = (window.DELTA_DATA_49 && window.DELTA_DATA_49[nameA]) || {};
+      const dataB = (window.DELTA_DATA_49 && window.DELTA_DATA_49[nameB]) || {};
+      const waterA = Math.round(dataA.JRC_WaterOccurrence_Pct || 25);
+      const waterB = Math.round(dataB.JRC_WaterOccurrence_Pct || 25);
+      const povA = Math.round(dataA.WorldPop_PovertyLikelihood_Pct || 28);
+      const povB = Math.round(dataB.WorldPop_PovertyLikelihood_Pct || 28);
+      const txt = `Tactical head-to-head confrontation between ${nameA} and ${nameB}. Surface water recurrence is ${waterA} percent in ${nameA} versus ${waterB} percent in ${nameB}. Sub-national poverty likelihood stands at ${povA} percent for ${nameA} against ${povB} percent for ${nameB}. National civil defense directive recommends prioritizing embankment reinforcement and pre-positioning mobile emergency relief.`;
+      
+      if (typeof speakAcousticBriefing === 'function') {
+        speakAcousticBriefing(txt);
+      } else if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(txt);
+        u.rate = 1.0;
+        window.speechSynthesis.speak(u);
+      }
+    }
+    window.playHeadToHeadAudioBriefing = playHeadToHeadAudioBriefing;
 
     function updateHeadToHeadRadar() {
       const nameA = document.getElementById('radarDistA')?.value || 'Kurigram';
@@ -8203,103 +8387,248 @@
 
       const dataA = (window.DELTA_DATA_49 && window.DELTA_DATA_49[nameA]) || {};
       const dataB = (window.DELTA_DATA_49 && window.DELTA_DATA_49[nameB]) || {};
+      const distA = (window.DISTRICTS_DATA && window.DISTRICTS_DATA.find(d => d.name.toLowerCase() === nameA.toLowerCase())) || {};
+      const distB = (window.DISTRICTS_DATA && window.DISTRICTS_DATA.find(d => d.name.toLowerCase() === nameB.toLowerCase())) || {};
 
       // Normalize 6 axes 0-100
       // 1. Flood Inundation
-      const floodA = Math.min(100, Math.round((dataA.JRC_WaterOccurrence_Pct || 25) * 2.2));
-      const floodB = Math.min(100, Math.round((dataB.JRC_WaterOccurrence_Pct || 25) * 2.2));
+      const floodA = Math.min(100, Math.round((dataA.JRC_WaterOccurrence_Pct || distA.waterRecurr || 25) * 2.2));
+      const floodB = Math.min(100, Math.round((dataB.JRC_WaterOccurrence_Pct || distB.waterRecurr || 25) * 2.2));
 
       // 2. Road Density
-      const roadA = Math.min(100, Math.round((dataA.HOTOSM_RoadNetwork_TotalKm || 1200) / 35));
-      const roadB = Math.min(100, Math.round((dataB.HOTOSM_RoadNetwork_TotalKm || 1200) / 35));
+      const roadA = Math.min(100, Math.round((dataA.HOTOSM_RoadNetwork_TotalKm || distA.roads || 1200) / 35));
+      const roadB = Math.min(100, Math.round((dataB.HOTOSM_RoadNetwork_TotalKm || distB.roads || 1200) / 35));
 
       // 3. Poverty Likelihood %
-      const povA = Math.round((dataA.WorldPop_PovertyLikelihood_Pct || 28) * 1.8);
-      const povB = Math.round((dataB.WorldPop_PovertyLikelihood_Pct || 28) * 1.8);
+      const povA = Math.min(100, Math.round((dataA.WorldPop_PovertyLikelihood_Pct || 28) * 1.8));
+      const povB = Math.min(100, Math.round((dataB.WorldPop_PovertyLikelihood_Pct || 28) * 1.8));
 
       // 4. Health Travel Distance
       const healthA = Math.min(100, Math.round((dataA.DistanceToHealthFacility_Km || 4.5) * 8.5));
       const healthB = Math.min(100, Math.round((dataB.DistanceToHealthFacility_Km || 4.5) * 8.5));
 
       // 5. Crop Exposure (NDVI)
-      const cropA = Math.round((dataA.Rice_NDVI_Boro || 0.55) * 100);
-      const cropB = Math.round((dataB.Rice_NDVI_Boro || 0.55) * 100);
+      const cropA = Math.min(100, Math.round((dataA.Rice_NDVI_Boro || 0.55) * 100));
+      const cropB = Math.min(100, Math.round((dataB.Rice_NDVI_Boro || 0.55) * 100));
 
       // 6. Nightlights VIIRS
       const viirsA = Math.min(100, Math.round((dataA.VIIRS_NightLights_Radiance || 1.5) * 8));
       const viirsB = Math.min(100, Math.round((dataB.VIIRS_NightLights_Radiance || 1.5) * 8));
 
       const ctx = document.getElementById('chartHeadToHeadRadar');
-      if (!ctx) return;
+      if (ctx) {
+        if (window.headToHeadChart) {
+          window.headToHeadChart.destroy();
+        }
 
-      if (window.headToHeadChart) {
-        window.headToHeadChart.destroy();
+        window.headToHeadChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ['Flood Risk', 'Road Network', 'Poverty %', 'Health Deficit', 'Crop Exposure', 'Nightlights'],
+            datasets: [
+              {
+                label: nameA,
+                data: [floodA, roadA, povA, healthA, cropA, viirsA],
+                backgroundColor: 'rgba(0, 240, 255, 0.28)',
+                borderColor: '#00f0ff',
+                pointBackgroundColor: '#00f0ff',
+                pointBorderColor: '#ffffff',
+                pointHoverRadius: 6,
+                borderWidth: 2.5
+              },
+              {
+                label: nameB,
+                data: [floodB, roadB, povB, healthB, cropB, viirsB],
+                backgroundColor: 'rgba(245, 158, 11, 0.28)',
+                borderColor: '#f59e0b',
+                pointBackgroundColor: '#f59e0b',
+                pointBorderColor: '#ffffff',
+                pointHoverRadius: 6,
+                borderWidth: 2.5
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                angleLines: { color: 'rgba(255, 255, 255, 0.15)' },
+                grid: { color: 'rgba(255, 255, 255, 0.08)' },
+                pointLabels: { color: '#cbd5e1', font: { size: 11, weight: '700' } },
+                ticks: { display: false, max: 100, min: 0 }
+              }
+            },
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: {
+                  color: '#ffffff',
+                  font: { weight: '800', size: 12 },
+                  boxWidth: 14,
+                  padding: 12
+                }
+              }
+            }
+          }
+        });
       }
 
-      window.headToHeadChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ['Flood Risk', 'Road Network', 'Poverty %', 'Health Deficit', 'Crop Exposure', 'Nightlights'],
-          datasets: [
-            {
-              label: nameA,
-              data: [floodA, roadA, povA, healthA, cropA, viirsA],
-              backgroundColor: 'rgba(0, 240, 255, 0.25)',
-              borderColor: '#00f0ff',
-              pointBackgroundColor: '#00f0ff',
-              borderWidth: 2
-            },
-            {
-              label: nameB,
-              data: [floodB, roadB, povB, healthB, cropB, viirsB],
-              backgroundColor: 'rgba(245, 158, 11, 0.25)',
-              borderColor: '#f59e0b',
-              pointBackgroundColor: '#f59e0b',
-              borderWidth: 2
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
-              angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
-              grid: { color: 'rgba(255, 255, 255, 0.08)' },
-              pointLabels: { color: '#94a3b8', font: { size: 10, weight: 700 } },
-              ticks: { display: false, max: 100, min: 0 }
-            }
-          },
-          plugins: {
-            legend: { labels: { color: '#ffffff', font: { weight: 700 } } }
-          }
-        }
-      });
-
-      // Update comparison breakdown table
+      // Populate Enhanced Comparison Table & Advantage Scorecards
       const tbl = document.getElementById('radarComparisonTable');
       if (tbl) {
+        const scoreA = distA.riskScore || 50;
+        const scoreB = distB.riskScore || 50;
+        const diffRisk = Math.abs(scoreA - scoreB).toFixed(1);
+        const higherRiskName = scoreA >= scoreB ? nameA : nameB;
+        const lowerRiskName = scoreA >= scoreB ? nameB : nameA;
+
+        // Metric calculations
+        const mWaterA = (dataA.JRC_WaterOccurrence_Pct || distA.waterRecurr || 25.0).toFixed(1);
+        const mWaterB = (dataB.JRC_WaterOccurrence_Pct || distB.waterRecurr || 25.0).toFixed(1);
+        const mElevA = (dataA.MeanElevation_M || distA.elev || 6.5).toFixed(1);
+        const mElevB = (dataB.MeanElevation_M || distB.elev || 6.5).toFixed(1);
+        const mPovA = (dataA.WorldPop_PovertyLikelihood_Pct || 28.0).toFixed(1);
+        const mPovB = (dataB.WorldPop_PovertyLikelihood_Pct || 28.0).toFixed(1);
+        const mHealthA = (dataA.DistanceToHealthFacility_Km || 4.2).toFixed(1);
+        const mHealthB = (dataB.DistanceToHealthFacility_Km || 4.2).toFixed(1);
+        const mRoadA = Math.round(dataA.HOTOSM_RoadNetwork_TotalKm || distA.roads || 1200);
+        const mRoadB = Math.round(dataB.HOTOSM_RoadNetwork_TotalKm || distB.roads || 1200);
+        const mCropA = (dataA.Rice_NDVI_Boro || 0.55).toFixed(2);
+        const mCropB = (dataB.Rice_NDVI_Boro || 0.55).toFixed(2);
+        const mViirsA = (dataA.VIIRS_NightLights_Radiance || 2.1).toFixed(2);
+        const mViirsB = (dataB.VIIRS_NightLights_Radiance || 2.1).toFixed(2);
+        const mPopA = Math.round(distA.pop || dataA.Population || 1800000);
+        const mPopB = Math.round(distB.pop || dataB.Population || 1800000);
+
         tbl.innerHTML = `
-          <div style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
-            <div style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">HEAD-TO-HEAD SCORECARD SUMMARY</div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px;">
-              <div>
-                <strong style="color:#00f0ff;">${nameA}:</strong>
-                <div style="font-size:0.78rem; color:#cbd5e1; margin-top:3px;">
-                  • Water Occur: <b>${dataA.JRC_WaterOccurrence_Pct || 25}%</b><br/>
-                  • Poverty Rate: <b>${dataA.WorldPop_PovertyLikelihood_Pct || 28}%</b><br/>
-                  • Health Dist: <b>${dataA.DistanceToHealthFacility_Km || 4.2} km</b>
+          <!-- Top Matchup Summary Verdict Card -->
+          <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(255, 255, 255, 0.1); border-radius:12px; padding:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px;">
+              <span style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">PAIRWISE VULNERABILITY VERDICT</span>
+              <span class="badge ${scoreA >= scoreB ? 'badge-blue' : 'badge-yellow'}">Δ ${diffRisk} PTS DELTA</span>
+            </div>
+            
+            <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:14px; align-items:center; margin-top:12px;">
+              <!-- Sector A Mini Card -->
+              <div style="background:rgba(0, 240, 255, 0.08); border:1px solid rgba(0, 240, 255, 0.35); border-radius:8px; padding:10px 12px;">
+                <div style="font-size:1.05rem; font-weight:800; color:#00f0ff;">${nameA}</div>
+                <div style="font-size:0.75rem; color:#94a3b8; margin-top:2px;">${distA.division || dataA.Division || 'Division'} · ${distA.zone || 'Active Floodplain'}</div>
+                <div style="display:flex; gap:6px; margin-top:8px;">
+                  <span class="badge badge-blue">Risk: ${scoreA}</span>
+                  <span class="badge badge-blue">Tier ${distA.rating || 'AA'}</span>
                 </div>
               </div>
-              <div>
-                <strong style="color:#f59e0b;">${nameB}:</strong>
-                <div style="font-size:0.78rem; color:#cbd5e1; margin-top:3px;">
-                  • Water Occur: <b>${dataB.JRC_WaterOccurrence_Pct || 25}%</b><br/>
-                  • Poverty Rate: <b>${dataB.WorldPop_PovertyLikelihood_Pct || 28}%</b><br/>
-                  • Health Dist: <b>${dataB.DistanceToHealthFacility_Km || 4.2} km</b>
+
+              <!-- VS Badge -->
+              <div style="font-size:1.1rem; font-weight:900; color:#64748b; text-align:center;">
+                VS
+              </div>
+
+              <!-- Sector B Mini Card -->
+              <div style="background:rgba(245, 158, 11, 0.08); border:1px solid rgba(245, 158, 11, 0.35); border-radius:8px; padding:10px 12px;">
+                <div style="font-size:1.05rem; font-weight:800; color:#f59e0b;">${nameB}</div>
+                <div style="font-size:0.75rem; color:#94a3b8; margin-top:2px;">${distB.division || dataB.Division || 'Division'} · ${distB.zone || 'Active Floodplain'}</div>
+                <div style="display:flex; gap:6px; margin-top:8px;">
+                  <span class="badge badge-yellow">Risk: ${scoreB}</span>
+                  <span class="badge badge-yellow">Tier ${distB.rating || 'AA'}</span>
                 </div>
               </div>
             </div>
+
+            <!-- Insight Pill -->
+            <div style="margin-top:12px; background:rgba(0,0,0,0.3); border-radius:6px; padding:8px 12px; font-size:0.78rem; color:#cbd5e1; display:flex; align-items:center; gap:8px;">
+              <span>🚨</span>
+              <span><b>${higherRiskName}</b> displays <b>+${diffRisk} pts</b> higher composite hazard stress compared to <b>${lowerRiskName}</b>. Civil defense staging should prioritize high-capacity relief corridors here.</span>
+            </div>
+          </div>
+
+          <!-- Comprehensive Side-by-Side Metric Benchmark Table -->
+          <div style="background:rgba(15, 23, 42, 0.9); border:1px solid rgba(255, 255, 255, 0.1); border-radius:12px; padding:14px; overflow-x:auto;">
+            <div style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">
+              📊 MULTI-SPECTRAL GROUND-TRUTH INDICATOR COMPARISON
+            </div>
+            
+            <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:left;">
+              <thead>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:#94a3b8;">
+                  <th style="padding:6px 8px;">STRATEGIC INDICATOR</th>
+                  <th style="padding:6px 8px; color:#00f0ff;">${nameA}</th>
+                  <th style="padding:6px 8px; color:#f59e0b;">${nameB}</th>
+                  <th style="padding:6px 8px;">DELTA / ADVANTAGE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">🌊 Surface Water Recurrence (JRC)</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mWaterA}%</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mWaterB}%</td>
+                  <td style="padding:6px 8px;">
+                    <span style="color:${parseFloat(mWaterA) > parseFloat(mWaterB) ? '#ef4444' : '#10b981'}; font-weight:700;">
+                      ${parseFloat(mWaterA) > parseFloat(mWaterB) ? nameA + ' higher flood' : nameB + ' higher flood'}
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">⛰️ Mean Ground Elevation (SRTM)</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mElevA} m</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mElevB} m</td>
+                  <td style="padding:6px 8px;">
+                    <span style="color:#94a3b8;">
+                      ${(parseFloat(mElevA) - parseFloat(mElevB)).toFixed(1)} m net diff
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">📉 Poverty Rate Likelihood (WorldPop)</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mPovA}%</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mPovB}%</td>
+                  <td style="padding:6px 8px;">
+                    <span style="color:${parseFloat(mPovA) > parseFloat(mPovB) ? '#ef4444' : '#10b981'}; font-weight:700;">
+                      ${parseFloat(mPovA) > parseFloat(mPovB) ? nameA + ' + ' + (parseFloat(mPovA)-parseFloat(mPovB)).toFixed(1) + '%' : nameB + ' + ' + (parseFloat(mPovB)-parseFloat(mPovA)).toFixed(1) + '%'}
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">🏥 Distance to Health Facility</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mHealthA} km</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mHealthB} km</td>
+                  <td style="padding:6px 8px;">
+                    <span style="color:${parseFloat(mHealthA) < parseFloat(mHealthB) ? '#10b981' : '#f59e0b'}; font-weight:700;">
+                      ${parseFloat(mHealthA) < parseFloat(mHealthB) ? nameA + ' closer' : nameB + ' closer'}
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">🛣️ HOTOSM Lifeline Road Network</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mRoadA.toLocaleString()} km</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mRoadB.toLocaleString()} km</td>
+                  <td style="padding:6px 8px;">
+                    <span style="color:${mRoadA > mRoadB ? '#00f0ff' : '#f59e0b'}; font-weight:700;">
+                      ${mRoadA > mRoadB ? nameA + ' +' + (mRoadA-mRoadB) + 'km' : nameB + ' +' + (mRoadB-mRoadA) + 'km'}
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">🌾 Boro Agricultural Exposure (NDVI)</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mCropA}</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mCropB}</td>
+                  <td style="padding:6px 8px; color:#94a3b8;">Sentinel-2 Spectral Mean</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                  <td style="padding:6px 8px; color:#e2e8f0;">💡 Economic Nightlight Energy (VIIRS)</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mViirsA} nW</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mViirsB} nW</td>
+                  <td style="padding:6px 8px; color:#94a3b8;">NOAA DNB Radiance</td>
+                </tr>
+                <tr>
+                  <td style="padding:6px 8px; color:#e2e8f0;">👥 Total Population Exposed</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#00f0ff;">${mPopA.toLocaleString()}</td>
+                  <td style="padding:6px 8px; font-weight:700; color:#f59e0b;">${mPopB.toLocaleString()}</td>
+                  <td style="padding:6px 8px; color:#94a3b8;">WorldPop / BBS 2024</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         `;
       }
