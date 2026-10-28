@@ -1141,12 +1141,22 @@
           <span class="sidebar-tab-icon">🏢</span>
           <span class="sidebar-tab-label">Real Estate ESG Rating</span>
         </button>
+        <button class="sidebar-tab-btn" id="sbtn-tabBiome" onclick="switchTab('tabBiome')">
+          <span class="sidebar-tab-icon">🧬</span>
+          <span class="sidebar-tab-label">CMIP6 Biome Transitions</span>
+          <span class="sidebar-pill-badge" style="background:#0ea5e9; color:#fff;">IPCC</span>
+        </button>
         <button class="sidebar-tab-btn" id="sbtn-tabSim" onclick="switchTab('tabSim')">
           <span class="sidebar-tab-icon">🎮</span>
           <span class="sidebar-tab-label">Adaptation Sandbox</span>
         </button>
 
         <div class="nav-category-header">CRITICAL UTILITIES</div>
+        <button class="sidebar-tab-btn" id="sbtn-tabHdx" onclick="switchTab('tabHdx')">
+          <span class="sidebar-tab-icon">📦</span>
+          <span class="sidebar-tab-label">UN HDX Relief Crisis Calc</span>
+          <span class="sidebar-pill-badge" style="background:#a855f7; color:#fff;">OCHA</span>
+        </button>
         <button class="sidebar-tab-btn" id="sbtn-tabHealth" onclick="switchTab('tabHealth')">
           <span class="sidebar-tab-icon">🏥</span>
           <span class="sidebar-tab-label">Epidemic Surveillance</span>
@@ -2413,23 +2423,67 @@
         <p style="color:#94a3b8; font-size:0.85rem; margin-top:6px;">Recommended for commercial real estate lenders, infrastructure debt funds, and ESG mortgage securitization.</p>
       </div>
     </div>
+
+    <!-- QUICK ACCESS LAUNCHER: CMIP6 BIOME TRANSITIONS TAB -->
+    <div class="card" style="margin-top:20px; background:linear-gradient(90deg, rgba(14, 23, 46, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%); border:1px solid rgba(56, 189, 248, 0.4); box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:rgba(56, 189, 248, 0.15); border:1px solid #38bdf8; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            🧬
+          </div>
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <h4 style="margin:0; font-size:1.05rem; color:#fff;">CMIP6 Macro-Climatic Biome Transitions (2020 ➔ 2050)</h4>
+              <span class="badge badge-blue">DEDICATED TAB</span>
+            </div>
+            <p style="margin:2px 0 0 0; color:#94a3b8; font-size:0.8rem;">
+              Full-stage Köppen-Geiger 1km climate shifts under IPCC SSP2-4.5 and SSP5-8.5 scenarios with active district dossier spotlight.
+            </p>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <button onclick="switchTab('tabBiome')" class="btn-action-sm primary" style="background:#0284c7; color:#fff; border:none; padding:7px 14px; font-weight:700;">
+            <span>🧬</span> <span>Launch Biome Transitions Tab ↗</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  
-    <!-- =========================================================================
-         FEATURE C: CMIP6 MACRO-CLIMATIC BIOME TRANSITION MORPHING & EXPOSURE ENGINE
-         ========================================================================= -->
-    <div class="card" id="cmip6MorphCard" style="margin-top:20px; background:linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(9, 15, 32, 0.98) 100%); border:1px solid rgba(56, 189, 248, 0.4); box-shadow:0 12px 35px rgba(0,0,0,0.7);">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
+  <!-- =========================================================================
+       TAB: CMIP6 MACRO-CLIMATIC BIOME TRANSITIONS (2020 ➔ 2050)
+       ========================================================================= -->
+  <div id="tabBiome" class="tab-content">
+    <!-- SUITE PORTAL BANNER -->
+    <div style="display:flex; justify-content:space-between; align-items:center; background:linear-gradient(90deg, rgba(8, 24, 48, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%); border:1px solid rgba(56, 189, 248, 0.35); border-radius:10px; padding:12px 18px; margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size:1.5rem;">🧬</span>
         <div>
           <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.3rem;">🧬</span>
-            <h3 style="margin:0; font-size:1.15rem; color:#fff;">CMIP6 Macro-Climatic Biome Transitions (2020 ➔ 2050)</h3>
-            <span class="badge badge-blue">Köppen-Geiger 1km Ground Truth</span>
+            <span style="font-weight:800; color:#ffffff; font-size:1.05rem;">CMIP6 Macro-Climatic Biome Transitions &amp; Morphing Intelligence (2020 ➔ 2050)</span>
+            <span class="badge badge-blue">IPCC AR6 SSP2-4.5 / SSP5-8.5</span>
           </div>
-          <p style="color:#94a3b8; font-size:0.8rem; margin-top:2px;">
-            Beck et al. (2023) high-resolution climate classifications under IPCC SSP2-4.5 and SSP5-8.5 scenarios.
-          </p>
+          <div style="font-size:0.8rem; color:#94a3b8; margin-top:2px;">
+            High-resolution Köppen-Geiger 1km climate classification shifts across 64 Bangladesh districts (Beck et al. 2023)
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <button onclick="playBiomeAudioBriefing()" class="btn-action-sm" style="background:rgba(56, 189, 248, 0.15); border:1px solid #38bdf8; color:#38bdf8; font-weight:700;">
+          <span>🎙️</span> <span>AI Biome Briefing</span>
+        </button>
+        <button onclick="window.print()" class="btn-action-sm" style="background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.2); color:#fff; font-weight:700;">
+          <span>🖨️</span> <span>Export Dossier</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN BIOME MORPHING CARD -->
+    <div class="card" id="cmip6MorphCard" style="background:linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(9, 15, 32, 0.98) 100%); border:1px solid rgba(56, 189, 248, 0.4); box-shadow:0 12px 35px rgba(0,0,0,0.7);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase;">📍 FOCUS DISTRICT:</span>
+          <select id="biomeDistrictSelect" onchange="setBiomeDistrictFocus(this.value)" style="background:#0f172a; border:1px solid #38bdf8; color:#fff; border-radius:6px; padding:6px 12px; font-size:0.85rem; font-weight:700; outline:none;"></select>
         </div>
 
         <!-- Scenario Toggle Buttons -->
@@ -2468,10 +2522,73 @@
       </div>
 
       <!-- District Specific Transition Spotlight -->
-      <div id="cmipDistrictSpotlight" style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(0, 240, 255, 0.3); border-left:4px solid #00f0ff; border-radius:8px; padding:12px 16px; font-size:0.82rem; color:#cbd5e1; line-height:1.5;">
+      <div id="cmipDistrictSpotlight" style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(0, 240, 255, 0.3); border-left:4px solid #00f0ff; border-radius:8px; padding:14px 18px; font-size:0.85rem; color:#cbd5e1; line-height:1.6; margin-bottom:16px;">
         <strong>📍 Active Sector Biome Transition:</strong> Loading transition dossier for selected district...
       </div>
+
+      <!-- Division Köppen Transition Matrix Table -->
+      <div style="background:rgba(9, 14, 28, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:14px;">
+        <div style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; margin-bottom:8px;">
+          🌐 8-DIVISION MACRO-CLIMATIC KÖPPEN TRANSITION MATRIX (2020 ➔ 2050)
+        </div>
+        <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:left;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:#94a3b8;">
+              <th style="padding:6px 8px;">DIVISION</th>
+              <th style="padding:6px 8px;">BASELINE (2020)</th>
+              <th style="padding:6px 8px; color:#38bdf8;">SSP2-4.5 (2050)</th>
+              <th style="padding:6px 8px; color:#f43f5e;">SSP5-8.5 (2050)</th>
+              <th style="padding:6px 8px;">AGRICULTURAL SHIFT DIRECTIVE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+              <td style="padding:6px 8px; font-weight:700; color:#fff;">Dhaka</td>
+              <td style="padding:6px 8px; color:#cbd5e1;">Am (Tropical Monsoon)</td>
+              <td style="padding:6px 8px; color:#38bdf8;">Am (Tropical Monsoon +1.8°C)</td>
+              <td style="padding:6px 8px; color:#f43f5e;">Aw (Tropical Savanna +2.7°C)</td>
+              <td style="padding:6px 8px; color:#94a3b8;">Heat-tolerant Boro varieties; urban cool-roof codes</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+              <td style="padding:6px 8px; font-weight:700; color:#fff;">Chattogram</td>
+              <td style="padding:6px 8px; color:#cbd5e1;">Am / Cwa (Monsoon / Subtropical)</td>
+              <td style="padding:6px 8px; color:#38bdf8;">Am (100% Monsoonal)</td>
+              <td style="padding:6px 8px; color:#f43f5e;">Am (Severe Monsoonal Surge)</td>
+              <td style="padding:6px 8px; color:#94a3b8;">Hill slope terracing; flash drainage channels</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+              <td style="padding:6px 8px; font-weight:700; color:#fff;">Sylhet</td>
+              <td style="padding:6px 8px; color:#cbd5e1;">Cwa (Humid Subtropical)</td>
+              <td style="padding:6px 8px; color:#38bdf8;">Am (Tropical Monsoon)</td>
+              <td style="padding:6px 8px; color:#f43f5e;">Am (High Inundation Haor)</td>
+              <td style="padding:6px 8px; color:#94a3b8;">Floating agriculture; haor submersible dykes</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+              <td style="padding:6px 8px; font-weight:700; color:#fff;">Rajshahi</td>
+              <td style="padding:6px 8px; color:#cbd5e1;">Aw (Tropical Savanna)</td>
+              <td style="padding:6px 8px; color:#38bdf8;">Aw / BSh (Semi-Arid Transition)</td>
+              <td style="padding:6px 8px; color:#f43f5e;">BSh (Hot Semi-Arid Barind)</td>
+              <td style="padding:6px 8px; color:#94a3b8;">Drip irrigation; drought-resistant pulse crops</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+              <td style="padding:6px 8px; font-weight:700; color:#fff;">Rangpur</td>
+              <td style="padding:6px 8px; color:#cbd5e1;">Cwa (Humid Subtropical)</td>
+              <td style="padding:6px 8px; color:#38bdf8;">Am (Tropical Monsoon)</td>
+              <td style="padding:6px 8px; color:#f43f5e;">Am (Intense Runoff)</td>
+              <td style="padding:6px 8px; color:#94a3b8;">Brahmaputra char stabilization; deep tubewells</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+              <td style="padding:6px 8px; font-weight:700; color:#fff;">Khulna / Barishal</td>
+              <td style="padding:6px 8px; color:#cbd5e1;">Am (Coastal Tropical Monsoon)</td>
+              <td style="padding:6px 8px; color:#38bdf8;">Am (Salinity Incursion High)</td>
+              <td style="padding:6px 8px; color:#f43f5e;">Am / Aw (Hyper-Saline Delta)</td>
+              <td style="padding:6px 8px; color:#94a3b8;">Saline-tolerant BRRI dhan-67; mangrove greenbelt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 
 
   <!-- TAB 5: DELTASIM -->
@@ -2657,40 +2774,71 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- TAB 6: WEATHER AI -->
-  
-  
-    <!-- =========================================================================
-         FEATURE E: UN HDX HUMANITARIAN AID & DISASTER RELIEF CRISIS BUDGETING CONSOLE
-         ========================================================================= -->
-    <div class="card" id="hdxCalculatorCard" style="margin-top:20px; background:linear-gradient(180deg, rgba(20, 10, 25, 0.92) 0%, rgba(10, 6, 16, 0.98) 100%); border:1px solid rgba(168, 85, 247, 0.4); box-shadow:0 12px 35px rgba(0,0,0,0.7);">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
-        <div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.3rem;">📦</span>
-            <h3 style="margin:0; font-size:1.15rem; color:#fff;">UN HDX Humanitarian Aid &amp; Disaster Relief Crisis Calculator</h3>
-            <span class="badge badge-purple">UN OCHA &amp; WFP Framework</span>
+    <!-- QUICK ACCESS LAUNCHER: UN HDX CRISIS CALCULATOR TAB -->
+    <div class="card" style="margin-top:20px; background:linear-gradient(90deg, rgba(20, 10, 25, 0.92) 0%, rgba(15, 23, 42, 0.95) 100%); border:1px solid rgba(168, 85, 247, 0.4); box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:42px; height:42px; border-radius:10px; background:rgba(168, 85, 247, 0.15); border:1px solid #a855f7; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            📦
           </div>
-          <p style="color:#94a3b8; font-size:0.8rem; margin-top:2px;">
-            Calibrated on 62 UN HDX Humanitarian Indicators: automated food aid, tube-well decontamination, ORS stockpiles &amp; cash grant budgeting.
-          </p>
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <h4 style="margin:0; font-size:1.05rem; color:#fff;">UN HDX Humanitarian Aid &amp; Disaster Relief Crisis Calculator</h4>
+              <span class="badge badge-purple">DEDICATED TAB</span>
+            </div>
+            <p style="margin:2px 0 0 0; color:#94a3b8; font-size:0.8rem;">
+              Dedicated budgeting deck calibrated on 62 UN HDX indicators &amp; Sphere standards with emergency itemized allocation.
+            </p>
+          </div>
         </div>
-
-        <div style="display:flex; align-items:center; gap:10px;">
-          <button class="btn-action-sm primary" onclick="exportHdxReliefManifesto()" style="background:#7c3aed; border-color:#a855f7;">
-            <span>📥</span> <span>Export Relief Manifesto (JSON)</span>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <button onclick="switchTab('tabHdx')" class="btn-action-sm primary" style="background:#7c3aed; color:#fff; border:none; padding:7px 14px; font-weight:700;">
+            <span>📦</span> <span>Open UN HDX Crisis Calculator ↗</span>
           </button>
         </div>
       </div>
+    </div>
+  </div>
 
+  <!-- =========================================================================
+       TAB: UN HDX HUMANITARIAN AID & DISASTER RELIEF CRISIS CALCULATOR
+       ========================================================================= -->
+  <div id="tabHdx" class="tab-content">
+    <!-- SUITE PORTAL BANNER -->
+    <div style="display:flex; justify-content:space-between; align-items:center; background:linear-gradient(90deg, rgba(25, 12, 35, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%); border:1px solid rgba(168, 85, 247, 0.35); border-radius:10px; padding:12px 18px; margin-bottom:16px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size:1.5rem;">📦</span>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-weight:800; color:#ffffff; font-size:1.05rem;">UN HDX Humanitarian Aid &amp; Disaster Relief Crisis Budgeting Deck</span>
+            <span class="badge badge-purple">UN OCHA &amp; WFP FRAMEWORK</span>
+          </div>
+          <div style="font-size:0.8rem; color:#94a3b8; margin-top:2px;">
+            Calibrated on 62 UN HDX Humanitarian Indicators &amp; Sphere Standards for rapid liquidity release
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <button class="btn-action-sm primary" onclick="exportHdxReliefManifesto()" style="background:#7c3aed; border-color:#a855f7; font-weight:700;">
+          <span>📥</span> <span>Export Relief Manifesto (JSON)</span>
+        </button>
+        <button onclick="window.print()" class="btn-action-sm" style="background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.2); color:#fff; font-weight:700;">
+          <span>🖨️</span> <span>Export SitRep</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN HDX CALCULATOR CARD -->
+    <div class="card" id="hdxCalculatorCard" style="background:linear-gradient(180deg, rgba(20, 10, 25, 0.92) 0%, rgba(10, 6, 16, 0.98) 100%); border:1px solid rgba(168, 85, 247, 0.4); box-shadow:0 12px 35px rgba(0,0,0,0.7);">
       <!-- Controls & Sliders -->
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:20px; background:rgba(9, 15, 32, 0.6); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px; margin-bottom:20px; background:rgba(9, 15, 32, 0.6); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
         <div>
           <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">TARGET EMERGENCY DISTRICT</label>
-          <div style="font-size:1.1rem; font-weight:800; color:#00f0ff; margin-top:4px;" id="hdxActiveDistrict">Sylhet</div>
-          <div style="font-size:0.75rem; color:#cbd5e1; margin-top:2px;" id="hdxDistrictMeta">Population: 3.8M · Exposed: 42.5%</div>
+          <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+            <select id="hdxDistrictSelect" onchange="setHdxTargetDistrict(this.value)" style="background:#0f172a; border:1px solid #a855f7; color:#fff; border-radius:6px; padding:6px 12px; font-size:0.85rem; font-weight:700; outline:none; flex:1;"></select>
+          </div>
+          <div style="font-size:0.75rem; color:#cbd5e1; margin-top:4px;" id="hdxDistrictMeta">Population: 3.8M · Exposed: 42.5%</div>
+          <div id="hdxActiveDistrict" style="display:none;">Sylhet</div>
         </div>
 
         <div>
@@ -2698,7 +2846,7 @@
             <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">RELIEF DURATION</label>
             <span id="lblHdxDays" style="font-family:'JetBrains Mono',monospace; color:#38bdf8; font-weight:800;">14 Days</span>
           </div>
-          <input type="range" id="sliderHdxDays" min="7" max="60" step="7" value="14" oninput="recalcHdxRelief()" style="width:100%; margin-top:8px;" />
+          <input type="range" id="sliderHdxDays" min="7" max="60" step="7" value="14" oninput="recalcHdxRelief()" style="width:100%; margin-top:8px; cursor:pointer;" />
         </div>
 
         <div>
@@ -2706,7 +2854,7 @@
             <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">CASH GRANT PER FAMILY</label>
             <span id="lblHdxCash" style="font-family:'JetBrains Mono',monospace; color:#34d399; font-weight:800;">৳ 4,500 BDT</span>
           </div>
-          <input type="range" id="sliderHdxCash" min="1500" max="10000" step="500" value="4500" oninput="recalcHdxRelief()" style="width:100%; margin-top:8px;" />
+          <input type="range" id="sliderHdxCash" min="1500" max="10000" step="500" value="4500" oninput="recalcHdxRelief()" style="width:100%; margin-top:8px; cursor:pointer;" />
         </div>
       </div>
 
@@ -2751,9 +2899,9 @@
         </div>
       </div>
     </div>
+  </div>
 
-
-  <!-- TAB 6: WEATHER AI WITH 20-DAY LIVE WEATHER -->
+<!-- TAB 6: WEATHER AI WITH 20-DAY LIVE WEATHER -->
   <div id="tabWeather" class="tab-content">
     <!-- DEDICATED SUITE PORTAL BANNER -->
     <div style="display:flex; justify-content:space-between; align-items:center; background:linear-gradient(90deg, rgba(14, 23, 46, 0.85) 0%, rgba(8, 14, 30, 0.95) 100%); border:1px solid rgba(0,240,255,0.3); border-radius:10px; padding:10px 16px; margin-bottom:16px;">
@@ -3877,6 +4025,18 @@
           if (typeof recalcMinisterialBudget === 'function') recalcMinisterialBudget();
         }, 120);
       }
+      if (tabId === 'tabBiome') {
+        setTimeout(() => {
+          if (typeof initBiomeDistrictSelect === 'function') initBiomeDistrictSelect();
+          if (typeof setBiomeScenario === 'function') setBiomeScenario(window.currentBiomeScenario || 'baseline');
+        }, 120);
+      }
+      if (tabId === 'tabHdx') {
+        setTimeout(() => {
+          if (typeof initHdxDistrictSelect === 'function') initHdxDistrictSelect();
+          if (typeof recalcHdxRelief === 'function') recalcHdxRelief();
+        }, 120);
+      }
 
       // 6. Re-render active tab charts
       setTimeout(() => {
@@ -4495,6 +4655,8 @@
         'sbtn-tabEvac': t.tab_evac,
         'sbtn-tabClima': t.tab_clima,
         'sbtn-tabSim': t.tab_sim,
+        'sbtn-tabBiome': t.tab_biome,
+        'sbtn-tabHdx': t.tab_hdx,
         'sbtn-tabHealth': t.tab_health,
         'sbtn-tabGrid': t.tab_grid,
         'sbtn-tabErosion': t.tab_erosion,
@@ -4515,7 +4677,76 @@
     window.applyLanguage = applyLanguage;
 
     // Initialize saved language or default to English
+
+    // =========================================================================
+    // FEATURE EXTENSION: CMIP6 BIOME & UN HDX CRISIS TAB CONTROLLERS
+    // =========================================================================
+    window.currentBiomeScenario = 'baseline';
+    window.hdxOverrideDistrict = null;
+
+    function initBiomeDistrictSelect() {
+      const sel = document.getElementById('biomeDistrictSelect');
+      if (!sel || !window.DISTRICTS_DATA) return;
+      if (sel.options.length === 0) {
+        let opts = '';
+        window.DISTRICTS_DATA.forEach(d => {
+          opts += `<option value="${d.name}">${d.name} (${d.division})</option>`;
+        });
+        sel.innerHTML = opts;
+      }
+      const current = (getSelectedDistrict && getSelectedDistrict()?.name) || 'Dhaka';
+      if (!sel.value) sel.value = current;
+    }
+    window.initBiomeDistrictSelect = initBiomeDistrictSelect;
+
+    function setBiomeDistrictFocus(distName) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      setBiomeScenario(window.currentBiomeScenario || 'baseline');
+    }
+    window.setBiomeDistrictFocus = setBiomeDistrictFocus;
+
+    function playBiomeAudioBriefing() {
+      const sel = document.getElementById('biomeDistrictSelect');
+      const distName = (sel && sel.value) || (getSelectedDistrict && getSelectedDistrict()?.name) || 'Dhaka';
+      const data = (window.DELTA_DATA_49 && window.DELTA_DATA_49[distName]) || {};
+      const base = data.Koppen_Baseline || 'Am (Tropical Monsoon)';
+      const ssp585 = data.Koppen_SSP585_2050 || 'Aw (Tropical Savanna)';
+      const txt = `CMIP6 macro climatic biome projection for ${distName}. Under baseline conditions, ${distName} is classified as ${base}. Under IPCC extreme warming SSP5-8.5 by 2050, the sector morphs toward ${ssp585}, shifting agricultural zones and intensifying monsoonal heat stress.`;
+      if (typeof speakAcousticBriefing === 'function') {
+        speakAcousticBriefing(txt);
+      } else if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(txt);
+        u.rate = 1.0;
+        window.speechSynthesis.speak(u);
+      }
+    }
+    window.playBiomeAudioBriefing = playBiomeAudioBriefing;
+
+    function initHdxDistrictSelect() {
+      const sel = document.getElementById('hdxDistrictSelect');
+      if (!sel || !window.DISTRICTS_DATA) return;
+      if (sel.options.length === 0) {
+        let opts = '';
+        window.DISTRICTS_DATA.forEach(d => {
+          opts += `<option value="${d.name}">${d.name} (${d.division})</option>`;
+        });
+        sel.innerHTML = opts;
+      }
+      const current = window.hdxOverrideDistrict || (getSelectedDistrict && getSelectedDistrict()?.name) || 'Sylhet';
+      sel.value = current;
+    }
+    window.initHdxDistrictSelect = initHdxDistrictSelect;
+
+    function setHdxTargetDistrict(distName) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      window.hdxOverrideDistrict = distName;
+      recalcHdxRelief();
+    }
+    window.setHdxTargetDistrict = setHdxTargetDistrict;
+
     document.addEventListener('DOMContentLoaded', () => {
+      initBiomeDistrictSelect();
+      initHdxDistrictSelect();
       if (typeof applyLanguage === 'function' && window.currentLanguage) {
         applyLanguage(window.currentLanguage);
       }
@@ -8008,6 +8239,8 @@
       { id: 'tabEvac', title: 'Evacuation Routes', desc: 'Arterial highway routing & island isolation', icon: '🚑', type: 'tab' },
       { id: 'tabClima', title: 'Real Estate ESG Rating', desc: 'CMIP6 biomes & 30-year climate credit rating', icon: '🏢', type: 'tab' },
       { id: 'tabSim', title: 'DeltaSim Adaptation Sandbox', desc: 'Policy simulation & budget allocation modeler', icon: '🎮', type: 'tab' },
+      { id: 'tabBiome', title: 'CMIP6 Biome Transitions (2020-2050)', desc: 'Köppen-Geiger 1km climate shift scenarios & morphing', icon: '🧬', type: 'tab' },
+      { id: 'tabHdx', title: 'UN HDX Disaster Relief Crisis Calculator', desc: 'Sphere Standards relief rations, clean water & cash grants', icon: '📦', type: 'tab' },
       { id: 'tabHealth', title: 'Epidemic Surveillance', desc: 'Cholera/Dengue outbreak & IV saline logistics', icon: '🏥', type: 'tab' },
       { id: 'tabGrid', title: 'Power Grid Resilience', desc: 'Substation inundation & telecom BTS towers', icon: '⚡', type: 'tab' },
       { id: 'tabErosion', title: 'Riverbank Erosion Index', desc: 'Jamuna/Padma morphology & char diluvion', icon: '🌊', type: 'tab' },
@@ -8638,7 +8871,8 @@
     // FEATURE E: UN HDX HUMANITARIAN AID & DISASTER RELIEF CALCULATOR
     // =========================================================================
     function recalcHdxRelief() {
-      const distName = (getSelectedDistrict && getSelectedDistrict()?.name) || 'Sylhet';
+      const sel = document.getElementById('hdxDistrictSelect');
+      const distName = (sel && sel.value) || window.hdxOverrideDistrict || (getSelectedDistrict && getSelectedDistrict()?.name) || 'Sylhet';
       const hdx = (window.DELTA_HDX_DATA && window.DELTA_HDX_DATA[distName]) || {};
       const pop = hdx.Population || 3500000;
       const inunPct = (hdx.PredictedInundatedPercentage || 38.5) / 100;
@@ -8717,12 +8951,14 @@
     // FEATURE C: CMIP6 CLIMATE BIOME MORPHING CONTROLLER
     // =========================================================================
     function setBiomeScenario(scenario, btn) {
-      playTacticalSound('click');
+      window.currentBiomeScenario = scenario;
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
       document.querySelectorAll('.btn-cmip-scenario').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
 
+      const sel = document.getElementById('biomeDistrictSelect');
       const dist = getSelectedDistrict && getSelectedDistrict();
-      const distName = dist ? dist.name : 'Kurigram';
+      const distName = (sel && sel.value) || (dist ? dist.name : 'Kurigram');
       const data = (window.DELTA_DATA_49 && window.DELTA_DATA_49[distName]) || {};
 
       const spot = document.getElementById('cmipDistrictSpotlight');
