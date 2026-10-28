@@ -9,7 +9,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability or sensitive data issue within **DeltaShield**, please do not open a public issue.
+If you discover a security vulnerability or sensitive data issue within **BanglaShield**, please do not open a public issue.
 
 Instead, please report it via private vulnerability reporting on GitHub or contact the repository maintainers directly.
 

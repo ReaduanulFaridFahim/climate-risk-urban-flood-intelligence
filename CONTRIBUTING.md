@@ -1,6 +1,6 @@
-# Contributing to DeltaShield™
+# Contributing to BanglaShield™
 
-Thank you for your interest in contributing to **DeltaShield: Bangladesh Unified Climate Risk & Urban Flood Intelligence Platform**!
+Thank you for your interest in contributing to **BanglaShield: Bangladesh Unified Climate Risk & Urban Flood Intelligence Platform**!
 
 We welcome contributions from hydrologists, GIS specialists, data scientists, frontend engineers, and emergency management professionals.
 

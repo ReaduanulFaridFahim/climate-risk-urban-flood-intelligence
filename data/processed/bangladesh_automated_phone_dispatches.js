@@ -1,4 +1,4 @@
-// DeltaShield Automated Telco Mobile Phone Dispatches
+// BanglaShield Automated Telco Mobile Phone Dispatches
 const AUTOMATED_PHONE_DISPATCHES = [
   {
     "dispatch_id": "TELCO-CBS-DHAK-1792927066",

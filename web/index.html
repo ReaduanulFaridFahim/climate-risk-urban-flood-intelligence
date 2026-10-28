@@ -20,7 +20,7 @@
   <!-- Chart.js 4.4.1 Interactive Charting Engine -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="districts_heritage_data.js"></script>
-  <script src="deltashield_extended_intel.js"></script>
+  <script src="banglashield_extended_intel.js"></script>
 
     <style>
     /* ==========================================================================
@@ -4524,7 +4524,7 @@
       const dist = (typeof getSelectedDistrict === 'function' && getSelectedDistrict()) || { name: 'Dhaka', division: 'Dhaka', temp: 31.8, zone: 'Active Floodplain' };
 
       const isBn = window.currentLanguage === 'bn';
-      const textEn = `Attention BanglaShield Command. Situation report for ${dist.name} District, ${dist.division} Division. Surface temperature is ${dist.temp} degrees Celsius, located in the ${dist.zone}. Hydrological inundation probability is currently elevated. High water warnings are active along vulnerable river corridors. Mandatory safety precautions are advised for low lying settlements. Verified by automated DeltaShield Intelligence Engine.`;
+      const textEn = `Attention BanglaShield Command. Situation report for ${dist.name} District, ${dist.division} Division. Surface temperature is ${dist.temp} degrees Celsius, located in the ${dist.zone}. Hydrological inundation probability is currently elevated. High water warnings are active along vulnerable river corridors. Mandatory safety precautions are advised for low lying settlements. Verified by automated BanglaShield Intelligence Engine.`;
       const textBn = `বাংলাশিল্ড কমান্ড দৃষ্টি আকর্ষণ। ${dist.name} জেলা, ${dist.division} বিভাগের পরিস্থিতি প্রতিবেদন। বর্তমান তাপমাত্রা ${dist.temp} ডিগ্রি সেলসিয়াস। জেলাটি ${dist.zone} অঞ্চলে অবস্থিত। নদী তীরবর্তী নিম্নাঞ্চলে দুর্যোগ সতর্কতা বহাল রয়েছে। সাধারণ জনগণকে আশ্রয়কেন্দ্রে সরে যাওয়ার নির্দেশ দেয়া হয়েছে।`;
 
       const speechText = isBn ? textBn : textEn;
@@ -4614,7 +4614,7 @@
     // =========================================================================
     // FEATURE D: BANGLA / ENGLISH [EN / বাংলা] DUAL-LANGUAGE SWITCHER
     // =========================================================================
-    window.currentLanguage = localStorage.getItem('banglashield_lang') || localStorage.getItem('deltashield_lang') || 'en';
+    window.currentLanguage = localStorage.getItem('banglashield_lang') || null || 'en';
 
     function toggleLanguage() {
       if (typeof playTacticalSound === 'function') playTacticalSound('click');

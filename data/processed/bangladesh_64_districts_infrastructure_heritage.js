@@ -1,4 +1,4 @@
-// DeltaShield Master 64 Districts Infrastructure & Heritage Dataset
+// BanglaShield Master 64 Districts Infrastructure & Heritage Dataset
 const DISTRICTS_INFRASTRUCTURE_HERITAGE = {
   "Dhaka": {
     "division": "Dhaka",

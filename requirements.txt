@@ -1,4 +1,4 @@
-# DeltaShield Climate Risk & Urban Flood Intelligence Platform
+# BanglaShield Climate Risk & Urban Flood Intelligence Platform
 # Python Dependencies
 
 numpy>=1.24.0
