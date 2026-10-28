@@ -5,18 +5,18 @@
    ========================================================================== */
 
 :root {
-  /* Core Color Hierarchy (Ultra Deep Space Obsidian Canvas) */
-  --bg-primary: #040711;
-  --bg-secondary: #080d1f;
-  --bg-card: rgba(12, 19, 36, 0.76);
-  --bg-card-hover: rgba(18, 29, 56, 0.90);
-  --bg-glass: rgba(13, 22, 43, 0.70);
+  /* Core Color Hierarchy (Modern GovTech Deep Space Slate Canvas) */
+  --bg-primary: #060a14;
+  --bg-secondary: #0a1024;
+  --bg-card: rgba(16, 25, 48, 0.78);
+  --bg-card-hover: rgba(24, 38, 70, 0.92);
+  --bg-glass: rgba(14, 23, 46, 0.75);
   
   /* Luminous Aurora Borders & Specular Lines */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-mid: rgba(56, 189, 248, 0.22);
-  --border-glow: rgba(0, 240, 255, 0.50);
-  --border-violet: rgba(168, 85, 247, 0.35);
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-mid: rgba(56, 189, 248, 0.28);
+  --border-glow: rgba(0, 240, 255, 0.55);
+  --border-violet: rgba(168, 85, 247, 0.38);
   
   /* Modern High-Contrast Typography */
   --text-main: #f8fafc;
@@ -27,7 +27,7 @@
   /* Vibrant Multi-Chromatic Neon Accent Tokens */
   --neon-cyan: #00f0ff;
   --neon-emerald: #10b981;
-  --neon-violet: #a855f7;
+  --neon-violet: #8b5cf6;
   --neon-coral: #f43f5e;
   --neon-amber: #f59e0b;
   --neon-blue: #38bdf8;
@@ -35,27 +35,28 @@
 
   --primary: #0ea5e9;
   --primary-hover: #38bdf8;
-  --primary-glow: rgba(0, 240, 255, 0.35);
+  --primary-glow: rgba(0, 240, 255, 0.38);
   --success: #10b981;
-  --success-glow: rgba(16, 185, 129, 0.35);
+  --success-glow: rgba(16, 185, 129, 0.38);
   --warning: #f59e0b;
-  --warning-glow: rgba(245, 158, 11, 0.35);
+  --warning-glow: rgba(245, 158, 11, 0.38);
   --danger: #ef4444;
-  --danger-glow: rgba(244, 63, 94, 0.40);
+  --danger-glow: rgba(244, 63, 94, 0.45);
   --purple: #8b5cf6;
-  --purple-glow: rgba(168, 85, 247, 0.35);
+  --purple-glow: rgba(168, 85, 247, 0.38);
   
   /* Geometry & Lighting */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-pill: 9999px;
   
-  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 12px 36px -6px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.08);
-  --shadow-glow: 0 0 30px -4px rgba(0, 240, 255, 0.28);
-  --shadow-aurora: 0 16px 45px -8px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(168, 85, 247, 0.25);
-  --backdrop-blur: blur(24px);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 12px 32px -4px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --shadow-glow: 0 0 30px -4px rgba(0, 240, 255, 0.35);
+  --shadow-aurora: 0 16px 45px -8px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(168, 85, 247, 0.28);
+  --backdrop-blur: blur(28px);
 }
 
 /* -------------------------------------------------------------------------- */
