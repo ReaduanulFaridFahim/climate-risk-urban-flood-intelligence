@@ -1308,6 +1308,16 @@
 
         <div class="hud-right-actions">
                     <!-- Laptop Fullscreen Toggle Button -->
+                    <!-- Dual-Language Switcher (EN / বাংলা) [Feature D] -->
+          <button class="btn-action-sm" id="btnLangToggle" onclick="toggleLanguage()" style="background:rgba(16, 26, 52, 0.85); border:1px solid #c084fc; color:#c084fc; font-weight:700; cursor:pointer;" title="Switch Language / ভাষা পরিবর্তন">
+            <span id="langIcon">🌐</span> <span id="langText">বাংলা</span>
+          </button>
+
+          <!-- Tactical AI Voice Briefing Button [Feature C] -->
+          <button class="btn-action-sm" id="btnVoiceSitRep" onclick="toggleVoiceSitRep()" style="background:linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(239, 68, 68, 0.25) 100%); border:1px solid #f59e0b; color:#fbbf24; font-weight:700; cursor:pointer;" title="Play Tactical Audio SitRep Briefing (Web Speech API)">
+            <span id="voiceSitRepIcon">🎙️</span> <span id="voiceSitRepText">Voice SitRep</span>
+          </button>
+
           <button class="btn-action-sm" id="btnToggleFullscreen" onclick="toggleDashboardFullscreen()" style="background:rgba(14, 22, 42, 0.9); border:1px solid #00f0ff; color:#00f0ff; font-weight:700; cursor:pointer;" title="Toggle Laptop Fullscreen View (F11)">
             <span id="fullscreenBtnIcon">⛶</span> <span id="fullscreenBtnText">Fullscreen</span>
           </button>
@@ -1408,6 +1418,77 @@
           <button class="div-pill" onclick="resetBangladeshView()" style="background:#1e293b; color:#cbd5e1; border:1px solid #475569; padding:6px 12px; font-weight:700; border-radius:16px; cursor:pointer;">
             🇧🇩 Fit Bangladesh
           </button>
+        </div>
+      </div>
+
+      
+      <!-- =========================================================================
+           FEATURE A: NOAA IBTrACS CYCLONE STORM TRACK & SURGE REPLAYER
+           ========================================================================= -->
+      <div class="card" id="cycloneSimulatorCard" style="border-color: rgba(244, 63, 94, 0.45); background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 15, 25, 0.92) 100%); margin-bottom: 16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.3rem;">🌪️</span>
+            <div>
+              <h4 style="font-size:1rem; font-weight:800; color:#ffffff; margin:0;" data-i18n="cyclone_simulator_title">
+                Bay of Bengal Cyclone Storm Track & Surge Simulator (NOAA IBTrACS)
+              </h4>
+              <p style="font-size:0.75rem; color:#94a3b8; margin:0;">
+                Official historical & projected cyclone vortex trajectories, Saffir-Simpson radii, and coastal surge heights.
+              </p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <select id="cycloneTrackSelect" onchange="changeCycloneTrack(this.value)" style="background:#090e24; color:#00f0ff; border:1px solid #00f0ff; padding:6px 12px; border-radius:8px; font-size:0.82rem; font-weight:800; outline:none; cursor:pointer;">
+              <option value="cyclone_2020">Super Cyclone Amphan (2020) — 140 kts (Cat 5)</option>
+              <option value="cyclone_2007">Cyclone Sidr (2007) — 140 kts (Cat 5)</option>
+              <option value="cyclone_2023">VSCS Mocha (2023) — 150 kts (Cat 5)</option>
+              <option value="cyclone_2024">Severe Cyclone Remal (2024) — 60 kts (Cat 1)</option>
+              <option value="cyclone_2009">Severe Cyclone Aila (2009) — 65 kts (Cat 1)</option>
+              <option value="all">Show All 5 Bay of Bengal Tracks Overlay</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Simulator Interactive Controller Bar -->
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; background:rgba(8, 13, 26, 0.85); padding:10px 14px; border-radius:8px; border:1px solid rgba(56, 189, 248, 0.25);">
+          <!-- Play / Pause / Reset -->
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="btn-action-sm" id="btnCyclonePlay" onclick="toggleCyclonePlay()" style="background:#0284c7; color:#fff; border:1px solid #38bdf8; font-weight:800;">
+              <span id="cyclonePlayIcon">▶</span> <span id="cyclonePlayText">Play Replay</span>
+            </button>
+            <button class="btn-action-sm" onclick="resetCycloneSimulation()" style="background:#1e293b; color:#cbd5e1; border:1px solid #475569;">
+              ↺ Reset
+            </button>
+            <div style="display:flex; gap:4px; margin-left:6px;">
+              <button class="div-filter-chip active btn-cyclone-speed" onclick="setCycloneSpeed(1, this)">1x</button>
+              <button class="div-filter-chip btn-cyclone-speed" onclick="setCycloneSpeed(2, this)">2x</button>
+              <button class="div-filter-chip btn-cyclone-speed" onclick="setCycloneSpeed(4, this)">4x</button>
+            </div>
+          </div>
+
+          <!-- Scrubber Timeline Slider -->
+          <div style="flex:1; min-width:180px; display:flex; align-items:center; gap:10px;">
+            <span style="font-size:0.75rem; color:#94a3b8; font-family:'JetBrains Mono',monospace;">TRACK:</span>
+            <input type="range" id="cycloneTimelineSlider" min="0" max="100" value="0" oninput="scrubCycloneTrack(this.value)" style="flex:1; cursor:pointer;">
+            <span id="cycloneStepProgress" style="font-size:0.75rem; color:#00f0ff; font-family:'JetBrains Mono',monospace; min-width:40px;">0%</span>
+          </div>
+
+          <!-- Live Storm Telemetry Pill Box -->
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div style="font-size:0.78rem; font-family:'JetBrains Mono',monospace;">
+              <span style="color:#94a3b8;">WIND:</span> <strong id="cycloneTelemetryWind" style="color:#ef4444;">--</strong>
+            </div>
+            <div style="font-size:0.78rem; font-family:'JetBrains Mono',monospace;">
+              <span style="color:#94a3b8;">SURGE:</span> <strong id="cycloneTelemetrySurge" style="color:#38bdf8;">--</strong>
+            </div>
+            <div style="font-size:0.78rem; font-family:'JetBrains Mono',monospace;">
+              <span style="color:#94a3b8;">PRESS:</span> <strong id="cycloneTelemetryPress" style="color:#f59e0b;">--</strong>
+            </div>
+            <span class="badge" id="cycloneCategoryBadge" style="background:#7c2d12; color:#fca5a5; font-size:0.70rem; font-weight:800;">
+              CATEGORY --
+            </span>
+          </div>
         </div>
       </div>
 
@@ -2084,6 +2165,73 @@
 
   <!-- TAB 4: CLIMADEVAL -->
   <div id="tabClima" class="tab-content">
+
+    <!-- =========================================================================
+         FEATURE B: CMIP6 MULTI-DECADAL CLIMATE HORIZON TIME-SLIDER (2026 - 2050)
+         ========================================================================= -->
+    <div class="card" id="cmip6HorizonCard" style="border-color: rgba(0, 240, 255, 0.45); background: linear-gradient(135deg, rgba(14, 23, 44, 0.95) 0%, rgba(9, 14, 28, 0.98) 100%); margin-bottom: 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px;">
+        <div>
+          <h3 style="font-size:1.15rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:8px; margin:0;" data-i18n="cmip6_slider_title">
+            ⏳ CMIP6 Multi-Decadal Climate Horizon & Macro-Inundation Time-Slider (2026 ➔ 2050)
+          </h3>
+          <p style="color:var(--text-muted); font-size:0.80rem; margin-top:2px;">
+            Downscaled IPCC AR6 projections across SSP1-2.6, SSP2-4.5, and SSP5-8.5 scenarios for all 64 districts.
+          </p>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="div-filter-chip active btn-cmip6-horizon" onclick="setCmip6QuickHorizon(2026, this)">2026 Baseline</button>
+          <button class="div-filter-chip btn-cmip6-horizon" onclick="setCmip6QuickHorizon(2030, this)">2030 Near-Term (SSP2-4.5)</button>
+          <button class="div-filter-chip btn-cmip6-horizon" onclick="setCmip6QuickHorizon(2040, this)">2040 Mid-Term (SSP2-4.5)</button>
+          <button class="div-filter-chip btn-cmip6-horizon" onclick="setCmip6QuickHorizon(2050, this)">2050 Severe (SSP5-8.5)</button>
+        </div>
+      </div>
+
+      <!-- Year Slider Bar -->
+      <div style="background:rgba(8, 13, 26, 0.85); padding:12px 18px; border-radius:10px; border:1px solid rgba(56, 189, 248, 0.25); margin-bottom:16px;">
+        <div style="display:flex; justify-content:space-between; font-size:0.82rem; font-weight:800; color:#cbd5e1; margin-bottom:8px;">
+          <span>HORIZON TIMELINE: <strong id="lblCmip6CurrentYear" style="color:#00f0ff; font-size:1.1rem; font-family:'JetBrains Mono',monospace;">2026</strong></span>
+          <span id="lblCmip6ScenarioTag" class="badge badge-blue">Observed Baseline</span>
+        </div>
+        <input type="range" id="cmip6YearSlider" min="2026" max="2050" step="1" value="2026" oninput="updateCmip6HorizonYear(this.value)" style="width:100%; cursor:pointer;">
+        <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:#64748b; font-family:'JetBrains Mono',monospace; margin-top:4px;">
+          <span>2026 (Present)</span>
+          <span>2030 (NDC Milestone)</span>
+          <span>2040 (Mid-Century Drift)</span>
+          <span>2050 (Delta Plan 2100 Phase 1)</span>
+        </div>
+      </div>
+
+      <!-- 4 Dynamic KPI Cards that animate as slider moves -->
+      <div class="grid-4" style="margin-bottom:16px;">
+        <div class="kpi-box" style="border-left:4px solid #38bdf8;">
+          <span class="kpi-label">Projected Inundation</span>
+          <span class="kpi-value" id="cmip6KpiInun" style="color:#38bdf8;">--%</span>
+          <span class="kpi-sub" id="cmip6KpiInunSub">District Land Area</span>
+        </div>
+        <div class="kpi-box" style="border-left:4px solid #f59e0b;">
+          <span class="kpi-label">Projected Damage</span>
+          <span class="kpi-value" id="cmip6KpiDamage" style="color:#fbbf24;">$--M</span>
+          <span class="kpi-sub">Infrastructure & Housing</span>
+        </div>
+        <div class="kpi-box" style="border-left:4px solid #ef4444;">
+          <span class="kpi-label">Exposed Citizens</span>
+          <span class="kpi-value" id="cmip6KpiExposed" style="color:#f87171;">--</span>
+          <span class="kpi-sub">BBS Population Projection</span>
+        </div>
+        <div class="kpi-box" style="border-left:4px solid #10b981;">
+          <span class="kpi-label">Max Heatwave Temp</span>
+          <span class="kpi-value" id="cmip6KpiHeat" style="color:#34d399;">--°C</span>
+          <span class="kpi-sub" id="cmip6KpiRain">Peak Rain: -- mm</span>
+        </div>
+      </div>
+
+      <!-- Projection Trajectory Chart Container -->
+      <div style="position:relative; width:100%; height:260px; background:rgba(6, 11, 25, 0.75); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px;">
+        <canvas id="chartCmip6HorizonTrajectory"></canvas>
+      </div>
+    </div>
+
     <div class="grid-4" style="margin-bottom:16px;">
       <div class="kpi-box">
         <span class="kpi-label">Institutional ESG Climate Rating</span>
@@ -2199,6 +2347,116 @@
 
   <!-- TAB 5: DELTASIM -->
   <div id="tabSim" class="tab-content">
+
+    <!-- =========================================================================
+         FEATURE E: DISASTER RELIEF MINISTER BUDGET ALLOCATION SANDBOX (৳500 CRORE FUND)
+         ========================================================================= -->
+    <div class="card" id="ministerialBudgetCard" style="border-color: rgba(16, 185, 129, 0.45); background: linear-gradient(135deg, rgba(10, 24, 38, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%); margin-bottom: 22px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px;">
+        <div>
+          <h3 style="font-size:1.15rem; font-weight:800; color:#34d399; display:flex; align-items:center; gap:8px; margin:0;" data-i18n="relief_minister_title">
+            🎮 Disaster Relief Minister Budget Allocation Sandbox (৳500 Crore Fund)
+          </h3>
+          <p style="color:var(--text-muted); font-size:0.80rem; margin-top:2px;">
+            Simulate national strategic disaster intervention trade-offs. Maximize lives saved, capital ROI, and agricultural resilience under BDP 2100.
+          </p>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="div-filter-chip active btn-pres-preset" onclick="setMinisterialPreset('balanced', this)">Balanced National</button>
+          <button class="div-filter-chip btn-pres-preset" onclick="setMinisterialPreset('agro', this)">Agro Priority</button>
+          <button class="div-filter-chip btn-pres-preset" onclick="setMinisterialPreset('coastal', this)">Coastal Defense</button>
+          <button class="div-filter-chip btn-pres-preset" onclick="setMinisterialPreset('health', this)">Emergency Healthcare</button>
+        </div>
+      </div>
+
+      <!-- Budget Status Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(8, 13, 26, 0.85); padding:10px 16px; border-radius:8px; border:1px solid rgba(16, 185, 129, 0.3); margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="font-size:0.82rem; color:#94a3b8; font-weight:800;">TOTAL DISASTER FUND:</span>
+          <strong style="color:#00f0ff; font-size:1.2rem; font-family:'JetBrains Mono',monospace;">৳500 Crore BDT</strong>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="font-size:0.82rem; color:#94a3b8; font-weight:800;">UNALLOCATED BALANCE:</span>
+          <strong id="lblMinisterialRemaining" style="color:#34d399; font-size:1.2rem; font-family:'JetBrains Mono',monospace;">৳0 Cr</strong>
+        </div>
+        <div>
+          <span id="lblMinisterialGradeBadge" class="badge badge-green" style="font-size:0.82rem; padding:4px 10px;">
+            🏆 BDP 2100 GRADE: A+ (OPTIMAL ALLOCATION)
+          </span>
+        </div>
+      </div>
+
+      <!-- Two-Column Layout: 5 Program Sliders + Outcome Radar Chart -->
+      <div class="grid-2" style="align-items:center;">
+        
+        <!-- Left Column: 5 Interactive Intervention Sliders -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          
+          <div class="slider-box" style="padding:10px 14px; margin-bottom:0;">
+            <label style="margin-bottom:4px;">
+              <span>🛡️ Embankment Geotextiles & Dikes:</span>
+              <strong id="lblAllocEmbankment" style="color:#00f0ff;">৳140 Cr</strong>
+            </label>
+            <input type="range" id="sliderAllocEmbankment" min="0" max="250" step="5" value="140" oninput="recalcMinisterialBudget()">
+          </div>
+
+          <div class="slider-box" style="padding:10px 14px; margin-bottom:0;">
+            <label style="margin-bottom:4px;">
+              <span>🏫 Solar Flood Shelters & Microgrids:</span>
+              <strong id="lblAllocShelter" style="color:#38bdf8;">৳110 Cr</strong>
+            </label>
+            <input type="range" id="sliderAllocShelter" min="0" max="250" step="5" value="110" oninput="recalcMinisterialBudget()">
+          </div>
+
+          <div class="slider-box" style="padding:10px 14px; margin-bottom:0;">
+            <label style="margin-bottom:4px;">
+              <span>🌾 Parametric Crop Insurance Subsidies (MFS):</span>
+              <strong id="lblAllocInsurance" style="color:#fbbf24;">৳100 Cr</strong>
+            </label>
+            <input type="range" id="sliderAllocInsurance" min="0" max="250" step="5" value="100" oninput="recalcMinisterialBudget()">
+          </div>
+
+          <div class="slider-box" style="padding:10px 14px; margin-bottom:0;">
+            <label style="margin-bottom:4px;">
+              <span>💊 Mobile Medical Boats & Clean Water Kits:</span>
+              <strong id="lblAllocHealth" style="color:#f87171;">৳80 Cr</strong>
+            </label>
+            <input type="range" id="sliderAllocHealth" min="0" max="250" step="5" value="80" oninput="recalcMinisterialBudget()">
+          </div>
+
+          <div class="slider-box" style="padding:10px 14px; margin-bottom:0;">
+            <label style="margin-bottom:4px;">
+              <span>🛰️ IoT Telemetry Gauges & Doppler Network:</span>
+              <strong id="lblAllocTech" style="color:#a855f7;">৳70 Cr</strong>
+            </label>
+            <input type="range" id="sliderAllocTech" min="0" max="250" step="5" value="70" oninput="recalcMinisterialBudget()">
+          </div>
+        </div>
+
+        <!-- Right Column: Radar Chart & Impact Scorecards -->
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="position:relative; width:100%; height:260px; background:rgba(6, 11, 25, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <canvas id="chartMinisterialAllocationRadar"></canvas>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
+            <div style="background:rgba(14, 22, 42, 0.8); border:1px solid rgba(56, 189, 248, 0.25); padding:8px 10px; border-radius:6px; text-align:center;">
+              <div style="font-size:0.68rem; color:#94a3b8; font-weight:700;">LIVES SAVED</div>
+              <div id="outMinisterialLives" style="font-size:1.1rem; font-weight:800; color:#38bdf8; font-family:'JetBrains Mono',monospace;">48,200</div>
+            </div>
+            <div style="background:rgba(14, 22, 42, 0.8); border:1px solid rgba(16, 185, 129, 0.25); padding:8px 10px; border-radius:6px; text-align:center;">
+              <div style="font-size:0.68rem; color:#94a3b8; font-weight:700;">CAPITAL SAVED</div>
+              <div id="outMinisterialCapital" style="font-size:1.1rem; font-weight:800; color:#34d399; font-family:'JetBrains Mono',monospace;">৳2,650 Cr</div>
+            </div>
+            <div style="background:rgba(14, 22, 42, 0.8); border:1px solid rgba(245, 158, 11, 0.25); padding:8px 10px; border-radius:6px; text-align:center;">
+              <div style="font-size:0.68rem; color:#94a3b8; font-weight:700;">CROPS SAVED</div>
+              <div id="outMinisterialCrops" style="font-size:1.1rem; font-weight:800; color:#fbbf24; font-family:'JetBrains Mono',monospace;">185k ha</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="grid-4" style="margin-bottom:16px;">
       <div class="kpi-box">
         <span class="kpi-label">National Adaptation Budget</span>
@@ -3476,6 +3734,816 @@
       }, 60);
     }
     window.switchTab = switchTab;
+
+    // =========================================================================
+    // FEATURE A: NOAA IBTrACS CYCLONE STORM TRACK & SURGE SIMULATOR ENGINE
+    // =========================================================================
+    window.cycloneLayerGroup = null;
+    window.cycloneCurrentTrack = null;
+    window.cycloneCurrentStep = 0;
+    window.cycloneIsPlaying = false;
+    window.cyclonePlayTimer = null;
+    window.cyclonePlaySpeed = 1;
+
+    function initCycloneSimulator() {
+      if (!window.bdMapInstance) return;
+      if (!window.cycloneLayerGroup) {
+        window.cycloneLayerGroup = L.layerGroup().addTo(window.bdMapInstance);
+      }
+      loadCycloneTrack('cyclone_2020');
+    }
+
+    function loadCycloneTrack(cycloneId) {
+      if (!window.DELTA_CYCLONES || !window.bdMapInstance) return;
+      if (!window.cycloneLayerGroup) {
+        window.cycloneLayerGroup = L.layerGroup().addTo(window.bdMapInstance);
+      }
+
+      window.cycloneLayerGroup.clearLayers();
+      resetCycloneSimulation();
+
+      if (cycloneId === 'all') {
+        renderAllCycloneTracksOverlay();
+        return;
+      }
+
+      const storm = window.DELTA_CYCLONES.find(c => c.id === cycloneId);
+      if (!storm) return;
+
+      window.cycloneCurrentTrack = storm;
+      window.cycloneCurrentStep = 0;
+
+      // Draw the full polyline track
+      const latlngs = storm.waypoints.map(w => [w.lat, w.lon]);
+      const fullPolyline = L.polyline(latlngs, {
+        color: storm.waypoints[0].color,
+        weight: 3.5,
+        dashArray: '6, 6',
+        opacity: 0.75
+      }).addTo(window.cycloneLayerGroup);
+
+      fullPolyline.bindTooltip(`${storm.name} Track (${storm.year})`, { sticky: true });
+
+      renderCycloneStep(0);
+    }
+
+    function changeCycloneTrack(val) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      loadCycloneTrack(val);
+    }
+    window.changeCycloneTrack = changeCycloneTrack;
+
+    function renderCycloneStep(stepIdx) {
+      if (!window.cycloneCurrentTrack || !window.cycloneLayerGroup) return;
+      const storm = window.cycloneCurrentTrack;
+      const pts = storm.waypoints;
+      if (stepIdx < 0 || stepIdx >= pts.length) return;
+
+      const pt = pts[stepIdx];
+
+      // Remove existing step markers & wind circles
+      window.cycloneLayerGroup.eachLayer(layer => {
+        if (layer.options && layer.options.isStepLayer) {
+          window.cycloneLayerGroup.removeLayer(layer);
+        }
+      });
+
+      // 1. Draw traversed solid path up to this step
+      const traversed = pts.slice(0, stepIdx + 1).map(w => [w.lat, w.lon]);
+      if (traversed.length > 1) {
+        L.polyline(traversed, {
+          color: pt.color,
+          weight: 5,
+          opacity: 0.95,
+          isStepLayer: true
+        }).addTo(window.cycloneLayerGroup);
+      }
+
+      // 2. Concentric Wind Radii Circles (Gale 34kt, Storm 50kt, Hurricane 64kt)
+      const rGale = pt.knots * 2200; // meters
+      const rStorm = pt.knots * 1300;
+      const rHurricane = pt.knots * 650;
+
+      L.circle([pt.lat, pt.lon], {
+        radius: rGale,
+        color: '#38bdf8',
+        fillColor: '#38bdf8',
+        fillOpacity: 0.08,
+        weight: 1.2,
+        dashArray: '4, 4',
+        isStepLayer: true
+      }).addTo(window.cycloneLayerGroup);
+
+      if (pt.knots >= 50) {
+        L.circle([pt.lat, pt.lon], {
+          radius: rStorm,
+          color: '#f59e0b',
+          fillColor: '#f59e0b',
+          fillOpacity: 0.12,
+          weight: 1.5,
+          isStepLayer: true
+        }).addTo(window.cycloneLayerGroup);
+      }
+
+      if (pt.knots >= 64) {
+        L.circle([pt.lat, pt.lon], {
+          radius: rHurricane,
+          color: '#ef4444',
+          fillColor: '#ef4444',
+          fillOpacity: 0.18,
+          weight: 2,
+          isStepLayer: true
+        }).addTo(window.cycloneLayerGroup);
+      }
+
+      // 3. Eye of the Storm Vortex Icon
+      const vortexHtml = `
+        <div style="width:34px; height:34px; border-radius:50%; background:radial-gradient(circle, #fff 0%, ${pt.color} 70%, transparent 100%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px ${pt.color}; border:2px solid #fff; font-size:16px; animation:spin 4s linear infinite;">
+          🌀
+        </div>
+      `;
+      const vortexIcon = L.divIcon({
+        html: vortexHtml,
+        className: 'cyclone-eye-icon',
+        iconSize: [34, 34],
+        iconAnchor: [17, 17]
+      });
+
+      const eyeMarker = L.marker([pt.lat, pt.lon], { icon: vortexIcon, isStepLayer: true }).addTo(window.cycloneLayerGroup);
+      eyeMarker.bindPopup(`
+        <div style="padding:6px; font-family:'Plus Jakarta Sans',sans-serif;">
+          <h4 style="margin:0 0 4px 0; color:${pt.color};">${storm.name}</h4>
+          <div style="font-size:0.8rem; line-height:1.4;">
+            <b>Step:</b> ${stepIdx + 1} of ${pts.length}<br/>
+            <b>Intensity:</b> ${pt.knots} kts (${pt.wind_kmh} km/h)<br/>
+            <b>Central Pressure:</b> ${pt.pressure_hpa} hPa<br/>
+            <b>Est. Surge:</b> +${pt.surge_m}m Above DL<br/>
+            <b>Category:</b> ${pt.category}
+          </div>
+        </div>
+      `);
+
+      // Update UI Telemetry & Scrubber
+      const slider = document.getElementById('cycloneTimelineSlider');
+      const progressText = document.getElementById('cycloneStepProgress');
+      const windText = document.getElementById('cycloneTelemetryWind');
+      const surgeText = document.getElementById('cycloneTelemetrySurge');
+      const pressText = document.getElementById('cycloneTelemetryPress');
+      const catBadge = document.getElementById('cycloneCategoryBadge');
+
+      const pct = Math.round((stepIdx / (pts.length - 1)) * 100);
+      if (slider) slider.value = pct;
+      if (progressText) progressText.textContent = `${pct}%`;
+      if (windText) windText.textContent = `${pt.knots} kts (${pt.wind_kmh} km/h)`;
+      if (surgeText) surgeText.textContent = `+${pt.surge_m}m`;
+      if (pressText) pressText.textContent = `${pt.pressure_hpa} hPa`;
+      if (catBadge) {
+        catBadge.textContent = pt.category.toUpperCase();
+        catBadge.style.color = '#fff';
+        catBadge.style.background = pt.color;
+      }
+    }
+
+    function renderAllCycloneTracksOverlay() {
+      if (!window.DELTA_CYCLONES || !window.bdMapInstance) return;
+      window.DELTA_CYCLONES.forEach(storm => {
+        const latlngs = storm.waypoints.map(w => [w.lat, w.lon]);
+        const poly = L.polyline(latlngs, {
+          color: storm.waypoints[0].color,
+          weight: 3.5,
+          opacity: 0.85
+        }).addTo(window.cycloneLayerGroup);
+
+        poly.bindTooltip(`<b>${storm.name}</b> (${storm.year})<br/>Peak: ${storm.peak_knots} kts`, { sticky: true });
+
+        // Add eye icon at peak waypoint
+        const peakIdx = Math.floor(storm.waypoints.length / 2);
+        const peakPt = storm.waypoints[peakIdx];
+        L.marker([peakPt.lat, peakPt.lon], {
+          icon: L.divIcon({
+            html: `<div style="font-size:18px;">🌀</div>`,
+            className: 'cyclone-all-marker',
+            iconSize: [20, 20]
+          })
+        }).addTo(window.cycloneLayerGroup).bindTooltip(`${storm.name}: ${storm.peak_knots} kts`);
+      });
+    }
+
+    function toggleCyclonePlay() {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      if (window.cycloneIsPlaying) {
+        pauseCycloneSimulation();
+      } else {
+        startCycloneSimulation();
+      }
+    }
+    window.toggleCyclonePlay = toggleCyclonePlay;
+
+    function startCycloneSimulation() {
+      if (!window.cycloneCurrentTrack) return;
+      window.cycloneIsPlaying = true;
+      const btnIcon = document.getElementById('cyclonePlayIcon');
+      const btnText = document.getElementById('cyclonePlayText');
+      if (btnIcon) btnIcon.textContent = '⏸';
+      if (btnText) btnText.textContent = 'Pause';
+
+      const intervalMs = Math.max(250, 1000 / window.cyclonePlaySpeed);
+      window.cyclonePlayTimer = setInterval(() => {
+        const total = window.cycloneCurrentTrack.waypoints.length;
+        window.cycloneCurrentStep++;
+        if (window.cycloneCurrentStep >= total) {
+          window.cycloneCurrentStep = total - 1;
+          pauseCycloneSimulation();
+          return;
+        }
+        renderCycloneStep(window.cycloneCurrentStep);
+      }, intervalMs);
+    }
+
+    function pauseCycloneSimulation() {
+      window.cycloneIsPlaying = false;
+      if (window.cyclonePlayTimer) {
+        clearInterval(window.cyclonePlayTimer);
+        window.cyclonePlayTimer = null;
+      }
+      const btnIcon = document.getElementById('cyclonePlayIcon');
+      const btnText = document.getElementById('cyclonePlayText');
+      if (btnIcon) btnIcon.textContent = '▶';
+      if (btnText) btnText.textContent = 'Play Replay';
+    }
+    window.pauseCycloneSimulation = pauseCycloneSimulation;
+
+    function resetCycloneSimulation() {
+      pauseCycloneSimulation();
+      window.cycloneCurrentStep = 0;
+      if (window.cycloneCurrentTrack) {
+        renderCycloneStep(0);
+      }
+    }
+    window.resetCycloneSimulation = resetCycloneSimulation;
+
+    function setCycloneSpeed(spd, btn) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      window.cyclonePlaySpeed = spd;
+      document.querySelectorAll('.btn-cyclone-speed').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      if (window.cycloneIsPlaying) {
+        pauseCycloneSimulation();
+        startCycloneSimulation();
+      }
+    }
+    window.setCycloneSpeed = setCycloneSpeed;
+
+    function scrubCycloneTrack(val) {
+      if (!window.cycloneCurrentTrack) return;
+      const total = window.cycloneCurrentTrack.waypoints.length;
+      const step = Math.min(total - 1, Math.floor((val / 100) * total));
+      window.cycloneCurrentStep = step;
+      renderCycloneStep(step);
+    }
+    window.scrubCycloneTrack = scrubCycloneTrack;
+
+
+    // =========================================================================
+    // FEATURE B: CMIP6 CLIMATE HORIZON TIME-SLIDER ENGINE
+    // =========================================================================
+    window.cmip6CurrentYear = 2026;
+    window.cmip6ChartInstance = null;
+
+    function setCmip6QuickHorizon(yr, btn) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      document.querySelectorAll('.btn-cmip6-horizon').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const slider = document.getElementById('cmip6YearSlider');
+      if (slider) slider.value = yr;
+      updateCmip6HorizonYear(yr);
+    }
+    window.setCmip6QuickHorizon = setCmip6QuickHorizon;
+
+    function updateCmip6HorizonYear(yr) {
+      window.cmip6CurrentYear = parseInt(yr);
+      const lblYear = document.getElementById('lblCmip6CurrentYear');
+      const lblTag = document.getElementById('lblCmip6CurrentYear');
+      const scenarioTag = document.getElementById('lblCmip6ScenarioTag');
+      if (lblYear) lblYear.textContent = yr;
+
+      if (scenarioTag) {
+        if (yr <= 2028) {
+          scenarioTag.textContent = 'Observed Baseline';
+          scenarioTag.className = 'badge badge-blue';
+        } else if (yr <= 2035) {
+          scenarioTag.textContent = '2030 Near-Term (SSP2-4.5)';
+          scenarioTag.className = 'badge badge-green';
+        } else if (yr <= 2045) {
+          scenarioTag.textContent = '2040 Mid-Century (SSP2-4.5)';
+          scenarioTag.className = 'badge badge-orange';
+        } else {
+          scenarioTag.textContent = '2050 Long-Term Severe (SSP5-8.5)';
+          scenarioTag.className = 'badge badge-red';
+        }
+      }
+
+      // Get current district data
+      const distName = (typeof getSelectedDistrict === 'function' && getSelectedDistrict()?.name) || 'Dhaka';
+      const distProjections = window.DELTA_CMIP6_HORIZONS && window.DELTA_CMIP6_HORIZONS[distName];
+
+      if (distProjections) {
+        // Interpolate metrics between 2026 and 2050
+        const h2030 = distProjections.horizons[2030] || { inun_pct: 35, damage_usd: 85, exposed_pop: 450000, heatwave_temp: 34.2, peak_rain: 180 };
+        const h2040 = distProjections.horizons[2040] || { inun_pct: 42, damage_usd: 125, exposed_pop: 560000, heatwave_temp: 35.8, peak_rain: 210 };
+        const h2050 = distProjections.horizons[2050] || { inun_pct: 54, damage_usd: 195, exposed_pop: 720000, heatwave_temp: 37.9, peak_rain: 260 };
+
+        let inun, damage, pop, heat, rain;
+        if (yr <= 2030) {
+          const t = (yr - 2026) / 4.0;
+          inun = 22.0 + t * (h2030.inun_pct - 22.0);
+          damage = 45.0 + t * (h2030.damage_usd - 45.0);
+          pop = 320000 + t * (h2030.exposed_pop - 320000);
+          heat = 32.5 + t * (h2030.heatwave_temp - 32.5);
+          rain = 150.0 + t * (h2030.peak_rain - 150.0);
+        } else if (yr <= 2040) {
+          const t = (yr - 2030) / 10.0;
+          inun = h2030.inun_pct + t * (h2040.inun_pct - h2030.inun_pct);
+          damage = h2030.damage_usd + t * (h2040.damage_usd - h2030.damage_usd);
+          pop = h2030.exposed_pop + t * (h2040.exposed_pop - h2030.exposed_pop);
+          heat = h2030.heatwave_temp + t * (h2040.heatwave_temp - h2030.heatwave_temp);
+          rain = h2030.peak_rain + t * (h2040.peak_rain - h2030.peak_rain);
+        } else {
+          const t = (yr - 2040) / 10.0;
+          inun = h2040.inun_pct + t * (h2050.inun_pct - h2040.inun_pct);
+          damage = h2040.damage_usd + t * (h2050.damage_usd - h2040.damage_usd);
+          pop = h2040.exposed_pop + t * (h2050.exposed_pop - h2040.exposed_pop);
+          heat = h2040.heatwave_temp + t * (h2050.heatwave_temp - h2040.heatwave_temp);
+          rain = h2040.peak_rain + t * (h2050.peak_rain - h2040.peak_rain);
+        }
+
+        const kpiInun = document.getElementById('cmip6KpiInun');
+        const kpiDamage = document.getElementById('cmip6KpiDamage');
+        const kpiExposed = document.getElementById('cmip6KpiExposed');
+        const kpiHeat = document.getElementById('cmip6KpiHeat');
+        const kpiRain = document.getElementById('cmip6KpiRain');
+
+        if (kpiInun) kpiInun.textContent = `${inun.toFixed(1)}%`;
+        if (kpiDamage) kpiDamage.textContent = `$${damage.toFixed(1)}M`;
+        if (kpiExposed) kpiExposed.textContent = Math.round(pop).toLocaleString();
+        if (kpiHeat) kpiHeat.textContent = `${heat.toFixed(1)}°C`;
+        if (kpiRain) kpiRain.textContent = `Peak Rain: ${rain.toFixed(0)} mm`;
+      }
+
+      renderCmip6HorizonChart(distName);
+    }
+    window.updateCmip6HorizonYear = updateCmip6HorizonYear;
+
+    function renderCmip6HorizonChart(distName) {
+      const canvas = document.getElementById('chartCmip6HorizonTrajectory');
+      if (!canvas || typeof Chart === 'undefined') return;
+
+      const labels = ['2026 Baseline', '2030 Near-Term', '2035 Drift', '2040 Mid-Century', '2045 Severe', '2050 BDP 2100'];
+      const dataInun = [22, 35, 39, 44, 49, 56];
+      const dataDamage = [45, 85, 105, 130, 165, 210];
+
+      if (window.cmip6ChartInstance) {
+        window.cmip6ChartInstance.destroy();
+      }
+
+      const ctx = canvas.getContext('2d');
+      window.cmip6ChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Predicted Inundation (%)',
+              data: dataInun,
+              borderColor: '#00f0ff',
+              backgroundColor: 'rgba(0, 240, 255, 0.12)',
+              fill: true,
+              tension: 0.35,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Projected Economic Damage ($M USD)',
+              data: dataDamage,
+              borderColor: '#f59e0b',
+              backgroundColor: 'transparent',
+              borderDash: [5, 5],
+              tension: 0.35,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#cbd5e1', font: { family: 'Plus Jakarta Sans', size: 11 } } },
+            tooltip: { mode: 'index', intersect: false }
+          },
+          scales: {
+            x: { ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 10 } }, grid: { color: 'rgba(255,255,255,0.06)' } },
+            y: { ticks: { color: '#00f0ff' }, title: { display: true, text: 'Inundation (%)', color: '#00f0ff' }, grid: { color: 'rgba(255,255,255,0.06)' } },
+            y1: { position: 'right', ticks: { color: '#f59e0b' }, title: { display: true, text: 'Damage ($M)', color: '#f59e0b' }, grid: { drawOnChartArea: false } }
+          }
+        }
+      });
+    }
+
+
+    // =========================================================================
+    // FEATURE C: AI VOICE ACOUSTIC BRIEFING (WEB SPEECH SYNTHESIS API)
+    // =========================================================================
+    window.voiceIsSpeaking = false;
+    window.voiceWaveTimer = null;
+
+    function playTacticalRadioChime(onDone) {
+      if (!window.audioCtx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) window.audioCtx = new AudioCtx();
+      }
+      if (!window.audioCtx) {
+        if (onDone) onDone();
+        return;
+      }
+      if (window.audioCtx.state === 'suspended') {
+        window.audioCtx.resume();
+      }
+
+      const ctx = window.audioCtx;
+      const now = ctx.currentTime;
+      try {
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(880, now);
+        osc1.frequency.setValueAtTime(1760, now + 0.12);
+
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.28);
+
+        osc1.connect(gain);
+        gain.connect(ctx.destination);
+        osc1.start(now);
+        osc1.stop(now + 0.28);
+
+        setTimeout(() => {
+          if (onDone) onDone();
+        }, 320);
+      } catch (e) {
+        if (onDone) onDone();
+      }
+    }
+
+    function toggleVoiceSitRep() {
+      if (window.voiceIsSpeaking) {
+        stopVoiceSitRep();
+      } else {
+        startVoiceSitRep();
+      }
+    }
+    window.toggleVoiceSitRep = toggleVoiceSitRep;
+
+    function startVoiceSitRep() {
+      if (!('speechSynthesis' in window)) {
+        alert("Web Speech Synthesis API is not supported on this browser.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      const dist = (typeof getSelectedDistrict === 'function' && getSelectedDistrict()) || { name: 'Dhaka', division: 'Dhaka', temp: 31.8, zone: 'Active Floodplain' };
+
+      const isBn = window.currentLanguage === 'bn';
+      const textEn = `Attention DeltaShield Command. Situation report for ${dist.name} District, ${dist.division} Division. Surface temperature is ${dist.temp} degrees Celsius, located in the ${dist.zone}. Hydrological inundation probability is currently elevated. High water warnings are active along vulnerable river corridors. Mandatory safety precautions are advised for low lying settlements. Verified by automated DeltaShield Intelligence Engine.`;
+      const textBn = `ডেল্টাশিল্ড কমান্ড দৃষ্টি আকর্ষণ। ${dist.name} জেলা, ${dist.division} বিভাগের পরিস্থিতি প্রতিবেদন। বর্তমান তাপমাত্রা ${dist.temp} ডিগ্রি সেলসিয়াস। জেলাটি ${dist.zone} অঞ্চলে অবস্থিত। নদী তীরবর্তী নিম্নাঞ্চলে দুর্যোগ সতর্কতা বহাল রয়েছে। সাধারণ জনগণকে আশ্রয়কেন্দ্রে সরে যাওয়ার নির্দেশ দেয়া হয়েছে।`;
+
+      const speechText = isBn ? textBn : textEn;
+
+      // Play tactical chime then speak
+      playTacticalRadioChime(() => {
+        const utter = new SpeechSynthesisUtterance(speechText);
+        utter.rate = isBn ? 0.95 : 1.05;
+        utter.pitch = 1.0;
+
+        // Choose appropriate voice
+        const voices = window.speechSynthesis.getVoices();
+        if (isBn) {
+          const bnVoice = voices.find(v => v.lang.startsWith('bn'));
+          if (bnVoice) utter.voice = bnVoice;
+        } else {
+          const enVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('David')));
+          if (enVoice) utter.voice = enVoice;
+        }
+
+        utter.onstart = () => {
+          window.voiceIsSpeaking = true;
+          showVoiceBriefingHud(speechText);
+        };
+        utter.onend = () => {
+          stopVoiceSitRep();
+        };
+        utter.onerror = () => {
+          stopVoiceSitRep();
+        };
+
+        window.speechSynthesis.speak(utter);
+      });
+    }
+
+    function showVoiceBriefingHud(snippet) {
+      const hud = document.getElementById('voiceBriefingHud');
+      const textEl = document.getElementById('voiceBriefingTextSnippet');
+      const waveEl = document.getElementById('voiceWaveAnimation');
+      const btnIcon = document.getElementById('voiceSitRepIcon');
+      const btnText = document.getElementById('voiceSitRepText');
+
+      if (hud) hud.style.display = 'block';
+      if (textEl) textEl.textContent = snippet;
+      if (btnIcon) btnIcon.textContent = '⏹';
+      if (btnText) btnText.textContent = 'Stop Voice';
+
+      const waves = ['| | | | | | | | | |', '|| || || || ||', '||||||||||||||||', '| | | | | | | |'];
+      let waveIdx = 0;
+      window.voiceWaveTimer = setInterval(() => {
+        waveIdx = (waveIdx + 1) % waves.length;
+        if (waveEl) waveEl.textContent = waves[waveIdx];
+      }, 200);
+    }
+
+    function toggleVoicePauseResume() {
+      if (!window.speechSynthesis) return;
+      const btn = document.getElementById('btnVoicePauseResume');
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+        if (btn) btn.textContent = '⏸ Pause';
+      } else {
+        window.speechSynthesis.pause();
+        if (btn) btn.textContent = '▶ Resume';
+      }
+    }
+    window.toggleVoicePauseResume = toggleVoicePauseResume;
+
+    function stopVoiceSitRep() {
+      window.voiceIsSpeaking = false;
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      if (window.voiceWaveTimer) {
+        clearInterval(window.voiceWaveTimer);
+        window.voiceWaveTimer = null;
+      }
+
+      const hud = document.getElementById('voiceBriefingHud');
+      const btnIcon = document.getElementById('voiceSitRepIcon');
+      const btnText = document.getElementById('voiceSitRepText');
+      if (hud) hud.style.display = 'none';
+      if (btnIcon) btnIcon.textContent = '🎙️';
+      if (btnText) btnText.textContent = 'Voice SitRep';
+    }
+    window.stopVoiceSitRep = stopVoiceSitRep;
+
+
+    // =========================================================================
+    // FEATURE D: BANGLA / ENGLISH [EN / বাংলা] DUAL-LANGUAGE SWITCHER
+    // =========================================================================
+    window.currentLanguage = localStorage.getItem('deltashield_lang') || 'en';
+
+    function toggleLanguage() {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      window.currentLanguage = window.currentLanguage === 'en' ? 'bn' : 'en';
+      localStorage.setItem('deltashield_lang', window.currentLanguage);
+      applyLanguage(window.currentLanguage);
+    }
+    window.toggleLanguage = toggleLanguage;
+
+    function applyLanguage(lang) {
+      if (!window.DELTA_I18N || !window.DELTA_I18N[lang]) return;
+      const t = window.DELTA_I18N[lang];
+
+      // Update Toggle Button Text
+      const langText = document.getElementById('langText');
+      if (langText) langText.textContent = lang === 'en' ? 'বাংলা' : 'English';
+
+      // Update data-i18n tagged elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+
+      // Update Brand Title
+      const brandMain = document.querySelector('.brand-title-main');
+      const brandTag = document.querySelector('.brand-tag-defense');
+      if (brandMain && t.brand_title) brandMain.textContent = t.brand_title;
+      if (brandTag && t.brand_subtitle) brandTag.textContent = t.brand_subtitle;
+
+      // Update Sidebar Tabs
+      const sidebarMapping = {
+        'sbtn-tabMap': t.tab_map,
+        'sbtn-tabAlerts': t.tab_alerts,
+        'sbtn-tabHeritage': t.tab_heritage,
+        'sbtn-tabWeather': t.tab_weather,
+        'sbtn-tabAgro': t.tab_agro,
+        'sbtn-tabEvac': t.tab_evac,
+        'sbtn-tabClima': t.tab_clima,
+        'sbtn-tabSim': t.tab_sim,
+        'sbtn-tabHealth': t.tab_health,
+        'sbtn-tabGrid': t.tab_grid,
+        'sbtn-tabErosion': t.tab_erosion,
+        'sbtn-tabSupply': t.tab_supply,
+        'sbtn-tabUssd': t.tab_ussd,
+        'sbtn-tabBot': t.tab_bot,
+        'sbtn-tabSitrep': t.tab_sitrep
+      };
+
+      Object.entries(sidebarMapping).forEach(([btnId, text]) => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          const lbl = btn.querySelector('.sidebar-tab-label');
+          if (lbl && text) lbl.textContent = text;
+        }
+      });
+    }
+    window.applyLanguage = applyLanguage;
+
+    // Initialize saved language or default to English
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof applyLanguage === 'function' && window.currentLanguage) {
+        applyLanguage(window.currentLanguage);
+      }
+    });
+
+
+
+    // =========================================================================
+    // FEATURE E: DISASTER RELIEF MINISTER BUDGET ALLOCATION SANDBOX ENGINE
+    // =========================================================================
+    window.ministerialRadarChart = null;
+
+    function initMinisterialSandbox() {
+      recalcMinisterialBudget();
+    }
+
+    function setMinisterialPreset(preset, btn) {
+      if (typeof playTacticalSound === 'function') playTacticalSound('click');
+      document.querySelectorAll('.btn-pres-preset').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const sEmbank = document.getElementById('sliderAllocEmbankment');
+      const sShelter = document.getElementById('sliderAllocShelter');
+      const sInsur = document.getElementById('sliderAllocInsurance');
+      const sHealth = document.getElementById('sliderAllocHealth');
+      const sTech = document.getElementById('sliderAllocTech');
+
+      if (preset === 'balanced') {
+        if (sEmbank) sEmbank.value = 140;
+        if (sShelter) sShelter.value = 110;
+        if (sInsur) sInsur.value = 100;
+        if (sHealth) sHealth.value = 80;
+        if (sTech) sTech.value = 70;
+      } else if (preset === 'agro') {
+        if (sEmbank) sEmbank.value = 80;
+        if (sShelter) sShelter.value = 60;
+        if (sInsur) sInsur.value = 220;
+        if (sHealth) sHealth.value = 60;
+        if (sTech) sTech.value = 80;
+      } else if (preset === 'coastal') {
+        if (sEmbank) sEmbank.value = 210;
+        if (sShelter) sShelter.value = 150;
+        if (sInsur) sInsur.value = 50;
+        if (sHealth) sHealth.value = 40;
+        if (sTech) sTech.value = 50;
+      } else if (preset === 'health') {
+        if (sEmbank) sEmbank.value = 70;
+        if (sShelter) sShelter.value = 110;
+        if (sInsur) sInsur.value = 60;
+        if (sHealth) sHealth.value = 190;
+        if (sTech) sTech.value = 70;
+      }
+
+      recalcMinisterialBudget();
+    }
+    window.setMinisterialPreset = setMinisterialPreset;
+
+    function recalcMinisterialBudget() {
+      const sEmbank = parseInt(document.getElementById('sliderAllocEmbankment')?.value || 140);
+      const sShelter = parseInt(document.getElementById('sliderAllocShelter')?.value || 110);
+      const sInsur = parseInt(document.getElementById('sliderAllocInsurance')?.value || 100);
+      const sHealth = parseInt(document.getElementById('sliderAllocHealth')?.value || 80);
+      const sTech = parseInt(document.getElementById('sliderAllocTech')?.value || 70);
+
+      // Update slider value labels
+      const lEmbank = document.getElementById('lblAllocEmbankment');
+      const lShelter = document.getElementById('lblAllocShelter');
+      const lInsur = document.getElementById('lblAllocInsurance');
+      const lHealth = document.getElementById('lblAllocHealth');
+      const lTech = document.getElementById('lblAllocTech');
+
+      if (lEmbank) lEmbank.textContent = `৳${sEmbank} Cr`;
+      if (lShelter) lShelter.textContent = `৳${sShelter} Cr`;
+      if (lInsur) lInsur.textContent = `৳${sInsur} Cr`;
+      if (lHealth) lHealth.textContent = `৳${sHealth} Cr`;
+      if (lTech) lTech.textContent = `৳${sTech} Cr`;
+
+      const totalAllocated = sEmbank + sShelter + sInsur + sHealth + sTech;
+      const remaining = 500 - totalAllocated;
+
+      const lblRem = document.getElementById('lblMinisterialRemaining');
+      if (lblRem) {
+        lblRem.textContent = `৳${remaining} Cr`;
+        lblRem.style.color = remaining === 0 ? '#34d399' : (remaining > 0 ? '#00f0ff' : '#ef4444');
+      }
+
+      // Calculate Impacts
+      const livesSaved = Math.round(sShelter * 240 + sHealth * 180 + sTech * 75);
+      const capitalSaved = Math.round(sEmbank * 11.5 + sShelter * 5.2 + sInsur * 4.8);
+      const cropsSaved = Math.round(sInsur * 1450 + sEmbank * 420);
+
+      const outLives = document.getElementById('outMinisterialLives');
+      const outCapital = document.getElementById('outMinisterialCapital');
+      const outCrops = document.getElementById('outMinisterialCrops');
+
+      if (outLives) outLives.textContent = livesSaved.toLocaleString();
+      if (outCapital) outCapital.textContent = `৳${capitalSaved.toLocaleString()} Cr`;
+      if (outCrops) outCrops.textContent = `${Math.round(cropsSaved / 1000)}k ha`;
+
+      // Calculate BDP 2100 Grade
+      const badge = document.getElementById('lblMinisterialGradeBadge');
+      if (badge) {
+        if (remaining === 0 && sEmbank >= 100 && sShelter >= 80 && sInsur >= 70) {
+          badge.textContent = '🏆 BDP 2100 GRADE: A+ (OPTIMAL ALLOCATION)';
+          badge.className = 'badge badge-green';
+        } else if (remaining >= 0 && remaining <= 40) {
+          badge.textContent = '⭐ BDP 2100 GRADE: A (HIGHLY EFFECTIVE)';
+          badge.className = 'badge badge-blue';
+        } else if (remaining < 0) {
+          badge.textContent = '⚠️ OVER-BUDGET DEFICIT (REDUCE ALLOCATIONS)';
+          badge.className = 'badge badge-red';
+        } else {
+          badge.textContent = '📊 BDP 2100 GRADE: B (SUB-OPTIMAL CAPITAL USE)';
+          badge.className = 'badge badge-orange';
+        }
+      }
+
+      renderMinisterialRadarChart(sEmbank, sShelter, sInsur, sHealth, sTech);
+    }
+    window.recalcMinisterialBudget = recalcMinisterialBudget;
+
+    function renderMinisterialRadarChart(embank, shelter, insur, health, tech) {
+      const canvas = document.getElementById('chartMinisterialAllocationRadar');
+      if (!canvas || typeof Chart === 'undefined') return;
+
+      if (window.ministerialRadarChart) {
+        window.ministerialRadarChart.destroy();
+      }
+
+      const baseline = [30, 25, 20, 25, 30];
+      const funded = [
+        Math.min(100, Math.round(30 + (embank / 200) * 65)),
+        Math.min(100, Math.round(25 + (shelter / 180) * 70)),
+        Math.min(100, Math.round(20 + (insur / 180) * 75)),
+        Math.min(100, Math.round(25 + (health / 180) * 70)),
+        Math.min(100, Math.round(30 + (tech / 150) * 65))
+      ];
+
+      const ctx = canvas.getContext('2d');
+      window.ministerialRadarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Embankments', 'Flood Shelters', 'Crop Insurance', 'Mobile Health', 'IoT Early Warning'],
+          datasets: [
+            {
+              label: 'Unmitigated Baseline',
+              data: baseline,
+              borderColor: 'rgba(239, 68, 68, 0.6)',
+              backgroundColor: 'rgba(239, 68, 68, 0.12)',
+              borderDash: [4, 4]
+            },
+            {
+              label: 'Funded Protected State',
+              data: funded,
+              borderColor: '#10b981',
+              backgroundColor: 'rgba(16, 185, 129, 0.28)',
+              pointBackgroundColor: '#00f0ff',
+              pointBorderColor: '#fff'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#cbd5e1', font: { family: 'Plus Jakarta Sans', size: 10 } } }
+          },
+          scales: {
+            r: {
+              angleLines: { color: 'rgba(255,255,255,0.08)' },
+              grid: { color: 'rgba(255,255,255,0.08)' },
+              pointLabels: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans', size: 10, weight: 'bold' } },
+              ticks: { display: false, min: 0, max: 100 }
+            }
+          }
+        }
+      });
+    }
+
 
     // =========================================================================
     // LAPTOP FULLSCREEN CONTROLLER ENGINE
@@ -7672,6 +8740,34 @@
 
       <div style="padding:8px 0; max-height:360px; overflow-y:auto;" id="cmdPaletteResults">
         <!-- Filtered items populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FLOATING VOICE BRIEFING HUD BAR [Feature C] -->
+  <div id="voiceBriefingHud" style="display:none; position:fixed; bottom:70px; right:20px; z-index:1003; background:rgba(15, 23, 42, 0.95); backdrop-filter:blur(20px); border:1px solid #f59e0b; border-radius:12px; padding:12px 18px; box-shadow:0 12px 35px rgba(0,0,0,0.8), 0 0 20px rgba(245, 158, 11, 0.35); max-width:380px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span class="pulse-indicator" style="background:#f59e0b; box-shadow:0 0 10px #f59e0b;"></span>
+        <strong style="font-size:0.82rem; color:#fbbf24;">TACTICAL VOICE SITREP BRIEFING</strong>
+      </div>
+      <button onclick="stopVoiceSitRep()" style="background:transparent; border:none; color:#94a3b8; font-size:1.1rem; cursor:pointer; line-height:1;">&times;</button>
+    </div>
+    <div id="voiceBriefingTextSnippet" style="font-size:0.75rem; color:#cbd5e1; max-height:48px; overflow:hidden; text-overflow:ellipsis; line-height:1.3; margin-bottom:8px;">
+      Broadcasting tactical assessment...
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <button class="btn-action-sm" id="btnVoicePauseResume" onclick="toggleVoicePauseResume()" style="padding:3px 10px; font-size:0.72rem; background:#1e293b; color:#fff; border:1px solid #475569;">
+          ⏸ Pause
+        </button>
+        <button class="btn-action-sm" onclick="stopVoiceSitRep()" style="padding:3px 10px; font-size:0.72rem; background:#991b1b; color:#fff; border:1px solid #ef4444;">
+          ⏹ Stop
+        </button>
+      </div>
+      <div style="font-size:0.72rem; color:#fbbf24; font-family:'JetBrains Mono',monospace;" id="voiceWaveAnimation">
+        ||||||||||||||||
       </div>
     </div>
   </div>
