@@ -1,4 +1,4 @@
-# 🛡️ DeltaShield™: Unified National Climate Risk & Urban Flood Intelligence Platform
+# 🛡️ BanglaShield™: Unified National Climate Risk & Urban Flood Intelligence Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Operational%20v4.2-10b981?style=for-the-badge&logo=radar" alt="Status" />
@@ -13,7 +13,7 @@
 
 ## 📖 Executive Summary
 
-**DeltaShield™** is an institutional-grade, multi-hazard climate intelligence and operational decision-support platform engineered for Bangladesh. 
+**BanglaShield™** is an institutional-grade, multi-hazard climate intelligence and operational decision-support platform engineered for Bangladesh. 
 
 Grounded in **49 geospatial layers** (Copernicus DEM 30m, JRC Global Surface Water, JAXA ALOS-2 SAR, NASA EarthData, HOTOSM road networks, BBS national census figures, and 2030–2050 CMIP6 climate projection scenarios), the platform fuses multi-spectral satellite thermal scanning, hydrodynamic flood models, and machine learning into an interactive civil defense command suite.
 
@@ -21,13 +21,13 @@ Grounded in **49 geospatial layers** (Copernicus DEM 30m, JRC Global Surface Wat
 
 ## 🌐 Instant Web Access & GitHub Pages Hosting
 
-DeltaShield is designed with zero mandatory server dependencies—the frontend runs entirely on modern client-side standards (HTML5 Canvas, Vanilla CSS3, Leaflet GIS, and Chart.js).
+BanglaShield is designed with zero mandatory server dependencies—the frontend runs entirely on modern client-side standards (HTML5 Canvas, Vanilla CSS3, Leaflet GIS, and Chart.js).
 
 ### Host Directly on GitHub Pages (1-Click Deployment)
 1. Fork or push this repository to GitHub.
 2. Go to **Settings** → **Pages**.
 3. Under **Build and deployment** > **Source**, choose **GitHub Actions** (or select **Deploy from a branch** → Branch: `main` / Folder: `/ (root)`).
-4. DeltaShield will immediately be accessible live at:
+4. BanglaShield will immediately be accessible live at:
    ```
    https://<your-username>.github.io/<your-repo-name>/
    ```
@@ -77,7 +77,7 @@ flowchart TD
         B4[Network Graph Island Isolation Engine]
     end
 
-    subgraph Operations["🛡️ DeltaShield Defense Operations"]
+    subgraph Operations["🛡️ BanglaShield Defense Operations"]
         C1[Unified Master Command Center]
         C2[Real-Time Cell Broadcast & Phone Dispatch]
         C3[MFS Parametric Payout Hub]
@@ -124,7 +124,7 @@ Open **[http://localhost:8000](http://localhost:8000)** (or the root launcher at
 
 ## 💻 Command Line Interface (CLI)
 
-DeltaShield includes a comprehensive CLI for headless servers, automation pipelines, and terminal operations:
+BanglaShield includes a comprehensive CLI for headless servers, automation pipelines, and terminal operations:
 
 ```bash
 # Run complete 11-pillar assessment for a district
@@ -209,11 +209,11 @@ climate-risk-urban-flood-intelligence/
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-If you utilize DeltaShield in academic research, disaster risk reduction (DRR) initiatives, or civil infrastructure planning, please cite:
+If you utilize BanglaShield in academic research, disaster risk reduction (DRR) initiatives, or civil infrastructure planning, please cite:
 
 ```bibtex
-@article{fahim2026deltashield,
-  title={DeltaShield: Unified National Climate Risk & Urban Flood Intelligence Platform for Bangladesh},
+@article{fahim2026banglashield,
+  title={BanglaShield: Unified National Climate Risk & Urban Flood Intelligence Platform for Bangladesh},
   author={Fahim, Readuanul Farid},
   journal={Department of Computer Science & Engineering, North South University},
   year={2026},

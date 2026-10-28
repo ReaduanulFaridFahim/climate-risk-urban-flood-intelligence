@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DeltaShield Unified Command Hub: Mission-critical climate intelligence, multi-hazard forecasting, real-time GPS tracking and national decision sandbox.">
+  <meta name="description" content="BanglaShield Unified Command Hub: Mission-critical climate intelligence, multi-hazard forecasting, real-time GPS tracking and national decision sandbox.">
 
-  <title>DeltaShield: Bangladesh Unified Climate & Multi-Sector Decision Suite</title>
+  <title>BanglaShield: Bangladesh Unified Climate & Multi-Sector Decision Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -659,7 +659,7 @@
   
 
   /* =========================================================================
-     DELTASHIELD™ SUITE LAUNCHER MODAL STYLES
+     BANGLASHIELD™ SUITE LAUNCHER MODAL STYLES
      ========================================================================= */
   .suite-modal-overlay {
     position: fixed;
@@ -1075,7 +1075,7 @@
         <div class="brand-wrap-sidebar">
           <div class="brand-icon-shield">🛡️</div>
           <div class="brand-title-text">
-            <span class="brand-title-main">DeltaShield™</span>
+            <span class="brand-title-main">BanglaShield™</span>
             <span class="brand-tag-defense">Defense AI Suite</span>
           </div>
         </div>
@@ -3454,7 +3454,7 @@
 
       <div class="chat-box" id="chatBox">
         <div class="chat-msg chat-msg-bot">
-          <strong>DeltaBot:</strong> Greetings. I am your DeltaShield AI Climate Copilot. How may I assist your disaster operations today? You can select any question chip below or type custom queries.
+          <strong>DeltaBot:</strong> Greetings. I am your BanglaShield AI Climate Copilot. How may I assist your disaster operations today? You can select any question chip below or type custom queries.
         </div>
       </div>
 
@@ -3673,7 +3673,7 @@
         </div>
 
         <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:#64748b; border-top:1px solid #cbd5e1; padding-top:8px;">
-          <span>Automated DeltaShield Intelligence Engine</span>
+          <span>Automated BanglaShield Intelligence Engine</span>
           <span>Verified against BBS 2022 Census & Copernicus DEM 30m</span>
         </div>
       </div>
@@ -4524,8 +4524,8 @@
       const dist = (typeof getSelectedDistrict === 'function' && getSelectedDistrict()) || { name: 'Dhaka', division: 'Dhaka', temp: 31.8, zone: 'Active Floodplain' };
 
       const isBn = window.currentLanguage === 'bn';
-      const textEn = `Attention DeltaShield Command. Situation report for ${dist.name} District, ${dist.division} Division. Surface temperature is ${dist.temp} degrees Celsius, located in the ${dist.zone}. Hydrological inundation probability is currently elevated. High water warnings are active along vulnerable river corridors. Mandatory safety precautions are advised for low lying settlements. Verified by automated DeltaShield Intelligence Engine.`;
-      const textBn = `ডেল্টাশিল্ড কমান্ড দৃষ্টি আকর্ষণ। ${dist.name} জেলা, ${dist.division} বিভাগের পরিস্থিতি প্রতিবেদন। বর্তমান তাপমাত্রা ${dist.temp} ডিগ্রি সেলসিয়াস। জেলাটি ${dist.zone} অঞ্চলে অবস্থিত। নদী তীরবর্তী নিম্নাঞ্চলে দুর্যোগ সতর্কতা বহাল রয়েছে। সাধারণ জনগণকে আশ্রয়কেন্দ্রে সরে যাওয়ার নির্দেশ দেয়া হয়েছে।`;
+      const textEn = `Attention BanglaShield Command. Situation report for ${dist.name} District, ${dist.division} Division. Surface temperature is ${dist.temp} degrees Celsius, located in the ${dist.zone}. Hydrological inundation probability is currently elevated. High water warnings are active along vulnerable river corridors. Mandatory safety precautions are advised for low lying settlements. Verified by automated DeltaShield Intelligence Engine.`;
+      const textBn = `বাংলাশিল্ড কমান্ড দৃষ্টি আকর্ষণ। ${dist.name} জেলা, ${dist.division} বিভাগের পরিস্থিতি প্রতিবেদন। বর্তমান তাপমাত্রা ${dist.temp} ডিগ্রি সেলসিয়াস। জেলাটি ${dist.zone} অঞ্চলে অবস্থিত। নদী তীরবর্তী নিম্নাঞ্চলে দুর্যোগ সতর্কতা বহাল রয়েছে। সাধারণ জনগণকে আশ্রয়কেন্দ্রে সরে যাওয়ার নির্দেশ দেয়া হয়েছে।`;
 
       const speechText = isBn ? textBn : textEn;
 
@@ -4614,12 +4614,12 @@
     // =========================================================================
     // FEATURE D: BANGLA / ENGLISH [EN / বাংলা] DUAL-LANGUAGE SWITCHER
     // =========================================================================
-    window.currentLanguage = localStorage.getItem('deltashield_lang') || 'en';
+    window.currentLanguage = localStorage.getItem('banglashield_lang') || localStorage.getItem('deltashield_lang') || 'en';
 
     function toggleLanguage() {
       if (typeof playTacticalSound === 'function') playTacticalSound('click');
       window.currentLanguage = window.currentLanguage === 'en' ? 'bn' : 'en';
-      localStorage.setItem('deltashield_lang', window.currentLanguage);
+      localStorage.setItem('banglashield_lang', window.currentLanguage);
       applyLanguage(window.currentLanguage);
     }
     window.toggleLanguage = toggleLanguage;
@@ -5037,7 +5037,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'deltashield_64_districts_intelligence.json';
+      a.download = 'banglashield_64_districts_intelligence.json';
       a.click();
     }
 
@@ -5055,7 +5055,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'deltashield_64_districts_intelligence.csv';
+      a.download = 'banglashield_64_districts_intelligence.csv';
       a.click();
     }
 
@@ -6697,7 +6697,7 @@
       if (ussdInputBuffer === '*1090#' || ussdInputBuffer === '1090') {
         ussdState = 'MENU';
         document.getElementById('ussdScreenContent').innerHTML = `
-          <strong>DELTASHIELD *1090#</strong><br>
+          <strong>BANGLASHIELD *1090#</strong><br>
           1. Flood Alert<br>
           2. Nearest Shelter<br>
           3. Crop Payout Status<br>
@@ -6815,7 +6815,7 @@
         const dist = getSelectedDistrict();
       if (typeof updateDistrictHeritageSpotlight === 'function' && dist) { updateDistrictHeritageSpotlight(dist.name); }
       if (typeof updateSidebarDistrictBadge === 'function' && dist) { updateSidebarDistrictBadge(dist.name, dist.temp, dist.zone); }
-        reply = `🛡️ <strong>DeltaShield Intelligence for ${dist.name}:</strong> Active alert tier is [${dist.alert_tier||'RED'}]. Current weather: ${dist.temp}°C, humidity ${dist.humidity}%. Elevation: ${dist.elev}m AMSL. Designated haven: ${dist.shelter_name||'Central Flood Refuge'}. Evacuation directive: ${dist.english_alert||'Stay on elevated embankments.'}`;
+        reply = `🛡️ <strong>BanglaShield Intelligence for ${dist.name}:</strong> Active alert tier is [${dist.alert_tier||'RED'}]. Current weather: ${dist.temp}°C, humidity ${dist.humidity}%. Elevation: ${dist.elev}m AMSL. Designated haven: ${dist.shelter_name||'Central Flood Refuge'}. Evacuation directive: ${dist.english_alert||'Stay on elevated embankments.'}`;
       }
 
       div.innerHTML = `<strong>DeltaBot:</strong> ` + reply;
@@ -8084,7 +8084,7 @@
 
 
     // =========================================================================
-    // DELTASHIELD™ SUITE LAUNCHER MODAL CONTROLLER
+    // BANGLASHIELD™ SUITE LAUNCHER MODAL CONTROLLER
     // =========================================================================
     function openSuiteLauncherModal() {
       const modal = document.getElementById('suiteLauncherModal');
@@ -8932,7 +8932,7 @@
       const usd = document.getElementById('hdxTotalUsd')?.innerText || '';
 
       const manifesto = {
-        title: "DeltaShield UN HDX Emergency Relief Crisis Budget",
+        title: "BanglaShield UN HDX Emergency Relief Crisis Budget",
         timestamp: new Date().toISOString(),
         district: distName,
         framework: "UN OCHA, WFP & Sphere Standards 2026",
@@ -8943,7 +8943,7 @@
       const blob = new Blob([JSON.stringify(manifesto, null, 2)], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = `DeltaShield_Humanitarian_Relief_${distName}.json`;
+      a.download = `BanglaShield_Humanitarian_Relief_${distName}.json`;
       a.click();
     }
 
@@ -9000,7 +9000,7 @@
 
 
   <!-- =========================================================================
-       DELTASHIELD™ 16-PILLAR DEFENSE INTELLIGENCE SUITE LAUNCHER MODAL
+       BANGLASHIELD™ 16-PILLAR DEFENSE INTELLIGENCE SUITE LAUNCHER MODAL
        ========================================================================= -->
   <div class="suite-modal-overlay" id="suiteLauncherModal" onclick="handleSuiteOverlayClick(event)">
     <div class="suite-modal-box">
@@ -9013,7 +9013,7 @@
           <div style="display:flex; align-items:center; gap:10px;">
             <span style="font-size:1.4rem;">⊞</span>
             <span style="font-size:1.25rem; font-weight:800; color:#ffffff; letter-spacing:-0.01em;">
-              DeltaShield™ 16-Pillar Defense Intelligence Suite
+              BanglaShield™ 16-Pillar Defense Intelligence Suite
             </span>
             <span class="badge badge-blue" style="font-size:0.75rem;">16 Portals Online</span>
           </div>
@@ -9309,7 +9309,7 @@
       <!-- Modal Footer -->
       <div style="padding:12px 24px; background:rgba(6, 10, 22, 0.95); border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:#94a3b8;">
         <div>
-          <span>🛡️ DeltaShield™ Enterprise Architecture · Bangladesh Delta Plan 2100</span>
+          <span>🛡️ BanglaShield™ Enterprise Architecture · Bangladesh Delta Plan 2100</span>
         </div>
         <div style="display:flex; gap:16px;">
           <span style="color:#34d399;">● All 16 Subsystems Active</span>
