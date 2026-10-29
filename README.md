@@ -20,9 +20,10 @@
 
 <p align="center">
   <a href="https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/index.html"><strong>🌐 Launch Command Hub</strong></a> •
+  <a href="https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/transboundary_rivers.html"><strong>🌊 Transboundary Hydrographs</strong></a> •
   <a href="https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/map_gps.html"><strong>🗺️ Tactical GIS Map</strong></a> •
   <a href="https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/deltabot.html"><strong>🤖 DeltaBot AI</strong></a> •
-  <a href="https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/executive_sitrep.html"><strong>📋 Executive SitRep</strong></a> •
+  <a href="https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/user_manual_video.html"><strong>🎥 Video Manual</strong></a> •
   <a href="#-quickstart-guide"><strong>⚡ Quickstart</strong></a>
 </p>
 
@@ -36,6 +37,7 @@ Fusing **49 geospatial layers** (Copernicus DEM 30m, JRC 40-Year Global Surface 
 
 ### 🌟 Key Breakthrough Capabilities (v6.0)
 
+* 🌊 **Transboundary River Hydrograph & Upstream Dam Release Predictor**: Real-time hydrological tracking across Bangladesh's **54 transboundary rivers** shared with India and Myanmar. Integrates upstream cloudburst precipitation radar (Cherrapunji, Tripura, Assam, Sikkim) with upstream dam telemetry (**Dumbur Hydroelectric Dam, Gajoldoba Barrage, Farakka Barrage**), modeling hydraulic lag lead times (4.2h to 8.5h) to predict downstream flash surge crests before floodwaters cross the border into Feni, Cumilla, Sylhet, and Kurigram.
 * 🏔️ **Nationwide 3D Digital Elevation & Dynamic Inundation Sandbox**: High-precision interactive water-level rise simulation (`0.0m` to `+10.0m`) driven by NASA SRTM 30m digital elevation data, calculating live national submerged land area (`km²`), submerged districts count, exposed population, and economic damage ($B USD).
 * 🌪️ **Bay of Bengal Animated Wind Particle Streamline Engine (Windy-Style)**: Hardware-accelerated HTML5 Canvas vector streamline engine visualizing live monsoon flow and coupling with NOAA IBTrACS cyclone trajectories (*Amphan, Sidr, Mocha, Remal, Aila*) into dynamic, rotating cyclonic vortex fields.
 * 🏛️ **Modern GovTech / UN OCHA Clean Enterprise Architecture**: Dark slate obsidian canvas (`#060a14`), high-contrast frosted glassmorphism, responsive laptop/mobile layout, and instant district focus switcher.
@@ -58,26 +60,28 @@ BanglaShield runs entirely on modern client-side standards with **zero mandatory
 
 ---
 
-## 🏛️ The 16 Specialized Defense Suites
+## 🏛️ The 18 Specialized Defense Suites
 
 | # | Pillar / Application | Live Demo Link | Core Operational Capability | Target Stakeholder |
 | :-: | :--- | :--- | :--- | :--- |
-| **01** | **🏔️ 3D Inundation Sandbox** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/index.html) | NASA SRTM 30m digital elevation slicer simulating sea/river surge penetration. | Planning Commission, BWDB |
-| **02** | **🌪️ Wind Vector Engine** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/index.html) | Animated wind streamlines with NOAA IBTrACS cyclone vortex simulation. | BMD, Disaster Relief Teams |
-| **03** | **🛰️ Weather AI & Satellite** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/weather_ai.html) | Meteosat-9/Himawari-9 10.4µm IR thermal radar, Doppler cloud vector, and 20D/60D AI. | BMD, Civil Aviation, Navy |
-| **04** | **🚨 Disaster Alerts & Siren** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/disaster_alerts.html) | Acoustic sirens, automated telephone voice calls, and SMS Cell Broadcast (CBS-4370). | MoDMR, Red Crescent, Media |
-| **05** | **🌾 AgroClaim Insurance** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/agroclaim.html) | Sentinel-1 SAR crop submersion detection and instant bKash/Nagad parametric payouts. | MFS (bKash/Nagad), Insurers |
-| **06** | **🏛️ 64-District Directory** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/district_heritage.html) | Comprehensive dossiers on BWDB embankments, heritage landmarks, and cyclone shelters. | Local Govt, Archeology Dept |
-| **07** | **📋 Executive SitRep** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/executive_sitrep.html) | Official Cabinet Disaster Situation Report with live river basin alerts and PDF export. | Prime Minister's Office, Cabinet |
-| **08** | **🤖 DeltaBot AI Copilot** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/deltabot.html) | Bilingual (English/Bangla) natural language copilot with localized emergency instructions. | Citizens, Volunteers |
-| **09** | **🗺️ GIS Tactical GPS Map** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/map_gps.html) | High-precision Leaflet map with 64 district stations, radar sweeps, and GPS tracking. | Emergency Operations Center |
-| **10** | **🎮 DeltaSim Sandbox** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/deltasim.html) | Multi-decadal budget allocation simulator optimizing lives saved and damage prevented. | World Bank, ADB, BDP 2100 |
-| **11** | **🌊 Riverbank Erosion** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/riverbank_erosion.html) | Morphological tracking for Jamuna, Padma, and Meghna collapses and char displacement. | BWDB, Relocation NGOs |
-| **12** | **⚡ Power Grid Resilience** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/grid_resilience.html) | 132kV/230kV substation flood water ingress monitoring and BTS cell tower failure %. | BPDB, PGCB, Telecoms |
-| **13** | **🏥 Epidemic Surveillance** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/health_epidemic.html) | Predictive epidemiology for waterborne diseases (Cholera, Dengue) and medical logistics. | DGHS, WHO, Civil Surgeons |
-| **14** | **🚑 Evacuation Logistics** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/evacroute.html) | Non-inundated arterial highway route computation, rescue boat paths, and shelter capacities. | Highway Police, Fire Service |
-| **15** | **📱 Rural Offline USSD** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/ussd_phone.html) | Interactive 2G feature-phone simulator (`*999#`) for offline emergency relief requests. | Rural Communities, BTRC |
-| **16** | **🏢 Real Estate ESG Risk** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/climadeval.html) | 30-year physical climate risk depreciation haircuts and banking mortgage stress tests. | Central Bank, Commercial Banks |
+| **01** | **🌊 Transboundary Hydro & Dams** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/transboundary_rivers.html) | Real-time 54-river BWDB tracking, upstream cloudburst radar, and Dumbur/Gajoldoba dam surge wave modeling. | Joint Rivers Commission, BWDB, MoDMR |
+| **02** | **🎥 Video User Manual** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/user_manual_video.html) | Interactive HD walkthrough video with synthetic AI audio narration and 7-chapter operator checklists. | Citizens, Responders, Operators |
+| **03** | **🏔️ 3D Inundation Sandbox** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/index.html) | NASA SRTM 30m digital elevation slicer simulating sea/river surge penetration. | Planning Commission, BWDB |
+| **04** | **🌪️ Wind Vector Engine** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/index.html) | Animated wind streamlines with NOAA IBTrACS cyclone vortex simulation. | BMD, Disaster Relief Teams |
+| **05** | **🛰️ Weather AI & Satellite** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/weather_ai.html) | Meteosat-9/Himawari-9 10.4µm IR thermal radar, Doppler cloud vector, and 20D/60D AI. | BMD, Civil Aviation, Navy |
+| **06** | **🚨 Disaster Alerts & Siren** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/disaster_alerts.html) | Acoustic sirens, automated telephone voice calls, and SMS Cell Broadcast (CBS-4370). | MoDMR, Red Crescent, Media |
+| **07** | **🌾 AgroClaim Insurance** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/agroclaim.html) | Sentinel-1 SAR crop submersion detection and instant bKash/Nagad parametric payouts. | MFS (bKash/Nagad), Insurers |
+| **08** | **🏛️ 64-District Directory** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/district_heritage.html) | Comprehensive dossiers on BWDB embankments, heritage landmarks, and cyclone shelters. | Local Govt, Archeology Dept |
+| **09** | **📋 Executive SitRep** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/executive_sitrep.html) | Official Cabinet Disaster Situation Report with live river basin alerts and PDF export. | Prime Minister's Office, Cabinet |
+| **10** | **🤖 DeltaBot AI Copilot** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/deltabot.html) | Bilingual (English/Bangla) natural language copilot with localized emergency instructions. | Citizens, Volunteers |
+| **11** | **🗺️ GIS Tactical GPS Map** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/map_gps.html) | High-precision Leaflet map with 64 district stations, radar sweeps, and GPS tracking. | Emergency Operations Center |
+| **12** | **🎮 DeltaSim Sandbox** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/deltasim.html) | Multi-decadal budget allocation simulator optimizing lives saved and damage prevented. | World Bank, ADB, BDP 2100 |
+| **13** | **🌊 Riverbank Erosion** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/riverbank_erosion.html) | Morphological tracking for Jamuna, Padma, and Meghna collapses and char displacement. | BWDB, Relocation NGOs |
+| **14** | **⚡ Power Grid Resilience** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/grid_resilience.html) | 132kV/230kV substation flood water ingress monitoring and BTS cell tower failure %. | BPDB, PGCB, Telecoms |
+| **15** | **🏥 Epidemic Surveillance** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/health_epidemic.html) | Predictive epidemiology for waterborne diseases (Cholera, Dengue) and medical logistics. | DGHS, WHO, Civil Surgeons |
+| **16** | **🚑 Evacuation Logistics** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/evacroute.html) | Non-inundated arterial highway route computation, rescue boat paths, and shelter capacities. | Highway Police, Fire Service |
+| **17** | **📱 Rural Offline USSD** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/ussd_phone.html) | Interactive 2G feature-phone simulator (`*999#`) for offline emergency relief requests. | Rural Communities, BTRC |
+| **18** | **🏢 Real Estate ESG Risk** | [**Live View ↗**](https://readuanulfaridfahim.github.io/climate-risk-urban-flood-intelligence/web/climadeval.html) | 30-year physical climate risk depreciation haircuts and banking mortgage stress tests. | Central Bank, Commercial Banks |
 
 ---
 
