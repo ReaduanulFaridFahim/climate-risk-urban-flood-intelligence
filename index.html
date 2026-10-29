@@ -6,225 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BanglaShield™ · Bangladesh Climate Risk & Urban Flood Intelligence</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%22100%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    // 0ms instant redirect to unified command center in web/index.html
+    (function() {
+      var dest = "web/index.html" + window.location.search + window.location.hash;
+      try {
+        window.location.replace(dest);
+      } catch (e) {
+        window.location.href = dest;
+      }
+    })();
+  </script>
   <style>
-    :root {
-      --bg: #060a14;
-      --card-bg: rgba(14, 23, 46, 0.88);
-      --border: rgba(56, 189, 248, 0.28);
-      --cyan: #00f0ff;
-      --accent: #38bdf8;
-      --emerald: #10b981;
-      --purple: #8b5cf6;
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #060a14;
+      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: radial-gradient(circle at 50% 20%, #0d1a3a 0%, #060a14 100%);
-      color: #e2e8f0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
+    #appFrame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      z-index: 10;
+    }
+    .fallback-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      overflow-x: hidden;
-    }
-    .launch-container {
-      max-width: 860px;
-      width: 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 35px rgba(0, 240, 255, 0.15);
-      backdrop-filter: blur(16px);
+      min-height: 100vh;
+      color: #e2e8f0;
       text-align: center;
-      position: relative;
+      padding: 20px;
     }
-    .radar-ring {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border: 2px solid var(--cyan);
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      animation: pulse 2s infinite ease-in-out;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); }
-      50% { transform: scale(1.08); box-shadow: 0 0 35px rgba(0, 240, 255, 0.85); }
-    }
-    h1 {
-      font-size: 2.1rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 30%, #00f0ff 70%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
-    }
-    p.subtitle {
-      color: #94a3b8;
-      font-size: 1rem;
-      margin-bottom: 24px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .redirect-status {
+    .fallback-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(0, 240, 255, 0.1);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: #38bdf8;
-      font-family: 'JetBrains Mono', monospace;
-      margin-bottom: 28px;
-    }
-    .spinner {
-      width: 14px;
-      height: 14px;
-      border: 2px solid rgba(0, 240, 255, 0.2);
-      border-top-color: #00f0ff;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .btn-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%);
-      color: #ffffff;
+      margin-top: 16px;
       padding: 14px 28px;
-      font-size: 1.05rem;
+      background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%);
+      color: #fff;
+      text-decoration: none;
       font-weight: 700;
       border-radius: 12px;
-      text-decoration: none;
       box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
-      transition: all 0.2s ease;
-      border: 1px solid rgba(255,255,255,0.2);
     }
-    .btn-main:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(2, 132, 199, 0.6);
-    }
-    .grid-portal {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 32px;
-      text-align: left;
-    }
-    .portal-card {
-      background: rgba(9, 15, 32, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 14px 16px;
-      text-decoration: none;
-      color: #cbd5e1;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: all 0.2s ease;
-    }
-    .portal-card:hover {
-      border-color: var(--cyan);
-      background: rgba(16, 26, 52, 0.9);
-      color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 240, 255, 0.2);
-    }
-    .portal-icon { font-size: 1.6rem; }
-    .portal-name { font-weight: 700; font-size: 0.92rem; color: #f8fafc; }
-    .portal-desc { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; }
   </style>
 </head>
 <body>
+  <!-- Full-screen seamless mission command center mount (guarantees Leaflet map display) -->
+  <iframe id="appFrame" src="web/index.html" allow="geolocation; fullscreen; clipboard-write; microphone" title="BanglaShield Command Hub"></iframe>
 
-  <div class="launch-container">
-    <div class="radar-ring">🛡️</div>
-    <h1>BanglaShield™ Intelligence Platform</h1>
-    <p class="subtitle">Autonomous AI Defense, Multi-Spectral Satellite Surveillance, and 64-District Urban Flood Analytics for Bangladesh</p>
-
-    <div class="redirect-status">
-      <div class="spinner"></div>
-      <span>CONNECTING TO MISSION COMMAND (web/index.html)...</span>
+  <noscript>
+    <div class="fallback-container">
+      <h2>BanglaShield™ Tactical Command Center</h2>
+      <p>JavaScript is required to launch real-time satellite defense telemetry.</p>
+      <a href="web/index.html" class="fallback-btn">Launch Mission Command →</a>
     </div>
-
-    <div>
-      <a href="web/index.html" class="btn-main" id="launchBtn">
-        <span>🚀 Enter Mission Command Center</span>
-        <span>→</span>
-      </a>
-    </div>
-
-    <!-- Quick Suite Directory -->
-    <div class="grid-portal">
-      <a href="web/index.html" class="portal-card">
-        <div class="portal-icon">🗺️</div>
-        <div>
-          <div class="portal-name">Unified Command Center</div>
-          <div class="portal-desc">Full 18-Pillar Tactical Radar</div>
-        </div>
-      </a>
-
-      <a href="web/weather_ai.html" class="portal-card">
-        <div class="portal-icon">🛰️</div>
-        <div>
-          <div class="portal-name">Weather AI & Satellite</div>
-          <div class="portal-desc">Meteosat-9 Live Thermal Station</div>
-        </div>
-      </a>
-
-      <a href="web/disaster_alerts.html" class="portal-card">
-        <div class="portal-icon">🚨</div>
-        <div>
-          <div class="portal-name">Early Warning & Siren</div>
-          <div class="portal-desc">Automated Voice & SMS Dispatch</div>
-        </div>
-      </a>
-
-      <a href="web/agroclaim.html" class="portal-card">
-        <div class="portal-icon">🌾</div>
-        <div>
-          <div class="portal-name">AgroClaim Parametric</div>
-          <div class="portal-desc">bKash/Nagad Payout Engine</div>
-        </div>
-      </a>
-
-      <a href="web/district_heritage.html" class="portal-card">
-        <div class="portal-icon">🏛️</div>
-        <div>
-          <div class="portal-name">64-District Directory</div>
-          <div class="portal-desc">Embankment & Heritage Dossier</div>
-        </div>
-      </a>
-
-      <a href="web/executive_sitrep.html" class="portal-card">
-        <div class="portal-icon">📋</div>
-        <div>
-          <div class="portal-name">Executive SitRep</div>
-          <div class="portal-desc">Cabinet Strategic Briefing</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <script>
-    // Seamless instant navigation
-    setTimeout(() => {
-      window.location.replace("web/index.html");
-    }, 200);
-  </script>
+  </noscript>
 </body>
 </html>

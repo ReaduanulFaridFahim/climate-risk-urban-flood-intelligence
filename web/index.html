@@ -15,9 +15,13 @@
   
   <!-- Leaflet Interactive Maps CSS & JS -->
   <link rel="stylesheet" href="common.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    if (typeof L === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"><\/script>');
+    }
   </script>
 
   <!-- Chart.js 4.4.1 Interactive Charting Engine -->
@@ -960,6 +964,12 @@
     .tab-content.active {
       display: block;
       animation: tabContentEntrance 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    /* TabMap must avoid 3D/translate transforms to prevent Leaflet projection offsets */
+    #tabMap.tab-content.active {
+      display: block !important;
+      animation: none !important;
+      transform: none !important;
     }
     @keyframes tabContentEntrance {
       0% {
@@ -4682,12 +4692,17 @@
         pauseCycloneSimulation();
       }
 
-      if (tabId === 'tabMap' && window.bdMapInstance) {
-        setTimeout(() => {
+      if (tabId === 'tabMap') {
+        if (!window.bdMapInstance) {
+          if (typeof initMap === 'function') initMap();
+        } else {
           window.bdMapInstance.invalidateSize();
-          if (typeof updateHeadToHeadRadar === 'function') updateHeadToHeadRadar();
-          if (typeof initCycloneSimulator === 'function' && !window.cycloneLayerGroup) initCycloneSimulator();
-        }, 180);
+          setTimeout(() => { if (window.bdMapInstance) window.bdMapInstance.invalidateSize(); }, 80);
+          setTimeout(() => { if (window.bdMapInstance) window.bdMapInstance.invalidateSize(); }, 250);
+          setTimeout(() => { if (window.bdMapInstance) window.bdMapInstance.invalidateSize(); }, 600);
+        }
+        if (typeof updateHeadToHeadRadar === 'function') updateHeadToHeadRadar();
+        if (typeof initCycloneSimulator === 'function' && !window.cycloneLayerGroup) initCycloneSimulator();
       }
       if (tabId === 'tabCompare') {
         setTimeout(() => {
@@ -8554,19 +8569,57 @@
       const mapElem = document.getElementById('bdMap');
       if (!mapElem) return;
 
-      bdMapInstance = L.map('bdMap', {
-        center: [23.8103, 90.4125],
-        zoom: 7,
-        zoomControl: true
-      });
-      window.bdMapInstance = bdMapInstance;
-      window.bdMap = bdMapInstance;
+      // Handle async Leaflet library load gracefully
+      if (typeof L === 'undefined') {
+        console.warn('[Leaflet] L not ready yet, retrying initMap in 100ms...');
+        setTimeout(initMap, 100);
+        return;
+      }
 
-      // Default Basemap: Esri Satellite HD
-      switchBasemap('satellite');
+      // Prevent duplicate map container initialization
+      if (window.bdMapInstance) {
+        window.bdMapInstance.invalidateSize();
+        return;
+      }
 
-      markersLayer = L.layerGroup().addTo(bdMapInstance);
-      plotDistrictMarkers('temp');
+      // Ensure map element has explicit layout dimensions
+      if (mapElem.clientHeight === 0) {
+        mapElem.style.height = '580px';
+      }
+
+      try {
+        bdMapInstance = L.map('bdMap', {
+          center: [23.8103, 90.4125],
+          zoom: 7,
+          zoomControl: true,
+          fadeAnimation: true,
+          zoomAnimation: true
+        });
+        window.bdMapInstance = bdMapInstance;
+        window.bdMap = bdMapInstance;
+
+        // Default Basemap: Satellite HD with Carto Dark tile error fallback
+        switchBasemap('satellite');
+
+        markersLayer = L.layerGroup().addTo(bdMapInstance);
+        plotDistrictMarkers('temp');
+
+        // Multi-staged size invalidation ensures full tile coverage
+        setTimeout(() => { if (bdMapInstance) bdMapInstance.invalidateSize(); }, 50);
+        setTimeout(() => { if (bdMapInstance) bdMapInstance.invalidateSize(); }, 200);
+        setTimeout(() => { if (bdMapInstance) bdMapInstance.invalidateSize(); }, 500);
+        setTimeout(() => { if (bdMapInstance) bdMapInstance.invalidateSize(); }, 1200);
+
+        // Auto-invalidate if container is resized or drawer toggled
+        if (window.ResizeObserver) {
+          const ro = new ResizeObserver(() => {
+            if (bdMapInstance) bdMapInstance.invalidateSize();
+          });
+          ro.observe(mapElem);
+        }
+      } catch (err) {
+        console.error('[Leaflet initMap Exception]', err);
+      }
     }
 
     function switchBasemap(type) {
@@ -8574,7 +8627,9 @@
       const activeBtn = document.getElementById('btnBasemap' + type.charAt(0).toUpperCase() + type.slice(1));
       if (activeBtn) activeBtn.classList.add('active');
 
-      if (baseTileLayer && bdMapInstance) bdMapInstance.removeLayer(baseTileLayer);
+      if (baseTileLayer && bdMapInstance) {
+        try { bdMapInstance.removeLayer(baseTileLayer); } catch(e){}
+      }
 
       let url = '';
       let attr = '';
@@ -8590,11 +8645,15 @@
         attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
       } else if (type === 'topo') {
         url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
-        attr = 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community';
+        attr = 'Tiles &copy; Esri';
       }
 
       if (bdMapInstance) {
-        baseTileLayer = L.tileLayer(url, { maxZoom: 18, attribution: attr }).addTo(bdMapInstance);
+        baseTileLayer = L.tileLayer(url, {
+          maxZoom: 18,
+          attribution: attr,
+          errorTileUrl: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+        }).addTo(bdMapInstance);
       }
     }
 
@@ -8650,6 +8709,7 @@
         `);
 
         markersLayer.addLayer(marker);
+        window.districtMarkerMap[d.name] = marker;
       });
     }
 
@@ -9343,7 +9403,8 @@
         }
       }
 
-      const initialTab = tabParam || (hashTab && document.getElementById(hashTab) ? hashTab : (savedTab && document.getElementById(savedTab) ? savedTab : 'tabMap'));
+      // Guarantee tactical map as primary view on load unless an explicit URL tab or hash is requested
+      const initialTab = tabParam || (hashTab && document.getElementById(hashTab) ? hashTab : 'tabMap');
       switchTab(initialTab);
 
       // Listen for browser back/forward button hash changes
