@@ -1418,7 +1418,7 @@
           
           <div class="hud-district-select-wrap">
             <span style="font-size:0.8rem; color:#94a3b8; font-weight:800;">📍 DISTRICT:</span>
-            <select id="districtSelect" onchange="updateAllPillars()">
+            <select id="districtSelect" onchange="if(window.BanglaShieldBus) window.BanglaShieldBus.setDistrict(this.value, 'districtSelect'); else updateAllPillars();">
               <optgroup label="📍 Dhaka Division (13 Districts)">
                 <option value="Dhaka">Dhaka — 31.8°C (Active Floodplain)</option>
                 <option value="Gazipur">Gazipur — 33.2°C (Pleistocene Terrace)</option>
@@ -1523,6 +1523,12 @@
           </div>
           <div class="clock-display" id="topLiveClock" style="font-family:'JetBrains Mono',monospace; color:#38bdf8; font-weight:700; font-size:0.8rem;">
             🕒 BST: Loading...
+          </div>
+
+          <!-- Automated Cross-Tab & Cross-Module Live State Bus HUD Pill -->
+          <div class="status-pill state-sync-pill" id="hudStateSyncBadge" title="Automated Cross-Module & Cross-Tab State Sync Active" onclick="window.BanglaShieldBus && window.BanglaShieldBus.showSyncIndicator('⚡ Auto-Connected: All 19 tabs synced')" style="border-color: rgba(56, 189, 248, 0.45); background: rgba(56, 189, 248, 0.12); cursor:pointer;">
+            <span class="pulse-indicator" style="background:#38bdf8; box-shadow:0 0 8px #38bdf8;"></span>
+            <span id="hudSyncStatusText" style="color:#38bdf8; font-weight:800; font-size:0.75rem;">⚡ AUTO-CONNECTED: ALL TABS</span>
           </div>
 
           <!-- Live Weather Satellite Current Temp HUD Badge -->
@@ -2091,7 +2097,7 @@
         <!-- Sector A -->
         <div style="flex:1; min-width:260px; display:flex; align-items:center; gap:8px; background:rgba(0, 240, 255, 0.06); border:1px solid rgba(0, 240, 255, 0.3); border-radius:8px; padding:8px 12px;">
           <span style="font-size:0.8rem; font-weight:800; color:#00f0ff;">SECTOR A:</span>
-          <select id="radarDistA" onchange="updateHeadToHeadRadar()" style="flex:1; background:#0f172a; border:1px solid #00f0ff; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.85rem; font-weight:700; outline:none;"></select>
+          <select id="radarDistA" onchange="if(window.BanglaShieldBus) window.BanglaShieldBus.setDistrict(this.value, 'radarDistA'); else updateHeadToHeadRadar();" style="flex:1; background:#0f172a; border:1px solid #00f0ff; color:#fff; border-radius:6px; padding:6px 10px; font-size:0.85rem; font-weight:700; outline:none;"></select>
           <button onclick="locateDistrictOnCommandMap(document.getElementById('radarDistA').value)" class="btn-action-sm" style="background:rgba(0,240,255,0.15); color:#00f0ff; border:1px solid #00f0ff; padding:5px 8px; font-size:0.72rem;" title="View Sector A on Tactical Map">
             🗺️ Map
           </button>
@@ -2893,7 +2899,7 @@
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:16px;">
         <div style="display:flex; align-items:center; gap:10px;">
           <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase;">📍 FOCUS DISTRICT:</span>
-          <select id="biomeDistrictSelect" onchange="setBiomeDistrictFocus(this.value)" style="background:#0f172a; border:1px solid #38bdf8; color:#fff; border-radius:6px; padding:6px 12px; font-size:0.85rem; font-weight:700; outline:none;"></select>
+          <select id="biomeDistrictSelect" onchange="if(window.BanglaShieldBus) window.BanglaShieldBus.setDistrict(this.value, 'biomeDistrictSelect'); else setBiomeDistrictFocus(this.value);" style="background:#0f172a; border:1px solid #38bdf8; color:#fff; border-radius:6px; padding:6px 12px; font-size:0.85rem; font-weight:700; outline:none;"></select>
         </div>
 
         <!-- Scenario Toggle Buttons -->
@@ -3245,7 +3251,7 @@
         <div>
           <label style="font-size:0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">TARGET EMERGENCY DISTRICT</label>
           <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
-            <select id="hdxDistrictSelect" onchange="setHdxTargetDistrict(this.value)" style="background:#0f172a; border:1px solid #a855f7; color:#fff; border-radius:6px; padding:6px 12px; font-size:0.85rem; font-weight:700; outline:none; flex:1;"></select>
+            <select id="hdxDistrictSelect" onchange="if(window.BanglaShieldBus) window.BanglaShieldBus.setDistrict(this.value, 'hdxDistrictSelect'); else setHdxTargetDistrict(this.value);" style="background:#0f172a; border:1px solid #a855f7; color:#fff; border-radius:6px; padding:6px 12px; font-size:0.85rem; font-weight:700; outline:none; flex:1;"></select>
           </div>
           <div style="font-size:0.75rem; color:#cbd5e1; margin-top:4px;" id="hdxDistrictMeta">Population: 3.8M · Exposed: 42.5%</div>
           <div id="hdxActiveDistrict" style="display:none;">Sylhet</div>
@@ -4346,6 +4352,227 @@
     // =========================================================================
     // QA-AUDITED UNIFIED TAB & WORKSPACE SWITCHER CONTROLLER
     // =========================================================================
+    
+    // =========================================================================
+    // BANGLASHIELD UNIFIED GLOBAL STATE BUS & CROSS-TAB SYNCHRONIZER ENGINE
+    // =========================================================================
+    window.BanglaShieldBus = {
+      state: {
+        district: localStorage.getItem('banglashield_selected_district') || 'Chattogram',
+        activeTab: localStorage.getItem('banglashield_active_tab') || 'tabMap',
+        scenario: localStorage.getItem('banglashield_scenario') || 'baseline',
+        horizonYear: 2026,
+        rainMult: 1.0,
+        slrCm: 0,
+        lang: localStorage.getItem('banglashield_lang') || 'en'
+      },
+      isApplying: false,
+
+      init() {
+        // BroadcastChannel cross-window/tab communication
+        if (typeof BroadcastChannel !== 'undefined') {
+          try {
+            window.banglaBroadcastChannel = new BroadcastChannel('banglashield_sync');
+            window.banglaBroadcastChannel.onmessage = (ev) => {
+              if (!ev || !ev.data) return;
+              const { type, district, scenario, tabId } = ev.data;
+              if (type === 'DISTRICT_CHANGE' && district && district !== this.state.district) {
+                this.setDistrict(district, 'broadcast_remote', true);
+                this.showSyncIndicator(`⚡ Live Synced: ${district} (From External Tab)`);
+              } else if (type === 'SCENARIO_CHANGE' && scenario) {
+                this.state.scenario = scenario;
+                if (typeof setBiomeScenario === 'function') setBiomeScenario(scenario);
+                this.showSyncIndicator(`⚡ Scenario Synced: ${scenario.toUpperCase()} (From External Tab)`);
+              }
+            };
+          } catch(e) {
+            console.warn('BroadcastChannel init error:', e);
+          }
+        }
+
+        // Storage event fallback for older browsers or cross-origin tabs
+        window.addEventListener('storage', (e) => {
+          if (e.key === 'banglashield_selected_district' && e.newValue && e.newValue !== this.state.district) {
+            this.setDistrict(e.newValue, 'storage_event', true);
+          }
+        });
+      },
+
+      setDistrict(distName, source, skipBroadcast) {
+        if (!distName || this.isApplying) return;
+        this.isApplying = true;
+        this.state.district = distName;
+
+        try { localStorage.setItem('banglashield_selected_district', distName); } catch(e){}
+
+        // 1. Sync main HUD dropdown
+        const mainSel = document.getElementById('districtSelect');
+        if (mainSel && mainSel.value !== distName) {
+          mainSel.value = distName;
+        }
+
+        // 2. Sync Head-to-Head Compare Tab Dropdown A
+        const radarSelA = document.getElementById('radarDistA');
+        if (radarSelA && radarSelA.value !== distName) {
+          radarSelA.value = distName;
+          if (typeof updateHeadToHeadRadar === 'function') updateHeadToHeadRadar();
+        }
+
+        // 3. Sync Biome Tab Dropdown
+        const biomeSel = document.getElementById('biomeDistrictSelect');
+        if (biomeSel && biomeSel.value !== distName) {
+          biomeSel.value = distName;
+          if (typeof setBiomeDistrictFocus === 'function') setBiomeDistrictFocus(distName);
+        }
+
+        // 4. Sync HDX Relief Tab Dropdown
+        const hdxSel = document.getElementById('hdxDistrictSelect');
+        if (hdxSel && hdxSel.value !== distName) {
+          hdxSel.value = distName;
+          window.hdxOverrideDistrict = distName;
+          if (typeof recalcHdxRelief === 'function') recalcHdxRelief();
+        }
+
+        // 5. Sync District Heritage & Infrastructure Spotlight
+        if (typeof updateDistrictHeritageSpotlight === 'function') {
+          updateDistrictHeritageSpotlight(distName);
+        }
+
+        // 6. Sync AgroClaim Payout Baseline
+        if (typeof selectDistrictForAgroClaim === 'function') {
+          selectDistrictForAgroClaim(distName);
+        }
+
+        // 7. Update Weather satellite thermal radar
+        const distObj = (window.DISTRICTS_DATA && window.DISTRICTS_DATA.find(d => d.name.toLowerCase() === distName.toLowerCase())) || null;
+        if (distObj && typeof updateSatelliteThermalDisplay === 'function') {
+          updateSatelliteThermalDisplay(distObj);
+        }
+
+        // 8. Update all 19 pillar metrics and maps
+        if (typeof updateAllPillars === 'function') {
+          updateAllPillars();
+        }
+
+        // 9. Broadcast changes to other open tabs
+        if (!skipBroadcast) {
+          this.broadcast({
+            type: 'DISTRICT_CHANGE',
+            district: distName,
+            source: source || 'user',
+            timestamp: Date.now()
+          });
+        }
+
+        if (source !== 'tabSwitch' && source !== 'init') {
+          this.showSyncIndicator(`⚡ State Connected: ${distName} Active Across All Modules`);
+        }
+
+        this.isApplying = false;
+      },
+
+      setScenario(scenario) {
+        this.state.scenario = scenario;
+        window.currentBiomeScenario = scenario;
+        try { localStorage.setItem('banglashield_scenario', scenario); } catch(e){}
+        if (typeof setBiomeScenario === 'function') setBiomeScenario(scenario);
+        this.broadcast({
+          type: 'SCENARIO_CHANGE',
+          scenario: scenario,
+          timestamp: Date.now()
+        });
+        this.showSyncIndicator(`⚡ Scenario Connected: ${scenario.toUpperCase()}`);
+      },
+
+      onTabActivated(tabId) {
+        this.state.activeTab = tabId;
+        try { localStorage.setItem('banglashield_active_tab', tabId); } catch(e){}
+
+        // Update URL hash without causing a page jump
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, null, '#' + tabId);
+        } else {
+          window.location.hash = '#' + tabId;
+        }
+
+        // Automatically connect current state to the activated tab's controls
+        const currentDist = this.state.district || (document.getElementById('districtSelect') ? document.getElementById('districtSelect').value : 'Chattogram');
+        this.setDistrict(currentDist, 'tabSwitch');
+
+        // Automatically invalidate Leaflet maps in this tab
+        setTimeout(() => {
+          if (tabId === 'tabMap' && window.bdMapInstance) {
+            window.bdMapInstance.invalidateSize();
+            const d = window.DISTRICTS_DATA && window.DISTRICTS_DATA.find(x => x.name.toLowerCase() === currentDist.toLowerCase());
+            if (d && d.lat && d.lon) {
+              window.bdMapInstance.panTo([d.lat, d.lon]);
+              if (window.districtMarkerMap && window.districtMarkerMap[d.name]) {
+                window.districtMarkerMap[d.name].openPopup();
+              }
+            }
+          }
+          if (tabId === 'tabAgro' && window.agroPercatMap) {
+            window.agroPercatMap.invalidateSize();
+            const d = window.DISTRICTS_DATA && window.DISTRICTS_DATA.find(x => x.name.toLowerCase() === currentDist.toLowerCase());
+            if (d && d.lat && d.lon) window.agroPercatMap.panTo([d.lat, d.lon]);
+          }
+        }, 160);
+
+        // Automatically resize and re-render charts in this tab
+        setTimeout(() => {
+          if (typeof renderActiveTabCharts === 'function') {
+            renderActiveTabCharts(tabId);
+          }
+          const tabEl = document.getElementById(tabId);
+          if (tabEl) {
+            tabEl.querySelectorAll('canvas').forEach(canv => {
+              if (window.chartInstances && window.chartInstances[canv.id]) {
+                try { window.chartInstances[canv.id].resize(); } catch(e){}
+              }
+            });
+          }
+        }, 80);
+
+        // Pulse the connection pill
+        const cleanName = tabId.replace('tab', '');
+        this.showSyncIndicator(`⚡ Auto-Connected: ${currentDist} synced to ${cleanName}`);
+
+        // Dispatch custom DOM event for custom widgets
+        document.dispatchEvent(new CustomEvent('banglashield:tabchange', {
+          detail: { tabId: tabId, district: currentDist }
+        }));
+      },
+
+      showSyncIndicator(msg) {
+        const textEl = document.getElementById('hudSyncStatusText');
+        const badgeEl = document.getElementById('hudStateSyncBadge');
+        if (textEl) {
+          textEl.textContent = msg;
+          textEl.style.color = '#38bdf8';
+        }
+        if (badgeEl) {
+          badgeEl.style.borderColor = 'rgba(56, 189, 248, 0.9)';
+          badgeEl.style.boxShadow = '0 0 14px rgba(56, 189, 248, 0.6)';
+          clearTimeout(this._syncTimer);
+          this._syncTimer = setTimeout(() => {
+            if (badgeEl) {
+              badgeEl.style.borderColor = 'rgba(56, 189, 248, 0.45)';
+              badgeEl.style.boxShadow = 'none';
+            }
+            if (textEl) textEl.textContent = '⚡ AUTO-CONNECTED: ALL TABS';
+          }, 3200);
+        }
+      },
+
+      broadcast(payload) {
+        if (window.banglaBroadcastChannel) {
+          try { window.banglaBroadcastChannel.postMessage(payload); } catch(e){}
+        }
+      }
+    };
+    window.BanglaShieldBus.init();
+
+
     function switchTab(tabId) {
       if (typeof playTacticalSound === 'function') playTacticalSound('click');
 
@@ -4448,10 +4675,14 @@
         }, 120);
       }
 
-      // 6. Re-render active tab charts
-      setTimeout(() => {
-        if (typeof renderActiveTabCharts === 'function') renderActiveTabCharts(tabId);
-      }, 60);
+      // 6. Automatically connect all changes across other tabs
+      if (window.BanglaShieldBus) {
+        window.BanglaShieldBus.onTabActivated(tabId);
+      } else {
+        setTimeout(() => {
+          if (typeof renderActiveTabCharts === 'function') renderActiveTabCharts(tabId);
+        }, 60);
+      }
     }
     window.switchTab = switchTab;
 
@@ -8912,13 +9143,30 @@
       populateAgroLeaderboard();
       updateAllPillars();
       recalcDeltaSim();
-      if (tabParam) {
-        switchTab(tabParam);
-      } else if (distParam) {
-        switchTab('tabMap');
-      } else {
-        renderActiveTabCharts('tabMap');
+      // Auto-Connect State & Hash Routing on Load
+      const hashTab = (window.location.hash || '').replace('#', '');
+      const savedTab = localStorage.getItem('banglashield_active_tab');
+      const savedDist = localStorage.getItem('banglashield_selected_district');
+
+      if (!distParam && savedDist) {
+        const sel = document.getElementById('districtSelect');
+        if (sel) {
+          sel.value = savedDist;
+          if (window.BanglaShieldBus) window.BanglaShieldBus.state.district = savedDist;
+          if (typeof updateAllPillars === 'function') updateAllPillars();
+        }
       }
+
+      const initialTab = tabParam || (hashTab && document.getElementById(hashTab) ? hashTab : (savedTab && document.getElementById(savedTab) ? savedTab : 'tabMap'));
+      switchTab(initialTab);
+
+      // Listen for browser back/forward button hash changes
+      window.addEventListener('hashchange', () => {
+        const h = (window.location.hash || '').replace('#', '');
+        if (h && document.getElementById(h)) {
+          switchTab(h);
+        }
+      });
     });
   
     // User gesture audio unlocker (Chrome/Edge/Safari Autoplay Compliance)

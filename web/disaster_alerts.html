@@ -1811,7 +1811,25 @@
         }
       }
     }, { once: true });
-</script>
+
+    // Cross-Tab Automated State Synchronizer (BroadcastChannel)
+    if (typeof BroadcastChannel !== 'undefined') {
+      try {
+        window.banglaBroadcastChannel = new BroadcastChannel('banglashield_sync');
+        window.banglaBroadcastChannel.onmessage = function(ev) {
+          if (!ev || !ev.data) return;
+          const { type, district, alertTier } = ev.data;
+          if (type === 'DISTRICT_CHANGE' && district) {
+            console.log('📡 [Cross-Tab Sync] District updated to:', district);
+            if (typeof locateDistrictOnCommandMap === 'function' && window.selectedDistrict !== district) {
+              window.selectedDistrict = district;
+            }
+          }
+        };
+      } catch(e){}
+    }
+
+  </script>
   <div id="alertToastContainer" class="alert-toast-container" aria-live="polite"></div>
 </body>
 </html>
