@@ -1385,6 +1385,9 @@
 
       <!-- Sidebar Footer Action Links -->
       <div class="sidebar-bottom-bar">
+        <a href="user_manual_video.html" target="_blank" class="sidebar-bottom-link" title="Full Step-by-Step Video User Manual" style="background:rgba(0, 240, 255, 0.12); border:1px solid rgba(0, 240, 255, 0.35); color:#00f0ff;">
+          <span>🎥</span> <span>Video User Manual ↗</span>
+        </a>
         <a href="district_heritage.html" target="_blank" class="sidebar-bottom-link" title="Open 64-District Directory">
           <span>🏛️</span> <span>64-District Directory ↗</span>
         </a>
@@ -1534,8 +1537,11 @@
         </div>
 
         <div class="hud-right-actions">
-                    <!-- Laptop Fullscreen Toggle Button -->
-                    <!-- Dual-Language Switcher (EN / বাংলা) [Feature D] -->
+          <!-- Step-by-Step Video User Manual Link [Guided Walkthrough] -->
+          <a href="user_manual_video.html" target="_blank" class="btn-action-sm" style="background:linear-gradient(135deg, rgba(2, 132, 199, 0.45) 0%, rgba(99, 102, 241, 0.45) 100%); border:1px solid #00f0ff; color:#00f0ff; font-weight:800; text-decoration:none; box-shadow:0 0 14px rgba(0, 240, 255, 0.35);" title="Open Interactive Step-by-Step Video User Manual">
+            <span>🎥</span> <span>Video Manual</span>
+          </a>
+
           <!-- PWA Offline Field Indicator & Install Trigger [Feature 3] -->
           <button class="btn-action-sm" id="btnPwaInstall" onclick="triggerPwaInstall()" style="background:rgba(16, 185, 129, 0.15); border:1px solid #10b981; color:#34d399; font-weight:700; cursor:pointer;" title="BanglaShield PWA Disaster Field Offline Mode">
             <span>⚡</span> <span id="lblPwaStatus">Offline Ready</span>
@@ -1637,8 +1643,6 @@
           </button>
           <button class="map-layer-btn" id="btnTopoSection" onclick="toggleTopoSectionDrawer()" style="background:rgba(16, 185, 129, 0.15); border:1px solid #10b981; color:#10b981;">
             🏔️ 3D Digital Elevation & Inundation Sandbox
-          </button> style="background:rgba(16, 185, 129, 0.15); border:1px solid #10b981; color:#10b981;">
-            🏔️ 3D Elevation Slicer
           </button>
           <button class="map-layer-btn" id="btnLayerViirs" onclick="switchMapLayer('viirs')">💡 VIIRS Nightlights</button>
           <button class="map-layer-btn" id="btnLayerPoverty" onclick="switchMapLayer('poverty')">💰 Poverty Likelihood</button>
@@ -10339,6 +10343,22 @@
       <!-- Cards Grid (Scrollable) -->
       <div style="padding:20px 24px; overflow-y:auto; max-height:calc(90vh - 180px); display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:14px;" id="suiteGridContainer">
         
+        <!-- 0. Step-by-Step Video User Manual -->
+        <div class="suite-card" data-cat="critical" data-keywords="manual video user guide tutorial walkthrough step how to help training docs player" style="border:1px solid #00f0ff; background:linear-gradient(135deg, rgba(2, 132, 199, 0.22) 0%, rgba(99, 102, 241, 0.25) 100%); box-shadow:0 0 20px rgba(0, 240, 255, 0.25);">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div style="font-size:1.8rem;">🎥</div>
+            <span class="badge" style="background:#0284c7; color:#fff; border:1px solid #00f0ff; font-weight:800;">HD VIDEO MANUAL</span>
+          </div>
+          <div style="font-weight:800; font-size:1rem; color:#00f0ff; margin-top:8px;">Full Step-by-Step Video Manual</div>
+          <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.4; margin-top:4px;">
+            Complete visual walkthrough video with synthetic AI voiceover narration, 7 tactical operational chapters, and field checklists.
+          </div>
+          <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.72rem; color:#00f0ff; font-family:'JetBrains Mono',monospace;">user_manual_video.html</span>
+            <a href="user_manual_video.html" target="_blank" class="btn-action-sm primary" style="text-decoration:none; padding:4px 12px; font-size:0.75rem; background:#0284c7; border-color:#00f0ff; font-weight:800;">Watch Manual ↗</a>
+          </div>
+        </div>
+
         <!-- 1. Weather AI & Satellite -->
         <div class="suite-card" data-cat="critical" data-keywords="weather meteosat satellite radar thermal himawari synoptic 20-day temperature">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BanglaShield™ · Full Step-by-Step Video User Manual</title>
+  <meta name="description" content="Complete institutional video user manual and guided operator walkthrough for the BanglaShield climate risk and flood intelligence platform.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="common.css">
+
+  <style>
+    :root {
+      --canvas: #060a14;
+      --card-bg: rgba(14, 23, 46, 0.82);
+      --border: rgba(56, 189, 248, 0.28);
+      --cyan: #00f0ff;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --coral: #ef4444;
+      --violet: #8b5cf6;
+    }
+
+    body {
+      background: var(--canvas);
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .manual-wrapper {
+      max-width: 1320px;
+      width: 100%;
+    }
+
+    /* Video Player Container */
+    .video-theater-card {
+      background: rgba(12, 19, 38, 0.94);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.15);
+      backdrop-filter: blur(24px);
+      margin-bottom: 28px;
+    }
+
+    .video-viewport {
+      position: relative;
+      width: 100%;
+      background: #040711;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .video-viewport img {
+      width: 100%;
+      height: auto;
+      max-height: 720px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Floating Video Controls Overlay */
+    .video-controls-bar {
+      padding: 14px 20px;
+      background: rgba(9, 15, 30, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .btn-ctrl {
+      background: rgba(20, 32, 60, 0.85);
+      color: #cbd5e1;
+      border: 1px solid var(--border);
+      padding: 7px 15px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-ctrl:hover {
+      background: rgba(30, 50, 92, 0.95);
+      color: #00f0ff;
+      border-color: #00f0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 240, 255, 0.3);
+    }
+    .btn-ctrl.active {
+      background: linear-gradient(135deg, #0284c7 0%, #6366f1 100%);
+      color: #ffffff;
+      border-color: #00f0ff;
+    }
+
+    /* Chapter Carousel Tiles */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .chapter-card {
+      background: rgba(14, 23, 46, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chapter-card:hover {
+      border-color: #00f0ff;
+      background: rgba(22, 36, 72, 0.92);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.18);
+    }
+    .chapter-card.active {
+      border-color: #00f0ff;
+      background: linear-gradient(180deg, rgba(14, 165, 233, 0.22) 0%, rgba(13, 21, 42, 0.9) 100%);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="manual-wrapper">
+    
+    <!-- Top Header -->
+    <header style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div style="width:46px; height:46px; background:linear-gradient(135deg, #0284c7 0%, #6366f1 100%); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:0 0 20px rgba(0,240,255,0.6); border:1px solid rgba(255,255,255,0.2);">
+          🛡️
+        </div>
+        <div>
+          <h1 style="font-size:1.6rem; font-weight:800; margin:0; background:linear-gradient(90deg, #ffffff 0%, #38bdf8 60%, #c084fc 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+            BanglaShield™ Video User Manual
+          </h1>
+          <p style="font-size:0.85rem; color:#94a3b8; margin:2px 0 0 0;">
+            Full Step-by-Step Operator Guide, Telemetry Sandbox Walkthrough & Field Response Protocols
+          </p>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <a href="index.html" class="btn-ctrl active" style="text-decoration:none;">
+          <span>🌐</span> <span>Open Live Command Hub</span>
+        </a>
+        <button onclick="toggleVoiceNarration()" id="btnVoiceNarrate" class="btn-ctrl" style="background:rgba(245, 158, 11, 0.2); border-color:#f59e0b; color:#fbbf24;">
+          <span id="voiceIcon">🎙️</span> <span id="voiceText">Play Voiceover (Audio)</span>
+        </button>
+        <a href="../assets/banglashield_step_by_step_manual.webp" download="BanglaShield_Video_User_Manual.webp" class="btn-ctrl" style="text-decoration:none; background:rgba(16, 185, 129, 0.2); border-color:#10b981; color:#34d399;">
+          <span>💾</span> <span>Download Video (WebP)</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Video Theater Player -->
+    <div class="video-theater-card">
+      <div class="video-viewport">
+        <img id="manualVideoPlayer" src="../assets/banglashield_step_by_step_manual.webp" alt="BanglaShield Full Step-by-Step Video User Manual" />
+      </div>
+
+      <!-- Playback Controls Bar -->
+      <div class="video-controls-bar">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="btn-ctrl" onclick="restartVideo()" title="Restart from Beginning">
+            <span>↺</span> <span>Restart</span>
+          </button>
+          <span class="badge" style="background:rgba(0, 240, 255, 0.15); border:1px solid #00f0ff; color:#00f0ff; font-family:'JetBrains Mono',monospace; font-weight:800;">
+            HD 1280x720 · 60fps Dynamic Telemetry
+          </span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px; font-size:0.84rem; color:#cbd5e1;">
+          <span>Chapter: <strong id="lblCurrentChapter" style="color:#00f0ff;">1 of 8</strong></span>
+          <span style="color:#64748b;">|</span>
+          <span>Coverage: <strong style="color:#34d399;">All 64 Districts</strong></span>
+          <span style="color:#64748b;">|</span>
+          <span>Audio: <strong id="lblAudioStatus" style="color:#fbbf24;">Web Speech Voiceover Ready</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step-by-Step Operator Chapters -->
+    <div style="margin-bottom:16px;">
+      <h2 style="font-size:1.3rem; font-weight:800; color:#ffffff; margin:0 0 6px 0;">
+        📑 Step-by-Step Operational Chapters
+      </h2>
+      <p style="font-size:0.85rem; color:#94a3b8; margin:0;">
+        Click any chapter below to review the exact clicks, keyboard shortcuts, and decision-support procedures.
+      </p>
+    </div>
+
+    <div class="chapter-grid">
+      
+      <!-- Chapter 1 -->
+      <div class="chapter-card active" onclick="highlightChapter(1)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#00f0ff; text-transform:uppercase;">CHAPTER 1</span>
+          <span class="badge" style="background:#0369a1; color:#fff; font-size:0.65rem;">HUD CONTROLS</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">Top HUD & District Command</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Select any of Bangladesh's 64 districts using the top picker or division filter chips (Dhaka, Ctg, Sylhet, etc.). Monitor live BST clock, DEFCON surge watch, and satellite temp.
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#38bdf8; font-family:'JetBrains Mono',monospace;">
+          ⚡ Shortcut: Click '🌐 বাংলা' to toggle language
+        </div>
+      </div>
+
+      <!-- Chapter 2 -->
+      <div class="chapter-card" onclick="highlightChapter(2)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#10b981; text-transform:uppercase;">CHAPTER 2</span>
+          <span class="badge" style="background:#065f46; color:#fff; font-size:0.65rem;">TACTICAL GIS</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">Tactical Map & GPS Tracking</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Toggle basemaps (Esri Satellite HD, Carto Dark, OSM Streets). Click <strong>Track My Real-Time GPS</strong> to calculate live distance and route to the nearest verified cyclone shelter.
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#34d399; font-family:'JetBrains Mono',monospace;">
+          ⚡ Tool: BWDB River Danger Level Gauges
+        </div>
+      </div>
+
+      <!-- Chapter 3 -->
+      <div class="chapter-card" onclick="highlightChapter(3)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#00f0ff; text-transform:uppercase;">CHAPTER 3</span>
+          <span class="badge" style="background:#0f766e; color:#fff; font-size:0.65rem;">IDEA 1 SANDBOX</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">3D Elevation & Inundation Slicer</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Drag the water surge slider from 0.0m to 10.0m. Watch low-lying Haor basins and coastal chars submerge dynamically while reading real-time submerged land area and exposed population.
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#00f0ff; font-family:'JetBrains Mono',monospace;">
+          ⚡ Presets: Monsoon (+1.2m), Surge (+4.8m)
+        </div>
+      </div>
+
+      <!-- Chapter 4 -->
+      <div class="chapter-card" onclick="highlightChapter(4)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#ef4444; text-transform:uppercase;">CHAPTER 4</span>
+          <span class="badge" style="background:#991b1b; color:#fff; font-size:0.65rem;">IDEA 2 WINDY ENGINE</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">Wind Particle Streamlines & Cyclones</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Launch animated vector particle streamlines across the Bay of Bengal. Select any historical cyclone (Amphan, Sidr, Mocha, Remal) to watch particles accelerate into a rotating vortex!
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#f87171; font-family:'JetBrains Mono',monospace;">
+          ⚡ Simulation: Central Pressure & Eyewall Winds
+        </div>
+      </div>
+
+      <!-- Chapter 5 -->
+      <div class="chapter-card" onclick="highlightChapter(5)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#8b5cf6; text-transform:uppercase;">CHAPTER 5</span>
+          <span class="badge" style="background:#5b21b6; color:#fff; font-size:0.65rem;">SECTOR PILLARS</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">Crop Payouts, Evacuation & ESG</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Explore AgroClaim parametric crop insurance payouts, EvacRoute submerged arterial highways, ClimaDeval 30-year property ESG ratings, and the DeltaSim $500M budget adaptation sandbox.
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#c084fc; font-family:'JetBrains Mono',monospace;">
+          ⚡ Key: Instant bKash/Nagad Farmer Claims
+        </div>
+      </div>
+
+      <!-- Chapter 6 -->
+      <div class="chapter-card" onclick="highlightChapter(6)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#f59e0b; text-transform:uppercase;">CHAPTER 6</span>
+          <span class="badge" style="background:#78350f; color:#fff; font-size:0.65rem;">CIVIL DEFENSE</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">Emergency Sirens & Cabinet SitRep</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Sound auditory civil defense sirens, trigger bilingual phone dispatch calls, and click <strong>📸 Dossier Gen</strong> to export an official graphics memo ready for WhatsApp and Cabinet transmission.
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#fbbf24; font-family:'JetBrains Mono',monospace;">
+          ⚡ Hotlines: 1090 (Weather IVR), 999 (Rescue)
+        </div>
+      </div>
+
+      <!-- Chapter 7 -->
+      <div class="chapter-card" onclick="highlightChapter(7)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.75rem; font-weight:800; color:#00f0ff; text-transform:uppercase;">CHAPTER 7</span>
+          <span class="badge" style="background:#0284c7; color:#fff; font-size:0.65rem;">AI COPILOT</span>
+        </div>
+        <h4 style="margin:0; font-size:1.05rem; color:#ffffff;">DeltaBot AI & Offline 2G USSD</h4>
+        <p style="margin:0; font-size:0.8rem; color:#94a3b8; line-height:1.4;">
+          Query DeltaBot natural language copilot for instant disaster protocols. Test the simulated 2G feature phone menu (*999#) providing life-saving offline relief access to rural citizens.
+        </p>
+        <div style="margin-top:auto; font-size:0.75rem; color:#38bdf8; font-family:'JetBrains Mono',monospace;">
+          ⚡ Shortcuts: Ctrl+K (Palette), Ctrl+B (Sidebar)
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    let isVoiceActive = false;
+    let voiceSynth = window.speechSynthesis;
+
+    const chapterNarrations = [
+      "Welcome to BanglaShield, Bangladesh's institutional multi-hazard climate risk and civil defense platform. Designed for zero-dependency execution directly in modern web browsers.",
+      "In Chapter 1, use the top mission HUD to select any of Bangladesh's 64 districts. The platform immediately recalibrates all risk metrics, telemetry gauges, and weather models.",
+      "In Chapter 2, explore the Tactical GIS Map. Switch basemaps, inspect live BWDB river danger gauges, and click Track My Real-Time GPS to identify your nearest cyclone shelter.",
+      "In Chapter 3, open the 3D Digital Elevation and Inundation Sandbox. Drag the surge slider to simulate water rising up to 10 meters, dynamically observing which districts submerge first.",
+      "In Chapter 4, launch the animated wind particle streamline engine. Watch live monsoon flows across the Bay of Bengal, or play historical cyclone replays with a dynamic rotating vortex.",
+      "In Chapter 5, navigate the multi-sector resilience suites: AgroClaim crop insurance payouts, EvacRoute submerged road logistics, and ClimaDeval 30-year property ratings.",
+      "In Chapter 6, activate civil defense warnings: auditory emergency sirens, bilingual cell broadcast dispatch, and one-click WhatsApp dossier generation for cabinet ministers.",
+      "In Chapter 7, interact with DeltaBot AI Copilot for natural language emergency advice, and test the offline 2G USSD simulator for rural communities."
+    ];
+
+    function toggleVoiceNarration() {
+      if (!('speechSynthesis' in window)) {
+        alert("Speech Synthesis is not supported in this browser.");
+        return;
+      }
+
+      if (voiceSynth.speaking) {
+        voiceSynth.cancel();
+        isVoiceActive = false;
+        document.getElementById('voiceText').textContent = "Play Voiceover (Audio)";
+        document.getElementById('voiceIcon').textContent = "🎙️";
+        return;
+      }
+
+      isVoiceActive = true;
+      document.getElementById('voiceText').textContent = "Stop Voiceover";
+      document.getElementById('voiceIcon').textContent = "⏹️";
+
+      let text = chapterNarrations.join(" ... ");
+      let utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 0.95;
+      utter.pitch = 1.0;
+      utter.onend = () => {
+        isVoiceActive = false;
+        document.getElementById('voiceText').textContent = "Play Voiceover (Audio)";
+        document.getElementById('voiceIcon').textContent = "🎙️";
+      };
+      voiceSynth.speak(utter);
+    }
+
+    function highlightChapter(num) {
+      document.querySelectorAll('.chapter-card').forEach((c, idx) => {
+        if (idx + 1 === num) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+      document.getElementById('lblCurrentChapter').textContent = `${num} of 8`;
+
+      if ('speechSynthesis' in window && isVoiceActive) {
+        voiceSynth.cancel();
+        let utter = new SpeechSynthesisUtterance(chapterNarrations[num - 1] || "");
+        utter.rate = 0.95;
+        voiceSynth.speak(utter);
+      }
+    }
+
+    function restartVideo() {
+      const img = document.getElementById('manualVideoPlayer');
+      if (img) {
+        const src = img.src;
+        img.src = '';
+        setTimeout(() => { img.src = src; }, 50);
+      }
+    }
+  </script>
+</body>
+</html>
