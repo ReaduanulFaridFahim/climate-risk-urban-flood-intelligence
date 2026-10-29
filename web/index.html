@@ -8541,6 +8541,164 @@
       }
     }
 
+
+    // Leaflet Map Setup
+    let bdMapInstance = null;
+    let baseTileLayer = null;
+    let markersLayer = null;
+    let gpsMarker = null;
+    let gpsCircle = null;
+    let evacPolyline = null;
+
+    function initMap() {
+      const mapElem = document.getElementById('bdMap');
+      if (!mapElem) return;
+
+      bdMapInstance = L.map('bdMap', {
+        center: [23.8103, 90.4125],
+        zoom: 7,
+        zoomControl: true
+      });
+      window.bdMapInstance = bdMapInstance;
+      window.bdMap = bdMapInstance;
+
+      // Default Basemap: Esri Satellite HD
+      switchBasemap('satellite');
+
+      markersLayer = L.layerGroup().addTo(bdMapInstance);
+      plotDistrictMarkers('temp');
+    }
+
+    function switchBasemap(type) {
+      document.querySelectorAll('.basemap-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('btnBasemap' + type.charAt(0).toUpperCase() + type.slice(1));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      if (baseTileLayer && bdMapInstance) bdMapInstance.removeLayer(baseTileLayer);
+
+      let url = '';
+      let attr = '';
+
+      if (type === 'satellite') {
+        url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+        attr = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
+      } else if (type === 'dark') {
+        url = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+        attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+      } else if (type === 'streets') {
+        url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+      } else if (type === 'topo') {
+        url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+        attr = 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community';
+      }
+
+      if (bdMapInstance) {
+        baseTileLayer = L.tileLayer(url, { maxZoom: 18, attribution: attr }).addTo(bdMapInstance);
+      }
+    }
+
+    function switchMapLayer(layerType) {
+      document.querySelectorAll('.map-layer-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('btnLayer' + layerType.charAt(0).toUpperCase() + layerType.slice(1));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      plotDistrictMarkers(layerType);
+    }
+
+    window.districtMarkerMap = {};
+    function plotDistrictMarkers(layerType) {
+      if (!markersLayer) return;
+      markersLayer.clearLayers();
+      window.districtMarkerMap = {};
+
+      if (!window.DISTRICTS_DATA) return;
+
+      window.DISTRICTS_DATA.forEach(d => {
+        let color = '#0ea5e9';
+        let valText = `${d.temp}°C`;
+
+        if (layerType === 'flood') {
+          const inun = d.inundation_pct || 40;
+          color = inun > 60 ? '#ef4444' : (inun > 35 ? '#f59e0b' : '#10b981');
+          valText = `${inun}% Inun`;
+        } else if (layerType === 'surge') {
+          color = d.division === 'Chattogram' || d.division === 'Barishal' ? '#ef4444' : '#38bdf8';
+          valText = d.division === 'Chattogram' ? 'Surge Danger' : 'Low Surge';
+        } else if (layerType === 'alerts') {
+          color = (d.alert_tier || '').toLowerCase().includes('red') ? '#ef4444' : ((d.alert_tier || '').toLowerCase().includes('orange') ? '#f59e0b' : '#10b981');
+          valText = d.alert_tier || 'GREEN';
+        }
+
+        const marker = L.circleMarker([d.lat, d.lon], {
+          radius: 8,
+          fillColor: color,
+          color: '#ffffff',
+          weight: 1.5,
+          opacity: 1,
+          fillOpacity: 0.85
+        });
+
+        marker.bindPopup(`
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; min-width:180px;">
+            <strong style="color:#0f172a; font-size:1rem;">${d.name} (${d.division})</strong><br>
+            <span style="font-size:0.8rem; color:#475569;">Elevation: ${d.elev}m AMSL | Temp: ${d.temp}°C</span><br>
+            <span style="font-size:0.8rem; color:#b91c1c; font-weight:700;">Alert: [${d.alert_tier||'GREEN'}]</span><br>
+            <span style="font-size:0.75rem; color:#0369a1;">Shelter: ${d.shelter_name||'Flood Refuge'}</span><br>
+            <button onclick="document.getElementById('districtSelect').value='${d.name}'; updateAllPillars();" style="margin-top:6px; background:#0284c7; color:#fff; border:none; padding:4px 8px; border-radius:4px; font-size:0.75rem; cursor:pointer;">Select District</button>
+          </div>
+        `);
+
+        markersLayer.addLayer(marker);
+      });
+    }
+
+    function resetBangladeshView() {
+      if (bdMapInstance) bdMapInstance.setView([23.8103, 90.4125], 7);
+    }
+
+    // Real-Time GPS Geolocation Tracker
+    let gpsWatchId = null;
+    function toggleDeviceGpsTracker() {
+      const btn = document.getElementById('btnGpsTrackMe');
+      const label = document.getElementById('gpsTrackLabel');
+      const hud = document.getElementById('gpsTacticalHud');
+
+      if (gpsWatchId !== null) {
+        navigator.geolocation.clearWatch(gpsWatchId);
+        gpsWatchId = null;
+        if (btn) btn.classList.remove('tracking');
+        if (label) label.innerText = 'Track My Real-Time GPS';
+        if (hud) hud.style.display = 'none';
+        if (gpsMarker && bdMapInstance) bdMapInstance.removeLayer(gpsMarker);
+        if (gpsCircle && bdMapInstance) bdMapInstance.removeLayer(gpsCircle);
+        if (evacPolyline && bdMapInstance) bdMapInstance.removeLayer(evacPolyline);
+      } else {
+        if (!navigator.geolocation) {
+          alert('Geolocation is not supported by your browser.');
+          return;
+        }
+
+        if (btn) btn.classList.add('tracking');
+        if (label) label.innerText = 'Tracking Active...';
+        if (hud) hud.style.display = 'block';
+
+        gpsWatchId = navigator.geolocation.watchPosition(
+          pos => {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            const acc = pos.coords.accuracy;
+            updateGpsLocation(lat, lon, acc, '🛰️ PHYSICAL DEVICE GPS');
+          },
+          err => {
+            console.warn('GPS Error, falling back to simulated Rescue Patrol:', err);
+            togglePatrolSimulation();
+          },
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+      }
+    }
+
     // Rescue Boat Patrol Simulation Mode
     let patrolInterval = null;
     let patrolIndex = 0;
