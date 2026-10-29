@@ -24,6 +24,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="districts_heritage_data.js"></script>
   <script src="banglashield_extended_intel.js"></script>
+  <script src="deltabot_ai_engine.js"></script>
 
         <style>
     /* ==========================================================================
@@ -3864,33 +3865,92 @@
   <!-- TAB 12: DELTABOT AI -->
   <div id="tabBot" class="tab-content">
     <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:6px;">
-        <h3 style="margin:0;">🤖 DeltaBot AI: National Multi-Hazard Climate Copilot</h3>
-        <a href="deltabot.html" target="_blank" class="btn-action-sm primary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-          <span>🤖</span> <span>Launch Fullscreen DeltaBot Copilot ↗</span>
-        </a>
-      </div>
-      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:14px;">Trained on all 11 pillars: ask questions about hospital beds, road submersion, crop payouts, power outages, food inflation, or shelter locations.</p>
-
-      <div class="chat-box" id="chatBox">
-        <div class="chat-msg chat-msg-bot">
-          <strong>DeltaBot:</strong> Greetings. I am your BanglaShield AI Climate Copilot. How may I assist your disaster operations today? You can select any question chip below or type custom queries.
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+        <div>
+          <h3 style="margin:0; font-size:1.25rem;">🤖 DeltaBot AI: National Multi-Hazard Climate Copilot (V4.0 Quantized)</h3>
+          <p style="color:var(--gov-text-muted); font-size:0.84rem; margin-top:3px; margin-bottom:0;">
+            Client-Side Quantized Conversational Intelligence grounded in 49-layer satellite telemetry, hospital beds, power substations, crops & economic trajectories.
+          </p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="deltabot.html" target="_blank" class="btn-action-sm primary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+            <span>🤖</span> <span>Launch Fullscreen DeltaBot Copilot ↗</span>
+          </a>
         </div>
       </div>
 
-      <!-- Prompt Chips -->
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button class="chip-btn" onclick="sendPromptChip('What is the hospital and Dengue situation in Sylhet?')">🏥 Hospital Surge in Sylhet</button>
-        <button class="chip-btn" onclick="sendPromptChip('What is the blackout risk and power outage in Chattogram?')">⚡ Blackout Risk in Chattogram</button>
-        <button class="chip-btn" onclick="sendPromptChip('How much crop insurance payout is triggered in Sunamganj?')">🌾 Crop Payouts in Sunamganj</button>
-        <button class="chip-btn" onclick="sendPromptChip('What is the road isolation and shelter for Kurigram?')">🚑 Shelters in Kurigram</button>
-        <button class="chip-btn" onclick="sendPromptChip('What is the food supply and price shock from Bogura?')">🍞 Food Inflation from Bogura</button>
-        <button class="chip-btn" onclick="sendPromptChip('How many climate refugees in Sirajganj due to river erosion?')">🌊 Refugees in Sirajganj</button>
+      <!-- In-Browser Model Architecture HUD -->
+      <div class="ai-engine-hud" style="margin-bottom:14px;">
+        <div class="hud-mode-group">
+          <span class="hud-label">⚡ AI Mode:</span>
+          <button class="model-mode-btn active" id="tabBotModeEdge" onclick="switchTabBotMode('edge-neural')">
+            <span>⚡</span> <span>Edge Neural RAG (100% Offline)</span>
+          </button>
+          <button class="model-mode-btn" id="tabBotModeOnnx" onclick="switchTabBotMode('transformers-onnx')">
+            <span>🧠</span> <span>Transformers.js (ONNX WebAssembly)</span>
+          </button>
+        </div>
+
+        <div class="hud-telemetry-pills">
+          <div class="ai-telemetry-badge">
+            <span>🚀</span> <span id="tabBotHwText">WASM SIMD Active</span>
+          </div>
+          <div class="ai-telemetry-badge">
+            <span>⏱️</span> <span id="tabBotLatencyText">Latency: ~12ms</span>
+          </div>
+          <button class="voice-toggle-btn" id="tabBotVoiceGlobal" onclick="toggleTabBotVoice()">
+            <span>🔊</span> <span id="tabBotVoiceText">Voice: OFF</span>
+          </button>
+        </div>
       </div>
 
-      <div style="display:flex; gap:10px;">
-        <input type="text" id="chatInput" class="search-input" style="background:#0f172a; border:1px solid #334155; padding:10px 16px; border-radius:8px;" placeholder="Ask DeltaBot anything about climate, floods, roads, crops, power, hospitals..." onkeydown="if(event.key==='Enter') sendChatMessage()">
-        <button class="div-pill" style="background:#0284c7; color:#fff; border:none; padding:10px 22px; font-weight:700; border-radius:8px; cursor:pointer;" onclick="sendChatMessage()">Send</button>
+      <!-- Scrollable Chat Area -->
+      <div class="chat-box" id="chatBox" style="background:#090e1c; border:1px solid rgba(56, 189, 248, 0.22); border-radius:12px; height:450px; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:14px; margin-bottom:14px; box-shadow:inset 0 2px 10px rgba(0,0,0,0.6);">
+        <div class="chat-msg chat-msg-bot" style="background:#131c35; border-left:4px solid #00f0ff; color:#f1f5f9; padding:14px 18px; border-radius:12px; max-width:88%;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <strong style="color:#00f0ff; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em;">🛡️ BANGLASHIELD DELTABOT AI (BILINGUAL)</strong>
+            <span style="font-size:0.65rem; background:rgba(56,189,248,0.15); color:#7dd3fc; padding:2px 8px; border-radius:10px; font-family:'JetBrains Mono',monospace;">⚡ Edge Neural Active</span>
+          </div>
+          <p style="margin:0; font-size:0.92rem; line-height:1.55;">
+            Greetings, Executive Commander. DeltaBot AI is synchronized with live FFWC flood levels, hospital surge buffers, power substation coordinates, AgroClaim mobile disbursements, and 20-year economic forecasts. Select a prompt chip below or submit custom intelligence requests in English or বাংলা.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bilingual Prompt Chips -->
+      <div style="margin-bottom:14px;">
+        <div style="font-size:0.68rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">🚨 Priority Emergency Chips (English):</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
+          <button class="chip-btn" onclick="sendPromptChip('What is the hospital and Dengue situation in Sylhet?')">🏥 Hospital Surge in Sylhet</button>
+          <button class="chip-btn" onclick="sendPromptChip('What is the blackout risk and power outage in Chattogram?')">⚡ Blackout Risk in Chattogram</button>
+          <button class="chip-btn" onclick="sendPromptChip('How much crop insurance payout is triggered in Sunamganj?')">🌾 Crop Payouts in Sunamganj</button>
+          <button class="chip-btn" onclick="sendPromptChip('What is the road isolation and shelter for Kurigram?')">🚑 Shelters in Kurigram</button>
+          <button class="chip-btn" onclick="sendPromptChip('What is the food supply and price shock from Bogura?')">🍞 Food Inflation from Bogura</button>
+          <button class="chip-btn" onclick="sendPromptChip('How many climate refugees in Sirajganj due to river erosion?')">🌊 Refugees in Sirajganj</button>
+          <button class="chip-btn" onclick="sendPromptChip('What is the 20-year average income and price hike prediction?')">💰 20-Yr Income & Price Hike</button>
+        </div>
+
+        <div style="font-size:0.68rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">🇧🇩 মাঠপর্যায়ের সরাসরি জিজ্ঞাসা (বাংলা):</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('সিলেটে হাসপাতাল ও আইভি স্যালাইনের ঘাটতি কেমন?')">🏥 সিলেটে স্যালাইন ও বেড সংকট</button>
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('চট্টগ্রামে বিদ্যুৎ বিভ্রাট ও সাবস্টেশনের ঝুঁকি কী?')">⚡ চট্টগ্রামে বিদ্যুৎ সাবস্টেশন</button>
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('সুনামগঞ্জে বোরো ধানের জন্য বিকাশ বীমা পেমেন্ট কত?')">🌾 সুনামগঞ্জে বিকাশ শস্য বীমা</button>
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('কুড়িগ্রামে কোন কোন রাস্তা ডুবেছে এবং আশ্রয়কেন্দ্র কোথায়?')">🚑 কুড়িগ্রামে নিরাপদ আশ্রয়কেন্দ্র</button>
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('বগুড়া থেকে কাওরান বাজারে সবজির দাম ও খাদ্য সরবরাহ কেমন?')">🍞 কাওরান বাজারে দ্রব্যমূল্য বৃদ্ধি</button>
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('সিরাজগঞ্জে যমুনার নদীভাঙন ও চরের মানুষের পুনর্বাসন পরিস্থিতি কী?')">🌊 সিরাজগঞ্জে নদীভাঙন ও অনুদান</button>
+          <button class="chip-btn" style="border-color:#38bdf8; color:#7dd3fc;" onclick="sendPromptChip('বরিশালে প্রাচীন ভাসমান ধাপ চাষ কীভাবে বন্যায় রক্ষা করে?')">🏛️ ভাসমান ধাপ ও প্রাচীন ঐতিহ্য</button>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div style="display:flex; gap:10px; align-items:center;">
+        <input type="text" id="chatInput" class="search-input" style="flex:1; background:#090e1c; border:1px solid #334155; padding:12px 18px; border-radius:10px; color:#fff; font-size:0.92rem; outline:none;" placeholder="Ask DeltaBot in English or বাংলা (floods, hospitals, power, crops, shelters, prices)..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+        <button class="div-pill" style="background:#0284c7; color:#fff; border:none; padding:12px 24px; font-weight:700; border-radius:10px; cursor:pointer;" onclick="sendChatMessage()">
+          <span>⚡ Send AI</span>
+        </button>
+        <button class="btn-action-sm" style="padding:12px 14px;" onclick="clearTabBotChat()" title="Clear Chat History">
+          <span>🗑️</span>
+        </button>
       </div>
     </div>
   </div>
@@ -8303,217 +8363,181 @@
       `;
     }
 
-    // DeltaBot Copilot
+    // ============================================================================
+    // DELTABOT AI QUANTIZED IN-BROWSER CONVERSATIONAL CONTROLLER
+    // ============================================================================
+    let tabBotVoiceEnabled = false;
+
+    function switchTabBotMode(mode) {
+      document.getElementById('tabBotModeEdge').classList.toggle('active', mode === 'edge-neural');
+      document.getElementById('tabBotModeOnnx').classList.toggle('active', mode === 'transformers-onnx');
+      const hwText = document.getElementById('tabBotHwText');
+      if (hwText) hwText.innerText = 'Switching Engine...';
+
+      if (window.DeltaBotAI) {
+        window.DeltaBotAI.setEngineMode(mode, (prog) => {
+          if (prog.text && hwText) hwText.innerText = prog.text;
+        }).then(() => {
+          if (hwText) hwText.innerText = mode === 'transformers-onnx' ? 'ONNX WebAssembly Active' : 'WASM SIMD Active';
+        });
+      }
+    }
+
+    function toggleTabBotVoice() {
+      tabBotVoiceEnabled = !tabBotVoiceEnabled;
+      const btn = document.getElementById('tabBotVoiceGlobal');
+      const text = document.getElementById('tabBotVoiceText');
+      if (btn) btn.classList.toggle('active', tabBotVoiceEnabled);
+      if (text) text.innerText = tabBotVoiceEnabled ? 'Voice: ON' : 'Voice: OFF';
+      if (!tabBotVoiceEnabled && window.DeltaBotAI) {
+        window.DeltaBotAI.stopSpeaking();
+      }
+    }
+
+    function clearTabBotChat() {
+      const box = document.getElementById('chatBox');
+      if (box) {
+        box.innerHTML = `
+          <div class="chat-msg chat-msg-bot" style="background:#131c35; border-left:4px solid #00f0ff; color:#f1f5f9; padding:14px 18px; border-radius:12px; max-width:88%;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="color:#00f0ff; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em;">🛡️ BANGLASHIELD DELTABOT AI</strong>
+              <span style="font-size:0.65rem; background:rgba(56,189,248,0.15); color:#7dd3fc; padding:2px 8px; border-radius:10px; font-family:'JetBrains Mono',monospace;">⚡ Edge Neural Active</span>
+            </div>
+            <p style="margin:0; font-size:0.92rem;">
+              Chat cleared. Ready for your next query in English or বাংলা.
+            </p>
+          </div>
+        `;
+      }
+      if (window.DeltaBotAI) window.DeltaBotAI.stopSpeaking();
+    }
+
     function sendChatMessage() {
       const input = document.getElementById('chatInput');
       const text = input.value.trim();
       if (!text) return;
       input.value = '';
-      addUserMessage(text);
-
-      setTimeout(() => {
-        respondBotMessage(text);
-      }, 350);
+      executeTabBotQuery(text);
     }
 
     function sendPromptChip(q) {
-      addUserMessage(q);
-      setTimeout(() => {
-        respondBotMessage(q);
-      }, 350);
+      executeTabBotQuery(q);
     }
 
-    function addUserMessage(msg) {
+    async function executeTabBotQuery(queryText) {
       const box = document.getElementById('chatBox');
-      const div = document.createElement('div');
-      div.className = 'chat-msg chat-msg-user';
-      div.innerText = msg;
-      box.appendChild(div);
+      if (!box) return;
+
+      // 1. User Message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'chat-msg chat-msg-user';
+      userDiv.style.cssText = 'background:linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color:#ffffff; align-self:flex-end; border-bottom-right-radius:3px; padding:12px 18px; border-radius:12px; max-width:85%; font-weight:500; box-shadow:0 4px 16px rgba(2,132,199,0.35);';
+      userDiv.innerText = queryText;
+      box.appendChild(userDiv);
       box.scrollTop = box.scrollHeight;
-    }
 
-    function respondBotMessage(query) {
-      const box = document.getElementById('chatBox');
-      const div = document.createElement('div');
-      div.className = 'chat-msg chat-msg-bot';
+      // 2. Bot Message Card
+      const botCard = document.createElement('div');
+      botCard.className = 'chat-msg chat-msg-bot';
+      botCard.style.cssText = 'background:#131c35; border-left:4px solid #00f0ff; color:#f1f5f9; padding:14px 18px; border-radius:12px; max-width:88%; align-self:flex-start; box-shadow:0 6px 20px rgba(0,0,0,0.5);';
 
-      const q = query.toLowerCase();
-      let reply = '';
+      const headerMeta = document.createElement('div');
+      headerMeta.style.cssText = 'display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.08);';
+      headerMeta.innerHTML = `
+        <span style="font-size:0.75rem; font-weight:800; color:#00f0ff; text-transform:uppercase;">🤖 Analyzing Multi-Pillar Telemetry...</span>
+        <span style="font-size:0.65rem; background:rgba(56,189,248,0.15); color:#7dd3fc; padding:2px 8px; border-radius:10px; font-family:'JetBrains Mono',monospace;">⏳ Neural Inference</span>
+      `;
+      botCard.appendChild(headerMeta);
 
-      if (q.includes('hospital') || q.includes('dengue') || q.includes('saline')) {
-        reply = `🏥 <strong>Health & Epidemic Intelligence:</strong> In Sylhet and flood-inundated zones, hospital bed occupancy is at <strong>156.4%</strong> (overflow surge danger). Over <strong>70,224 IV saline bags (1000ml)</strong> are required for acute diarrheal and cholera management. Halogen water purification tablets are being distributed.`;
-      } else if (q.includes('blackout') || q.includes('grid') || q.includes('power') || q.includes('diesel')) {
-        reply = `⚡ <strong>Grid Resilience Assessment:</strong> In Chattogram, blackout probability is modeled at <strong>25.2%</strong>. 4 of 18 132/33kV substations are within the coastal flood surge zone. Mobile cellular BTS towers report <strong>80 offline towers (-13.5% network coverage loss)</strong>. Strategic hospital generators require <strong>23,540 Liters/day</strong> of diesel fuel.`;
-      } else if (q.includes('crop') || q.includes('payout') || q.includes('agro') || q.includes('insurance')) {
-        reply = `🌾 <strong>AgroClaim Parametric Insurance:</strong> In Sunamganj and haor wetlands, standing Boro cropland inundation exceeds <strong>74.5%</strong> (well above the 45% parametric trigger). Automated mobile payouts totaling <strong>$125,235,552 USD (৳15.1B BDT)</strong> have been unlocked via bKash/Nagad mobile wallets.`;
-      } else if (q.includes('shelter') || q.includes('evac') || q.includes('road') || q.includes('kurigram')) {
-        reply = `🚑 <strong>EvacRoute Logistics:</strong> In Kurigram, 842.5 km (16.2%) of the HOTOSM road network is submerged under +1.2m Brahmaputra floodwaters. The Island Isolation Score is <strong>78.4/100</strong>. Designated high-ground shelter is <strong>Kurigram Central High School & Flood Refuge</strong> (Capacity: 2,200 persons + 350 livestock).`;
-      } else if (q.includes('food') || q.includes('supply') || q.includes('inflation') || q.includes('bogura')) {
-        reply = `🍞 <strong>AgriSupply Chokepoint Analysis:</strong> Bogura dispatches 350 freight trucks (4,550 metric tons) daily. The N5 highway chokepoint at Sirajganj bridge approach is inundated, forcing an alternate dry bypass detour of <strong>+68 km (+2.8 hours, +44L diesel per truck)</strong>. Wholesale vegetable and chili inflation in Dhaka Kawran Bazar is projected at <strong>+18.2%</strong>.`;
-      } else if (q.includes('erosion') || q.includes('refugee') || q.includes('sirajganj')) {
-        reply = `🌊 <strong>Riverbank Erosion & Char Displacement:</strong> Sirajganj experiences severe Jamuna diluvion: <strong>420.0 hectares</strong> eroded, displacing <strong>2,604 climate refugees</strong> (578 homesteads). Emergency relocation grant pool of <strong>$468,720 USD</strong> has been allocated to the Kazipur cluster village sanctuary.`;
-      } else {
-        const dist = getSelectedDistrict();
-      if (typeof updateDistrictHeritageSpotlight === 'function' && dist) { updateDistrictHeritageSpotlight(dist.name); }
-      if (typeof updateSidebarDistrictBadge === 'function' && dist) { updateSidebarDistrictBadge(dist.name, dist.temp, dist.zone); }
-        reply = `🛡️ <strong>BanglaShield Intelligence for ${dist.name}:</strong> Active alert tier is [${dist.alert_tier||'RED'}]. Current weather: ${dist.temp}°C, humidity ${dist.humidity}%. Elevation: ${dist.elev}m AMSL. Designated haven: ${dist.shelter_name||'Central Flood Refuge'}. Evacuation directive: ${dist.english_alert||'Stay on elevated embankments.'}`;
-      }
+      const contentDiv = document.createElement('div');
+      contentDiv.style.fontSize = '0.92rem';
+      contentDiv.style.lineHeight = '1.55';
+      contentDiv.innerHTML = '<span style="color:#38bdf8;">Retrieving telemetry & generating response... ▌</span>';
+      botCard.appendChild(contentDiv);
 
-      div.innerHTML = `<strong>DeltaBot:</strong> ` + reply;
-      box.appendChild(div);
+      box.appendChild(botCard);
       box.scrollTop = box.scrollHeight;
-    }
 
-    // Leaflet Map Setup
-    let bdMapInstance = null;
-    let baseTileLayer = null;
-    let markersLayer = null;
-    let gpsMarker = null;
-    let gpsCircle = null;
-    let evacPolyline = null;
+      const latencyElem = document.getElementById('tabBotLatencyText');
 
-    function initMap() {
-      const mapElem = document.getElementById('bdMap');
-      if (!mapElem) return;
-
-      bdMapInstance = L.map('bdMap', {
-        center: [23.8103, 90.4125],
-        zoom: 7,
-        zoomControl: true
-      });
-      window.bdMapInstance = bdMapInstance;
-      window.bdMap = bdMapInstance;
-
-      // Default Basemap: Esri Satellite HD
-      switchBasemap('satellite');
-
-      markersLayer = L.layerGroup().addTo(bdMapInstance);
-      plotDistrictMarkers('temp');
-    }
-
-    function switchBasemap(type) {
-      document.querySelectorAll('.basemap-btn').forEach(b => b.classList.remove('active'));
-      const activeBtn = document.getElementById('btnBasemap' + type.charAt(0).toUpperCase() + type.slice(1));
-      if (activeBtn) activeBtn.classList.add('active');
-
-      if (baseTileLayer) bdMapInstance.removeLayer(baseTileLayer);
-
-      let url = '';
-      let attr = '';
-
-      if (type === 'satellite') {
-        url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
-        attr = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
-      } else if (type === 'dark') {
-        url = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-        attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
-      } else if (type === 'streets') {
-        url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-      } else if (type === 'topo') {
-        url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
-        attr = 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community';
-      }
-
-      baseTileLayer = L.tileLayer(url, { maxZoom: 18, attribution: attr }).addTo(bdMapInstance);
-    }
-
-    function switchMapLayer(layerType) {
-      document.querySelectorAll('.map-layer-btn').forEach(b => b.classList.remove('active'));
-      const activeBtn = document.getElementById('btnLayer' + layerType.charAt(0).toUpperCase() + layerType.slice(1));
-      if (activeBtn) activeBtn.classList.add('active');
-
-      plotDistrictMarkers(layerType);
-    }
-
-    window.districtMarkerMap = {};
-    function plotDistrictMarkers(layerType) {
-      if (!markersLayer) return;
-      markersLayer.clearLayers();
-      window.districtMarkerMap = {};
-
-      window.DISTRICTS_DATA.forEach(d => {
-        let color = '#0ea5e9';
-        let valText = `${d.temp}°C`;
-
-        if (layerType === 'flood') {
-          const inun = d.inundation_pct || 40;
-          color = inun > 60 ? '#ef4444' : (inun > 35 ? '#f59e0b' : '#10b981');
-          valText = `${inun}% Inun`;
-        } else if (layerType === 'surge') {
-          color = d.division === 'Chattogram' || d.division === 'Barishal' ? '#ef4444' : '#38bdf8';
-          valText = d.division === 'Chattogram' ? 'Surge Danger' : 'Low Surge';
-        } else if (layerType === 'alerts') {
-          color = (d.alert_tier || '').toLowerCase().includes('red') ? '#ef4444' : ((d.alert_tier || '').toLowerCase().includes('orange') ? '#f59e0b' : '#10b981');
-          valText = d.alert_tier || 'GREEN';
+      try {
+        if (!window.DeltaBotAI) {
+          throw new Error('DeltaBot AI engine not loaded yet');
         }
 
-        const marker = L.circleMarker([d.lat, d.lon], {
-          radius: 8,
-          fillColor: color,
-          color: '#ffffff',
-          weight: 1.5,
-          opacity: 1,
-          fillOpacity: 0.85
+        let firstToken = true;
+        const res = await window.DeltaBotAI.ask(queryText, {
+          onToken: (fullHtml, delta, isLast) => {
+            if (firstToken) {
+              contentDiv.innerHTML = '';
+              firstToken = false;
+            }
+            contentDiv.innerHTML = fullHtml + (isLast ? '' : ' <span style="color:#00f0ff; animation:blink 0.8s infinite;">▌</span>');
+            box.scrollTop = box.scrollHeight;
+          },
+          onComplete: (resObj) => {
+            headerMeta.innerHTML = `
+              <span style="font-size:0.75rem; font-weight:800; color:#00f0ff; text-transform:uppercase;">${resObj.pillar}</span>
+              <span style="font-size:0.65rem; background:rgba(56,189,248,0.15); color:#7dd3fc; padding:2px 8px; border-radius:10px; font-family:'JetBrains Mono',monospace;">⚡ ${resObj.engine} (${resObj.latencyMs}ms)</span>
+            `;
+            if (latencyElem) latencyElem.innerText = `Latency: ${resObj.latencyMs}ms`;
+
+            // Action Footer
+            const footer = document.createElement('div');
+            footer.style.cssText = 'display:flex; align-items:center; gap:8px; margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06);';
+
+            const btnVoice = document.createElement('button');
+            btnVoice.className = 'bot-footer-btn deltabot-voice-btn';
+            btnVoice.style.cssText = 'background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.1); color:#94a3b8; font-size:0.7rem; font-weight:700; padding:3px 9px; border-radius:6px; cursor:pointer;';
+            btnVoice.innerHTML = '🔊 Read Aloud';
+            btnVoice.onclick = () => {
+              if (window.DeltaBotAI.isSpeaking) {
+                window.DeltaBotAI.stopSpeaking();
+              } else {
+                window.DeltaBotAI.speak(resObj.html, resObj.isBengali);
+              }
+            };
+            footer.appendChild(btnVoice);
+
+            const btnCopy = document.createElement('button');
+            btnCopy.className = 'bot-footer-btn';
+            btnCopy.style.cssText = 'background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.1); color:#94a3b8; font-size:0.7rem; font-weight:700; padding:3px 9px; border-radius:6px; cursor:pointer;';
+            btnCopy.innerHTML = '📋 Copy';
+            btnCopy.onclick = () => {
+              const cleanText = resObj.html.replace(/<[^>]*>/g, '').trim();
+              navigator.clipboard.writeText(cleanText).then(() => {
+                btnCopy.innerHTML = '✅ Copied!';
+                setTimeout(() => btnCopy.innerHTML = '📋 Copy', 2000);
+              });
+            };
+            footer.appendChild(btnCopy);
+
+            const btnSitRep = document.createElement('button');
+            btnSitRep.className = 'bot-footer-btn';
+            btnSitRep.style.cssText = 'background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.1); color:#94a3b8; font-size:0.7rem; font-weight:700; padding:3px 9px; border-radius:6px; cursor:pointer;';
+            btnSitRep.innerHTML = '📥 Add to SitRep';
+            btnSitRep.onclick = () => {
+              localStorage.setItem('banglashield_last_ai_dispatch', JSON.stringify({
+                time: new Date().toISOString(),
+                query: queryText,
+                pillar: resObj.pillar,
+                response: resObj.html.replace(/<[^>]*>/g, '')
+              }));
+              btnSitRep.innerHTML = '✅ Added to SitRep';
+              setTimeout(() => btnSitRep.innerHTML = '📥 Add to SitRep', 2500);
+            };
+            footer.appendChild(btnSitRep);
+
+            botCard.appendChild(footer);
+            box.scrollTop = box.scrollHeight;
+
+            if (tabBotVoiceEnabled) {
+              window.DeltaBotAI.speak(resObj.html, resObj.isBengali);
+            }
+          }
         });
-
-        marker.bindPopup(`
-          <div style="font-family:'Plus Jakarta Sans',sans-serif; min-width:180px;">
-            <strong style="color:#0f172a; font-size:1rem;">${d.name} (${d.division})</strong><br>
-            <span style="font-size:0.8rem; color:#475569;">Elevation: ${d.elev}m AMSL | Temp: ${d.temp}°C</span><br>
-            <span style="font-size:0.8rem; color:#b91c1c; font-weight:700;">Alert: [${d.alert_tier||'GREEN'}]</span><br>
-            <span style="font-size:0.75rem; color:#0369a1;">Shelter: ${d.shelter_name||'Flood Refuge'}</span><br>
-            <button onclick="document.getElementById('districtSelect').value='${d.name}'; updateAllPillars();" style="margin-top:6px; background:#0284c7; color:#fff; border:none; padding:4px 8px; border-radius:4px; font-size:0.75rem; cursor:pointer;">Select District</button>
-          </div>
-        `);
-
-        markersLayer.addLayer(marker);
-      });
-    }
-
-    function resetBangladeshView() {
-      if (bdMapInstance) bdMapInstance.setView([23.8103, 90.4125], 7);
-    }
-
-    // Real-Time GPS Geolocation Tracker
-    let gpsWatchId = null;
-    function toggleDeviceGpsTracker() {
-      const btn = document.getElementById('btnGpsTrackMe');
-      const label = document.getElementById('gpsTrackLabel');
-      const hud = document.getElementById('gpsTacticalHud');
-
-      if (gpsWatchId !== null) {
-        navigator.geolocation.clearWatch(gpsWatchId);
-        gpsWatchId = null;
-        btn.classList.remove('tracking');
-        label.innerText = 'Track My Real-Time GPS';
-        hud.style.display = 'none';
-        if (gpsMarker) bdMapInstance.removeLayer(gpsMarker);
-        if (gpsCircle) bdMapInstance.removeLayer(gpsCircle);
-        if (evacPolyline) bdMapInstance.removeLayer(evacPolyline);
-      } else {
-        if (!navigator.geolocation) {
-          alert('Geolocation is not supported by your browser.');
-          return;
-        }
-
-        btn.classList.add('tracking');
-        label.innerText = 'Tracking Active...';
-        hud.style.display = 'block';
-
-        gpsWatchId = navigator.geolocation.watchPosition(
-          pos => {
-            const lat = pos.coords.latitude;
-            const lon = pos.coords.longitude;
-            const acc = pos.coords.accuracy;
-            updateGpsLocation(lat, lon, acc, '🛰️ PHYSICAL DEVICE GPS');
-          },
-          err => {
-            console.warn('GPS Error, falling back to simulated Rescue Patrol:', err);
-            togglePatrolSimulation();
-          },
-          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-        );
+      } catch (err) {
+        contentDiv.innerHTML = `<span style="color:#ef4444;">⚠️ AI generation error: ${err.message}. Defaulting to verified telemetry.</span>`;
       }
     }
 

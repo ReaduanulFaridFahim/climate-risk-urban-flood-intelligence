@@ -3,11 +3,14 @@
 // National Climate Risk & Urban Flood Intelligence Platform
 // =========================================================================
 
-const CACHE_NAME = 'banglashield-v1-cache';
+const CACHE_NAME = 'banglashield-v2-cache';
 const PRECACHE_URLS = [
   './index.html',
   './common.css',
+  './deltabot_ai_engine.js',
+  './deltabot.html',
   './banglashield_extended_intel.js',
+  './districts_heritage_data.js',
   './disaster_alerts.html',
   './district_heritage.html',
   './executive_sitrep.html',
