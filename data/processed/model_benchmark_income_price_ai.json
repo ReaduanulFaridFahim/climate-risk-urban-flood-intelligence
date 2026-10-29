@@ -1,0 +1,64 @@
+{
+  "task": "Bangladesh Average Income and Market Price Hike Time Series Forecasting",
+  "horizon": "20-Year (2026 - 2046)",
+  "models_evaluated": [
+    "ARIMA(1,2,1)",
+    "GradientBoostingRegressor",
+    "Hybrid Structural Macro Ensemble"
+  ],
+  "validation_metrics_income": {
+    "ARIMA_1_2_1": {
+      "rmse": 2779.21,
+      "mae": 2050.72,
+      "mape_pct": 6.94,
+      "r2": 0.5455
+    },
+    "Gradient_Boosting": {
+      "rmse": 8967.62,
+      "mae": 7607.04,
+      "mape_pct": 26.89,
+      "r2": -3.7321
+    },
+    "Hybrid_Ensemble": {
+      "rmse": 3023.34,
+      "mae": 2314.14,
+      "mape_pct": 7.92,
+      "r2": 0.4621
+    }
+  },
+  "test_metrics_recent_shock_window_2023_2026": {
+    "Hybrid_Ensemble": {
+      "rmse": 4562.42,
+      "mae": 3502.41,
+      "mape_pct": 8.4,
+      "r2": -1.5441
+    }
+  },
+  "selected_model": "Hybrid Structural Macro Ensemble (Log-Quadratic Drift + Autoregressive Elasticity)",
+  "key_findings_20_year_outlook": {
+    "2026_current": {
+      "nominal_income_bdt": 43200,
+      "food_basket_bdt": 10285,
+      "food_to_income_pct": 23.8,
+      "rice_kg_bdt": 71.5
+    },
+    "2036_decade_midpoint_baseline": {
+      "nominal_income_bdt": 118660.2,
+      "food_basket_bdt": 18096.7,
+      "food_to_income_pct": 15.25,
+      "rice_kg_bdt": 120.1
+    },
+    "2046_two_decade_horizon_baseline": {
+      "nominal_income_bdt": 368090.0,
+      "food_basket_bdt": 29578.2,
+      "food_to_income_pct": 8.04,
+      "rice_kg_bdt": 188.2
+    },
+    "2046_climate_shock_scenario": {
+      "nominal_income_bdt": 323919.2,
+      "food_basket_bdt": 85430.7,
+      "food_to_income_pct": 26.37,
+      "rice_kg_bdt": 496.6
+    }
+  }
+}
