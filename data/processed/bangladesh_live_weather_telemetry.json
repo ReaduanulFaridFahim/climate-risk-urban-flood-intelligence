@@ -1,0 +1,102 @@
+{
+  "fetched_at_utc": "2026-10-29T12:06:50.582578+00:00",
+  "source": "Open-Meteo High-Resolution Real-Time Meteorological API",
+  "divisions": {
+    "Dhaka": {
+      "lat": 23.8103,
+      "lon": 90.4125,
+      "temp_c": 26.1,
+      "humidity_pct": 90,
+      "precipitation_mm": 0.3,
+      "rain_mm": 0.3,
+      "wind_speed_kmh": 5.2,
+      "wind_direction_deg": 214,
+      "surface_pressure_hpa": 1011.1,
+      "status": "NORMAL"
+    },
+    "Chattogram": {
+      "lat": 22.3569,
+      "lon": 91.7832,
+      "temp_c": 29.9,
+      "humidity_pct": 65,
+      "precipitation_mm": 0.0,
+      "rain_mm": 0.0,
+      "wind_speed_kmh": 9.8,
+      "wind_direction_deg": 223,
+      "surface_pressure_hpa": 1012.2,
+      "status": "NORMAL"
+    },
+    "Sylhet": {
+      "lat": 24.8949,
+      "lon": 91.8687,
+      "temp_c": 27.4,
+      "humidity_pct": 82,
+      "precipitation_mm": 0.0,
+      "rain_mm": 0.0,
+      "wind_speed_kmh": 3.4,
+      "wind_direction_deg": 212,
+      "surface_pressure_hpa": 1010.4,
+      "status": "NORMAL"
+    },
+    "Rajshahi": {
+      "lat": 24.3745,
+      "lon": 88.6042,
+      "temp_c": 24.4,
+      "humidity_pct": 96,
+      "precipitation_mm": 0.9,
+      "rain_mm": 0.8,
+      "wind_speed_kmh": 5.0,
+      "wind_direction_deg": 240,
+      "surface_pressure_hpa": 1011.3,
+      "status": "NORMAL"
+    },
+    "Rangpur": {
+      "lat": 25.7439,
+      "lon": 89.2752,
+      "temp_c": 26.3,
+      "humidity_pct": 83,
+      "precipitation_mm": 0.0,
+      "rain_mm": 0.0,
+      "wind_speed_kmh": 4.0,
+      "wind_direction_deg": 339,
+      "surface_pressure_hpa": 1009.8,
+      "status": "NORMAL"
+    },
+    "Khulna": {
+      "lat": 22.8456,
+      "lon": 89.5403,
+      "temp_c": 25.9,
+      "humidity_pct": 96,
+      "precipitation_mm": 0.0,
+      "rain_mm": 0.0,
+      "wind_speed_kmh": 1.0,
+      "wind_direction_deg": 59,
+      "surface_pressure_hpa": 1012.3,
+      "status": "NORMAL"
+    },
+    "Barishal": {
+      "lat": 22.701,
+      "lon": 90.3535,
+      "temp_c": 28.0,
+      "humidity_pct": 78,
+      "precipitation_mm": 0.0,
+      "rain_mm": 0.0,
+      "wind_speed_kmh": 7.8,
+      "wind_direction_deg": 185,
+      "surface_pressure_hpa": 1012.5,
+      "status": "NORMAL"
+    },
+    "Mymensingh": {
+      "lat": 24.7471,
+      "lon": 90.4203,
+      "temp_c": 28.2,
+      "humidity_pct": 82,
+      "precipitation_mm": 0.0,
+      "rain_mm": 0.0,
+      "wind_speed_kmh": 4.7,
+      "wind_direction_deg": 4,
+      "surface_pressure_hpa": 1011.1,
+      "status": "NORMAL"
+    }
+  }
+}

@@ -1,0 +1,1136 @@
+{
+  "GDP_per_capita_USD": [
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2025",
+      "value": 2597.34352335275,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 2593.41611680774,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 2551.01773827307,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 2716.48592780431,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 2482.84917843357,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 2248.85078828233,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 2129.79896954606,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 1965.24372731467,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 1811.08221668646,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "NY.GDP.PCAP.CD",
+        "value": "GDP per capita (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 1649.28380858601,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    }
+  ],
+  "GNI_per_capita_Atlas_USD": [
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2025",
+      "value": 2840,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 2820,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 2880,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 2850,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 2600,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 2320,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 2220,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 2020,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 1640,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NY.GNP.PCAP.CD",
+        "value": "GNI per capita, Atlas method (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 1400,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    }
+  ],
+  "Inflation_annual_pct": [
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2025",
+      "value": 8.7687628116114,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 10.4657482763412,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 9.8835030377921,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 7.69695437176898,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 5.54565430773473,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 5.69107474746211,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 5.59199639930629,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 5.54362139486476,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 5.70207015717238,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL.ZG",
+        "value": "Inflation, consumer prices (annual %)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 5.51352572692995,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    }
+  ],
+  "CPI_index_2010_base": [
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2025",
+      "value": 285.000567043325,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 262.024279467947,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 237.199569600947,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 215.864586624406,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 200.437039174983,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 189.905534708779,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 179.679821747048,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 170.164243384102,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 161.226458913586,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "FP.CPI.TOTL",
+        "value": "Consumer price index (2010 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 152.529140322277,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    }
+  ],
+  "Food_Production_Index": [
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 135.38,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 131.99,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 127.12,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 123.39,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 116.94,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 112.97,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 110.35,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 108.05,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 102.53,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    },
+    {
+      "indicator": {
+        "id": "AG.PRD.FOOD.XD",
+        "value": "Food production index (2014-2016 = 100)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2015",
+      "value": 100.45,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1
+    }
+  ],
+  "Remittances_Received_USD": [
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2025",
+      "value": 33879048131.6068,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 27524564108.9817,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 22070041063.2115,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 21505473781.2512,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 22205503377.1199,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 21751646479.1934,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 18363859531.2811,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 15566241930.3078,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 13501933032.7096,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "BX.TRF.PWKR.CD.DT",
+        "value": "Personal remittances, received (current US$)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 13574285886.2472,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    }
+  ],
+  "Agri_Employment_pct": [
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2025",
+      "value": 44.2601251126533,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2024",
+      "value": 44.7360340472385,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2023",
+      "value": 45.3663393707013,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2022",
+      "value": 43.6687012820915,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2021",
+      "value": 43.4657157854774,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2020",
+      "value": 42.5476764075219,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2019",
+      "value": 40.84013231722,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2018",
+      "value": 40.7657978851531,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2017",
+      "value": 40.5973044110147,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "SL.AGR.EMPL.ZS",
+        "value": "Employment in agriculture (% of total employment) (modeled ILO estimate)"
+      },
+      "country": {
+        "id": "BD",
+        "value": "Bangladesh"
+      },
+      "countryiso3code": "BGD",
+      "date": "2016",
+      "value": 42.6647464152912,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    }
+  ]
+}
