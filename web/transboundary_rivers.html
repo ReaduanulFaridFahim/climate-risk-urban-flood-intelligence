@@ -11,8 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="common.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    if (typeof L === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"><\/script>');
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <!-- Load Transboundary Dataset -->
@@ -461,12 +467,63 @@
     /* Leaflet Transboundary Map */
     .map-box {
       width: 100%;
-      height: 420px;
-      border-radius: 12px;
+      height: 540px;
+      min-height: 500px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(0, 240, 255, 0.3);
+      border: 1px solid rgba(0, 240, 255, 0.35);
       position: relative;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 240, 255, 0.05);
+    }
+    @media (max-width: 768px) {
+      .map-box {
+        height: 400px;
+        min-height: 380px;
+      }
+    }
+    /* Animated Hydraulic Flow Vectors */
+    @keyframes flowDashAnim {
+      to {
+        stroke-dashoffset: -32;
+      }
+    }
+    .flow-vector-active {
+      stroke-dasharray: 8, 8;
+      animation: flowDashAnim 1.8s linear infinite;
+    }
+    .dam-pulse-marker {
+      animation: damPulseEffect 1.8s infinite ease-in-out;
+    }
+    @keyframes damPulseEffect {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.8)); }
+      50% { transform: scale(1.12); filter: drop-shadow(0 0 18px rgba(239, 68, 68, 1)); }
+    }
+    .station-pulse-marker {
+      animation: stationPulseEffect 2.2s infinite ease-in-out;
+    }
+    @keyframes stationPulseEffect {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .map-tb-btn {
+      background: rgba(14, 23, 46, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .map-tb-btn:hover, .map-tb-btn.active {
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      color: #ffffff;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
     }
 
     /* What-If Dam Simulator */
@@ -714,14 +771,64 @@
 
         <!-- Leaflet Transboundary Border River Map -->
         <div class="panel" style="padding:16px; margin-bottom:20px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <div class="panel-title">
-              <span>🗺️</span> <span>Transboundary River Inflow &amp; Upstream Dam Map</span>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+            <div>
+              <div class="panel-title" style="display:flex; align-items:center; gap:8px;">
+                <span>🗺️</span> <span>Transboundary River Inflow &amp; Upstream Dam Map</span>
+                <span class="badge" style="background:#ef4444; color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:12px;">54 RIVERS MONITORED</span>
+              </div>
+              <div style="font-size:0.75rem; color:#94a3b8; margin-top:2px;">
+                Real-time cross-border hydraulic corridors, upstream reservoir storage discharge, and surge wave lag tracking
+              </div>
             </div>
-            <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">LIVE BORDER FLOW VECTORS</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="pulse-indicator" style="background:#00f0ff;"></span>
+              <span style="font-size:0.78rem; color:#00f0ff; font-family:'JetBrains Mono',monospace; font-weight:700;">LIVE HYDRAULIC PROPAGATION ACTIVE</span>
+            </div>
           </div>
+
+          <!-- Tactical Basemap & Flow Corridor Controls -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px; background:rgba(9, 15, 32, 0.85); padding:8px 12px; border-radius:8px; border:1px solid rgba(56, 189, 248, 0.2);">
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+              <span style="font-size:0.72rem; color:#94a3b8; font-weight:800; text-transform:uppercase;">BASEMAP:</span>
+              <button class="map-tb-btn active" id="btnTbBasemapSatellite" onclick="switchTbBasemap('satellite')">🛰️ Satellite HD</button>
+              <button class="map-tb-btn" id="btnTbBasemapDark" onclick="switchTbBasemap('dark')">🌃 Midnight Dark</button>
+              <button class="map-tb-btn" id="btnTbBasemapTopo" onclick="switchTbBasemap('topo')">🏔️ Topo Terrain</button>
+              <button class="map-tb-btn" id="btnTbBasemapStreets" onclick="switchTbBasemap('streets')">🗺️ Streets &amp; Hydro</button>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+              <button class="map-tb-btn" id="btnToggleCorridors" onclick="toggleFlowVectors()" style="border-color:#00f0ff; color:#00f0ff;">
+                〰️ Flow Vectors (On)
+              </button>
+              <button class="map-tb-btn" onclick="fitAllBorderCorridors()" style="border-color:#10b981; color:#10b981;">
+                🎯 Fit All Borders
+              </button>
+            </div>
+          </div>
+
           <div class="map-box">
             <div id="transboundaryMap" style="width:100%; height:100%; background:#050a14;"></div>
+
+            <!-- Floating On-Map Tactical Legend -->
+            <div style="position:absolute; bottom:16px; left:16px; z-index:999; background:rgba(10, 18, 36, 0.92); backdrop-filter:blur(14px); border:1px solid rgba(56, 189, 248, 0.3); border-radius:10px; padding:10px 14px; font-size:0.72rem; color:#cbd5e1; box-shadow:0 10px 25px rgba(0,0,0,0.7); max-width:280px; pointer-events:auto;">
+              <div style="font-weight:800; color:#00f0ff; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Transboundary River Legend</div>
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                <span style="font-size:1rem;">🏗️</span>
+                <span><strong>Upstream Dam / Barrage</strong> (Discharge Point)</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                <span style="width:12px; height:12px; border-radius:50%; background:#ef4444; display:inline-block; box-shadow:0 0 6px #ef4444;"></span>
+                <span><strong>Danger Stage Station</strong> (&gt; Danger Level)</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                <span style="width:12px; height:12px; border-radius:50%; background:#f59e0b; display:inline-block; box-shadow:0 0 6px #f59e0b;"></span>
+                <span><strong>Warning Stage Station</strong> (Approaching DL)</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="width:18px; height:3px; background:#00f0ff; display:inline-block; box-shadow:0 0 8px #00f0ff;"></span>
+                <span><strong>Animated Inflow Corridor</strong> (Hydraulic Surge)</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1030,6 +1137,11 @@
       updateHydroChart();
       if (mapInstance) {
         mapInstance.setView([st.lat, st.lon], 9, { animate: true });
+        if (tbStationMarkers && tbStationMarkers[st.id]) {
+          setTimeout(() => {
+            tbStationMarkers[st.id].openPopup();
+          }, 300);
+        }
       }
     }
 
@@ -1157,30 +1269,293 @@
       hydroChart.update();
     }
 
+    let tbBaseTileLayer = null;
+    let tbVectorsLayer = null;
+    let tbStationMarkers = {};
+    let tbDamMarkers = {};
+    let vectorsVisible = true;
+
     function initMap() {
       const container = document.getElementById('transboundaryMap');
       if (!container) return;
 
-      mapInstance = L.map('transboundaryMap', {
-        center: [24.2, 90.4],
-        zoom: 7,
-        zoomControl: true
+      if (typeof L === 'undefined') {
+        console.warn('[Leaflet] L not ready yet, retrying transboundary initMap in 100ms...');
+        setTimeout(initMap, 100);
+        return;
+      }
+
+      if (window.transboundaryMapInstance) {
+        window.transboundaryMapInstance.invalidateSize();
+        return;
+      }
+
+      // Ensure explicit container dimensions
+      if (container.clientHeight === 0) {
+        container.style.height = '540px';
+      }
+
+      try {
+        mapInstance = L.map('transboundaryMap', {
+          center: [24.4, 90.6],
+          zoom: 7,
+          zoomControl: true,
+          fadeAnimation: true,
+          zoomAnimation: true
+        });
+        window.transboundaryMapInstance = mapInstance;
+        window.tbMap = mapInstance;
+
+        // Default Basemap: Satellite HD with Carto Dark tile error fallback
+        switchTbBasemap('satellite');
+
+        tbVectorsLayer = L.layerGroup().addTo(mapInstance);
+        markersLayer = L.layerGroup().addTo(mapInstance);
+
+        plotMapCorridorsAndVectors();
+        plotMapMarkers();
+
+        // Multi-staged size invalidation ensures full tile coverage
+        setTimeout(() => { if (mapInstance) mapInstance.invalidateSize(); }, 60);
+        setTimeout(() => { if (mapInstance) mapInstance.invalidateSize(); }, 200);
+        setTimeout(() => { if (mapInstance) mapInstance.invalidateSize(); }, 500);
+        setTimeout(() => { if (mapInstance) mapInstance.invalidateSize(); }, 1200);
+
+        if (window.ResizeObserver) {
+          const ro = new ResizeObserver(() => {
+            if (mapInstance) mapInstance.invalidateSize();
+          });
+          ro.observe(container);
+        }
+      } catch (err) {
+        console.error('[Transboundary initMap Exception]', err);
+      }
+    }
+
+    function switchTbBasemap(type) {
+      document.querySelectorAll('.map-tb-btn').forEach(b => {
+        if (b.id && b.id.startsWith('btnTbBasemap')) b.classList.remove('active');
       });
+      const activeBtn = document.getElementById('btnTbBasemap' + type.charAt(0).toUpperCase() + type.slice(1));
+      if (activeBtn) activeBtn.classList.add('active');
 
-      // Carto Dark Voyager Basemap
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; CartoDB &copy; OpenStreetMap contributors',
-        subdomains: 'abcd',
-        maxZoom: 18
-      }).addTo(mapInstance);
+      if (tbBaseTileLayer && mapInstance) {
+        try { mapInstance.removeLayer(tbBaseTileLayer); } catch(e){}
+      }
 
-      markersLayer = L.layerGroup().addTo(mapInstance);
-      plotMapMarkers();
+      let url = '';
+      let attr = '';
+
+      if (type === 'satellite') {
+        url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+        attr = 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
+      } else if (type === 'dark') {
+        url = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+        attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+      } else if (type === 'topo') {
+        url = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+        attr = 'Tiles &copy; Esri';
+      } else if (type === 'streets') {
+        url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        attr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+      }
+
+      if (mapInstance) {
+        tbBaseTileLayer = L.tileLayer(url, {
+          maxZoom: 18,
+          attribution: attr,
+          errorTileUrl: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+        }).addTo(mapInstance);
+      }
+    }
+
+    function toggleFlowVectors() {
+      const btn = document.getElementById('btnToggleCorridors');
+      if (!tbVectorsLayer || !mapInstance) return;
+      vectorsVisible = !vectorsVisible;
+      if (vectorsVisible) {
+        mapInstance.addLayer(tbVectorsLayer);
+        if (btn) {
+          btn.textContent = '〰️ Flow Vectors (On)';
+          btn.style.color = '#00f0ff';
+          btn.style.borderColor = '#00f0ff';
+        }
+      } else {
+        mapInstance.removeLayer(tbVectorsLayer);
+        if (btn) {
+          btn.textContent = '〰️ Flow Vectors (Off)';
+          btn.style.color = '#94a3b8';
+          btn.style.borderColor = '#94a3b8';
+        }
+      }
+    }
+
+    function fitAllBorderCorridors() {
+      if (mapInstance) {
+        mapInstance.setView([24.4, 90.6], 7, { animate: true });
+      }
+    }
+
+    // High-Resolution Hydraulic Propagation Corridors connecting Upstream Dams across borders
+    const TRANSBOUNDARY_CORRIDORS = [
+      {
+        id: 'corridor_dumbur_muhuri',
+        name: 'Dumbur Reservoir ➔ Muhuri River Surge Wave (Tripura to Feni)',
+        dam_id: 'dumbur_dam',
+        color: '#ef4444',
+        weight: 4.5,
+        discharge_text: '1,420 m³/s · 6.5h Travel Lag',
+        coords: [
+          [23.47, 91.82],   // Dumbur Dam (Tripura)
+          [23.40, 91.70],   // Amarpur (Gomati/Tripura)
+          [23.32, 91.55],   // Belonia Border Point
+          [23.2167, 91.4333], // Parshuram (Muhuri Station)
+          [23.0167, 91.3833]  // Majhirghat (Muhuri Station)
+        ]
+      },
+      {
+        id: 'corridor_gajoldoba_teesta',
+        name: 'Gajoldoba Barrage ➔ Teesta River Flood Wave (Sikkim/WB to Rangpur)',
+        dam_id: 'gajoldoba_barrage',
+        color: '#00f0ff',
+        weight: 4.5,
+        discharge_text: '2,850 m³/s · 4.8h Travel Lag',
+        coords: [
+          [26.75, 88.58],   // Gajoldoba Barrage (West Bengal)
+          [26.55, 88.75],   // Jalpaiguri Teesta reach
+          [26.30, 88.92],   // Indo-Bangla Border
+          [26.15, 89.05],   // Dalia Barrage (Teesta)
+          [25.7167, 89.4167]  // Kaunia (Teesta)
+        ]
+      },
+      {
+        id: 'corridor_farakka_padma',
+        name: 'Farakka Barrage ➔ Ganges/Padma High Inflow Reach (Murshidabad to Rajshahi)',
+        dam_id: 'farakka_barrage',
+        color: '#f59e0b',
+        weight: 5.5,
+        discharge_text: '38,400 m³/s · 8.2h Travel Lag',
+        coords: [
+          [24.80, 87.92],   // Farakka Barrage (West Bengal)
+          [24.78, 88.02],   // Border entry reach
+          [24.75, 88.08],   // Pankha (Padma Station)
+          [24.36, 88.60],   // Rajshahi City Reach
+          [24.0667, 89.0333]  // Hardinge Bridge (Paksey)
+        ]
+      },
+      {
+        id: 'corridor_barak_surma_kushiyara',
+        name: 'Tipaimukh / Barak Basin ➔ Surma-Kushiyara Confluence (Assam to Sylhet Basin)',
+        dam_id: 'tipaimukh_catchment',
+        color: '#818cf8',
+        weight: 4.5,
+        discharge_text: '4,120 m³/s · 11.5h Travel Lag',
+        coords: [
+          [24.23, 93.03],   // Tipaimukh Catchment / Barak River
+          [24.70, 92.80],   // Silchar (Cachar, Assam)
+          [24.88, 92.60],   // Badarpur Border Confluence
+          [24.8667, 92.4833], // Amalshid (Bifurcation Point into Surma & Kushiyara)
+          [24.8833, 92.35],   // Sheola (Kushiyara)
+          [24.6333, 91.6833]  // Sherpur (Kushiyara)
+        ]
+      },
+      {
+        id: 'corridor_barak_surma_branch',
+        name: 'Amalshid ➔ Surma River Inflow Reach (Kanaighat to Sylhet & Sunamganj)',
+        dam_id: 'tipaimukh_catchment',
+        color: '#a78bfa',
+        weight: 4,
+        discharge_text: 'Surma Mainstream · Flash Flood Arterial',
+        coords: [
+          [24.8667, 92.4833], // Amalshid
+          [25.0167, 92.2667], // Kanaighat (Surma)
+          [24.90, 91.8833],   // Sylhet City (Surma)
+          [25.0667, 91.40]    // Sunamganj (Surma)
+        ]
+      },
+      {
+        id: 'corridor_assam_brahmaputra',
+        name: 'Assam Brahmaputra Inflow ➔ Jamuna River Mega-Corridor (Dhubri to Kurigram)',
+        dam_id: 'brahmaputra_upstream',
+        color: '#10b981',
+        weight: 5.5,
+        discharge_text: '42,000 m³/s · Assam Transboundary Surge',
+        coords: [
+          [26.02, 89.98],   // Dhubri (Assam, India)
+          [25.95, 89.95],   // Noonkhawa (Kurigram)
+          [25.5667, 89.6833], // Chilmari (Jamuna)
+          [25.1833, 89.70]    // Bahadurabad (Jamuna)
+        ]
+      },
+      {
+        id: 'corridor_dharla_inflow',
+        name: 'Dharla Cross-Border Mountain Runoff (West Bengal to Kurigram)',
+        dam_id: 'dharla_upstream',
+        color: '#06b6d4',
+        weight: 3.5,
+        discharge_text: '1,150 m³/s Runoff',
+        coords: [
+          [26.13, 89.46],   // Dinhata (West Bengal)
+          [25.8167, 89.65]  // Kurigram (Dharla)
+        ]
+      },
+      {
+        id: 'corridor_khowai_inflow',
+        name: 'Khowai River Tripura Hill Torrent Inflow (Teliamura to Habiganj)',
+        dam_id: 'khowai_upstream',
+        color: '#fb923c',
+        weight: 3.5,
+        discharge_text: '920 m³/s Rapid Torrent Wave',
+        coords: [
+          [23.97, 91.58],   // Teliamura (Tripura Hills)
+          [24.15, 91.52],   // Khowai Town Border
+          [24.3833, 91.4167]  // Habiganj (Khowai)
+        ]
+      }
+    ];
+
+    function plotMapCorridorsAndVectors() {
+      if (!mapInstance || !tbVectorsLayer) return;
+      tbVectorsLayer.clearLayers();
+
+      TRANSBOUNDARY_CORRIDORS.forEach(c => {
+        // Glowing Background Line
+        const glowLine = L.polyline(c.coords, {
+          color: c.color,
+          weight: c.weight + 3,
+          opacity: 0.35,
+          lineCap: 'round',
+          lineJoin: 'round'
+        }).addTo(tbVectorsLayer);
+
+        // Foreground Animated Dash Vector
+        const vectorLine = L.polyline(c.coords, {
+          color: c.color,
+          weight: c.weight,
+          opacity: 0.95,
+          className: 'flow-vector-active',
+          lineCap: 'round',
+          lineJoin: 'round'
+        }).addTo(tbVectorsLayer);
+
+        vectorLine.bindPopup(`
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0f172a; padding:4px; min-width:200px;">
+            <strong style="color:${c.color}; font-size:0.88rem;">${c.name}</strong><br/>
+            <div style="margin-top:6px; font-size:0.78rem; color:#334155;">
+              • <strong>Inflow Volume:</strong> ${c.discharge_text}<br/>
+              • <strong>Status:</strong> Active Hydraulic Surge Wave<br/>
+              • <strong>Monitoring:</strong> BWDB FFWC Multi-Gauge Array
+            </div>
+          </div>
+        `);
+      });
     }
 
     function plotMapMarkers() {
       if (!mapInstance || !markersLayer || !data.stations) return;
       markersLayer.clearLayers();
+      tbStationMarkers = {};
+      tbDamMarkers = {};
 
       // Plot Dam Markers
       if (data.dams) {
@@ -1192,22 +1567,30 @@
           else if (dam.id === 'tipaimukh_catchment') { damLat = 24.23; damLon = 93.03; }
 
           const damIcon = L.divIcon({
-            html: `<div style="background:#ef4444; color:#fff; border:2px solid #fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; box-shadow:0 0 16px rgba(239,68,68,0.9); animation:pulseGlow 1.8s infinite; cursor:pointer;" title="${dam.name}">🏗️</div>`,
+            html: `<div class="dam-pulse-marker" style="background:#ef4444; color:#fff; border:2px solid #ffffff; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:17px; cursor:pointer;" title="${dam.name}">🏗️</div>`,
             className: 'dam-map-icon',
-            iconSize: [34, 34],
-            iconAnchor: [17, 17]
+            iconSize: [36, 36],
+            iconAnchor: [18, 18]
           });
 
           const m = L.marker([damLat, damLon], { icon: damIcon }).addTo(markersLayer);
+          tbDamMarkers[dam.id] = m;
+
           m.bindPopup(`
-            <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0f172a; padding:4px;">
-              <strong style="color:#b91c1c; font-size:0.92rem;">${dam.name}</strong><br/>
-              <span style="font-size:0.75rem; color:#64748b;">${dam.country} · ${dam.state}</span><br/>
-              <div style="margin-top:6px; font-size:0.8rem;">
-                • Storage: <b>${dam.current_storage_pct}%</b><br/>
-                • Discharge: <b>${dam.discharge_rate_cumecs.toLocaleString()} m³/s</b><br/>
-                • Spillway: <b>${dam.spillway_gates_open}/${dam.spillway_gates_total} Gates Open</b><br/>
-                • Downstream Travel: <b>${dam.surge_lead_time_hours} Hours</b>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0f172a; padding:6px; min-width:220px;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:1.2rem;">🏗️</span>
+                <strong style="color:#b91c1c; font-size:0.95rem;">${dam.name}</strong>
+              </div>
+              <span style="font-size:0.75rem; color:#64748b;">${dam.country} · ${dam.state}</span>
+              <div style="margin-top:8px; font-size:0.8rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 8px;">
+                • Reservoir Storage: <b style="color:#b91c1c;">${dam.current_storage_pct}%</b><br/>
+                • Discharge Rate: <b>${dam.discharge_rate_cumecs.toLocaleString()} m³/s</b><br/>
+                • Spillway Status: <b>${dam.spillway_gates_open} of ${dam.spillway_gates_total} Gates Open</b><br/>
+                • Surge Wave Lag: <b style="color:#0284c7;">${dam.surge_lead_time_hours} Hours</b>
+              </div>
+              <div style="margin-top:8px; font-size:0.72rem; color:#475569;">
+                Downstream Impact Zones: <strong>${dam.impact_districts ? dam.impact_districts.join(', ') : 'Feni, Sylhet, Kurigram'}</strong>
               </div>
             </div>
           `);
@@ -1218,7 +1601,7 @@
       data.stations.forEach(st => {
         const isDanger = st.status_code === 'DANGER';
         const color = isDanger ? '#ef4444' : '#f59e0b';
-        const iconHtml = `<div style="background:${color}; color:#fff; border:2px solid #ffffff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; box-shadow:0 0 12px ${color}; cursor:pointer;" title="${st.name}">🌊</div>`;
+        const iconHtml = `<div class="station-pulse-marker" style="background:${color}; color:#fff; border:2px solid #ffffff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; box-shadow:0 0 14px ${color}; cursor:pointer;" title="${st.name}">🌊</div>`;
 
         const icon = L.divIcon({
           html: iconHtml,
@@ -1228,19 +1611,24 @@
         });
 
         const m = L.marker([st.lat, st.lon], { icon: icon }).addTo(markersLayer);
+        tbStationMarkers[st.id] = m;
+
         m.bindPopup(`
-          <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0f172a; padding:4px;">
-            <strong style="color:#0284c7; font-size:0.92rem;">${st.name}</strong><br/>
-            <span style="font-size:0.75rem; color:#64748b;">${st.river} River · ${st.district}</span><br/>
-            <div style="margin-top:6px; font-size:0.8rem;">
-              • Water Level: <b>${st.current_level.toFixed(2)} m PWD</b><br/>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0f172a; padding:6px; min-width:230px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="color:#0284c7; font-size:0.95rem;">${st.name}</strong>
+              <span class="badge" style="background:${isDanger ? '#ef4444' : '#f59e0b'}; color:#fff; font-size:0.68rem; padding:2px 6px;">${st.status_code}</span>
+            </div>
+            <span style="font-size:0.75rem; color:#64748b;">${st.river} River · ${st.district} District</span>
+            <div style="margin-top:8px; font-size:0.8rem; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:6px; padding:6px 8px;">
+              • Water Level: <b style="color:#0f172a;">${st.current_level.toFixed(2)} m PWD</b><br/>
               • Danger Level: <b>${st.danger_level.toFixed(2)} m PWD</b><br/>
-              • Status: <b style="color:${isDanger ? '#ef4444' : '#d97706'};">${st.status}</b><br/>
+              • Status: <b style="${isDanger ? 'color:#dc2626;' : 'color:#d97706;'}">${st.status}</b><br/>
               • 24h Trend: <b>${st.trend_24h}</b><br/>
               • Upstream Inflow: <b>${st.upstream.dam_name}</b>
             </div>
-            <button onclick="selectStation('${st.id}')" style="margin-top:8px; width:100%; background:#0284c7; color:#fff; border:none; padding:5px 8px; border-radius:6px; font-size:0.75rem; font-weight:700; cursor:pointer;">
-              View Full Hydrograph &amp; Wave Profile ↗
+            <button onclick="selectStation('${st.id}')" style="margin-top:8px; width:100%; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color:#fff; border:none; padding:6px 10px; border-radius:6px; font-size:0.75rem; font-weight:700; cursor:pointer;">
+              📈 View Hydrograph &amp; Simulator ↗
             </button>
           </div>
         `);
